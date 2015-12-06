@@ -120,7 +120,12 @@
     <Resource Include="Resources\bgBackgammon.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\bgBackgammonNice.png" />
+    <Resource Include="Resources\bgBackgammonNice.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\splashBG.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

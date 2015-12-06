@@ -4,13 +4,13 @@
         Title="Backgammon" Height="600" Width="800" Icon="Resources/icon.png" 
         WindowStyle="None" BorderBrush="Transparent" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" AllowsTransparency="True">
     <Window.Background>
-        <ImageBrush ImageSource="Resources/splashScreen.png"/>
+        <ImageBrush ImageSource="Resources/splashBG.png"/>
     </Window.Background>
     <Grid MouseLeftButtonDown="Grid_MouseLeftButtonDown">
         <Grid.Background>
             <ImageBrush/>
         </Grid.Background>
-        <Button Name="btnPlay" Click="btnPlay_Click" FontSize="22" FontWeight="ExtraBold" BorderBrush="Black" Background="Orange" Content="PLAY" HorizontalAlignment="Left" Margin="309,249,0,0" VerticalAlignment="Top" Width="170" Height="45"/>
-        <Button Name="btnExit" Click="btnExit_Click" FontSize="20" FontWeight="ExtraBold" BorderBrush="Black" Background="Orange" Content="EXIT" HorizontalAlignment="Left" Margin="333,321,0,0" VerticalAlignment="Top" Width="125" Height="33"/>
+        <Button Name="btnPlay" Click="btnPlay_Click" FontSize="22" FontWeight="ExtraBold" BorderBrush="Black" Background="#FF956000" Content="PLAY" HorizontalAlignment="Left" Margin="387,249,0,0" VerticalAlignment="Top" Width="170" Height="45"/>
+        <Button Name="btnExit" Click="btnExit_Click" FontSize="20" FontWeight="ExtraBold" BorderBrush="Black" Background="#FF956000" Content="EXIT" HorizontalAlignment="Left" Margin="411,321,0,0" VerticalAlignment="Top" Width="125" Height="33"/>
     </Grid>
 </Window>
