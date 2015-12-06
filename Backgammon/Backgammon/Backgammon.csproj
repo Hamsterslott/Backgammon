@@ -106,6 +106,22 @@
   <ItemGroup>
     <Resource Include="Resources\splashScreen.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\2MörkKnapp.png" />
+    <Resource Include="Resources\2VitKnapp.png" />
+    <Resource Include="Resources\3MörkKnapp.png" />
+    <Resource Include="Resources\3VitKnapp.png" />
+    <Resource Include="Resources\MörkKnapp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\background.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\bgBackgammon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\bgBackgammonNice.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
