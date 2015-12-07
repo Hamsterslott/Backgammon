@@ -27,7 +27,7 @@ namespace Backgammon
         {
             DragMove();
         }
-
+        
         private void maximize_Click(object sender, RoutedEventArgs e)
         {
             if (WindowState == WindowState.Maximized)
@@ -44,6 +44,11 @@ namespace Backgammon
         private void exit_Click(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();
+        }
+
+        private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            spelPlan.Height = Width / 16 * 9;
         }
     }
 }
