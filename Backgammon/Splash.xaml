@@ -10,7 +10,25 @@
         <Grid.Background>
             <ImageBrush/>
         </Grid.Background>
-        <Button Name="btnPlay" Click="btnPlay_Click" FontSize="22" FontWeight="ExtraBold" Foreground="Orange" BorderBrush="Orange" Background="Transparent" Content="PLAY" HorizontalAlignment="Left" Margin="386,213,0,0" VerticalAlignment="Top" Width="170" Height="45" RenderTransformOrigin="0.5,0.5"/>
-        <Button Name="btnExit" Click="btnExit_Click" FontSize="20" FontWeight="ExtraBold" Foreground="Orange" BorderBrush="Orange" Background="Transparent" Content="EXIT" HorizontalAlignment="Left" Margin="430,281,0,0" VerticalAlignment="Top" Width="125" Height="33" RenderTransformOrigin="0.5,0.5"/>
+        <Button Name="btnPlay" Click="btnPlay_Click" FontSize="22" FontWeight="ExtraBold" Foreground="Orange" BorderBrush="Orange" Background="Transparent" Content="PLAY" HorizontalAlignment="Left" Margin="386,213,0,0" VerticalAlignment="Top" Width="170" Height="45" RenderTransformOrigin="0.5,0.5">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-19.197"/>
+                    <TranslateTransform X="-10.193" Y="1.724"/>
+                </TransformGroup>
+            </Button.RenderTransform>
+        </Button>
+        <Button Name="btnExit" Click="btnExit_Click" FontSize="20" FontWeight="ExtraBold" Foreground="Orange" BorderBrush="Orange" Background="Transparent" Content="EXIT" HorizontalAlignment="Left" Margin="388,275,0,0" VerticalAlignment="Top" Width="168" Height="45" RenderTransformOrigin="0.5,0.5">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-19.197"/>
+                    <TranslateTransform Y="-2.054" X="10.137"/>
+                </TransformGroup>
+            </Button.RenderTransform>
+        </Button>
     </Grid>
 </Window>
