@@ -49,6 +49,8 @@ namespace Backgammon
         private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
         {
             spelPlan.Height = Width / 16 * 9;
+            if (spelPlan.Height >= duk.Height)
+                spelPlan.Height = duk.Height - 20;
         }
     }
 }

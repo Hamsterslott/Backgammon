@@ -10,25 +10,7 @@
         <Grid.Background>
             <ImageBrush/>
         </Grid.Background>
-        <Button Name="btnPlay" Click="btnPlay_Click" FontSize="22" FontWeight="ExtraBold" BorderBrush="Black" Background="Orange" Content="PLAY" HorizontalAlignment="Left" Margin="386,213,0,0" VerticalAlignment="Top" Width="170" Height="45" RenderTransformOrigin="0.5,0.5">
-            <Button.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="-15.481"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Button.RenderTransform>
-        </Button>
-        <Button Name="btnExit" Click="btnExit_Click" FontSize="20" FontWeight="ExtraBold" BorderBrush="Black" Background="Orange" Content="EXIT" HorizontalAlignment="Left" Margin="430,281,0,0" VerticalAlignment="Top" Width="125" Height="33" RenderTransformOrigin="0.5,0.5">
-            <Button.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="-15"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Button.RenderTransform>
-        </Button>
+        <Button Name="btnPlay" Click="btnPlay_Click" FontSize="22" FontWeight="ExtraBold" Foreground="Orange" BorderBrush="Orange" Background="Transparent" Content="PLAY" HorizontalAlignment="Left" Margin="386,213,0,0" VerticalAlignment="Top" Width="170" Height="45" RenderTransformOrigin="0.5,0.5"/>
+        <Button Name="btnExit" Click="btnExit_Click" FontSize="20" FontWeight="ExtraBold" Foreground="Orange" BorderBrush="Orange" Background="Transparent" Content="EXIT" HorizontalAlignment="Left" Margin="430,281,0,0" VerticalAlignment="Top" Width="125" Height="33" RenderTransformOrigin="0.5,0.5"/>
     </Grid>
 </Window>
