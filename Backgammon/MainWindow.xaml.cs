@@ -51,6 +51,8 @@ namespace Backgammon
             spelPlan.Height = Width / 16 * 9;
             if (spelPlan.Height >= duk.Height)
                 spelPlan.Height = duk.Height - 20;
+
+			//spelPlan.Width = spelPlan.Height*(16/9);
         }
     }
 }
