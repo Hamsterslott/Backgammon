@@ -21,7 +21,17 @@ namespace Backgammon
         public MainWindow()
         {
             InitializeComponent();
+			update();
         }
+
+		private void update()
+		{
+			spelPlan.Height = Width / 1.77;
+            if (spelPlan.Height >= duk.Height)
+                spelPlan.Height = duk.Height;
+
+			spelPlan.Width = spelPlan.Height*(1.77);
+		}
 
         private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
@@ -48,11 +58,7 @@ namespace Backgammon
 
         private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
         {
-            spelPlan.Height = Width / 1.77;
-            if (spelPlan.Height >= duk.Height)
-                spelPlan.Height = duk.Height;
-
-			spelPlan.Width = spelPlan.Height*(1.77);
+            update();
         }
     }
 }
