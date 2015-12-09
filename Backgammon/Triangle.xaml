@@ -1,0 +1,38 @@
+﻿<UserControl x:Class="Backgammon.Triangle"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="400" d:DesignWidth="100" Name="triangle" MouseUp="triangle_MouseUp" MouseDown="triangle_MouseDown">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100*"/>
+            <RowDefinition Height="100*"/>
+            <RowDefinition Height="100*"/>
+            <RowDefinition Height="100*"/>
+            <RowDefinition Height="100*"/>
+        </Grid.RowDefinitions>
+        
+        <Canvas Name="brickSpaceOne" Grid.Row="0">
+
+        </Canvas>
+        
+        <Canvas Name="brickSpaceTwo" Grid.Row="1">
+
+        </Canvas>
+        
+        <Canvas Name="brickSpaceThree" Grid.Row="2">
+
+        </Canvas>
+        
+        <Canvas Name="brickSpaceFour" Grid.Row="3">
+
+        </Canvas>
+        
+        <Canvas Name="brickSpaceFive" Grid.Row="4">
+
+        </Canvas>
+
+    </Grid>
+</UserControl>

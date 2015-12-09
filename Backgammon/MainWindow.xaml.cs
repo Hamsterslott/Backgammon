@@ -16,15 +16,31 @@ using System.Windows.Shapes;
 
 namespace Backgammon
 {
+
+    public enum COLOR
+    {
+        BLACK, WHITE, LIGHT, DARK
+    };
+
     public partial class MainWindow : Window
     {
         public MainWindow()
         {
             InitializeComponent();
-			update();
+            init();
         }
 
-		private void update()
+        // Sätt ut färger på trianglar och placera ut startbrickor osv...
+        private void init() {
+            update();
+        }
+
+        private void update() {
+            updateScale();
+        }
+
+        // Sätter en 16:9 ratio på spelPlanen
+		private void updateScale()
 		{
 			spelPlan.Height = Width / 1.77;
             if (spelPlan.Height >= duk.Height)
@@ -58,7 +74,7 @@ namespace Backgammon
 
         private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
         {
-            update();
+            updateScale();
         }
     }
 }
