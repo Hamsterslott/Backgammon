@@ -37,8 +37,8 @@ namespace Backgammon
         }
 
         private int[] rollDices() {
-            int[] d = new int[3];
-            d[2] = dices[3] = 0;
+            int[] d = new int[4];
+            d[2] = d[3] = 0;
             d[0] = rand.Next(1, 7);
             d[1] = rand.Next(1, 7);
             if (d[0] == d[1]) d[3] = d[2] = d[1];
