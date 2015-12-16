@@ -24,30 +24,41 @@ namespace Backgammon
 
     public partial class MainWindow : Window
     {
+        private Random rand = new Random();
+        private int[] dices = new int[3];
+
         public MainWindow()
         {
             InitializeComponent();
-            init();
-        }
-
-        // Sätt ut färger på trianglar och placera ut startbrickor osv...
-        private void init() {
+           
+            // Initierar allt vid start
+            dices = rollDices();
             update();
         }
 
-        private void update() {
-            updateScale();
+        private int[] rollDices() {
+            int[] d = new int[3];
+            d[2] = dices[3] = 0;
+            d[0] = rand.Next(1, 7);
+            d[1] = rand.Next(1, 7);
+            if (d[0] == d[1]) d[3] = d[2] = d[1];
+
+            if (d[3] == 0) return (new int[2] { d[0], d[1] });
+            return d;
         }
 
-        // Sätter en 16:9 ratio på spelPlanen
-		private void updateScale()
-		{
-			spelPlan.Height = Width / 1.77;
+        private void update() {
+            // TODO:    
+            updateScale();
+        }
+        // Håller en 16:9 ratio på spelplanen
+        private void updateScale() {
+            spelPlan.Height = Width / 1.77;
             if (spelPlan.Height >= duk.Height)
                 spelPlan.Height = duk.Height;
 
-			spelPlan.Width = spelPlan.Height*(1.77);
-		}
+            spelPlan.Width = spelPlan.Height * (1.77);
+        }
 
         private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
