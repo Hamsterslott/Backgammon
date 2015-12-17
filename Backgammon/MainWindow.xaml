@@ -15,20 +15,40 @@
                 <Canvas.Background>
                     <ImageBrush ImageSource="Resources/bgBackgammonNice.png"/>
                 </Canvas.Background>
-                <UniformGrid Name="gridOne" Height="289" Width="502" Canvas.Left="63" Canvas.Top="14" Columns="5" Rows="1">
-                    <local:Triangle Height="288" Width="82" Margin="9,0,9,-1"/>
-                    <local:Triangle Height="288" Width="82" Margin="9,0,9,-1"/>
-                    <local:Triangle Height="288" Width="82" Margin="9,0,9,-1"/>
-                    <local:Triangle Height="288" Width="82" Margin="9,0,9,-1"/>
-                    <local:Triangle Height="288" Width="82" Margin="9,0,9,-1"/>
+                <UniformGrid Name="gridOne" Height="298" Width="494" Canvas.Left="71" Canvas.Top="14" Columns="6" Rows="1">
+                    <local:Triangle Height="298" Width="82" />                    
+                    <local:Triangle Height="298" Width="82" />
+                    <local:Triangle Height="298" Width="82" />
+                    <local:Triangle Height="298" Width="82" />
+                    <local:Triangle Height="298" Width="82" />
+                    <local:Triangle Height="298" Width="82" />
                 </UniformGrid>
 
-                <UniformGrid Name="gridTwo" Height="289" Width="496" Canvas.Left="623" Canvas.Top="14" Columns="5" Rows="1">
-                    <local:Triangle Height="288" Width="82" Margin="9,0,9,-1"/>
-                    <local:Triangle Height="288" Width="82" Margin="9,0,9,-1"/>
-                    <local:Triangle Height="288" Width="82" Margin="9,0,9,-1"/>
-                    <local:Triangle Height="288" Width="82" Margin="9,0,9,-1"/>
-                    <local:Triangle Height="288" Width="82" Margin="9,0,9,-1"/>
+                <UniformGrid Name="gridTwo" Height="298" Width="494" Canvas.Left="623" Canvas.Top="14" Columns="6" Rows="1">
+                    <local:Triangle Height="298" Width="82" />
+                    <local:Triangle Height="298" Width="82" />
+                    <local:Triangle Height="298" Width="82" />
+                    <local:Triangle Height="298" Width="82" />
+                    <local:Triangle Height="298" Width="82" />
+                    <local:Triangle Height="298" Width="82" />
+                </UniformGrid>
+
+                <UniformGrid Name="gridThree" Height="298" Width="494" Canvas.Left="623" Canvas.Top="352" Columns="6" Rows="1">
+                    <local:Triangle Height="298" Width="82" />
+                    <local:Triangle Height="298" Width="82" />
+                    <local:Triangle Height="298" Width="82" />
+                    <local:Triangle Height="298" Width="82" />
+                    <local:Triangle Height="298" Width="82" />
+                    <local:Triangle Height="298" Width="82" />
+                </UniformGrid>
+
+                <UniformGrid Name="gridFour" Height="298" Width="494" Canvas.Left="71" Canvas.Top="352" Columns="6" Rows="1">
+                    <local:Triangle Height="298" Width="82" />
+                    <local:Triangle Height="298" Width="82" />
+                    <local:Triangle Height="298" Width="82" />
+                    <local:Triangle Height="298" Width="82" />
+                    <local:Triangle Height="298" Width="82" />
+                    <local:Triangle Height="298" Width="82" />
                 </UniformGrid>
 
             </Canvas>

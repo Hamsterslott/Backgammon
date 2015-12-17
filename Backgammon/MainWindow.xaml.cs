@@ -24,19 +24,21 @@ namespace Backgammon
 
     public partial class MainWindow : Window
     {
+
         private Random rand = new Random();
-        private int[] dices = new int[3];
+        private int[] dices = new int[4];
 
         public MainWindow()
         {
             InitializeComponent();
-           
+
             // Initierar allt vid start
             dices = rollDices();
             update();
         }
 
-        private int[] rollDices() {
+        private int[] rollDices()
+        {
             int[] d = new int[4];
             d[2] = d[3] = 0;
             d[0] = rand.Next(1, 7);
@@ -51,18 +53,35 @@ namespace Backgammon
             // TODO:    
             updateScale();
         }
+
         // Håller en 16:9 ratio på spelplanen
-        private void updateScale() {
-            spelPlan.Height = Width / 1.77;
+		private void updateScale()
+		{
+			spelPlan.Height = Width / 1.77;
             if (spelPlan.Height >= duk.Height)
                 spelPlan.Height = duk.Height;
 
-            spelPlan.Width = spelPlan.Height * (1.77);
+			spelPlan.Width = spelPlan.Height*(1.77);
+		}
+
+        private Triangle getTriangle(int grid, int pos) {
+            if (grid <= 0 || grid > 4 || pos < 0 ||pos > 26)
+                return null;
+
+            int p;
+            Triangle triangle;
+            if (grid == 1) { triangle = gridOne.Children[pos] as Triangle; }
+            else if (grid == 2) { triangle = gridTwo.Children[pos] as Triangle; }
+            else if (grid == 3) { triangle = gridThree.Children[pos] as Triangle; }
+            else { triangle = gridFour.Children[pos] as Triangle; }
+            
+            return triangle;
         }
 
         private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            DragMove();
+            try { DragMove(); }
+            catch(Exception ex){}  
         }
         
         private void maximize_Click(object sender, RoutedEventArgs e)
@@ -87,5 +106,21 @@ namespace Backgammon
         {
             updateScale();
         }
+
+        private void Grid_MouseEnter(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void Grid_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void Grid_MouseLeave(object sender, MouseEventArgs e)
+        {
+
+        }
+
     }
 }

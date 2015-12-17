@@ -21,7 +21,8 @@ namespace Backgammon
     public partial class Triangle : UserControl
     {
         private int _size = 0;
-        public Boolean _isClicked = false, _isGlowing = false;
+        public Boolean _isClicked = false, _isGlowing = false,
+                       _isHovered = false;
         private COLOR _brickColor;
         private COLOR _triangleColor;
         private ImageBrush _lightBackground, _darkBackground, _glowing;
@@ -47,10 +48,10 @@ namespace Backgammon
               osv...
              */
 
-            renderUpdate();
+            Update();
         }
 
-        public void renderUpdate() {
+        public void Update() {
             try
             {
                 if (_triangleColor == COLOR.LIGHT)
@@ -60,12 +61,21 @@ namespace Backgammon
                     this.Background = _darkBackground;
                 
                 // TODO: Visa glow bild ifall _isGlowing
-                if (_isGlowing) { }
+                if (_isGlowing) { MessageBox.Show("test"); }
 
                 renderBricks();
 
             }
             catch (Exception ex) { Console.WriteLine("renderUpdate: " + ex.Message); }
+        }
+
+        public void AddBrick() {
+            if (_size < 15)
+                _size++;
+        }
+        public void RemoveBrick() {
+            if (_size >= 0)
+                _size--;
         }
 
         private void renderBricks() {
@@ -74,11 +84,24 @@ namespace Backgammon
 
         private void triangle_MouseDown(object sender, MouseButtonEventArgs e)
         {
+            MessageBox.Show("Test");
             _isClicked = true;
         }
         private void triangle_MouseUp(object sender, MouseButtonEventArgs e)
         {
             _isClicked = false;
+        }
+
+        private void triangle_MouseEnter(object sender, MouseEventArgs e)
+        {
+            theGrid.Opacity = 0.2;
+            _isHovered = true;
+        }
+
+        private void triangle_MouseLeave(object sender, MouseEventArgs e)
+        {
+            theGrid.Opacity = 0.01;
+            _isHovered = false;
         }
 
         // GETTERS OCH SETTERS START //

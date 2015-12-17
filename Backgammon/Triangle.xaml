@@ -4,8 +4,9 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
-             d:DesignHeight="400" d:DesignWidth="100" Name="triangle" MouseUp="triangle_MouseUp" MouseDown="triangle_MouseDown">
-    <Grid>
+             d:DesignHeight="298" d:DesignWidth="82" Name="triangle" MouseUp="triangle_MouseUp" MouseDown="triangle_MouseDown"
+             MouseEnter="triangle_MouseEnter" MouseLeave="triangle_MouseLeave">
+    <Grid Name="theGrid" Background="#FF1EC8D1" Opacity="0.01">
         <Grid.RowDefinitions>
             <RowDefinition Height="100*"/>
             <RowDefinition Height="100*"/>
@@ -13,24 +14,29 @@
             <RowDefinition Height="100*"/>
             <RowDefinition Height="100*"/>
         </Grid.RowDefinitions>
-        
-        <Canvas Name="brickSpaceOne" Grid.Row="0">
+
+        <Canvas Name="brickSpaceOne" Grid.Row="0" Margin="11.2,0,11.2,0">
 
         </Canvas>
-        
-        <Canvas Name="brickSpaceTwo" Grid.Row="1">
+
+        <Canvas Name="brickSpaceTwo" Grid.Row="1" Margin="11.2,0,11.2,0">
+
 
         </Canvas>
-        
-        <Canvas Name="brickSpaceThree" Grid.Row="2">
+
+        <Canvas Name="brickSpaceThree" Grid.Row="2" Margin="11.2,0,11.2,0">
+
 
         </Canvas>
-        
-        <Canvas Name="brickSpaceFour" Grid.Row="3">
+
+        <Canvas Name="brickSpaceFour" Grid.Row="3" Margin="11.2,0,11.2,0">
+
 
         </Canvas>
-        
-        <Canvas Name="brickSpaceFive" Grid.Row="4">
+
+        <Canvas Name="brickSpaceFive" Grid.Row="4" Margin="11.2,0,11.2,0">
+
+
 
         </Canvas>
 
