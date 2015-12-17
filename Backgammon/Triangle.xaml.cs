@@ -18,14 +18,19 @@ namespace Backgammon
     /// <summary>
     /// Interaction logic for Triangle.xaml
     /// </summary>
+
+    public enum STATE {
+        UPPER, LOWER
+    };
+
     public partial class Triangle : UserControl
     {
         private int _size = 0;
         public Boolean _isClicked = false, _isGlowing = false,
                        _isHovered = false;
         private COLOR _brickColor;
-        private COLOR _triangleColor;
-        private ImageBrush _lightBackground, _darkBackground, _glowing;
+        private STATE _state;
+        private ImageBrush _background = new ImageBrush();
         private ImageBrush[] whiteBrick = new ImageBrush[3], 
                              blackBrick = new ImageBrush[3];
 
@@ -36,17 +41,13 @@ namespace Backgammon
         }
 
         private void init() {
-            _triangleColor = COLOR.LIGHT;
 
-            // TODO: Fixa länkar till bilder
-            /*  
-              _lightBackground = new ImageBrush(new BitmapImage(new Uri(@"", UriKind.Relative)));
-              _darkBackground = new ImageBrush(new BitmapImage(new Uri(@"", UriKind.Relative))); 
-               
-              whiteBrick[0]..
-              whiteBrick[1]..
-              osv...
-             */
+            // TODO: Fixa till länkar och bilder
+            /*if(_state == STATE.UPPER)
+                _background.ImageSource = new BitmapImage(new Uri(@"Resources/isClickedAnimationUpper.gif", UriKind.RelativeOrAbsolute));
+            else
+                _background.ImageSource = new BitmapImage(new Uri(@"Resources/isClickedAnimationLower.gif", UriKind.RelativeOrAbsolute));
+            background.Background = _background;*/
 
             Update();
         }
@@ -54,12 +55,6 @@ namespace Backgammon
         public void Update() {
             try
             {
-                if (_triangleColor == COLOR.LIGHT)
-                    this.Background = _lightBackground;
-                
-                else 
-                    this.Background = _darkBackground;
-                
                 // TODO: Visa glow bild ifall _isGlowing
                 if (_isGlowing) { MessageBox.Show("test"); }
 
@@ -84,7 +79,7 @@ namespace Backgammon
 
         private void triangle_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            MessageBox.Show("Test");
+            MessageBox.Show(_state.ToString());
             _isClicked = true;
         }
         private void triangle_MouseUp(object sender, MouseButtonEventArgs e)
@@ -94,13 +89,13 @@ namespace Backgammon
 
         private void triangle_MouseEnter(object sender, MouseEventArgs e)
         {
-            theGrid.Opacity = 0.2;
+            //theGrid.Opacity = 0.2;
             _isHovered = true;
         }
 
         private void triangle_MouseLeave(object sender, MouseEventArgs e)
         {
-            theGrid.Opacity = 0.01;
+            //theGrid.Opacity = 0.01;
             _isHovered = false;
         }
 
@@ -117,11 +112,11 @@ namespace Backgammon
         public void setColor(COLOR color) {
             this._brickColor = color;
         }
-        public COLOR getTriangleColor() {
-            return _triangleColor;
+        public STATE getState() {
+            return _state;
         }
-        public void setTriangleColor(COLOR color) {
-            this._triangleColor = color;
+        public void setState(STATE state) {
+            _state = state;
         }
         // GETTERS OCH SETTERS SLUT //
     }

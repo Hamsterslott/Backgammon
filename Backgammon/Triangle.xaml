@@ -6,7 +6,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="298" d:DesignWidth="82" Name="triangle" MouseUp="triangle_MouseUp" MouseDown="triangle_MouseDown"
              MouseEnter="triangle_MouseEnter" MouseLeave="triangle_MouseLeave">
-    <Grid Name="theGrid" Background="#FF1EC8D1" Opacity="0.01">
+    <Grid Name="theGrid">
         <Grid.RowDefinitions>
             <RowDefinition Height="100*"/>
             <RowDefinition Height="100*"/>
@@ -15,6 +15,12 @@
             <RowDefinition Height="100*"/>
         </Grid.RowDefinitions>
 
+        <Canvas Name="background" Height="298">
+            <Canvas.Background>
+                <ImageBrush ImageSource="Resources/greenArrow.png"/>
+            </Canvas.Background>
+        </Canvas>
+        
         <Canvas Name="brickSpaceOne" Grid.Row="0" Margin="11.2,0,11.2,0">
 
         </Canvas>
