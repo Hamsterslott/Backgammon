@@ -114,13 +114,6 @@
     <Resource Include="Resources\splashScreen.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\2MörkKnapp.png" />
-    <Resource Include="Resources\2VitKnapp.png" />
-    <Resource Include="Resources\3MörkKnapp.png" />
-    <Resource Include="Resources\3VitKnapp.png" />
-    <Resource Include="Resources\MörkKnapp.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Resources\background.jpg" />
   </ItemGroup>
   <ItemGroup>
@@ -141,7 +134,26 @@
     <Resource Include="Resources\isClickedAnimationUpper.gif" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\greenArrow.png" />
+    <Resource Include="Resources\tärningLjus1.png" />
+    <Resource Include="Resources\tärningLjus2v2.png" />
+    <Resource Include="Resources\tärningLjus3.png" />
+    <Resource Include="Resources\tärningLjus4v2.png" />
+    <Resource Include="Resources\tärningLjus5.png" />
+    <Resource Include="Resources\tärningLjus6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\darkChip1.png" />
+    <Resource Include="Resources\darkChip2.png" />
+    <Resource Include="Resources\darkChip3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\whiteChip1.png" />
+    <Resource Include="Resources\whiteChip2.png" />
+    <Resource Include="Resources\whiteChip3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\isClickedLower.png" />
+    <Resource Include="Resources\isClickedUpper.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
