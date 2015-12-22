@@ -38,16 +38,19 @@ namespace Backgammon
             // Grid one
             foreach (Triangle t in gridOne.Children)
                 t.setState(STATE.UPPER);
+             
             // Grid two
-            foreach (Triangle t in gridTwo.Children)
+            foreach (Triangle t in gridTwo.Children) 
                 t.setState(STATE.UPPER);
+             
             // Grid three
-            foreach (Triangle t in gridThree.Children)
+            foreach (Triangle t in gridThree.Children) 
                 t.setState(STATE.LOWER);
+             
             // Grid four
-            foreach (Triangle t in gridFour.Children)
+            foreach (Triangle t in gridFour.Children) 
                 t.setState(STATE.LOWER);
-
+            
             update();
         }
 

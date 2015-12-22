@@ -37,29 +37,23 @@ namespace Backgammon
         public Triangle()
         {
             InitializeComponent();
-            init();
         }
-
         private void init() {
-
-            // TODO: Fixa till länkar och bilder
-            /*if(_state == STATE.UPPER)
-                _background.ImageSource = new BitmapImage(new Uri(@"Resources/isClickedAnimationUpper.gif", UriKind.RelativeOrAbsolute));
+            if (_state == STATE.UPPER)
+                _background.ImageSource = new BitmapImage(new Uri("../../Resources/isClickedUpper.png", UriKind.Relative));
             else
-                _background.ImageSource = new BitmapImage(new Uri(@"Resources/isClickedAnimationLower.gif", UriKind.RelativeOrAbsolute));
-            background.Background = _background;*/
-
+                _background.ImageSource = new BitmapImage(new Uri("../../Resources/isClickedLower.png", UriKind.Relative));
+            background.Background = _background;
             Update();
         }
 
         public void Update() {
             try
             {
-                // TODO: Visa glow bild ifall _isGlowing
-                if (_isGlowing) { MessageBox.Show("test"); }
-
-                renderBricks();
-
+                if (_isGlowing)
+                    background.Opacity = 1;
+                else
+                    background.Opacity = 0;
             }
             catch (Exception ex) { Console.WriteLine("renderUpdate: " + ex.Message); }
         }
@@ -79,8 +73,13 @@ namespace Backgammon
 
         private void triangle_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            MessageBox.Show(_state.ToString());
+            if (_isGlowing)
+                _isGlowing = false;
+            else
+                _isGlowing = true;
+
             _isClicked = true;
+            Update();
         }
         private void triangle_MouseUp(object sender, MouseButtonEventArgs e)
         {
@@ -89,13 +88,11 @@ namespace Backgammon
 
         private void triangle_MouseEnter(object sender, MouseEventArgs e)
         {
-            //theGrid.Opacity = 0.2;
             _isHovered = true;
         }
 
         private void triangle_MouseLeave(object sender, MouseEventArgs e)
         {
-            //theGrid.Opacity = 0.01;
             _isHovered = false;
         }
 
@@ -105,6 +102,7 @@ namespace Backgammon
         }
         public void setSize(int size) {
             this._size = size;
+            Update();
         }
         public COLOR getColor() {
             return _brickColor;
@@ -117,6 +115,14 @@ namespace Backgammon
         }
         public void setState(STATE state) {
             _state = state;
+            init();
+        }
+        public bool getGlowing() {
+            return _isGlowing;
+        }
+        public void setGlowing(bool glow) {
+            _isGlowing = glow;
+            Update();
         }
         // GETTERS OCH SETTERS SLUT //
     }

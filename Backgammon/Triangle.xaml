@@ -17,7 +17,7 @@
 
         <Canvas Name="background" Height="298">
             <Canvas.Background>
-                <ImageBrush ImageSource="Resources/greenArrow.png"/>
+                <ImageBrush ImageSource="Resources/isClickedUpper.png"/>
             </Canvas.Background>
         </Canvas>
         
