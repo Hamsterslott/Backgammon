@@ -18,7 +18,10 @@ namespace Backgammon
     /// <summary>
     /// Interaction logic for Triangle.xaml
     /// </summary>
-
+    public enum COLOR
+    {
+        BLACK, WHITE
+    };
     public enum STATE {
         UPPER, LOWER
     };
@@ -37,8 +40,30 @@ namespace Backgammon
         public Triangle()
         {
             InitializeComponent();
+
+            try {
+                // Behövde göras
+                for (int i = 0; i < 3; i++) {
+                    whiteBrick[i] = new ImageBrush();
+                    blackBrick[i] = new ImageBrush();
+                }
+                whiteBrick[0].ImageSource = new BitmapImage(new Uri("../../Resources/whiteChip1.png", UriKind.Relative));
+                whiteBrick[1].ImageSource = new BitmapImage(new Uri("../../Resources/whiteChip2.png", UriKind.Relative));
+                whiteBrick[2].ImageSource = new BitmapImage(new Uri("../../Resources/whiteChip3.png", UriKind.Relative));
+
+                blackBrick[0].ImageSource = new BitmapImage(new Uri("../../Resources/darkChip1.png", UriKind.Relative));
+                blackBrick[1].ImageSource = new BitmapImage(new Uri("../../Resources/darkChip2.png", UriKind.Relative));
+                blackBrick[2].ImageSource = new BitmapImage(new Uri("../../Resources/darkChip3.png", UriKind.Relative));
+            }
+            catch (Exception ex) { Console.WriteLine("brickInit: " + ex.Message); }
+            
         }
         private void init() {
+            // TEMP TESTAR //
+                _size = 0;
+                _brickColor = COLOR.BLACK;
+            // TEMP TESTAR END //
+
             if (_state == STATE.UPPER)
                 _background.ImageSource = new BitmapImage(new Uri("../../Resources/isClickedUpper.png", UriKind.Relative));
             else
@@ -48,8 +73,10 @@ namespace Backgammon
         }
 
         public void Update() {
-            try
-            {
+            try {
+
+                renderBricks();
+                
                 if (_isGlowing)
                     background.Opacity = 1;
                 else
@@ -58,28 +85,131 @@ namespace Backgammon
             catch (Exception ex) { Console.WriteLine("renderUpdate: " + ex.Message); }
         }
 
+        public void SetSize(int size) {
+            _size = size;
+            Update();
+        }
+
         public void AddBrick() {
-            if (_size < 15)
-                _size++;
+            _size++;
+            if (_size > 15)
+                _size = 15;
+
+            Update();
         }
         public void RemoveBrick() {
-            if (_size >= 0)
-                _size--;
+            _size--;
+            if (_size <= 0)
+                _size = 0;
+
+            MessageBox.Show(_size.ToString());
+
+            Update();
         }
 
         private void renderBricks() {
-
+            if (_brickColor == COLOR.WHITE)
+            {
+                // Brickplats ett
+                if (_size > 0 && _size < 6)
+                    brickSpaceOne.Background = whiteBrick[0];
+                else if (_size >= 6 && _size < 11)
+                    brickSpaceOne.Background = whiteBrick[1];
+                else if (_size >= 11)
+                    brickSpaceOne.Background = whiteBrick[2];
+                else
+                    brickSpaceOne.Background = null;
+                // Brickplats två
+                if (_size > 1 && _size < 7)
+                    brickSpaceTwo.Background = whiteBrick[0];
+                else if (_size >= 7 && _size < 12)
+                    brickSpaceTwo.Background = whiteBrick[1];
+                else if (_size >= 12)
+                    brickSpaceTwo.Background = whiteBrick[2];
+                else
+                    brickSpaceTwo.Background = null;
+                // Brickplats tre
+                if (_size > 2 && _size < 8)
+                    brickSpaceThree.Background = whiteBrick[0];
+                else if (_size >= 8 && _size < 13)
+                    brickSpaceThree.Background = whiteBrick[1];
+                else if (_size >= 13)
+                    brickSpaceThree.Background = whiteBrick[2];
+                else
+                    brickSpaceThree.Background = null;
+                // Brickplats fyra
+                if (_size > 3 && _size < 9)
+                    brickSpaceFour.Background = whiteBrick[0];
+                else if (_size >= 9 && _size < 14)
+                    brickSpaceFour.Background = whiteBrick[1];
+                else if (_size >= 14)
+                    brickSpaceFour.Background = whiteBrick[2];
+                else
+                    brickSpaceFour.Background = null;
+                // Brickplats fem
+                if (_size > 4 && _size < 10)
+                    brickSpaceFive.Background = whiteBrick[0];
+                else if (_size >= 10 && _size < 15)
+                    brickSpaceFive.Background = whiteBrick[1];
+                else if (_size >= 15)
+                    brickSpaceFive.Background = whiteBrick[2];
+                else
+                    brickSpaceFive.Background = null;
+            }
+            else
+            {
+                // Brickplats ett
+                if (_size > 0 && _size < 6)
+                    brickSpaceOne.Background = blackBrick[0];
+                else if (_size >= 6 && _size < 11)
+                    brickSpaceOne.Background = blackBrick[1];
+                else if (_size >= 11)
+                    brickSpaceOne.Background = blackBrick[2];
+                else
+                    brickSpaceOne.Background = null;
+                // Brickplats två
+                if (_size > 1 && _size < 7)
+                    brickSpaceTwo.Background = blackBrick[0];
+                else if (_size >= 7 && _size < 12)
+                    brickSpaceTwo.Background = blackBrick[1];
+                else if (_size >= 12)
+                    brickSpaceTwo.Background = blackBrick[2];
+                else
+                    brickSpaceTwo.Background = null;
+                // Brickplats tre
+                if (_size > 2 && _size < 8)
+                    brickSpaceThree.Background = blackBrick[0];
+                else if (_size >= 8 && _size < 13)
+                    brickSpaceThree.Background = blackBrick[1];
+                else if (_size >= 13)
+                    brickSpaceThree.Background = blackBrick[2];
+                else
+                    brickSpaceThree.Background = null;
+                // Brickplats fyra
+                if (_size > 3 && _size < 9)
+                    brickSpaceFour.Background = blackBrick[0];
+                else if (_size >= 9 && _size < 14)
+                    brickSpaceFour.Background = blackBrick[1];
+                else if (_size >= 14)
+                    brickSpaceFour.Background = blackBrick[2];
+                else
+                    brickSpaceFour.Background = null;
+                // Brickplats fem
+                if (_size > 4 && _size < 10)
+                    brickSpaceFive.Background = blackBrick[0];
+                else if (_size >= 10 && _size < 15)
+                    brickSpaceFive.Background = blackBrick[1];
+                else if (_size >= 15)
+                    brickSpaceFive.Background = blackBrick[2];
+                else
+                    brickSpaceFive.Background = null;
+            }
         }
 
         private void triangle_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            if (_isGlowing)
-                _isGlowing = false;
-            else
-                _isGlowing = true;
-
+            AddBrick();
             _isClicked = true;
-            Update();
         }
         private void triangle_MouseUp(object sender, MouseButtonEventArgs e)
         {

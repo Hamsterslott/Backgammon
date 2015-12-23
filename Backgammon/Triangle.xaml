@@ -22,7 +22,7 @@
         </Canvas>
         
         <Canvas Name="brickSpaceOne" Grid.Row="0" Margin="11.2,0,11.2,0">
-
+            
         </Canvas>
 
         <Canvas Name="brickSpaceTwo" Grid.Row="1" Margin="11.2,0,11.2,0">

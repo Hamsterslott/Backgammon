@@ -17,11 +17,6 @@ using System.Windows.Shapes;
 namespace Backgammon
 {
 
-    public enum COLOR
-    {
-        BLACK, WHITE, LIGHT, DARK
-    };
-
     public partial class MainWindow : Window
     {
 
