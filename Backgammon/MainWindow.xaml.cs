@@ -45,6 +45,34 @@ namespace Backgammon
             // Grid four
             foreach (Triangle t in gridFour.Children) 
                 t.setState(STATE.LOWER);
+
+            //Placerar ut brickor uppe till vänster först, uppe höger sen, nere höger, nere vänster.
+            getTriangle(1, 0).setColor(COLOR.BLACK);
+            getTriangle(1, 0).setSize(2);
+
+            getTriangle(1, 5).setColor(COLOR.WHITE);
+            getTriangle(1, 5).setSize(5);
+
+            getTriangle(2, 1).setColor(COLOR.WHITE);
+            getTriangle(2, 1).setSize(3);
+
+            getTriangle(2, 5).setColor(COLOR.BLACK);
+            getTriangle(2, 5).setSize(5);
+
+            getTriangle(3, 5).setColor(COLOR.WHITE);
+            getTriangle(3, 5).setSize(5);
+
+            getTriangle(3, 1).setColor(COLOR.BLACK);
+            getTriangle(3, 1).setSize(3);
+
+            getTriangle(4, 5).setColor(COLOR.BLACK);
+            getTriangle(4, 5).setSize(5);
+
+            getTriangle(4, 0).setColor(COLOR.WHITE);
+            getTriangle(4, 0).setSize(2);
+
+
+
             
             update();
         }
