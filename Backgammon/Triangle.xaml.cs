@@ -44,9 +44,10 @@ namespace Backgammon
 
             try {
                 // Behövde göras
-                for (int i = 0; i < 3; i++) {
-                    whiteBrick[i] = new ImageBrush();
-                    blackBrick[i] = new ImageBrush();
+                for (int i = 0; i < singleBrick.Length; i++) {
+                    singleBrick[i] = new ImageBrush();
+                    doubleBrick[i] = new ImageBrush();
+                    tripleBrick[i] = new ImageBrush();
                 }
                 singleBrick[0].ImageSource = new BitmapImage(new Uri("../../Resources/whiteChip1.png", UriKind.Relative));
                 doubleBrick[0].ImageSource = new BitmapImage(new Uri("../../Resources/whiteChip2.png", UriKind.Relative));
