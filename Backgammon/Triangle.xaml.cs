@@ -26,6 +26,7 @@ namespace Backgammon
     public partial class Triangle : UserControl
     {
         private int _size = 0;
+		private int pos;
         public Boolean _isClicked = false, _isGlowing = false,
                        _isHovered = false;
         private COLOR _brickColor;
@@ -250,6 +251,15 @@ namespace Backgammon
             this._size = size;
             Update();
         }
+
+		public int getPos() {
+            return pos;
+        }
+        public void setPos(int pos) {
+            this.pos = pos;
+        }
+
+
         public COLOR getColor() {
             return _brickColor;
         }
