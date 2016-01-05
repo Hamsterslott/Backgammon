@@ -163,7 +163,7 @@
     <Resource Include="Resources\greenishFelt.png" />
     <Resource Include="Resources\greenOrangeFelt.png" />
     <Resource Include="Resources\orangeFelt.png" />
-    <Resource Include="Resources\purlpeFelt.png" />
+    <Resource Include="Resources\purpleFelt.png" />
     <Resource Include="Resources\redFelt.png" />
   </ItemGroup>
   <ItemGroup>

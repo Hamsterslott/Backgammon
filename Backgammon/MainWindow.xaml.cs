@@ -24,6 +24,7 @@ namespace Backgammon
         private int[] dices;
 		BackgammonModel _model = new BackgammonModel();
 		triangel [] spelplan;
+        private ImageBrush[] _background = new ImageBrush[8];
 
         public MainWindow()
         {
@@ -31,9 +32,24 @@ namespace Backgammon
             // Initierar allt vid start
             dices = _model.letsRollTheDice();
 			spelplan = _model.newGame();
+            for (int i = 0; i < _background.Length; i++)
+                _background[i] = new ImageBrush();
 
-			//alignLeft();
-			alignRight();
+            // Hämtar alla bakgrunder
+            try {
+                _background[0].ImageSource = new BitmapImage(new Uri("../../Resources/greenFelt.png", UriKind.Relative));
+                _background[1].ImageSource = new BitmapImage(new Uri("../../Resources/greenishFelt.png", UriKind.Relative));
+                _background[2].ImageSource = new BitmapImage(new Uri("../../Resources/blueFelt.png", UriKind.Relative));
+                _background[3].ImageSource = new BitmapImage(new Uri("../../Resources/greenOrangeFelt.png", UriKind.Relative));
+                _background[4].ImageSource = new BitmapImage(new Uri("../../Resources/orangeFelt.png", UriKind.Relative));
+                _background[5].ImageSource = new BitmapImage(new Uri("../../Resources/purpleFelt.png", UriKind.Relative));
+                _background[6].ImageSource = new BitmapImage(new Uri("../../Resources/redFelt.png", UriKind.Relative));
+                _background[7].ImageSource = new BitmapImage(new Uri("../../Resources/darkRedFelt.png", UriKind.Relative));
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
+
+            //alignLeft();
+            alignRight();
 
 			for(int i = 1; i < 25; i++)
 				{
@@ -54,6 +70,9 @@ namespace Backgammon
             update();
         }
 
+        private void setBackground(int index) {
+            duk.Background = _background[index];
+        }
 
 		private void alignLeft()
 		{

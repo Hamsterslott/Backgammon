@@ -5,7 +5,7 @@
         Name="duk" Title="Backgammon" MinHeight="600" MinWidth="800" Height="720" Width="1280" Icon="Resources/icon.png" BorderBrush="Black" ResizeMode="CanResizeWithGrip" WindowStartupLocation="CenterScreen" WindowStyle="None"
         MouseLeftButtonDown="Window_MouseLeftButtonDown" AllowsTransparency="True" SizeChanged="Window_SizeChanged" Topmost="True">
     <Window.Background>
-        <ImageBrush ImageSource="Resources/redFelt.png"/>
+        <ImageBrush ImageSource="Resources/greenFelt.png"/>
     </Window.Background>
     <Grid>
         <Label Margin="10, 0, 10, 0" Foreground="#FFB87B23" FontWeight="Bold" FontSize="26">Backgammon</Label>
@@ -58,12 +58,6 @@
            
         </Viewbox>
         <Rectangle Name="rect" Width="290" VerticalAlignment="Stretch" HorizontalAlignment="Right" Fill="#99000000" Visibility="Collapsed"/>
-        <Button Name ="background" Margin="0,43,10,0"  Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Width="28" Height="28" FontSize="16"  VerticalAlignment="Top" HorizontalAlignment="Right" Click="Button_Click">;
-            <Button.Background>
-                <ImageBrush ImageSource="Resources/sidebar.png"/>
-            </Button.Background>
-        </Button>
-        <Image Name="sidebar" Width="28" Height="28" VerticalAlignment="Top" HorizontalAlignment="Right" Source="Resources/sidebar.png" Margin="1242,76,10,0" MouseLeftButtonDown="sidebar_MouseLeftButtonDown">
-        </Image>
+        <Image Opacity="0.6" Name="sidebar" Width="28" Height="28" VerticalAlignment="Top" HorizontalAlignment="Right" Source="Resources/sidebar.png" Margin="0,43,10,0" MouseLeftButtonDown="sidebar_MouseLeftButtonDown"/>
     </Grid>
 </Window>
