@@ -20,10 +20,11 @@ namespace Backgammon
     public partial class MainWindow : Window
     {
 
-        private Random rand = new Random();
-        private int[] dices;
+        int[] dices;
 		BackgammonModel _model = new BackgammonModel();
 		triangel [] spelplan;
+		Triangle [] valdaTrianglar = null;
+		private int trianglePos = 0;
 
         public MainWindow()
         {
@@ -42,7 +43,6 @@ namespace Backgammon
 				}
 
 
-
 			for(int i = 1; i < 25; i++)
 			{
 				Triangle t = getTriangle(i);
@@ -54,6 +54,15 @@ namespace Backgammon
             update();
         }
 
+		public void setTriangle(Triangle t)
+		{
+			valdaTrianglar[trianglePos++] = t;
+			if(trianglePos == 2)
+				{
+				if (_model.move(spelplan, valdaTrianglar[0].getPos(),valdaTrianglar[1].getPos(),dices,COLOR.WHITE)) foreach (Triangle tri in valdaTrianglar) tri.Update();
+				trianglePos = 0;
+				}
+		}
 
 		private void alignLeft()
 		{

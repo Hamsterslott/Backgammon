@@ -207,7 +207,7 @@ namespace Backgammon
 
         private void triangle_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            MessageBox.Show(pos.ToString());
+            _mainWindow.setTriangle(sender as Triangle);
             _isClicked = true;
         }
         private void triangle_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
