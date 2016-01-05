@@ -18,10 +18,7 @@ namespace Backgammon
     /// <summary>
     /// Interaction logic for Triangle.xaml
     /// </summary>
-    public enum COLOR
-    {
-        BLACK, WHITE
-    };
+
     public enum STATE {
         UPPER, LOWER
     };
@@ -34,9 +31,7 @@ namespace Backgammon
         private COLOR _brickColor;
         private STATE _state;
         private ImageBrush _background = new ImageBrush();
-        private ImageBrush[] whiteBrick = new ImageBrush[3], 
-                             blackBrick = new ImageBrush[3],
-                             singleBrick = new ImageBrush[2], doubleBrick = new ImageBrush[2], tripleBrick = new ImageBrush[2];
+        private ImageBrush[] singleBrick = new ImageBrush[2], doubleBrick = new ImageBrush[2], tripleBrick = new ImageBrush[2];
 
         public Triangle()
         {
