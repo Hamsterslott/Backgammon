@@ -32,8 +32,8 @@ namespace Backgammon
             dices = _model.letsRollTheDice();
 			spelplan = _model.newGame();
 
-			alignLeft();
-			//alignRight();
+			//alignLeft();
+			alignRight();
 
 			for(int i = 1; i < 25; i++)
 				{
@@ -45,8 +45,10 @@ namespace Backgammon
 
 			for(int i = 1; i < 25; i++)
 			{
-				getTriangle(i).setColor(COLOR.BLACK);
-				getTriangle(i).setSize(2);
+				Triangle t = getTriangle(i);
+				int index = _model.correctPos(t.getPos());
+				t.setSize(spelplan[index].antal);
+				t.setColor(spelplan[index].color);
 			}
             
             update();
