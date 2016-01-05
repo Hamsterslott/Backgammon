@@ -47,32 +47,36 @@ namespace Backgammon
                 t.setState(STATE.LOWER);
 
             //Placerar ut brickor uppe till vänster först, uppe höger sen, nere höger, nere vänster.
-            getTriangle(1, 0).setColor(COLOR.BLACK);
-            getTriangle(1, 0).setSize(2);
+			//getTriangle(1, 0).setColor(COLOR.BLACK);
+			//getTriangle(1, 0).setSize(2);
 
-            getTriangle(1, 5).setColor(COLOR.WHITE);
-            getTriangle(1, 5).setSize(5);
+			//getTriangle(1, 5).setColor(COLOR.WHITE);
+			//getTriangle(1, 5).setSize(5);
 
-            getTriangle(2, 1).setColor(COLOR.WHITE);
-            getTriangle(2, 1).setSize(3);
+			//getTriangle(2, 1).setColor(COLOR.WHITE);
+			//getTriangle(2, 1).setSize(3);
 
-            getTriangle(2, 5).setColor(COLOR.BLACK);
-            getTriangle(2, 5).setSize(5);
+			//getTriangle(2, 5).setColor(COLOR.BLACK);
+			//getTriangle(2, 5).setSize(5);
 
-            getTriangle(3, 5).setColor(COLOR.WHITE);
-            getTriangle(3, 5).setSize(5);
+			//getTriangle(3, 5).setColor(COLOR.WHITE);
+			//getTriangle(3, 5).setSize(5);
 
-            getTriangle(3, 1).setColor(COLOR.BLACK);
-            getTriangle(3, 1).setSize(3);
+			//getTriangle(3, 1).setColor(COLOR.BLACK);
+			//getTriangle(3, 1).setSize(3);
 
-            getTriangle(4, 5).setColor(COLOR.BLACK);
-            getTriangle(4, 5).setSize(5);
+			//getTriangle(4, 5).setColor(COLOR.BLACK);
+			//getTriangle(4, 5).setSize(5);
 
-            getTriangle(4, 0).setColor(COLOR.WHITE);
-            getTriangle(4, 0).setSize(2);
+			//getTriangle(4, 0).setColor(COLOR.WHITE);
+			//getTriangle(4, 0).setSize(2);
 
 
-
+			for(int i = 1; i < 25; i++)
+				{
+				getTriangle(i).setColor(COLOR.BLACK);
+				getTriangle(i).setSize(2);
+				}
             
             update();
         }
@@ -104,18 +108,18 @@ namespace Backgammon
 			spelPlan.Width = spelPlan.Height*(1.77);
 		}
 
-        private Triangle getTriangle(int grid, int pos) {
-            if (grid <= 0 || grid > 4 || pos < 0 ||pos > 26)
+
+		//den ska gå till 26 sen.
+        private Triangle getTriangle(int pos) {
+            if (pos < 0 ||pos > 24)
                 return null;
 
-            int p;
             Triangle triangle;
-            if (grid == 1) { triangle = gridOne.Children[pos] as Triangle; }
-            else if (grid == 2) { triangle = gridTwo.Children[pos] as Triangle; }
-            else if (grid == 3) { triangle = gridThree.Children[pos] as Triangle; }
-            else { triangle = gridFour.Children[pos] as Triangle; }
-            
-            return triangle;
+            if (pos < 7) { return triangle = gridOne.Children[pos-1] as Triangle; }
+            else if (pos < 13) { return triangle = gridTwo.Children[pos-(6+1)] as Triangle; }
+            else if (pos < 19) { return triangle = gridThree.Children[pos-(12+1)] as Triangle; }
+            else { return triangle = gridFour.Children[pos-(18+1)] as Triangle; }
+
         }
 
         private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
