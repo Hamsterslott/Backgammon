@@ -57,8 +57,8 @@
             </Canvas>
            
         </Viewbox>
-        <Rectangle Name="rect" Width="290" VerticalAlignment="Stretch" Fill="#99000000" Visibility="Collapsed"/>
-        <Button Name ="background" Margin="10"  Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Width="32" Height="32" FontSize="16"  VerticalAlignment="Top" HorizontalAlignment="Right" Click="Button_Click">;
+        <Rectangle Name="rect" Width="290" VerticalAlignment="Stretch" HorizontalAlignment="Right" Fill="#99000000" Visibility="Collapsed"/>
+        <Button Name ="background" Margin="0,43,10,0"  Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Width="28" Height="28" FontSize="16"  VerticalAlignment="Top" HorizontalAlignment="Right" Click="Button_Click">;
             <Button.Background>
                 <ImageBrush ImageSource="Resources/sidebar.png"/>
             </Button.Background>
