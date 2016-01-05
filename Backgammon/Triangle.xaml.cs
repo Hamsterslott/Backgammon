@@ -25,6 +25,7 @@ namespace Backgammon
 
     public partial class Triangle : UserControl
     {
+        private MainWindow _mainWindow = null;
         private int _size = 0;
 		private int pos;
         public Boolean _isClicked = false, _isGlowing = false,
@@ -207,7 +208,7 @@ namespace Backgammon
 
         private void triangle_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            _mainWindow.setTriangle(sender as Triangle);
+            _mainWindow.setTriangle((Triangle)sender);
             _isClicked = true;
         }
         private void triangle_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
@@ -236,6 +237,9 @@ namespace Backgammon
         }
 
         // GETTERS OCH SETTERS START //
+        public void setLink(MainWindow mw) {
+            _mainWindow = mw;
+        }
         public int getSize() {
             return _size;
         }
