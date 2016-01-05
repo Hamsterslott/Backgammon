@@ -21,14 +21,19 @@ namespace Backgammon
     {
 
         private Random rand = new Random();
-        private int[] dices = new int[4];
+        private int[] dices;
+		BackgammonModel _model = new BackgammonModel();
+		triangel [] spelplan;
 
         public MainWindow()
         {
             InitializeComponent();
-
             // Initierar allt vid start
-            dices = rollDices();
+            dices = _model.letsRollTheDice();
+			spelplan = _model.newGame();
+
+			alignLeft();
+			//alignRight();
 
 			for(int i = 1; i < 25; i++)
 				{
@@ -47,17 +52,24 @@ namespace Backgammon
             update();
         }
 
-        private int[] rollDices()
-        {
-            int[] d = new int[4];
-            d[2] = d[3] = 0;
-            d[0] = rand.Next(1, 7);
-            d[1] = rand.Next(1, 7);
-            if (d[0] == d[1]) d[3] = d[2] = d[1];
 
-            if (d[3] == 0) return (new int[2] { d[0], d[1] });
-            return d;
-        }
+		private void alignLeft()
+		{
+			for(int i = 1; i < 25; i++)
+				{
+					if(i < 13) getTriangle(i).setPos(25-i);
+					else getTriangle(i).setPos(i-12);
+				}
+		}
+
+		private void alignRight()
+		{
+			for(int i = 1; i < 25; i++)
+				{
+					if(i < 13) getTriangle(i).setPos(12+i);
+					else getTriangle(i).setPos(25-i);
+				}
+		}
 
         private void update() {
             // TODO:    
@@ -83,8 +95,8 @@ namespace Backgammon
             Triangle triangle;
             if (pos < 7) { return triangle = gridOne.Children[pos-1] as Triangle; }
             else if (pos < 13) { return triangle = gridTwo.Children[pos-(6+1)] as Triangle; }
-            else if (pos < 19) { return triangle = gridThree.Children[pos-(12+1)] as Triangle; }
-            else { return triangle = gridFour.Children[pos-(18+1)] as Triangle; }
+            else if (pos < 19) { return triangle = gridFour.Children[pos-(12+1)] as Triangle; }
+            else { return triangle = gridThree.Children[pos-(18+1)] as Triangle; }
 
         }
 
