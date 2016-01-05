@@ -77,9 +77,9 @@ namespace Backgammon
             try {
 
                 if (_state == STATE.UPPER)
-                    renderBricksUpper();
+                    renderBricksUpper(_brickColor);
                 else
-                    renderBricksLower();
+                    renderBricksLower(_brickColor);
                 
                 if (_isGlowing)
                     background.Opacity = 1;
@@ -109,202 +109,111 @@ namespace Backgammon
             Update();
         }
 
-        private void renderBricksLower() {
-            if (_brickColor == COLOR.WHITE)
-            {
-                // Brickplats fem
-                if (_size > 0 && _size < 6)
-                    brickSpaceFive.Background = whiteBrick[0];
-                else if (_size >= 6 && _size < 11)
-                    brickSpaceFive.Background = whiteBrick[1];
-                else if (_size >= 11)
-                    brickSpaceFive.Background = whiteBrick[2];
-                else
-                    brickSpaceFive.Background = null;
-                // Brickplats fyra
-                if (_size > 1 && _size < 7)
-                    brickSpaceFour.Background = whiteBrick[0];
-                else if (_size >= 7 && _size < 12)
-                    brickSpaceFour.Background = whiteBrick[1];
-                else if (_size >= 12)
-                    brickSpaceFour.Background = whiteBrick[2];
-                else
-                    brickSpaceFour.Background = null;
-                // Brickplats tre
-                if (_size > 2 && _size < 8)
-                    brickSpaceThree.Background = whiteBrick[0];
-                else if (_size >= 8 && _size < 13)
-                    brickSpaceThree.Background = whiteBrick[1];
-                else if (_size >= 13)
-                    brickSpaceThree.Background = whiteBrick[2];
-                else
-                    brickSpaceThree.Background = null;
-                // Brickplats två
-                if (_size > 3 && _size < 9)
-                    brickSpaceTwo.Background = whiteBrick[0];
-                else if (_size >= 9 && _size < 14)
-                    brickSpaceTwo.Background = whiteBrick[1];
-                else if (_size >= 14)
-                    brickSpaceTwo.Background = whiteBrick[2];
-                else
-                    brickSpaceTwo.Background = null;
-                // Brickplats ett
-                if (_size > 4 && _size < 10)
-                    brickSpaceOne.Background = whiteBrick[0];
-                else if (_size >= 10 && _size < 15)
-                    brickSpaceOne.Background = whiteBrick[1];
-                else if (_size >= 15)
-                    brickSpaceOne.Background = whiteBrick[2];
-                else
-                    brickSpaceOne.Background = null;
-            }
+        private void renderBricksLower(COLOR color) {
+            int theme;
+            if (color == COLOR.WHITE)
+                theme = 0;
             else
-            {
-                // Brickplats fem
-                if (_size > 0 && _size < 6)
-                    brickSpaceFive.Background = blackBrick[0];
-                else if (_size >= 6 && _size < 11)
-                    brickSpaceFive.Background = blackBrick[1];
-                else if (_size >= 11)
-                    brickSpaceFive.Background = blackBrick[2];
-                else
-                    brickSpaceFive.Background = null;
-                // Brickplats fyra
-                if (_size > 1 && _size < 7)
-                    brickSpaceFour.Background = blackBrick[0];
-                else if (_size >= 7 && _size < 12)
-                    brickSpaceFour.Background = blackBrick[1];
-                else if (_size >= 12)
-                    brickSpaceFour.Background = blackBrick[2];
-                else
-                    brickSpaceFour.Background = null;
-                // Brickplats tre
-                if (_size > 2 && _size < 8)
-                    brickSpaceThree.Background = blackBrick[0];
-                else if (_size >= 8 && _size < 13)
-                    brickSpaceThree.Background = blackBrick[1];
-                else if (_size >= 13)
-                    brickSpaceThree.Background = blackBrick[2];
-                else
-                    brickSpaceThree.Background = null;
-                // Brickplats två
-                if (_size > 3 && _size < 9)
-                    brickSpaceTwo.Background = blackBrick[0];
-                else if (_size >= 9 && _size < 14)
-                    brickSpaceTwo.Background = blackBrick[1];
-                else if (_size >= 14)
-                    brickSpaceTwo.Background = blackBrick[2];
-                else
-                    brickSpaceTwo.Background = null;
-                // Brickplats ett
-                if (_size > 4 && _size < 10)
-                    brickSpaceOne.Background = blackBrick[0];
-                else if (_size >= 10 && _size < 15)
-                    brickSpaceOne.Background = blackBrick[1];
-                else if (_size >= 15)
-                    brickSpaceOne.Background = blackBrick[2];
-                else
-                    brickSpaceOne.Background = null;
-            }
+                theme = 1;
+
+            // Brickplats fem
+            if (_size > 0 && _size < 6)
+                brickSpaceFive.Background = singleBrick[theme];
+            else if (_size >= 6 && _size < 11)
+                brickSpaceFive.Background = doubleBrick[theme];
+            else if (_size >= 11)
+                brickSpaceFive.Background = tripleBrick[theme];
+            else
+                brickSpaceFive.Background = null;
+            // Brickplats fyra
+            if (_size > 1 && _size < 7)
+                brickSpaceFour.Background = singleBrick[theme];
+            else if (_size >= 7 && _size < 12)
+                brickSpaceFour.Background = doubleBrick[theme];
+            else if (_size >= 12)
+                brickSpaceFour.Background = tripleBrick[theme];
+            else
+                brickSpaceFour.Background = null;
+            // Brickplats tre
+            if (_size > 2 && _size < 8)
+                brickSpaceThree.Background = singleBrick[theme];
+            else if (_size >= 8 && _size < 13)
+                brickSpaceThree.Background = doubleBrick[theme];
+            else if (_size >= 13)
+                brickSpaceThree.Background = tripleBrick[theme];
+            else
+                brickSpaceThree.Background = null;
+            // Brickplats två
+            if (_size > 3 && _size < 9)
+                brickSpaceTwo.Background = singleBrick[theme];
+            else if (_size >= 9 && _size < 14)
+                brickSpaceTwo.Background = doubleBrick[theme];
+            else if (_size >= 14)
+                brickSpaceTwo.Background = tripleBrick[theme];
+            else
+                brickSpaceTwo.Background = null;
+            // Brickplats ett
+            if (_size > 4 && _size < 10)
+                brickSpaceOne.Background = singleBrick[theme];
+            else if (_size >= 10 && _size < 15)
+                brickSpaceOne.Background = doubleBrick[theme];
+            else if (_size >= 15)
+                brickSpaceOne.Background = tripleBrick[theme];
+            else
+                brickSpaceOne.Background = null;  
         }
 
-        private void renderBricksUpper() {
-            if (_brickColor == COLOR.WHITE)
-            {
-                // Brickplats ett
-                if (_size > 0 && _size < 6)
-                    brickSpaceOne.Background = whiteBrick[0];
-                else if (_size >= 6 && _size < 11)
-                    brickSpaceOne.Background = whiteBrick[1];
-                else if (_size >= 11)
-                    brickSpaceOne.Background = whiteBrick[2];
-                else
-                    brickSpaceOne.Background = null;
-                // Brickplats två
-                if (_size > 1 && _size < 7)
-                    brickSpaceTwo.Background = whiteBrick[0];
-                else if (_size >= 7 && _size < 12)
-                    brickSpaceTwo.Background = whiteBrick[1];
-                else if (_size >= 12)
-                    brickSpaceTwo.Background = whiteBrick[2];
-                else
-                    brickSpaceTwo.Background = null;
-                // Brickplats tre
-                if (_size > 2 && _size < 8)
-                    brickSpaceThree.Background = whiteBrick[0];
-                else if (_size >= 8 && _size < 13)
-                    brickSpaceThree.Background = whiteBrick[1];
-                else if (_size >= 13)
-                    brickSpaceThree.Background = whiteBrick[2];
-                else
-                    brickSpaceThree.Background = null;
-                // Brickplats fyra
-                if (_size > 3 && _size < 9)
-                    brickSpaceFour.Background = whiteBrick[0];
-                else if (_size >= 9 && _size < 14)
-                    brickSpaceFour.Background = whiteBrick[1];
-                else if (_size >= 14)
-                    brickSpaceFour.Background = whiteBrick[2];
-                else
-                    brickSpaceFour.Background = null;
-                // Brickplats fem
-                if (_size > 4 && _size < 10)
-                    brickSpaceFive.Background = whiteBrick[0];
-                else if (_size >= 10 && _size < 15)
-                    brickSpaceFive.Background = whiteBrick[1];
-                else if (_size >= 15)
-                    brickSpaceFive.Background = whiteBrick[2];
-                else
-                    brickSpaceFive.Background = null;
-            }
+        private void renderBricksUpper(COLOR color) {
+            int theme;
+            if (color == COLOR.WHITE)
+                theme = 0;
             else
-            {
-                // Brickplats ett
-                if (_size > 0 && _size < 6)
-                    brickSpaceOne.Background = blackBrick[0];
-                else if (_size >= 6 && _size < 11)
-                    brickSpaceOne.Background = blackBrick[1];
-                else if (_size >= 11)
-                    brickSpaceOne.Background = blackBrick[2];
-                else
-                    brickSpaceOne.Background = null;
-                // Brickplats två
-                if (_size > 1 && _size < 7)
-                    brickSpaceTwo.Background = blackBrick[0];
-                else if (_size >= 7 && _size < 12)
-                    brickSpaceTwo.Background = blackBrick[1];
-                else if (_size >= 12)
-                    brickSpaceTwo.Background = blackBrick[2];
-                else
-                    brickSpaceTwo.Background = null;
-                // Brickplats tre
-                if (_size > 2 && _size < 8)
-                    brickSpaceThree.Background = blackBrick[0];
-                else if (_size >= 8 && _size < 13)
-                    brickSpaceThree.Background = blackBrick[1];
-                else if (_size >= 13)
-                    brickSpaceThree.Background = blackBrick[2];
-                else
-                    brickSpaceThree.Background = null;
-                // Brickplats fyra
-                if (_size > 3 && _size < 9)
-                    brickSpaceFour.Background = blackBrick[0];
-                else if (_size >= 9 && _size < 14)
-                    brickSpaceFour.Background = blackBrick[1];
-                else if (_size >= 14)
-                    brickSpaceFour.Background = blackBrick[2];
-                else
-                    brickSpaceFour.Background = null;
-                // Brickplats fem
-                if (_size > 4 && _size < 10)
-                    brickSpaceFive.Background = blackBrick[0];
-                else if (_size >= 10 && _size < 15)
-                    brickSpaceFive.Background = blackBrick[1];
-                else if (_size >= 15)
-                    brickSpaceFive.Background = blackBrick[2];
-                else
-                    brickSpaceFive.Background = null;
-            }
+                theme = 1;
+            // Brickplats ett
+            if (_size > 0 && _size < 6)
+                brickSpaceOne.Background = singleBrick[theme];
+            else if (_size >= 6 && _size < 11)
+                brickSpaceOne.Background = doubleBrick[theme];
+            else if (_size >= 11)
+                brickSpaceOne.Background = tripleBrick[theme];
+            else
+                brickSpaceOne.Background = null;
+            // Brickplats två
+            if (_size > 1 && _size < 7)
+                brickSpaceTwo.Background = singleBrick[theme];
+            else if (_size >= 7 && _size < 12)
+                brickSpaceTwo.Background = doubleBrick[theme];
+            else if (_size >= 12)
+                brickSpaceTwo.Background = tripleBrick[theme];
+            else
+                brickSpaceTwo.Background = null;
+            // Brickplats tre
+            if (_size > 2 && _size < 8)
+                brickSpaceThree.Background = singleBrick[theme];
+            else if (_size >= 8 && _size < 13)
+                brickSpaceThree.Background = doubleBrick[theme];
+            else if (_size >= 13)
+                brickSpaceThree.Background = tripleBrick[theme];
+            else
+                brickSpaceThree.Background = null;
+            // Brickplats fyra
+            if (_size > 3 && _size < 9)
+                brickSpaceFour.Background = singleBrick[theme];
+            else if (_size >= 9 && _size < 14)
+                brickSpaceFour.Background = doubleBrick[theme];
+            else if (_size >= 14)
+                brickSpaceFour.Background = tripleBrick[theme];
+            else
+                brickSpaceFour.Background = null;
+            // Brickplats fem
+            if (_size > 4 && _size < 10)
+                brickSpaceFive.Background = singleBrick[theme];
+            else if (_size >= 10 && _size < 15)
+                brickSpaceFive.Background = doubleBrick[theme];
+            else if (_size >= 15)
+                brickSpaceFive.Background = tripleBrick[theme];
+            else
+                brickSpaceFive.Background = null;
         }
 
         private void triangle_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)

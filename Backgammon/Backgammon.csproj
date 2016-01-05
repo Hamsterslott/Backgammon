@@ -155,6 +155,16 @@
     <Resource Include="Resources\isClickedLower.png" />
     <Resource Include="Resources\isClickedUpper.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\blueFelt.png" />
+    <Resource Include="Resources\darkRedFelt.png" />
+    <Resource Include="Resources\greenFelt.png" />
+    <Resource Include="Resources\greenishFelt.png" />
+    <Resource Include="Resources\greenOrangeFelt.png" />
+    <Resource Include="Resources\orangeFelt.png" />
+    <Resource Include="Resources\purlpeFelt.png" />
+    <Resource Include="Resources\redFelt.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

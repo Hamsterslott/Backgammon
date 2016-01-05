@@ -68,20 +68,16 @@ namespace Backgammon
 			//getTriangle(4, 5).setColor(COLOR.BLACK);
 			//getTriangle(4, 5).setSize(5);
 
-<<<<<<< HEAD
- 
-=======
 			//getTriangle(4, 0).setColor(COLOR.WHITE);
 			//getTriangle(4, 0).setSize(2);
 
 
 			for(int i = 1; i < 25; i++)
-				{
+			{
 				getTriangle(i).setColor(COLOR.BLACK);
 				getTriangle(i).setSize(2);
-				}
+			}
             
->>>>>>> origin/master
             update();
         }
 
