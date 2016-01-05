@@ -215,7 +215,7 @@ namespace Backgammon
 
         private void triangle_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            AddBrick();
+            MessageBox.Show(pos.ToString());
             _isClicked = true;
         }
         private void triangle_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
@@ -225,7 +225,7 @@ namespace Backgammon
 
         private void triangle_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
         {
-            RemoveBrick();
+            
         }
 
         private void triangle_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
