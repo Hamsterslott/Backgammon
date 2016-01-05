@@ -53,6 +53,7 @@ namespace Backgammon
 
 			for(int i = 1; i < 25; i++)
 				{
+                    getTriangle(i).setLink(this);
 					if(i < 13) getTriangle(i).setState(STATE.UPPER);
 					else getTriangle(i).setState(STATE.LOWER);
 				}
