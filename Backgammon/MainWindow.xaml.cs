@@ -151,21 +151,24 @@ namespace Backgammon
             if (rect.Visibility == System.Windows.Visibility.Collapsed)
             {
                 rect.Visibility = System.Windows.Visibility.Visible;
-
-                (sender as Button).Content = "<";
-
-
             }
             else
             {
                 rect.Visibility = System.Windows.Visibility.Collapsed;
-
-
-
-
-                (sender as Button).Content = ">";
-            }
+            } 
         }
+
+        private void sidebar_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            if (rect.Visibility == System.Windows.Visibility.Collapsed)
+            {
+                rect.Visibility = System.Windows.Visibility.Visible;
+            }
+            else
+            {
+                rect.Visibility = System.Windows.Visibility.Collapsed;
+            } 
+        } 
 
     }
 }

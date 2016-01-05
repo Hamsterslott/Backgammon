@@ -5,7 +5,7 @@
         Name="duk" Title="Backgammon" MinHeight="600" MinWidth="800" Height="720" Width="1280" Icon="Resources/icon.png" BorderBrush="Black" ResizeMode="CanResizeWithGrip" WindowStartupLocation="CenterScreen" WindowStyle="None"
         MouseLeftButtonDown="Window_MouseLeftButtonDown" AllowsTransparency="True" SizeChanged="Window_SizeChanged" Topmost="True">
     <Window.Background>
-        <ImageBrush ImageSource="Resources/greenFelt.png"/>
+        <ImageBrush ImageSource="Resources/redFelt.png"/>
     </Window.Background>
     <Grid>
         <Label Margin="10, 0, 10, 0" Foreground="#FFB87B23" FontWeight="Bold" FontSize="26">Backgammon</Label>
@@ -63,5 +63,7 @@
                 <ImageBrush ImageSource="Resources/sidebar.png"/>
             </Button.Background>
         </Button>
+        <Image Name="sidebar" Width="28" Height="28" VerticalAlignment="Top" HorizontalAlignment="Right" Source="Resources/sidebar.png" Margin="1242,76,10,0" MouseLeftButtonDown="sidebar_MouseLeftButtonDown">
+        </Image>
     </Grid>
 </Window>
