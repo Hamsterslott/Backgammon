@@ -71,9 +71,7 @@ namespace Backgammon
             getTriangle(4, 0).setColor(COLOR.WHITE);
             getTriangle(4, 0).setSize(2);
 
-
-
-            
+ 
             update();
         }
 

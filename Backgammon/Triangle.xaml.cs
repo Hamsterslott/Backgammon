@@ -35,7 +35,8 @@ namespace Backgammon
         private STATE _state;
         private ImageBrush _background = new ImageBrush();
         private ImageBrush[] whiteBrick = new ImageBrush[3], 
-                             blackBrick = new ImageBrush[3];
+                             blackBrick = new ImageBrush[3],
+                             singleBrick = new ImageBrush[2], doubleBrick = new ImageBrush[2], tripleBrick = new ImageBrush[2];
 
         public Triangle()
         {
@@ -47,13 +48,13 @@ namespace Backgammon
                     whiteBrick[i] = new ImageBrush();
                     blackBrick[i] = new ImageBrush();
                 }
-                whiteBrick[0].ImageSource = new BitmapImage(new Uri("../../Resources/whiteChip1.png", UriKind.Relative));
-                whiteBrick[1].ImageSource = new BitmapImage(new Uri("../../Resources/whiteChip2.png", UriKind.Relative));
-                whiteBrick[2].ImageSource = new BitmapImage(new Uri("../../Resources/whiteChip3.png", UriKind.Relative));
+                singleBrick[0].ImageSource = new BitmapImage(new Uri("../../Resources/whiteChip1.png", UriKind.Relative));
+                doubleBrick[0].ImageSource = new BitmapImage(new Uri("../../Resources/whiteChip2.png", UriKind.Relative));
+                tripleBrick[0].ImageSource = new BitmapImage(new Uri("../../Resources/whiteChip3.png", UriKind.Relative));
 
-                blackBrick[0].ImageSource = new BitmapImage(new Uri("../../Resources/darkChip1.png", UriKind.Relative));
-                blackBrick[1].ImageSource = new BitmapImage(new Uri("../../Resources/darkChip2.png", UriKind.Relative));
-                blackBrick[2].ImageSource = new BitmapImage(new Uri("../../Resources/darkChip3.png", UriKind.Relative));
+                singleBrick[1].ImageSource = new BitmapImage(new Uri("../../Resources/darkChip1.png", UriKind.Relative));
+                doubleBrick[1].ImageSource = new BitmapImage(new Uri("../../Resources/darkChip2.png", UriKind.Relative));
+                tripleBrick[1].ImageSource = new BitmapImage(new Uri("../../Resources/darkChip3.png", UriKind.Relative));
             }
             catch (Exception ex) { Console.WriteLine("brickInit: " + ex.Message); }
             
@@ -104,8 +105,6 @@ namespace Backgammon
             _size--;
             if (_size <= 0)
                 _size = 0;
-
-            MessageBox.Show(_size.ToString());
 
             Update();
         }
@@ -308,14 +307,24 @@ namespace Backgammon
             }
         }
 
-        private void triangle_MouseDown(object sender, MouseButtonEventArgs e)
+        private void triangle_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             AddBrick();
             _isClicked = true;
         }
-        private void triangle_MouseUp(object sender, MouseButtonEventArgs e)
+        private void triangle_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             _isClicked = false;
+        }
+
+        private void triangle_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            RemoveBrick();
+        }
+
+        private void triangle_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
+        {
+
         }
 
         private void triangle_MouseEnter(object sender, MouseEventArgs e)
