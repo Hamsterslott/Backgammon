@@ -3,9 +3,9 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:local="clr-namespace:Backgammon"
         Name="duk" Title="Backgammon" MinHeight="600" MinWidth="800" Height="720" Width="1280" Icon="Resources/icon.png" BorderBrush="Black" ResizeMode="CanResizeWithGrip" WindowStartupLocation="CenterScreen" WindowStyle="None"
-        MouseLeftButtonDown="Window_MouseLeftButtonDown" AllowsTransparency="True" SizeChanged="Window_SizeChanged">
+        MouseLeftButtonDown="Window_MouseLeftButtonDown" AllowsTransparency="True" SizeChanged="Window_SizeChanged" Topmost="True">
     <Window.Background>
-        <ImageBrush ImageSource="Resources/darkRedFelt.png"/>
+        <ImageBrush ImageSource="Resources/greenFelt.png"/>
     </Window.Background>
     <Grid>
         <Label Margin="10, 0, 10, 0" Foreground="#FFB87B23" FontWeight="Bold" FontSize="26">Backgammon</Label>
@@ -55,7 +55,13 @@
                 </UniformGrid>
 
             </Canvas>
+           
         </Viewbox>
-
+        <Rectangle Name="rect" Width="290" VerticalAlignment="Stretch" Fill="#99000000" Visibility="Collapsed"/>
+        <Button Name ="background" Margin="10"  Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Width="32" Height="32" FontSize="16"  VerticalAlignment="Top" HorizontalAlignment="Right" Click="Button_Click">;
+            <Button.Background>
+                <ImageBrush ImageSource="Resources/sidebar.png"/>
+            </Button.Background>
+        </Button>
     </Grid>
 </Window>
