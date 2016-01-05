@@ -57,10 +57,7 @@ namespace Backgammon
             
         }
         private void init() {
-            // TEMP TESTAR //
-                _size = 0;
-                _brickColor = COLOR.BLACK;
-            // TEMP TESTAR END //
+            _size = 0;
 
             if (_state == STATE.UPPER)
                 _background.ImageSource = new BitmapImage(new Uri("../../Resources/isClickedUpper.png", UriKind.Relative));
@@ -260,6 +257,7 @@ namespace Backgammon
         }
         public void setColor(COLOR color) {
             this._brickColor = color;
+            Update();
         }
         public STATE getState() {
             return _state;
