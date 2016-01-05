@@ -22,6 +22,8 @@ namespace Backgammon
         public Splash()
         {
             InitializeComponent();
+			backGammon.Show();
+            this.Close();
         }
 
         private void Grid_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
