@@ -20,18 +20,22 @@ namespace Backgammon
     public partial class MainWindow : Window
     {
 
-        int[] dice;
-		BackgammonModel _model = new BackgammonModel();
-		triangel [] spelplan;
-		Triangle [] valdaTrianglar = new Triangle[2];
+        private int[] dice;
+		private BackgammonModel _model = new BackgammonModel();
+		private triangel [] spelplan;
+		private Triangle [] valdaTrianglar = new Triangle[2];
 		private int trianglePos = 0;
-        		private ImageBrush[] _background = new ImageBrush[8];
+        private ImageBrush[] _background = new ImageBrush[8];
 
         public MainWindow()
         {
             InitializeComponent();
-            // Initierar allt vid start
+			init();
+            update();
+        }
 
+		private void init()
+		{
 			dice = new int[4]{1,1,1,1};
 			spelplan = _model.newGame();
             for (int i = 0; i < _background.Length; i++)
@@ -56,22 +60,17 @@ namespace Backgammon
 
 			for(int i = 1; i < 25; i++)
 				{
-                    getTriangle(i).setLink(this);
-					if(i < 13) getTriangle(i).setState(STATE.UPPER);
-					else getTriangle(i).setState(STATE.LOWER);
+					Triangle t = getTriangle(i);
+                    t.setLink(this);
+					if(i < 13) t.setState(STATE.UPPER);
+					else t.setState(STATE.LOWER);
+
+					int index = _model.correctPos(t.getPos());
+					t.setSize(spelplan[index].antal);
+					t.setColor(spelplan[index].color);
 				}
 
-
-			for(int i = 1; i < 25; i++)
-			{
-				Triangle t = getTriangle(i);
-				int index = _model.correctPos(t.getPos());
-				t.setSize(spelplan[index].antal);
-				t.setColor(spelplan[index].color);
-			}
-            
-            update();
-        }
+		}
 
 
 		public void setTriangle(Triangle t)
@@ -82,12 +81,7 @@ namespace Backgammon
 
 				if (_model.move(spelplan, valdaTrianglar[0].getPos(),valdaTrianglar[1].getPos(),dice,COLOR.WHITE)) 
 					{
-					for(int i = 0; i < 2; i++)
-						{
-						int index = _model.correctPos(valdaTrianglar[i].getPos());
-						valdaTrianglar[i].setSize(spelplan[index].antal);
-						valdaTrianglar[i].setColor(spelplan[index].color);
-						}
+					updateTriangles();
 					}
 				else {MessageBox.Show("felaktigt move"); }
 				trianglePos = 0;
@@ -95,6 +89,23 @@ namespace Backgammon
 		}
 
 
+		private void updateTriangles()
+		{
+			if(valdaTrianglar[1].getSize() == 1 && valdaTrianglar[0].getColor() != valdaTrianglar[1].getColor())
+				{
+				int bar;
+				if (valdaTrianglar[0].getColor() == COLOR.WHITE) bar=25;
+				else bar=26;
+ 				getTriangle(bar).setSize(spelplan[_model.correctPos(bar)].antal);
+				}
+
+			for(int i = 0; i < 2; i++)
+				{
+				int index = _model.correctPos(valdaTrianglar[i].getPos());
+				valdaTrianglar[i].setSize(spelplan[index].antal);
+				valdaTrianglar[i].setColor(spelplan[index].color);
+				}
+		}
 
         private void setBackground(int index) {
             duk.Background = _background[index];
@@ -190,18 +201,6 @@ namespace Backgammon
         private void Grid_MouseLeave(object sender, MouseEventArgs e)
         {
 
-        }
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
-            if (rect.Visibility == System.Windows.Visibility.Collapsed)
-            {
-                rect.Visibility = System.Windows.Visibility.Visible;
-            }
-            else
-            {
-                rect.Visibility = System.Windows.Visibility.Collapsed;
-            } 
         }
 
         private void sidebar_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
