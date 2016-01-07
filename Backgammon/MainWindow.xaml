@@ -8,7 +8,7 @@
         <ImageBrush ImageSource="Resources/greenFelt.png"/>
     </Window.Background>
     <Grid>
-        <Label Margin="9, 2, 10, 0" Foreground="Black" FontWeight="Bold" FontSize="26">Backgammon</Label>
+        <Label Margin="11, 2, 10, 0" Foreground="Black" FontWeight="Bold" FontSize="26">Backgammon</Label>
         <Label Margin="10, 0, 10, 0" Foreground="#FFB87B23" FontWeight="Bold" FontSize="26">Backgammon</Label>
         <Button Name="maximize" Click="maximize_Click" Content="[___]" HorizontalAlignment="Right" Margin="0,10,43,0" VerticalAlignment="Top" Width="28" Height="28" Background="#FFB87B23"/>
         <Button Name="minimize" Click="minimize_Click" Content="_____" HorizontalAlignment="Right" Margin="0,10,76,0" VerticalAlignment="Top" Width="28" Height="28" Background="#FFB87B23"/>
