@@ -64,7 +64,7 @@
             </Canvas>
            
         </Viewbox>
-        <Rectangle Name="rect" Width="290" VerticalAlignment="Stretch" HorizontalAlignment="Right" Fill="#99000000" Visibility="Collapsed"/>
+        <Rectangle x:Name="Sidebar" Width="290" VerticalAlignment="Stretch" HorizontalAlignment="Right" Fill="#99000000" Visibility="Collapsed"/>
         <Image Opacity="0.6" Name="sidebar" Width="28" Height="28" VerticalAlignment="Top" HorizontalAlignment="Right" Source="Resources/sidebar.png" Margin="0,43,10,0" MouseLeftButtonDown="sidebar_MouseLeftButtonDown"/>
     </Grid>
 </Window>

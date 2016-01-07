@@ -208,7 +208,7 @@ namespace Backgammon
 
         private void triangle_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            _mainWindow.setTriangle((Triangle)sender);
+            _mainWindow.selectTriangle((Triangle)sender);
             _isClicked = true;
         }
         private void triangle_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
@@ -245,7 +245,6 @@ namespace Backgammon
         }
         public void setSize(int size) {
             this._size = size;
-            Update();
         }
 
 		public int getPos() {
@@ -261,7 +260,6 @@ namespace Backgammon
         }
         public void setColor(COLOR color) {
             this._brickColor = color;
-            Update();
         }
         public STATE getState() {
             return _state;
