@@ -31,7 +31,7 @@ namespace Backgammon
         {
             InitializeComponent();
 			init();
-            update();
+            updateView();
         }
 
 		private void init()
@@ -54,18 +54,12 @@ namespace Backgammon
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
 
-			setBackground(1);
-            //alignLeft();
-            alignRight();
-
 			for(int i = 1; i < 25; i++)
 				{
 					Triangle t = getTriangle(i);
                     t.setLink(this);
 					if(i < 13) t.setState(STATE.UPPER);
 					else t.setState(STATE.LOWER);
-
-					updateTriangle(t);
 				}
 
 		}
@@ -109,6 +103,7 @@ namespace Backgammon
 			t.Update();
 		}
 
+
         private void setBackground(int index) {
             duk.Background = _background[index];
         }
@@ -132,8 +127,15 @@ namespace Backgammon
 				}
 		}
 
-        private void update() {
-            updateScale();
+        private void updateView() 
+		{
+
+			//Tänker mig att denna funktionen tar variabler från sidebar
+			// och sedan uppdaterar baserat på vad man valt.
+			setBackground(2);
+            alignRight();
+			for (int i = 0; i<24; i++) updateTriangle(getTriangle(i+1));
+
         }
 
         // Håller en 16:9 ratio på spelplanen
