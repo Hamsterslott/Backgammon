@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -159,6 +160,23 @@ namespace Backgammon
                 theme = 0;
             else
                 theme = 1;
+
+			/*  test optimering av renderbricks koden. något buggad.
+			Grid grid = this.theGrid as Grid;
+			for (int i = 0; i < 5; i++)
+			{
+				Canvas bricka = grid.Children[i] as Canvas;
+
+				if (_size > i && _size <= 5+i) bricka.Background = singleBrick[theme];
+				
+				else if (_size > 5+i && _size <= 10+i) bricka.Background = doubleBrick[theme];
+                
+				else if (_size > 10+i) bricka.Background = tripleBrick[theme];
+                
+				else  bricka.Background = null;
+			}
+			*/
+
             // Brickplats ett
             if (_size > 0 && _size < 6)
                 brickSpaceOne.Background = singleBrick[theme];
