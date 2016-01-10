@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -42,11 +41,13 @@ namespace Backgammon
 
             try {
                 // Behövde göras
+				
                 for (int i = 0; i < singleBrick.Length; i++) {
                     singleBrick[i] = new ImageBrush();
                     doubleBrick[i] = new ImageBrush();
                     tripleBrick[i] = new ImageBrush();
                 }
+				
                 singleBrick[0].ImageSource = new BitmapImage(new Uri("../../Resources/whiteChip1.png", UriKind.Relative));
                 doubleBrick[0].ImageSource = new BitmapImage(new Uri("../../Resources/whiteChip2.png", UriKind.Relative));
                 tripleBrick[0].ImageSource = new BitmapImage(new Uri("../../Resources/whiteChip3.png", UriKind.Relative));
@@ -71,11 +72,7 @@ namespace Backgammon
 
         public void Update() {
             try {
-
-                if (_state == STATE.UPPER)
-                    renderBricksUpper(_brickColor);
-                else
-                    renderBricksLower(_brickColor);
+                renderBricks();
                 
                 if (_isGlowing)
                     background.Opacity = 1;
@@ -100,129 +97,27 @@ namespace Backgammon
             Update();
         }
 
-        private void renderBricksLower(COLOR color) {
+        private void renderBricks() {
             int theme;
-            if (color == COLOR.WHITE)
-                theme = 0;
-            else
-                theme = 1;
+			Canvas [] Brickor;
+            if (_brickColor == COLOR.WHITE) theme = 0;
+            else theme = 1;
+                
+			if(_state == STATE.UPPER) Brickor = new Canvas[]{brickSpaceOne,brickSpaceTwo,brickSpaceThree,brickSpaceFour,brickSpaceFive};
+			else Brickor = new Canvas[]{brickSpaceFive,brickSpaceFour,brickSpaceThree,brickSpaceTwo,brickSpaceOne};
 
-            // Brickplats fem
-            if (_size > 0 && _size < 6)
-                brickSpaceFive.Background = singleBrick[theme];
-            else if (_size >= 6 && _size < 11)
-                brickSpaceFive.Background = doubleBrick[theme];
-            else if (_size >= 11)
-                brickSpaceFive.Background = tripleBrick[theme];
-            else
-                brickSpaceFive.Background = null;
-            // Brickplats fyra
-            if (_size > 1 && _size < 7)
-                brickSpaceFour.Background = singleBrick[theme];
-            else if (_size >= 7 && _size < 12)
-                brickSpaceFour.Background = doubleBrick[theme];
-            else if (_size >= 12)
-                brickSpaceFour.Background = tripleBrick[theme];
-            else
-                brickSpaceFour.Background = null;
-            // Brickplats tre
-            if (_size > 2 && _size < 8)
-                brickSpaceThree.Background = singleBrick[theme];
-            else if (_size >= 8 && _size < 13)
-                brickSpaceThree.Background = doubleBrick[theme];
-            else if (_size >= 13)
-                brickSpaceThree.Background = tripleBrick[theme];
-            else
-                brickSpaceThree.Background = null;
-            // Brickplats två
-            if (_size > 3 && _size < 9)
-                brickSpaceTwo.Background = singleBrick[theme];
-            else if (_size >= 9 && _size < 14)
-                brickSpaceTwo.Background = doubleBrick[theme];
-            else if (_size >= 14)
-                brickSpaceTwo.Background = tripleBrick[theme];
-            else
-                brickSpaceTwo.Background = null;
-            // Brickplats ett
-            if (_size > 4 && _size < 10)
-                brickSpaceOne.Background = singleBrick[theme];
-            else if (_size >= 10 && _size < 15)
-                brickSpaceOne.Background = doubleBrick[theme];
-            else if (_size >= 15)
-                brickSpaceOne.Background = tripleBrick[theme];
-            else
-                brickSpaceOne.Background = null;  
-        }
-
-        private void renderBricksUpper(COLOR color) {
-            int theme;
-            if (color == COLOR.WHITE)
-                theme = 0;
-            else
-                theme = 1;
-
-			/*  test optimering av renderbricks koden. något buggad.
-			Grid grid = this.theGrid as Grid;
-			for (int i = 0; i < 5; i++)
+			for (int i = 0; i < Brickor.Length; i++)
 			{
-				Canvas bricka = grid.Children[i] as Canvas;
-
-				if (_size > i && _size <= 5+i) bricka.Background = singleBrick[theme];
+				if (_size > i && _size <= 5+i) Brickor[i].Background = singleBrick[theme];
 				
-				else if (_size > 5+i && _size <= 10+i) bricka.Background = doubleBrick[theme];
+				else if (_size > 5+i && _size <= 10+i) Brickor[i].Background = doubleBrick[theme];
                 
-				else if (_size > 10+i) bricka.Background = tripleBrick[theme];
+				else if (_size > 10+i) Brickor[i].Background = tripleBrick[theme];
                 
-				else  bricka.Background = null;
+				else  Brickor[i].Background = null;
 			}
-			*/
 
-            // Brickplats ett
-            if (_size > 0 && _size < 6)
-                brickSpaceOne.Background = singleBrick[theme];
-            else if (_size >= 6 && _size < 11)
-                brickSpaceOne.Background = doubleBrick[theme];
-            else if (_size >= 11)
-                brickSpaceOne.Background = tripleBrick[theme];
-            else
-                brickSpaceOne.Background = null;
-            // Brickplats två
-            if (_size > 1 && _size < 7)
-                brickSpaceTwo.Background = singleBrick[theme];
-            else if (_size >= 7 && _size < 12)
-                brickSpaceTwo.Background = doubleBrick[theme];
-            else if (_size >= 12)
-                brickSpaceTwo.Background = tripleBrick[theme];
-            else
-                brickSpaceTwo.Background = null;
-            // Brickplats tre
-            if (_size > 2 && _size < 8)
-                brickSpaceThree.Background = singleBrick[theme];
-            else if (_size >= 8 && _size < 13)
-                brickSpaceThree.Background = doubleBrick[theme];
-            else if (_size >= 13)
-                brickSpaceThree.Background = tripleBrick[theme];
-            else
-                brickSpaceThree.Background = null;
-            // Brickplats fyra
-            if (_size > 3 && _size < 9)
-                brickSpaceFour.Background = singleBrick[theme];
-            else if (_size >= 9 && _size < 14)
-                brickSpaceFour.Background = doubleBrick[theme];
-            else if (_size >= 14)
-                brickSpaceFour.Background = tripleBrick[theme];
-            else
-                brickSpaceFour.Background = null;
-            // Brickplats fem
-            if (_size > 4 && _size < 10)
-                brickSpaceFive.Background = singleBrick[theme];
-            else if (_size >= 10 && _size < 15)
-                brickSpaceFive.Background = doubleBrick[theme];
-            else if (_size >= 15)
-                brickSpaceFive.Background = tripleBrick[theme];
-            else
-                brickSpaceFive.Background = null;
-        }
+		}
 
         private void triangle_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
