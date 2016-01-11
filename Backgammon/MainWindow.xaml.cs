@@ -54,11 +54,13 @@ namespace Backgammon
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
 
-			for(int i = 1; i < 25; i++)
+			for(int i = 1; i < 27; i++)
 				{
 					Triangle t = getTriangle(i);
                     t.setLink(this);
 					if(i < 13) t.setState(STATE.UPPER);
+					else if (i < 25) t.setState(STATE.LOWER);
+					else if (i == 25) t.setState(STATE.UPPER);
 					else t.setState(STATE.LOWER);
 				}
 
@@ -134,7 +136,11 @@ namespace Backgammon
 			// och sedan uppdaterar baserat på vad man valt.
 			setBackground(2);
             alignRight();
-			for (int i = 0; i<24; i++) updateTriangle(getTriangle(i+1));
+
+			//getTriangle(25).setPos(25);
+			//getTriangle(26).setPos(26);
+
+			for (int i = 0; i<26; i++) updateTriangle(getTriangle(i+1));
 
         }
 
@@ -151,15 +157,16 @@ namespace Backgammon
 
 		//den ska gå till 26 sen.
         private Triangle getTriangle(int pos) {
-            if (pos < 0 ||pos > 26)
+            if (pos < 1 ||pos > 26)
                 return null;
 
             Triangle triangle;
             if (pos < 7) { return triangle = gridOne.Children[pos-1] as Triangle; }
             else if (pos < 13) { return triangle = gridTwo.Children[pos-(6+1)] as Triangle; }
             else if (pos < 19) { return triangle = gridFour.Children[pos-(12+1)] as Triangle; }
-            else if (pos < 25){ return triangle = gridThree.Children[pos-(18+1)] as Triangle; }
-			else { return triangle = gridMiddle.Children[pos-(-24+1)] as Triangle; }
+            else if (pos < 25) { return triangle = gridThree.Children[pos-(18+1)] as Triangle; }
+			else if (pos == 25){ return triangle = gridMiddle.Children[1] as Triangle; }
+			else return triangle = gridMiddle.Children[0] as Triangle;
 
         }
 
