@@ -108,13 +108,18 @@ namespace Backgammon
 
 			for (int i = 0; i < Brickor.Length; i++)
 			{
-				if (_size > i && _size <= 5+i) Brickor[i].Background = singleBrick[theme];
+				if(_size == i) 
+					{
+					for(int j = i; j < Brickor.Length; j++) Brickor[j].Background = null;
+					break;
+					}
+
+				else if (_size > i && _size <= 5+i) Brickor[i].Background = singleBrick[theme];
 				
 				else if (_size > 5+i && _size <= 10+i) Brickor[i].Background = doubleBrick[theme];
                 
 				else if (_size > 10+i) Brickor[i].Background = tripleBrick[theme];
                 
-				else  Brickor[i].Background = null;
 			}
 
 		}
