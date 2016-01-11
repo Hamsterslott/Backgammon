@@ -208,7 +208,7 @@ namespace Backgammon
 
         private void sidebar_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            if (Sidebar.Visibility == System.Windows.Visibility.Collapsed)
+           if (Sidebar.Visibility == System.Windows.Visibility.Collapsed)
             {
                 Sidebar.Visibility = System.Windows.Visibility.Visible;
             }
