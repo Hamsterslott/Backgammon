@@ -21,26 +21,26 @@
             </Canvas.Background>
         </Canvas>
         
-        <Canvas Name="brickSpaceOne" Grid.Row="0" Margin="11.2,0,11.2,0">
+        <Canvas Name="brickSpaceOne" Grid.Row="0" Margin="11.2,0,11.2,0" Cursor="Hand">
             
         </Canvas>
 
-        <Canvas Name="brickSpaceTwo" Grid.Row="1" Margin="11.2,0,11.2,0">
+        <Canvas Name="brickSpaceTwo" Grid.Row="1" Margin="11.2,0,11.2,0" Cursor="Hand">
 
 
         </Canvas>
 
-        <Canvas Name="brickSpaceThree" Grid.Row="2" Margin="11.2,0,11.2,0">
+        <Canvas Name="brickSpaceThree" Grid.Row="2" Margin="11.2,0,11.2,0" Cursor="Hand">
 
 
         </Canvas>
 
-        <Canvas Name="brickSpaceFour" Grid.Row="3" Margin="11.2,0,11.2,0">
+        <Canvas Name="brickSpaceFour" Grid.Row="3" Margin="11.2,0,11.2,0" Cursor="Hand">
 
 
         </Canvas>
 
-        <Canvas Name="brickSpaceFive" Grid.Row="4" Margin="11.2,0,11.2,0">
+        <Canvas Name="brickSpaceFive" Grid.Row="4" Margin="11.2,0,11.2,0" Cursor="Hand">
 
 
 
