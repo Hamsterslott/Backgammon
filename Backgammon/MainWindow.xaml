@@ -42,12 +42,12 @@
                     <local:Triangle Height="298" Width="82" />
                     <local:Triangle Height="298" Width="82" />
                 </UniformGrid>
-                
+
                 <UniformGrid Name="gridMiddle" Height="596" Width="70" Canvas.Left="558" Canvas.Top="30" Columns="1" Rows="2">
                     <local:Triangle Height="254" Width="auto" Padding="0,0,0,10"/>
                     <local:Triangle Height="254" Width="auto" Padding="0,10,0,0"/>
                 </UniformGrid>
-                
+
                 <UniformGrid Name="gridThree" Height="298" Width="494" Canvas.Left="623" Canvas.Top="352" Columns="6" Rows="1">
                     <local:Triangle Height="298" Width="82" />
                     <local:Triangle Height="298" Width="82" />
@@ -65,9 +65,10 @@
                     <local:Triangle Height="298" Width="82" />
                     <local:Triangle Height="298" Width="82" />
                 </UniformGrid>
-
+                <Image Name="btnDice" Source="Resources/redDice.png" Height="110" Canvas.Left="1094" Canvas.Top="284" VerticalAlignment="Stretch" Width="110" Cursor="Hand"
+                       MouseEnter="btnDice_MouseEnter" MouseLeave="btnDice_MouseLeave" MouseLeftButtonDown="btnDice_MouseLeftButtonDown"/>
             </Canvas>
-           
+
         </Viewbox>
         <Rectangle x:Name="Sidebar" Width="290" VerticalAlignment="Stretch" HorizontalAlignment="Right" Fill="#99000000" Visibility="Collapsed"/>
         <Image Opacity="0.6" Name="sidebar" Width="28" Height="28" VerticalAlignment="Top" HorizontalAlignment="Right" Source="Resources/sidebar.png" Margin="0,43,10,0" MouseLeftButtonDown="sidebar_MouseLeftButtonDown"/>

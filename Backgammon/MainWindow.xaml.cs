@@ -224,7 +224,22 @@ namespace Backgammon
             {
                 Sidebar.Visibility = System.Windows.Visibility.Collapsed;
             } 
-        } 
+        }
+
+        private void btnDice_MouseEnter(object sender, MouseEventArgs e)
+        {
+            btnDice.Source = new BitmapImage(new Uri("../../Resources/icon.png", UriKind.Relative));
+        }
+
+        private void btnDice_MouseLeave(object sender, MouseEventArgs e)
+        {
+            btnDice.Source = new BitmapImage(new Uri("../../Resources/redDice.png", UriKind.Relative));
+        }
+
+        private void btnDice_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+
+        }
 
     }
 }
