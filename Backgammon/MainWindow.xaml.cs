@@ -148,6 +148,12 @@ namespace Backgammon
 		private void updateScale()
 		{
 			spelPlan.Height = Width / 1.77;
+			if (duk.Height >= 768 && duk.Width >= 1360) 
+			{
+				spelPlan.Height = 768;
+				spelPlan.Width = 1360;
+				return;
+			}
             if (spelPlan.Height >= duk.Height)
                 spelPlan.Height = duk.Height;
 
