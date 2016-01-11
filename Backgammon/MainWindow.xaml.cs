@@ -151,14 +151,15 @@ namespace Backgammon
 
 		//den ska gå till 26 sen.
         private Triangle getTriangle(int pos) {
-            if (pos < 0 ||pos > 24)
+            if (pos < 0 ||pos > 26)
                 return null;
 
             Triangle triangle;
             if (pos < 7) { return triangle = gridOne.Children[pos-1] as Triangle; }
             else if (pos < 13) { return triangle = gridTwo.Children[pos-(6+1)] as Triangle; }
             else if (pos < 19) { return triangle = gridFour.Children[pos-(12+1)] as Triangle; }
-            else { return triangle = gridThree.Children[pos-(18+1)] as Triangle; }
+            else if (pos < 25){ return triangle = gridThree.Children[pos-(18+1)] as Triangle; }
+			else { return triangle = gridMiddle.Children[pos-(-24+1)] as Triangle; }
 
         }
 
