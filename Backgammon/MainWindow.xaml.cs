@@ -215,7 +215,7 @@ namespace Backgammon
 			//Tänker mig att denna funktionen tar variabler från sidebar
 			// och sedan uppdaterar baserat på vad man valt.
 			setBackground(2);
-            alignRight();
+            alignLeft();
 
 			getTriangle(25).setPos(25);
 			getTriangle(26).setPos(26);
