@@ -40,8 +40,7 @@ namespace Backgammon
             InitializeComponent();
 
             try {
-                // Behövde göras
-				
+                // Behövde göras	
                 for (int i = 0; i < singleBrick.Length; i++) {
                     singleBrick[i] = new ImageBrush();
                     doubleBrick[i] = new ImageBrush();

@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Backgammon;
 
 namespace Backgammon
 {
@@ -21,12 +22,14 @@ namespace Backgammon
     {
 
         private int[] dice;
-		private BackgammonModel _model = new BackgammonModel();
+        private BrickHolder utslagnaVit, utslagnaSvart;
+        private BackgammonModel _model = new BackgammonModel();
 		private triangel [] gameBoard;
 		private Triangle [] selectedTriangles = new Triangle[2];
 		private int trianglePos = 0;
         private ImageBrush[] _background = new ImageBrush[8];
 		private BitmapImage[] _dices = new BitmapImage[7];
+
         public MainWindow()
         {
             InitializeComponent();
@@ -39,7 +42,14 @@ namespace Backgammon
 		{
 			dice = new int[4]{1,1,1,1};
 			gameBoard = _model.newGame();
-            
+
+            utslagnaVit = utslagnaEtt.Children[0] as BrickHolder;
+            utslagnaVit.setColor(COLOR.WHITE);
+            utslagnaVit.setSize(14);
+            utslagnaSvart = utslagnaTvå.Children[0] as BrickHolder;
+            utslagnaSvart.setColor(COLOR.BLACK);
+            utslagnaSvart.setSize(7);
+
 			initimages();
 
 			for(int i = 1; i < 27; i++)

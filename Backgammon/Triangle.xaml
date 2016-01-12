@@ -15,7 +15,7 @@
             <RowDefinition Height="100*"/>
         </Grid.RowDefinitions>
 
-        <Canvas Name="background" Height="298">
+        <Canvas Name="background" Height="298" Opacity="0">
             <Canvas.Background>
                 <ImageBrush ImageSource="Resources/isClickedUpper.png"/>
             </Canvas.Background>

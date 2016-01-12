@@ -22,7 +22,7 @@
                 </Canvas.Effect>
 
                 <Canvas.Background>
-                    <ImageBrush ImageSource="Resources/bgBackgammonNice.png"/>
+                    <ImageBrush ImageSource="Resources/bgBackgammonNiceV2.png"/>
                 </Canvas.Background>
 
                 <UniformGrid Name="gridOne" Height="298" Width="494" Canvas.Left="71" Canvas.Top="14" Columns="6" Rows="1">
@@ -71,6 +71,13 @@
                     <Image Margin="5,5,5,5" Name="dice2"></Image>
                     <Image Margin="5,5,5,5" Name="dice3"></Image>
                     <Image Margin="5,5,5,5" Name="dice4"></Image>
+                </UniformGrid>
+                
+                <UniformGrid Name="utslagnaEtt" Canvas.Left="10" Canvas.Top="47" Height="223" Width="56">
+                    <local:BrickHolder Width="auto" Height="auto"></local:BrickHolder>
+                </UniformGrid>
+                <UniformGrid Name="utslagnaTvå" Canvas.Left="10" Canvas.Top="393" Height="223" Width="56">
+                    <local:BrickHolder Width="auto" Height="auto"></local:BrickHolder>
                 </UniformGrid>
 
                 <Image Name="btnDice" Source="Resources/redDice.png" Height="110" Canvas.Left="1094" Canvas.Top="284" VerticalAlignment="Stretch" Width="110" Cursor="Hand"
