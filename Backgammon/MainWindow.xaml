@@ -67,17 +67,19 @@
                     <local:Triangle Height="298" Width="82" />
                 </UniformGrid>
 
-                <UniformGrid x:Name="gridDices" Height="256" Width="70" Rows="4" Columns="1" Canvas.Left="1122" Canvas.Top="14">
+                <UniformGrid x:Name="gridDices" Height="67" Width="334" Rows="1" Columns="4" Canvas.Left="742" Canvas.Top="302">
                     <Image Margin="5,5,5,5" x:Name="dice1"/>
                     <Image Margin="5,5,5,5" x:Name="dice2"/>
                     <Image Margin="5,5,5,5" x:Name="dice3"/>
                     <Image Margin="5,5,5,5" x:Name="dice4"/>
                 </UniformGrid>
-                
-                <UniformGrid Name="utslagnaEtt" Canvas.Left="10" Canvas.Top="47" Height="223" Width="56">
+
+
+
+                <UniformGrid Name="utslagnaEtt" Canvas.Left="5" Canvas.Top="90" Height="181" Width="60">
                     <local:BrickHolder Width="auto" Height="auto"></local:BrickHolder>
                 </UniformGrid>
-                <UniformGrid Name="utslagnaTvå" Canvas.Left="10" Canvas.Top="393" Height="223" Width="56">
+                <UniformGrid Name="utslagnaTvå" Canvas.Left="6" Canvas.Top="440" Height="181" Width="60">
                     <local:BrickHolder Width="auto" Height="auto"></local:BrickHolder>
                 </UniformGrid>
 
