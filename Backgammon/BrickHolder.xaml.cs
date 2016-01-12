@@ -19,9 +19,11 @@ namespace Backgammon
     public partial class BrickHolder : UserControl
     {
 
+		private MainWindow _mainWindow = null;
         private COLOR _color;
         private ImageBrush[] brick = new ImageBrush[2];
         private int _size = 0;
+		private int _pos;
 
         public BrickHolder()
         {
@@ -51,28 +53,29 @@ namespace Backgammon
                 }
             }
         }
-        public void addBrick() {
-            _size++;
-            if (_size >= 15)
-                _size = 15;
-            update();
-        }
-        public void removeBrick() {
-            _size--;
-            if (_size <= 0)
-                _size = 0;
-            update();
-        }
+
 
         // GETTERS AND SETTERS //
+		public void setLink(MainWindow mw) {
+            _mainWindow = mw;
+        }
+
         public void setColor(COLOR color) {
             _color = color;
-            update();
         }
         public void setSize(int size) {
             _size = size;
             update();
         }
+
+		public int getPos() {
+            return _pos;
+        }
+        public void setPos(int pos) {
+            this._pos = pos;
+        }
+
+
         // GETTERS AND SETTERS END //
     }
 }

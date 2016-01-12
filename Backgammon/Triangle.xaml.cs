@@ -81,20 +81,6 @@ namespace Backgammon
             catch (Exception ex) { Console.WriteLine("renderUpdate: " + ex.Message); }
         }
 
-        public void AddBrick() {
-            _size++;
-            if (_size > 15)
-                _size = 15;
-
-            Update();
-        }
-        public void RemoveBrick() {
-            _size--;
-            if (_size <= 0)
-                _size = 0;
-
-            Update();
-        }
 
         private void renderBricks() {
             int theme;

@@ -20,7 +20,7 @@ namespace Backgammon
     public partial class MainWindow : Window
     {
 
-        private int[] dice;
+        private int[] dice = new int[]{0,0,0,0};
         private BrickHolder[] utslagna = new BrickHolder[2];
 		private BackgammonModel _model = new BackgammonModel();
 		private triangel [] gameBoard;
@@ -30,20 +30,18 @@ namespace Backgammon
 		private BitmapImage[] _dices = new BitmapImage[7];
 
         private COLOR spelare = COLOR.WHITE;
-        int player1checkers = 15;
-        int player2checkers = 15;
+        int [] playercheckers = new int[]{15,15};
+  
 
         public MainWindow()
         {
             InitializeComponent();
 			init();
             updateView();
-			renderDices();
         }
 
 		private void init()
 		{
-			dice = new int[4]{1,1,1,1};
 			gameBoard = _model.newGame();
             spelare = COLOR.WHITE;
 
@@ -54,8 +52,12 @@ namespace Backgammon
             utslagna[0].setColor(COLOR.WHITE);
             utslagna[1].setColor(COLOR.BLACK);
 
-            utslagna[0].setSize(15);
-            utslagna[1].setSize(15);
+            utslagna[0].setSize(15-playercheckers[0]);
+            utslagna[1].setSize(15-playercheckers[1]);
+
+			utslagna[0].setLink(this);
+			utslagna[1].setLink(this);
+        
 
 			for(int i = 1; i < 27; i++)
 				{
@@ -142,8 +144,8 @@ namespace Backgammon
                         {
                             if (_model.moveGoal(gameBoard, selectedTriangles[0].getPos(), dice, spelare))
                             {
-                                if (spelare == COLOR.WHITE) player1checkers--;
-                                else player2checkers--;
+                                playercheckers[(int)spelare]--;
+								utslagna[(int)spelare].setSize(15-playercheckers[0]);
                             }
                             else
                             {
