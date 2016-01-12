@@ -20,7 +20,7 @@ namespace Backgammon
     public partial class MainWindow : Window
     {
 
-        private int[] dice = new int[]{0,0,0,0};
+        private int[] dice = new int[4];
         private BrickHolder[] utslagna = new BrickHolder[2];
 		private BackgammonModel _model = new BackgammonModel();
 		private triangel [] gameBoard;
@@ -29,7 +29,7 @@ namespace Backgammon
         private ImageBrush[] _background = new ImageBrush[8];
 		private BitmapImage[] _dices = new BitmapImage[7];
 
-        private COLOR spelare = COLOR.WHITE;
+        private COLOR spelare = COLOR.BLACK;
         int [] playercheckers = new int[]{15,15};
   
 
@@ -43,20 +43,17 @@ namespace Backgammon
 		private void init()
 		{
 			gameBoard = _model.newGame();
-            spelare = COLOR.WHITE;
 
             initimages();
 
-            utslagna[0] = utslagnaEtt.Children[0] as BrickHolder;
+			utslagna[0] = utslagnaEtt.Children[0] as BrickHolder;
             utslagna[1] = utslagnaTvå.Children[0] as BrickHolder;
-            utslagna[0].setColor(COLOR.WHITE);
-            utslagna[1].setColor(COLOR.BLACK);
-
-            utslagna[0].setSize(15-playercheckers[0]);
-            utslagna[1].setSize(15-playercheckers[1]);
-
-			utslagna[0].setLink(this);
-			utslagna[1].setLink(this);
+			for(int i = 0; i<2; i++)
+			{
+			utslagna[i].setColor((COLOR)i);
+			utslagna[i].setSize(15-playercheckers[i]);
+			utslagna[i].setLink(this);
+			}
         
 
 			for(int i = 1; i < 27; i++)
@@ -75,12 +72,6 @@ namespace Backgammon
 		{
 			for (int i = 0; i < _background.Length; i++)
                 _background[i] = new ImageBrush();
-
-			/* verkade inte behöva denna till datatypen BitmapImage
-			 * for (int i = 0; i < _dices.Length; i++)
-                _dices[i] = new BitmapImage();
-			*/
-
 
 
             // Hämtar alla bakgrunder
@@ -108,14 +99,9 @@ namespace Backgammon
 
 		private void renderDices() {
 
-			Image [] dices;
-			dices = new Image[]{dice1,dice2,dice3,dice4};
-			
+			Image [] dices = new Image[]{dice1,dice2,dice3,dice4};
 
-			for (int i = 0; i < dices.Length; i++)
-			{
-                dices[i].Source = _dices[dice[i]];
-			}
+			for (int i = 0; i < dices.Length; i++) dices[i].Source = _dices[dice[i]];
 
 		}
 
