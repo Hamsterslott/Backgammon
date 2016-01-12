@@ -21,6 +21,7 @@ namespace Backgammon
     {
 
         private int[] dice;
+        private BrickHolder[] utslagna = new BrickHolder[2];
 		private BackgammonModel _model = new BackgammonModel();
 		private triangel [] gameBoard;
 		private Triangle [] selectedTriangles = new Triangle[2];
@@ -46,7 +47,15 @@ namespace Backgammon
 			gameBoard = _model.newGame();
             spelare = COLOR.WHITE;
 
-			initimages();
+            initimages();
+
+            utslagna[0] = utslagnaEtt.Children[0] as BrickHolder;
+            utslagna[1] = utslagnaTvå.Children[0] as BrickHolder;
+            utslagna[0].setColor(COLOR.WHITE);
+            utslagna[1].setColor(COLOR.BLACK);
+
+            utslagna[0].setSize(15);
+            utslagna[1].setSize(15);
 
 			for(int i = 1; i < 27; i++)
 				{
@@ -219,10 +228,10 @@ namespace Backgammon
 		private void updateScale()
 		{
 			spelPlan.Height = Width / 1.77;
-			if (duk.Height >= 768 && duk.Width >= 1360) 
+			if (duk.Height >= 900 && duk.Width >= 1600) 
 			{
-				spelPlan.Height = 768;
-				spelPlan.Width = 1360;
+				spelPlan.Height = 900;
+				spelPlan.Width = 1600;
 				return;
 			}
             if (spelPlan.Height >= duk.Height)
