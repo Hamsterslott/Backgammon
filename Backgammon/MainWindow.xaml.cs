@@ -127,14 +127,18 @@ namespace Backgammon
                     int status = _model.canMove(gameBoard, spelare, dice);
                     if (status == -1)
                     {
-                        if (selectedTriangles[0].getPos() != 26 && selectedTriangles[0].getPos() != 27)
+                        if (selectedTriangles[0].getPos() != 25 && selectedTriangles[0].getPos() != 26)
                         {
                             MessageBox.Show("Du måste placera ut din utslagna bricka");
+                        }
+                        else if (!_model.move(gameBoard, selectedTriangles[0].getPos(), selectedTriangles[1].getPos(), dice, spelare))
+                        {
+                            MessageBox.Show("felaktigt move");
                         }
                     }
                     else
                     {
-                        if (status == 2 && (selectedTriangles[1].getPos() == 0 || selectedTriangles[1].getPos() == 26))
+                        if (status == 2 && (selectedTriangles[1].getPos() == 0 || selectedTriangles[1].getPos() == 25))
                         {
                             if (_model.moveGoal(gameBoard, selectedTriangles[0].getPos(), dice, spelare))
                             {
