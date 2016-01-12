@@ -27,6 +27,11 @@ namespace Backgammon
 		private int trianglePos = 0;
         private ImageBrush[] _background = new ImageBrush[8];
 		private BitmapImage[] _dices = new BitmapImage[7];
+
+        private COLOR spelare = COLOR.WHITE;
+        int player1checkers = 15;
+        int player2checkers = 15;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -39,7 +44,8 @@ namespace Backgammon
 		{
 			dice = new int[4]{1,1,1,1};
 			gameBoard = _model.newGame();
-            
+            spelare = COLOR.WHITE;
+
 			initimages();
 
 			for(int i = 1; i < 27; i++)
@@ -109,13 +115,60 @@ namespace Backgammon
 			selectedTriangles[trianglePos++] = t;
 			if(trianglePos == 2)
 				{
-
-				if (_model.move(gameBoard, selectedTriangles[0].getPos(),selectedTriangles[1].getPos(),dice,COLOR.WHITE)) 
-					{
-					updateSelectedTriangles();
-					renderDices();
-					}
-				else {MessageBox.Show("felaktigt move"); }
+                    int status = _model.canMove(gameBoard, spelare, dice);
+                    if (status == -1)
+                    {
+                        if (selectedTriangles[0].getPos() != 26 && selectedTriangles[0].getPos() != 27)
+                        {
+                            MessageBox.Show("Du måste placera ut din utslagna bricka");
+                        }
+                    }
+                    else
+                    {
+                        if (status == 2 && (selectedTriangles[1].getPos() == 0 || selectedTriangles[1].getPos() == 26))
+                        {
+                            if (_model.moveGoal(gameBoard, selectedTriangles[0].getPos(), dice, spelare))
+                            {
+                                if (spelare == COLOR.WHITE) player1checkers--;
+                                else player2checkers--;
+                            }
+                            else
+                            {
+                                MessageBox.Show("felaktigt move");
+                            }
+                        }
+                        else if (!_model.move(gameBoard, selectedTriangles[0].getPos(), selectedTriangles[1].getPos(), dice, spelare))
+                        {
+                            MessageBox.Show("felaktigt move");
+                        }
+                    }
+                  //if (status == 2)
+                  //{
+                  //    if (selectedTriangles[1].getPos() == 0 || selectedTriangles[1].getPos() == 26)
+                  //    {
+                  //        if (_model.moveGoal(gameBoard, selectedTriangles[0].getPos(), dice, spelare))
+                  //        {
+                  //            if (spelare == COLOR.WHITE) player1checkers--;
+                  //            else player2checkers--;
+                  //        }
+                  //        else
+                  //        {
+                  //            MessageBox.Show("felaktigt move");
+                  //        }
+                  //    }
+                  //    else if (!_model.move(gameBoard, selectedTriangles[0].getPos(), selectedTriangles[1].getPos(), dice, spelare))
+                  //    {
+                  //        MessageBox.Show("felaktigt move");
+                  //    }
+                  //}
+                    
+                    status = _model.canMove(gameBoard, spelare, dice);
+                    if (status == 0)
+                    {
+                        btnDice.Visibility = System.Windows.Visibility.Visible;
+                    }
+                updateSelectedTriangles();
+                renderDices();
 				trianglePos = 0;
 				}
 		}
@@ -214,6 +267,8 @@ namespace Backgammon
 
         }
 
+
+
         private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             try { DragMove(); }
@@ -282,7 +337,15 @@ namespace Backgammon
 
         private void btnDice_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-
+            if (spelare == COLOR.WHITE) spelare = COLOR.BLACK;
+            else spelare = COLOR.WHITE;
+            dice = _model.letsRollTheDice();
+            renderDices();
+            if (_model.canMove(gameBoard, spelare, dice) != 0)
+            {
+                btnDice.Visibility = System.Windows.Visibility.Collapsed;
+            }
+               
         }
 
     }

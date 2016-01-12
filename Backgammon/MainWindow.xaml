@@ -1,20 +1,21 @@
-﻿<Window x:Class="Backgammon.MainWindow"
+﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:local="clr-namespace:Backgammon"
-        Name="duk" Title="Backgammon" MinHeight="600" MinWidth="800" Height="720" Width="1280" Icon="Resources/icon.png" BorderBrush="Black" ResizeMode="CanResizeWithGrip" WindowStartupLocation="CenterScreen" WindowStyle="None"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="Backgammon.MainWindow"
+        x:Name="duk" Title="Backgammon" MinHeight="600" MinWidth="800" Height="720" Width="1280" Icon="Resources/icon.png" BorderBrush="Black" ResizeMode="CanResizeWithGrip" WindowStartupLocation="CenterScreen" WindowStyle="None"
         MouseLeftButtonDown="Window_MouseLeftButtonDown" AllowsTransparency="True" SizeChanged="Window_SizeChanged" Topmost="True">
     <Window.Background>
         <ImageBrush ImageSource="Resources/greenFelt.png"/>
     </Window.Background>
     <Grid>
-        <Label Margin="11, 2, 10, 0" Foreground="Black" FontWeight="Bold" FontSize="26">Backgammon</Label>
-        <Label Margin="10, 0, 10, 0" Foreground="#FFB87B23" FontWeight="Bold" FontSize="26">Backgammon</Label>
-        <Button Name="maximize" Click="maximize_Click" Content="[___]" HorizontalAlignment="Right" Margin="0,10,43,0" VerticalAlignment="Top" Width="28" Height="28" Background="#FFB87B23"/>
-        <Button Name="minimize" Click="minimize_Click" Content="_____" HorizontalAlignment="Right" Margin="0,10,76,0" VerticalAlignment="Top" Width="28" Height="28" Background="#FFB87B23"/>
-        <Button Name="exit" Click="exit_Click" Content="X" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="28" Height="28" Background="#FFB41616"/>
+        <Label Margin="11, 2, 10, 0" Foreground="Black" FontWeight="Bold" FontSize="26" Content="Backgammon"/>
+        <Label Margin="10, 0, 10, 0" Foreground="#FFB87B23" FontWeight="Bold" FontSize="26" Content="Backgammon"/>
+        <Button x:Name="maximize" Click="maximize_Click" Content="[___]" HorizontalAlignment="Right" Margin="0,10,43,0" VerticalAlignment="Top" Width="28" Height="28" Background="#FFB87B23"/>
+        <Button x:Name="minimize" Click="minimize_Click" Content="_____" HorizontalAlignment="Right" Margin="0,10,76,0" VerticalAlignment="Top" Width="28" Height="28" Background="#FFB87B23"/>
+        <Button x:Name="exit" Click="exit_Click" Content="X" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="28" Height="28" Background="#FFB41616"/>
 
-        <Viewbox Name="spelPlan" Stretch="Fill">
+        <Viewbox x:Name="spelPlan" Stretch="Fill">
             <Canvas HorizontalAlignment="Left" Height="667" Margin="60,100,60,60" VerticalAlignment="Top" Width="1192">
 
                 <Canvas.Effect>
@@ -25,7 +26,7 @@
                     <ImageBrush ImageSource="Resources/bgBackgammonNice.png"/>
                 </Canvas.Background>
 
-                <UniformGrid Name="gridOne" Height="298" Width="494" Canvas.Left="71" Canvas.Top="14" Columns="6" Rows="1">
+                <UniformGrid x:Name="gridOne" Height="298" Width="494" Canvas.Left="71" Canvas.Top="14" Columns="6" Rows="1">
                     <local:Triangle Height="298" Width="82" />
                     <local:Triangle Height="298" Width="82" />
                     <local:Triangle Height="298" Width="82" />
@@ -34,7 +35,7 @@
                     <local:Triangle Height="298" Width="82" />
                 </UniformGrid>
 
-                <UniformGrid Name="gridTwo" Height="298" Width="494" Canvas.Left="623" Canvas.Top="14" Columns="6" Rows="1">
+                <UniformGrid x:Name="gridTwo" Height="298" Width="494" Canvas.Left="623" Canvas.Top="14" Columns="6" Rows="1">
                     <local:Triangle Height="298" Width="82" />
                     <local:Triangle Height="298" Width="82" />
                     <local:Triangle Height="298" Width="82" />
@@ -43,12 +44,12 @@
                     <local:Triangle Height="298" Width="82" />
                 </UniformGrid>
 
-                <UniformGrid Name="gridMiddle" Height="596" Width="70" Canvas.Left="558" Canvas.Top="30" Columns="1" Rows="2">
+                <UniformGrid x:Name="gridMiddle" Height="596" Width="70" Canvas.Left="558" Canvas.Top="30" Columns="1" Rows="2">
                     <local:Triangle Height="254" Width="auto" Padding="0,0,0,10"/>
                     <local:Triangle Height="254" Width="auto" Padding="0,10,0,0"/>
                 </UniformGrid>
 
-                <UniformGrid Name="gridThree" Height="298" Width="494" Canvas.Left="623" Canvas.Top="352" Columns="6" Rows="1">
+                <UniformGrid x:Name="gridThree" Height="298" Width="494" Canvas.Left="623" Canvas.Top="352" Columns="6" Rows="1">
                     <local:Triangle Height="298" Width="82" />
                     <local:Triangle Height="298" Width="82" />
                     <local:Triangle Height="298" Width="82" />
@@ -57,7 +58,7 @@
                     <local:Triangle Height="298" Width="82" />
                 </UniformGrid>
 
-                <UniformGrid Name="gridFour" Height="298" Width="494" Canvas.Left="71" Canvas.Top="352" Columns="6" Rows="1">
+                <UniformGrid x:Name="gridFour" Height="298" Width="494" Canvas.Left="71" Canvas.Top="352" Columns="6" Rows="1">
                     <local:Triangle Height="298" Width="82" />
                     <local:Triangle Height="298" Width="82" />
                     <local:Triangle Height="298" Width="82" />
@@ -66,19 +67,19 @@
                     <local:Triangle Height="298" Width="82" />
                 </UniformGrid>
 
-                <UniformGrid Name="gridDices" Height="256" Width="70" Rows="4" Columns="1" Canvas.Left="1122" Canvas.Top="14">
-                    <Image Margin="5,5,5,5" Name="dice1"></Image>
-                    <Image Margin="5,5,5,5" Name="dice2"></Image>
-                    <Image Margin="5,5,5,5" Name="dice3"></Image>
-                    <Image Margin="5,5,5,5" Name="dice4"></Image>
+                <UniformGrid x:Name="gridDices" Height="256" Width="70" Rows="4" Columns="1" Canvas.Left="1122" Canvas.Top="14">
+                    <Image Margin="5,5,5,5" x:Name="dice1"/>
+                    <Image Margin="5,5,5,5" x:Name="dice2"/>
+                    <Image Margin="5,5,5,5" x:Name="dice3"/>
+                    <Image Margin="5,5,5,5" x:Name="dice4"/>
                 </UniformGrid>
 
-                <Image Name="btnDice" Source="Resources/redDice.png" Height="110" Canvas.Left="1094" Canvas.Top="284" VerticalAlignment="Stretch" Width="110" Cursor="Hand"
-                       MouseEnter="btnDice_MouseEnter" MouseLeave="btnDice_MouseLeave" MouseLeftButtonDown="btnDice_MouseLeftButtonDown"/>
+                <Image x:Name="btnDice" Source="Resources/redDice.png" Height="110" Canvas.Left="1094" Canvas.Top="284" VerticalAlignment="Stretch" Width="110" Cursor="Hand"
+					MouseEnter="btnDice_MouseEnter" MouseLeave="btnDice_MouseLeave" MouseLeftButtonDown="btnDice_MouseLeftButtonDown"/>
             </Canvas>
 
         </Viewbox>
         <Rectangle x:Name="Sidebar" Width="290" VerticalAlignment="Stretch" HorizontalAlignment="Right" Fill="#99000000" Visibility="Collapsed"/>
-        <Image Opacity="0.6" Name="sidebar" Width="28" Height="28" VerticalAlignment="Top" HorizontalAlignment="Right" Source="Resources/sidebar.png" Margin="0,43,10,0" MouseLeftButtonDown="sidebar_MouseLeftButtonDown"/>
+        <Image Opacity="0.6" x:Name="sidebar" Width="28" Height="28" VerticalAlignment="Top" HorizontalAlignment="Right" Source="Resources/sidebar.png" Margin="0,43,10,0" MouseLeftButtonDown="sidebar_MouseLeftButtonDown"/>
     </Grid>
 </Window>
