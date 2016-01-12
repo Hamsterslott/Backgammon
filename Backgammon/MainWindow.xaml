@@ -6,7 +6,7 @@
         x:Name="duk" Title="Backgammon" MinHeight="600" MinWidth="800" Height="720" Width="1280" Icon="Resources/icon.png" BorderBrush="Black" ResizeMode="CanResizeWithGrip" WindowStartupLocation="CenterScreen" WindowStyle="None"
         MouseLeftButtonDown="Window_MouseLeftButtonDown" AllowsTransparency="True" SizeChanged="Window_SizeChanged" Topmost="True">
     <Window.Background>
-        <ImageBrush ImageSource="Resources/greenFelt.png"/>
+        <ImageBrush ImageSource="Resources/blueFelt.png"/>
     </Window.Background>
     <Grid>
         <Label Margin="11, 2, 10, 0" Foreground="Black" FontWeight="Bold" FontSize="26" Content="Backgammon"/>
@@ -23,7 +23,7 @@
                 </Canvas.Effect>
 
                 <Canvas.Background>
-                    <ImageBrush ImageSource="Resources/bgBackgammonNice.png"/>
+                    <ImageBrush ImageSource="Resources/bgBackgammonNiceV3.png"/>
                 </Canvas.Background>
 
                 <UniformGrid x:Name="gridOne" Height="298" Width="494" Canvas.Left="71" Canvas.Top="14" Columns="6" Rows="1">
@@ -72,6 +72,13 @@
                     <Image Margin="5,5,5,5" x:Name="dice2"/>
                     <Image Margin="5,5,5,5" x:Name="dice3"/>
                     <Image Margin="5,5,5,5" x:Name="dice4"/>
+                </UniformGrid>
+                
+                <UniformGrid Name="utslagnaEtt" Canvas.Left="10" Canvas.Top="47" Height="223" Width="56">
+                    <local:BrickHolder Width="auto" Height="auto"></local:BrickHolder>
+                </UniformGrid>
+                <UniformGrid Name="utslagnaTvå" Canvas.Left="10" Canvas.Top="393" Height="223" Width="56">
+                    <local:BrickHolder Width="auto" Height="auto"></local:BrickHolder>
                 </UniformGrid>
 
                 <Image x:Name="btnDice" Source="Resources/redDice.png" Height="110" Canvas.Left="1094" Canvas.Top="284" VerticalAlignment="Stretch" Width="110" Cursor="Hand"

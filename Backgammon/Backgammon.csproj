@@ -54,12 +54,19 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="BackgammonModel.cs" />
+    <Compile Include="BrickHolder.xaml.cs">
+      <DependentUpon>BrickHolder.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Splash.xaml.cs">
       <DependentUpon>Splash.xaml</DependentUpon>
     </Compile>
     <Compile Include="Triangle.xaml.cs">
       <DependentUpon>Triangle.xaml</DependentUpon>
     </Compile>
+    <Page Include="BrickHolder.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -110,9 +117,6 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\icon.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resources\splashScreen.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\background.jpg" />
@@ -171,6 +175,36 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\redDice.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\bgBackgammonNiceV2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\svartKnappLigga.png" />
+    <Resource Include="Resources\vitKnappLigga.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\dice1Dark.png" />
+    <Resource Include="Resources\dice1Light.png" />
+    <Resource Include="Resources\dice1Mid.png" />
+    <Resource Include="Resources\dice2Dark.png" />
+    <Resource Include="Resources\dice2Light.png" />
+    <Resource Include="Resources\dice2Mid.png" />
+    <Resource Include="Resources\dice3Dark.png" />
+    <Resource Include="Resources\dice3Light.png" />
+    <Resource Include="Resources\dice3Mid.png" />
+    <Resource Include="Resources\dice4Dark.png" />
+    <Resource Include="Resources\dice4Light.png" />
+    <Resource Include="Resources\dice4Mid.png" />
+    <Resource Include="Resources\dice5Dark.png" />
+    <Resource Include="Resources\dice5Light.png" />
+    <Resource Include="Resources\dice5Mid.png" />
+    <Resource Include="Resources\dice6Dark.png" />
+    <Resource Include="Resources\dice6Light.png" />
+    <Resource Include="Resources\dice6Mid.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\bgBackgammonNiceV3.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

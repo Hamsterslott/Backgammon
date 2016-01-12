@@ -142,26 +142,6 @@ namespace Backgammon
                             MessageBox.Show("felaktigt move");
                         }
                     }
-                  //if (status == 2)
-                  //{
-                  //    if (selectedTriangles[1].getPos() == 0 || selectedTriangles[1].getPos() == 26)
-                  //    {
-                  //        if (_model.moveGoal(gameBoard, selectedTriangles[0].getPos(), dice, spelare))
-                  //        {
-                  //            if (spelare == COLOR.WHITE) player1checkers--;
-                  //            else player2checkers--;
-                  //        }
-                  //        else
-                  //        {
-                  //            MessageBox.Show("felaktigt move");
-                  //        }
-                  //    }
-                  //    else if (!_model.move(gameBoard, selectedTriangles[0].getPos(), selectedTriangles[1].getPos(), dice, spelare))
-                  //    {
-                  //        MessageBox.Show("felaktigt move");
-                  //    }
-                  //}
-                    
                     status = _model.canMove(gameBoard, spelare, dice);
                     if (status == 0)
                     {
