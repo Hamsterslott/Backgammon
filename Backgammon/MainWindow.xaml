@@ -98,7 +98,7 @@
                     <local:BrickHolder Width="auto" Height="auto"></local:BrickHolder>
                 </UniformGrid>
 
-                <Image x:Name="btnDice" Source="Resources/redDice.png" Height="110" Canvas.Left="1094" Canvas.Top="284" VerticalAlignment="Stretch" Width="110" Cursor="Hand"
+                <Image x:Name="btnDice" Source="Resources/diceShaker.png" Height="110" Canvas.Left="1094" Canvas.Top="284" VerticalAlignment="Stretch" Width="110" Cursor="Hand"
 					MouseEnter="btnDice_MouseEnter" MouseLeave="btnDice_MouseLeave" MouseLeftButtonDown="btnDice_MouseLeftButtonDown"/>
             </Canvas>
 

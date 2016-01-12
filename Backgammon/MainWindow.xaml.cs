@@ -310,12 +310,12 @@ namespace Backgammon
 
         private void btnDice_MouseEnter(object sender, MouseEventArgs e)
         {
-            btnDice.Source = new BitmapImage(new Uri("../../Resources/icon.png", UriKind.Relative));
+            btnDice.Source = new BitmapImage(new Uri("../../Resources/diceShakerDown.png", UriKind.Relative));
         }
 
         private void btnDice_MouseLeave(object sender, MouseEventArgs e)
         {
-            btnDice.Source = new BitmapImage(new Uri("../../Resources/redDice.png", UriKind.Relative));
+            btnDice.Source = new BitmapImage(new Uri("../../Resources/diceShaker.png", UriKind.Relative));
         }
 
         private void btnDice_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
