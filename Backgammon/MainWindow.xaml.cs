@@ -22,7 +22,7 @@ namespace Backgammon
     {
 
         private int[] dice;
-        private BrickHolder utslagnaVit, utslagnaSvart;
+        private BrickHolder[] _utslagna = new BrickHolder[2];
         private BackgammonModel _model = new BackgammonModel();
 		private triangel [] gameBoard;
 		private Triangle [] selectedTriangles = new Triangle[2];
@@ -43,12 +43,13 @@ namespace Backgammon
 			dice = new int[4]{1,1,1,1};
 			gameBoard = _model.newGame();
 
-            utslagnaVit = utslagnaEtt.Children[0] as BrickHolder;
-            utslagnaVit.setColor(COLOR.WHITE);
-            utslagnaVit.setSize(14);
-            utslagnaSvart = utslagnaTvå.Children[0] as BrickHolder;
-            utslagnaSvart.setColor(COLOR.BLACK);
-            utslagnaSvart.setSize(7);
+            _utslagna[0] = utslagnaEtt.Children[0] as BrickHolder;
+            _utslagna[1] = utslagnaTvå.Children[0] as BrickHolder;
+            _utslagna[0].setColor(COLOR.WHITE);
+            _utslagna[1].setColor(COLOR.BLACK);
+
+            _utslagna[0].setSize(15);
+            _utslagna[1].setSize(3);
 
 			initimages();
 
