@@ -4,9 +4,12 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
-             d:DesignHeight="200" d:DesignWidth="80" Name="brickHolder">
-    
+             d:DesignHeight="200" d:DesignWidth="80" Name="brickHolder" MouseLeftButtonDown="brickHolder_MouseLeftButtonDown">
+
     <Grid Name="theGrid">
+        
+        <Canvas Name="background" Height="200" Width="80" Opacity="0.001" Background="White"></Canvas>
+        
         <UniformGrid Name="brickor" Rows="15" Columns="1">
             <Image></Image>
             <Image></Image>
@@ -25,5 +28,5 @@
             <Image></Image>
         </UniformGrid>
     </Grid>
-    
+
 </UserControl>

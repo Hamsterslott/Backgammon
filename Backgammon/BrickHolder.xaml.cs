@@ -54,6 +54,10 @@ namespace Backgammon
             }
         }
 
+         private void brickHolder_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+         {
+             MessageBox.Show("Test");
+         }
 
         // GETTERS AND SETTERS //
 		public void setLink(MainWindow mw) {
@@ -74,8 +78,6 @@ namespace Backgammon
         public void setPos(int pos) {
             this._pos = pos;
         }
-
-
         // GETTERS AND SETTERS END //
     }
 }
