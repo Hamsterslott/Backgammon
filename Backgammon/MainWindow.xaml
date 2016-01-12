@@ -67,10 +67,10 @@
                 </UniformGrid>
 
                 <UniformGrid Name="gridDices" Height="256" Width="70" Rows="4" Columns="1" Canvas.Left="1122" Canvas.Top="14">
-                    <Image Margin="5,5,5,5" Source="Resources/tärningLjus1.png" Name="dice1"></Image>
-                    <Image Margin="5,5,5,5" Source="Resources/tärningLjus2v2.png" Name="dice2"></Image>
-                    <Image Margin="5,5,5,5" Source="Resources/tärningLjus3.png" Name="dice3"></Image>
-                    <Image Margin="5,5,5,5" Source="Resources/tärningLjus4v2.png" Name="dice4"></Image>
+                    <Image Margin="5,5,5,5" Name="dice1"></Image>
+                    <Image Margin="5,5,5,5" Name="dice2"></Image>
+                    <Image Margin="5,5,5,5" Name="dice3"></Image>
+                    <Image Margin="5,5,5,5" Name="dice4"></Image>
                 </UniformGrid>
 
                 <Image Name="btnDice" Source="Resources/redDice.png" Height="110" Canvas.Left="1094" Canvas.Top="284" VerticalAlignment="Stretch" Width="110" Cursor="Hand"

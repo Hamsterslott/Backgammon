@@ -26,33 +26,21 @@ namespace Backgammon
 		private Triangle [] selectedTriangles = new Triangle[2];
 		private int trianglePos = 0;
         private ImageBrush[] _background = new ImageBrush[8];
-
+		private BitmapImage[] _dices = new BitmapImage[7];
         public MainWindow()
         {
             InitializeComponent();
 			init();
             updateView();
+			renderDices();
         }
 
 		private void init()
 		{
 			dice = new int[4]{1,1,1,1};
 			gameBoard = _model.newGame();
-            for (int i = 0; i < _background.Length; i++)
-                _background[i] = new ImageBrush();
-
-            // Hämtar alla bakgrunder
-            try {
-                _background[0].ImageSource = new BitmapImage(new Uri("../../Resources/greenFelt.png", UriKind.Relative));
-                _background[1].ImageSource = new BitmapImage(new Uri("../../Resources/greenishFelt.png", UriKind.Relative));
-                _background[2].ImageSource = new BitmapImage(new Uri("../../Resources/blueFelt.png", UriKind.Relative));
-                _background[3].ImageSource = new BitmapImage(new Uri("../../Resources/greenOrangeFelt.png", UriKind.Relative));
-                _background[4].ImageSource = new BitmapImage(new Uri("../../Resources/orangeFelt.png", UriKind.Relative));
-                _background[5].ImageSource = new BitmapImage(new Uri("../../Resources/purpleFelt.png", UriKind.Relative));
-                _background[6].ImageSource = new BitmapImage(new Uri("../../Resources/redFelt.png", UriKind.Relative));
-                _background[7].ImageSource = new BitmapImage(new Uri("../../Resources/darkRedFelt.png", UriKind.Relative));
-            }
-            catch (Exception ex) { MessageBox.Show(ex.Message); }
+            
+			initimages();
 
 			for(int i = 1; i < 27; i++)
 				{
@@ -66,6 +54,55 @@ namespace Backgammon
 
 		}
 
+		private void initimages()
+		{
+			for (int i = 0; i < _background.Length; i++)
+                _background[i] = new ImageBrush();
+
+			/* verkade inte behöva denna till datatypen BitmapImage
+			 * for (int i = 0; i < _dices.Length; i++)
+                _dices[i] = new BitmapImage();
+			*/
+
+
+
+            // Hämtar alla bakgrunder
+            try {
+                _background[0].ImageSource = new BitmapImage(new Uri("../../Resources/greenFelt.png", UriKind.Relative));
+                _background[1].ImageSource = new BitmapImage(new Uri("../../Resources/greenishFelt.png", UriKind.Relative));
+                _background[2].ImageSource = new BitmapImage(new Uri("../../Resources/blueFelt.png", UriKind.Relative));
+                _background[3].ImageSource = new BitmapImage(new Uri("../../Resources/greenOrangeFelt.png", UriKind.Relative));
+                _background[4].ImageSource = new BitmapImage(new Uri("../../Resources/orangeFelt.png", UriKind.Relative));
+                _background[5].ImageSource = new BitmapImage(new Uri("../../Resources/purpleFelt.png", UriKind.Relative));
+                _background[6].ImageSource = new BitmapImage(new Uri("../../Resources/redFelt.png", UriKind.Relative));
+                _background[7].ImageSource = new BitmapImage(new Uri("../../Resources/darkRedFelt.png", UriKind.Relative));
+				_dices[0] = null;
+				_dices[1] = new BitmapImage(new Uri("../../Resources/tärningLjus1.png",UriKind.Relative));
+				_dices[2] = new BitmapImage(new Uri("../../Resources/tärningLjus2v2.png",UriKind.Relative));
+				_dices[3] = new BitmapImage(new Uri("../../Resources/tärningLjus3.png",UriKind.Relative));
+				_dices[4] = new BitmapImage(new Uri("../../Resources/tärningLjus4v2.png",UriKind.Relative));
+				_dices[5] = new BitmapImage(new Uri("../../Resources/tärningLjus5.png",UriKind.Relative));
+				_dices[6] = new BitmapImage(new Uri("../../Resources/tärningLjus6.png",UriKind.Relative));
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
+
+		}
+
+
+		private void renderDices() {
+
+			Image [] dices;
+			dices = new Image[]{dice1,dice2,dice3,dice4};
+			
+
+			for (int i = 0; i < dices.Length; i++)
+			{
+                dices[i].Source = _dices[dice[i]];
+			}
+
+		}
+
+
 
 		public void selectTriangle(Triangle t)
 		{
@@ -76,6 +113,7 @@ namespace Backgammon
 				if (_model.move(gameBoard, selectedTriangles[0].getPos(),selectedTriangles[1].getPos(),dice,COLOR.WHITE)) 
 					{
 					updateSelectedTriangles();
+					renderDices();
 					}
 				else {MessageBox.Show("felaktigt move"); }
 				trianglePos = 0;
@@ -137,8 +175,8 @@ namespace Backgammon
 			setBackground(2);
             alignRight();
 
-			//getTriangle(25).setPos(25);
-			//getTriangle(26).setPos(26);
+			getTriangle(25).setPos(25);
+			getTriangle(26).setPos(26);
 
 			for (int i = 0; i<26; i++) updateTriangle(getTriangle(i+1));
 
