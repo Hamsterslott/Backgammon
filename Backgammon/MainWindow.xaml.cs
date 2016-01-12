@@ -183,7 +183,6 @@ namespace Backgammon
 
 			//Tänker mig att denna funktionen tar variabler från sidebar
 			// och sedan uppdaterar baserat på vad man valt.
-			setBackground(2);
             alignRight();
 
 			getTriangle(25).setPos(25);
@@ -196,11 +195,13 @@ namespace Backgammon
         // Håller en 16:9 ratio på spelplanen
 		private void updateScale()
 		{
+            // 768
+            // 1360
 			spelPlan.Height = Width / 1.77;
-			if (duk.Height >= 768 && duk.Width >= 1360) 
+			if (duk.Height >= 900 && duk.Width >= 1600) 
 			{
-				spelPlan.Height = 768;
-				spelPlan.Width = 1360;
+				spelPlan.Height = 900;
+				spelPlan.Width = 1600;
 				return;
 			}
             if (spelPlan.Height >= duk.Height)

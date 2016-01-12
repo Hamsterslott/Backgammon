@@ -5,7 +5,7 @@
         Name="duk" Title="Backgammon" MinHeight="600" MinWidth="800" Height="720" Width="1280" Icon="Resources/icon.png" BorderBrush="Black" ResizeMode="CanResizeWithGrip" WindowStartupLocation="CenterScreen" WindowStyle="None"
         MouseLeftButtonDown="Window_MouseLeftButtonDown" AllowsTransparency="True" SizeChanged="Window_SizeChanged" Topmost="True">
     <Window.Background>
-        <ImageBrush ImageSource="Resources/greenFelt.png"/>
+        <ImageBrush ImageSource="Resources/blueFelt.png"/>
     </Window.Background>
     <Grid>
         <Label Margin="11, 2, 10, 0" Foreground="Black" FontWeight="Bold" FontSize="26">Backgammon</Label>
