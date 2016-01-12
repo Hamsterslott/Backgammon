@@ -38,9 +38,9 @@ namespace Backgammon
          private void update() {
             int theme;
             if (_color == COLOR.WHITE)
-                theme = 0;
-            else
                 theme = 1;
+            else
+                theme = 0;
 
             for (int i = 0; i < _size; i++) {
                 Image image = brickor.Children[14 - i] as Image;

@@ -48,10 +48,12 @@ namespace Backgammon
 
 			utslagna[0] = utslagnaEtt.Children[0] as BrickHolder;
             utslagna[1] = utslagnaTvå.Children[0] as BrickHolder;
+
+
 			for(int i = 0; i<2; i++)
 			{
 			utslagna[i].setColor((COLOR)i);
-			utslagna[i].setSize(15-playercheckers[i]);
+			utslagna[i].setSize(20-playercheckers[i]);
 			utslagna[i].setLink(this);
 			}
         
