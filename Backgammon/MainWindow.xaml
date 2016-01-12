@@ -67,11 +67,26 @@
                     <local:Triangle Height="298" Width="82" />
                 </UniformGrid>
 
-                <UniformGrid x:Name="gridDices" Height="67" Width="334" Rows="1" Columns="4" Canvas.Left="742" Canvas.Top="302">
-                    <Image Margin="5,5,5,5" x:Name="dice1"/>
-                    <Image Margin="5,5,5,5" x:Name="dice2"/>
-                    <Image Margin="5,5,5,5" x:Name="dice3"/>
-                    <Image Margin="5,5,5,5" x:Name="dice4"/>
+                <UniformGrid x:Name="gridDices" Height="60" Width="334" Rows="1" Columns="4" Canvas.Left="743" Canvas.Top="302">
+                    <Image Margin="10,5,10,5" x:Name="dice1" Stretch="Uniform"/>
+                    <Image Margin="10,5,10,5" x:Name="dice2" Stretch="Uniform"/>
+                    <Image Margin="10,5,10,5" x:Name="dice3" Stretch="Uniform"/>
+                    <Image Margin="10,5,10,5" x:Name="dice4" Stretch="Uniform"/>
+                </UniformGrid>
+                <UniformGrid Name="gridDiceStartDark" Height="112" Width="55" Canvas.Left="1125" Canvas.Top="163">
+                    <Canvas>
+                        <Canvas.Background>
+                            <ImageBrush ImageSource="Resources/dice11Dark.png" Stretch="Uniform"/>
+                        </Canvas.Background>
+                    </Canvas>
+                </UniformGrid>
+
+                <UniformGrid Name="gridDiceStartLight" Height="112" Width="55" Canvas.Left="1125" Canvas.Top="390">
+                    <Canvas>
+                        <Canvas.Background>
+                            <ImageBrush ImageSource="Resources/dice11Light.png" Stretch="Uniform"/>
+                        </Canvas.Background>
+                    </Canvas>
                 </UniformGrid>
 
 
