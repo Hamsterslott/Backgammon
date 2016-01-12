@@ -20,18 +20,18 @@ namespace Backgammon
     public partial class MainWindow : Window
     {
 
-        private int[] dice = new int[4];
-        private BrickHolder[] utslagna = new BrickHolder[2];
 		private BackgammonModel _model = new BackgammonModel();
+        private int[] dice = new int[4];
 		private triangel [] gameBoard;
+        private BitmapImage[] _dices = new BitmapImage[7];
+		private ImageBrush[] _background = new ImageBrush[8];
+
 		private Triangle [] selectedTriangles = new Triangle[2];
 		private int trianglePos = 0;
-        private ImageBrush[] _background = new ImageBrush[8];
-		private BitmapImage[] _dices = new BitmapImage[7];
-
+        
         private COLOR spelare = COLOR.BLACK;
-        int [] playercheckers = new int[]{15,15};
-  
+        private int [] playercheckers = new int[]{15,15};
+		private BrickHolder[] utslagna;
 
         public MainWindow()
         {
@@ -46,9 +46,7 @@ namespace Backgammon
 
             initimages();
 
-			utslagna[0] = utslagnaEtt.Children[0] as BrickHolder;
-            utslagna[1] = utslagnaTvå.Children[0] as BrickHolder;
-
+			utslagna = new BrickHolder[]{(BrickHolder)utslagnaEtt.Children[0],(BrickHolder)utslagnaTvå.Children[0]};
 
 			for(int i = 0; i<2; i++)
 			{
@@ -72,7 +70,8 @@ namespace Backgammon
 
 		private void initimages()
 		{
-			for (int i = 0; i < _background.Length; i++)
+			
+			 for (int i = 0; i < _background.Length; i++)
                 _background[i] = new ImageBrush();
 
 
@@ -112,6 +111,15 @@ namespace Backgammon
 		public void selectTriangle(Triangle t)
 		{
 			selectedTriangles[trianglePos++] = t;
+			if (trianglePos == 1)
+			{
+				if(t.getSize()>=1 && t.getColor() == spelare)
+					{ 
+					t.setSize(t.getSize()-1);
+					t.Update();
+					}
+			}
+
 			if(trianglePos == 2)
 				{
                     int status = _model.canMove(gameBoard, spelare, dice);
