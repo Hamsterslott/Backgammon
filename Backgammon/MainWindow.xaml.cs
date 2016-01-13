@@ -113,7 +113,10 @@ namespace Backgammon
 
 		public void selectTriangle(Triangle t)
 		{
-			selectedTriangles[trianglePos++] = t;
+			int status = _model.canMove(gameBoard, spelare, dice);
+			if (trianglePos == 0 && status != 0 && t.getColor() == spelare && t.getSize() >= 1) selectedTriangles[trianglePos++] = t;
+			else if (trianglePos == 1) selectedTriangles[trianglePos++] = t;
+
 			if (trianglePos == 1)
 			{
 				if(t.getSize()>=1 && t.getColor() == spelare)
@@ -126,7 +129,7 @@ namespace Backgammon
 
 			if(trianglePos == 2)
 				{
-                    int status = _model.canMove(gameBoard, spelare, dice);
+                    
                     if (status == -1)
                     {
                         if (selectedTriangles[0].getPos() != 25 && selectedTriangles[0].getPos() != 26)
