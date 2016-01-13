@@ -176,7 +176,6 @@ namespace Backgammon
         }
         public void setGlowing(bool glow) {
             _isGlowing = glow;
-            Update();
         }
         // GETTERS OCH SETTERS SLUT //
     }

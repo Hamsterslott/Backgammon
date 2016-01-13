@@ -119,6 +119,7 @@ namespace Backgammon
 				if(t.getSize()>=1 && t.getColor() == spelare)
 					{ 
 					t.setSize(t.getSize()-1);
+					t.setGlowing(true);
 					t.Update();
 					}
 			}
@@ -161,6 +162,7 @@ namespace Backgammon
                     {
                         btnDice.Visibility = System.Windows.Visibility.Visible;
                     }
+				selectedTriangles[0].setGlowing(false);
                 updateSelectedTriangles();
                 renderDices();
 				trianglePos = 0;
