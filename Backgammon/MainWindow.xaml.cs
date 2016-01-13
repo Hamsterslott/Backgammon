@@ -106,6 +106,7 @@ namespace Backgammon
 			Image [] dices = new Image[]{dice1,dice2,dice3,dice4};
 
 			for (int i = 0; i < dices.Length; i++) dices[i].Source = _dices[dice[i]];
+            
 
 		}
 
@@ -329,13 +330,16 @@ namespace Backgammon
         }
 
 
-         System.Media.SoundPlayer player = new System.Media.SoundPlayer("../../Resources/ShakeSound.wav");
+         System.Media.SoundPlayer shake = new System.Media.SoundPlayer("../../Resources/ShakeSound.wav");
+         System.Media.SoundPlayer throwThem = new System.Media.SoundPlayer("../../Resources/diceSound.wav");
+
+        
             
 
         private void btnDice_MouseEnter(object sender, MouseEventArgs e)
         {
             btnDice.Source = new BitmapImage(new Uri("../../Resources/diceShakerDown.png", UriKind.Relative));
-            player.Play();
+            shake.Play();
            
             
             if (spelare == COLOR.WHITE) 
@@ -362,15 +366,17 @@ namespace Backgammon
             {
                 diceDark.Visibility = System.Windows.Visibility.Visible;
             }
-            player.Stop();
+            shake.Stop();
         }
 
         private void btnDice_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
+        {          
+            
             if (spelare == COLOR.WHITE) spelare = COLOR.BLACK;
             else spelare = COLOR.WHITE;
-            dice = _model.letsRollTheDice();
+            dice = _model.letsRollTheDice();            
             renderDices();
+            
             
             if (_model.canMove(gameBoard, spelare, dice) != 0)
             {
@@ -378,6 +384,8 @@ namespace Backgammon
                                 
                 
             }
+            shake.Stop();
+            throwThem.PlaySync();
                
         }
 
