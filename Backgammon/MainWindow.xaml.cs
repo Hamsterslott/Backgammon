@@ -327,8 +327,14 @@ namespace Backgammon
         private void btnDice_MouseEnter(object sender, MouseEventArgs e)
         {
             btnDice.Source = new BitmapImage(new Uri("../../Resources/diceShakerDown.png", UriKind.Relative));
-            if (spelare == COLOR.WHITE) {
+            
+            if (spelare == COLOR.WHITE) 
+            {
                 diceWhite.Visibility = System.Windows.Visibility.Collapsed;
+            }
+            else
+            {
+                diceDark.Visibility = System.Windows.Visibility.Collapsed;
             }
             
 
@@ -342,6 +348,10 @@ namespace Backgammon
             {
                 diceWhite.Visibility = System.Windows.Visibility.Visible;
             }
+            else
+            {
+                diceDark.Visibility = System.Windows.Visibility.Visible;
+            }
         }
 
         private void btnDice_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -354,7 +364,7 @@ namespace Backgammon
             if (_model.canMove(gameBoard, spelare, dice) != 0)
             {
                 btnDice.Visibility = System.Windows.Visibility.Collapsed;
-                
+                                
                 
             }
                
