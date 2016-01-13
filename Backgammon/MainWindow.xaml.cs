@@ -163,6 +163,8 @@ namespace Backgammon
                     status = _model.canMove(gameBoard, spelare, dice);
                     if (status == 0)
                     {
+						for(int i = 0; i < 4; i++) dice[i] = 0;
+						renderDices();
                         btnDice.Visibility = System.Windows.Visibility.Visible;
                         diceDark.Visibility = System.Windows.Visibility.Visible;
                         diceWhite.Visibility = System.Windows.Visibility.Visible;
