@@ -164,6 +164,8 @@ namespace Backgammon
                     if (status == 0)
                     {
                         btnDice.Visibility = System.Windows.Visibility.Visible;
+                        diceDark.Visibility = System.Windows.Visibility.Visible;
+                        diceWhite.Visibility = System.Windows.Visibility.Visible;
                     }
 				selectedTriangles[0].setGlowing(false);
                 updateSelectedTriangles();
