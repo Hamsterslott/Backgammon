@@ -75,7 +75,7 @@
                 </UniformGrid>
 
                 <Image x:Name="diceWhite" Source="Resources/dice11Light.png" Height="112" Canvas.Left="1125" Canvas.Top="163"/>
-                <Image x:Name="diceDark" Source="Resources/dice11Dark.png" Height="112" Canvas.Left="1125" Canvas.Top="391"/>
+                <Image x:Name="diceDark" Source="Resources/dice11Black.png" Height="112" Canvas.Left="1127" Canvas.Top="392"/>
 
 
                 <!-- <UniformGrid Name="gridDiceStartDark" Height="112" Width="55" Canvas.Left="1125" Canvas.Top="163">

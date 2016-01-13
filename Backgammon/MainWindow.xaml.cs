@@ -14,16 +14,20 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+
 namespace Backgammon
 {
 
     public partial class MainWindow : Window
     {
 
-		private BackgammonModel _model = new BackgammonModel();
+        
+        private System.Media.SoundPlayer shake = new System.Media.SoundPlayer("../../Resources/ShakeSound.wav");
+        private System.Media.SoundPlayer throwThem = new System.Media.SoundPlayer("../../Resources/diceSound.wav");             
+       	private BackgammonModel _model = new BackgammonModel();
         private int[] dice = new int[4];
 		private triangel [] gameBoard;
-        private BitmapImage[] _dices = new BitmapImage[7];
+        private BitmapImage[,] _dices = new BitmapImage[2,7];
 		private ImageBrush[] _background = new ImageBrush[8];
 
 		private Triangle [] selectedTriangles = new Triangle[2];
@@ -46,9 +50,8 @@ namespace Backgammon
 		{
 			gameBoard = _model.newGame();
 
-            initimages();
-
-			
+            initimages();                                          
+               
 
 			utslagna = new BrickHolder[]{(BrickHolder)utslagnaEtt.Children[0],(BrickHolder)utslagnaTvå.Children[0]};
 
@@ -92,13 +95,22 @@ namespace Backgammon
                 _background[5].ImageSource = new BitmapImage(new Uri("../../Resources/purpleFelt.png", UriKind.Relative));
                 _background[6].ImageSource = new BitmapImage(new Uri("../../Resources/redFelt.png", UriKind.Relative));
                 _background[7].ImageSource = new BitmapImage(new Uri("../../Resources/darkRedFelt.png", UriKind.Relative));
-				_dices[0] = null;
-				_dices[1] = new BitmapImage(new Uri("../../Resources/tärningLjus1.png",UriKind.Relative));
-				_dices[2] = new BitmapImage(new Uri("../../Resources/tärningLjus2v2.png",UriKind.Relative));
-				_dices[3] = new BitmapImage(new Uri("../../Resources/tärningLjus3.png",UriKind.Relative));
-				_dices[4] = new BitmapImage(new Uri("../../Resources/tärningLjus4v2.png",UriKind.Relative));
-				_dices[5] = new BitmapImage(new Uri("../../Resources/tärningLjus5.png",UriKind.Relative));
-				_dices[6] = new BitmapImage(new Uri("../../Resources/tärningLjus6.png",UriKind.Relative));
+
+
+				_dices[0, 0] = null; 
+                _dices[0, 1] = new BitmapImage(new Uri("../../Resources/dice1Light.png", UriKind.Relative));
+                _dices[0, 2] = new BitmapImage(new Uri("../../Resources/dice2Light.png", UriKind.Relative));
+                _dices[0, 3] = new BitmapImage(new Uri("../../Resources/dice3Light.png", UriKind.Relative));
+                _dices[0, 4] = new BitmapImage(new Uri("../../Resources/dice4Light.png", UriKind.Relative));
+                _dices[0, 5] = new BitmapImage(new Uri("../../Resources/dice5Light.png", UriKind.Relative));
+                _dices[0, 6] = new BitmapImage(new Uri("../../Resources/dice6Light.png", UriKind.Relative));
+                _dices[1, 0] = null;
+                _dices[1, 1] = new BitmapImage(new Uri("../../Resources/dice1Black.png", UriKind.Relative));
+                _dices[1, 2] = new BitmapImage(new Uri("../../Resources/dice2Black.png", UriKind.Relative));
+                _dices[1, 3] = new BitmapImage(new Uri("../../Resources/dice3Black.png", UriKind.Relative));
+                _dices[1, 4] = new BitmapImage(new Uri("../../Resources/dice4Black.png", UriKind.Relative));
+                _dices[1, 5] = new BitmapImage(new Uri("../../Resources/dice5Black.png", UriKind.Relative));
+                _dices[1, 6] = new BitmapImage(new Uri("../../Resources/dice6Black.png", UriKind.Relative));                   
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
 
@@ -109,7 +121,9 @@ namespace Backgammon
 
 			Image [] dices = new Image[]{dice1,dice2,dice3,dice4};
 
-			for (int i = 0; i < dices.Length; i++) dices[i].Source = _dices[dice[i]];
+            if (spelare == COLOR.WHITE)
+			for (int i = 0; i < dices.Length; i++) dices[i].Source = _dices[1,dice[i]];
+            else for(int i = 0; i < dices.Length; i++) dices[i].Source = _dices[0,dice[i]];
             
 
 		}
@@ -335,16 +349,16 @@ namespace Backgammon
             } 
         }
 
-
-         System.Media.SoundPlayer shake = new System.Media.SoundPlayer("../../Resources/ShakeSound.wav");
-         System.Media.SoundPlayer throwThem = new System.Media.SoundPlayer("../../Resources/diceSound.wav");
-
+       
         
             
 
         private void btnDice_MouseEnter(object sender, MouseEventArgs e)
         {
             btnDice.Source = new BitmapImage(new Uri("../../Resources/diceShakerDown.png", UriKind.Relative));
+
+            
+                       
             shake.Play();
            
             
@@ -357,7 +371,7 @@ namespace Backgammon
                 diceDark.Visibility = System.Windows.Visibility.Collapsed;
             }
             
-
+            
         }
 
         private void btnDice_MouseLeave(object sender, MouseEventArgs e)
@@ -372,6 +386,7 @@ namespace Backgammon
             {
                 diceDark.Visibility = System.Windows.Visibility.Visible;
             }
+            
             shake.Stop();
         }
 
@@ -389,10 +404,9 @@ namespace Backgammon
                 btnDice.Visibility = System.Windows.Visibility.Collapsed;
                                 
                 
-            }
-            shake.Stop();
-            throwThem.PlaySync();
-               
+            }           
+            shake.Stop();           
+            throwThem.PlaySync();              
         }
 
     }

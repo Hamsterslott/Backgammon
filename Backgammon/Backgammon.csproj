@@ -139,14 +139,6 @@
     <Resource Include="Resources\isClickedAnimationUpper.gif" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\tärningLjus1.png" />
-    <Resource Include="Resources\tärningLjus2v2.png" />
-    <Resource Include="Resources\tärningLjus3.png" />
-    <Resource Include="Resources\tärningLjus4v2.png" />
-    <Resource Include="Resources\tärningLjus5.png" />
-    <Resource Include="Resources\tärningLjus6.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Resources\darkChip1.png" />
     <Resource Include="Resources\darkChip2.png" />
     <Resource Include="Resources\darkChip3.png" />
@@ -215,12 +207,16 @@
     <Resource Include="Resources\diceShakerDown.png" />
   </ItemGroup>
   <ItemGroup>
-
+    <Resource Include="Resources\dice1Black.png" />
+    <Resource Include="Resources\dice2Black.png" />
+    <Resource Include="Resources\dice3Black.png" />
+    <Resource Include="Resources\dice4Black.png" />
+    <Resource Include="Resources\dice5Black.png" />
+    <Resource Include="Resources\dice6Black.png" />
+    <Resource Include="Resources\dice11Black.png" />
     <Content Include="Resources\diceSound.wav" />
-
     <Resource Include="Resources\darkHandle.cur" />
     <Resource Include="Resources\lightHandle.cur" />
-
     <Content Include="Resources\ShakeSound.wav" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
