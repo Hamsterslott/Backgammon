@@ -328,9 +328,15 @@ namespace Backgammon
             } 
         }
 
+
+         System.Media.SoundPlayer player = new System.Media.SoundPlayer("../../Resources/ShakeSound.wav");
+            
+
         private void btnDice_MouseEnter(object sender, MouseEventArgs e)
         {
             btnDice.Source = new BitmapImage(new Uri("../../Resources/diceShakerDown.png", UriKind.Relative));
+            player.Play();
+           
             
             if (spelare == COLOR.WHITE) 
             {
@@ -356,6 +362,7 @@ namespace Backgammon
             {
                 diceDark.Visibility = System.Windows.Visibility.Visible;
             }
+            player.Stop();
         }
 
         private void btnDice_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
