@@ -215,6 +215,8 @@
     <Resource Include="Resources\diceShakerDown.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Resources\darkHandle.cur" />
+    <Resource Include="Resources\lightHandle.cur" />
     <Content Include="Resources\ShakeSound.wav" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
