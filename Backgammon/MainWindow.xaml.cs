@@ -29,7 +29,7 @@ namespace Backgammon
         private ImageBrush[] _background = new ImageBrush[8];
 		private BitmapImage[] _dices = new BitmapImage[7];
 
-        private COLOR spelare = COLOR.BLACK;
+        private COLOR spelare = COLOR.WHITE;
         int [] playercheckers = new int[]{15,15};
   
 
@@ -49,7 +49,7 @@ namespace Backgammon
 			utslagna[0] = utslagnaEtt.Children[0] as BrickHolder;
             utslagna[1] = utslagnaTvå.Children[0] as BrickHolder;
 
-
+            //Ska vara 15 men 20 för att se hur det ser ut
 			for(int i = 0; i<2; i++)
 			{
 			utslagna[i].setColor((COLOR)i);
@@ -311,11 +311,21 @@ namespace Backgammon
         private void btnDice_MouseEnter(object sender, MouseEventArgs e)
         {
             btnDice.Source = new BitmapImage(new Uri("../../Resources/diceShakerDown.png", UriKind.Relative));
+            if (spelare == COLOR.WHITE) {
+                diceWhite.Visibility = System.Windows.Visibility.Collapsed;
+            }
+            
+
         }
 
         private void btnDice_MouseLeave(object sender, MouseEventArgs e)
         {
             btnDice.Source = new BitmapImage(new Uri("../../Resources/diceShaker.png", UriKind.Relative));
+            
+            if (spelare == COLOR.WHITE)
+            {
+                diceWhite.Visibility = System.Windows.Visibility.Visible;
+            }
         }
 
         private void btnDice_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -324,9 +334,12 @@ namespace Backgammon
             else spelare = COLOR.WHITE;
             dice = _model.letsRollTheDice();
             renderDices();
+            
             if (_model.canMove(gameBoard, spelare, dice) != 0)
             {
                 btnDice.Visibility = System.Windows.Visibility.Collapsed;
+                
+                
             }
                
         }

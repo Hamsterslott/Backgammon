@@ -73,15 +73,12 @@
                     <Image Margin="10,5,10,5" x:Name="dice3" Stretch="Uniform"/>
                     <Image Margin="10,5,10,5" x:Name="dice4" Stretch="Uniform"/>
                 </UniformGrid>
-                <UniformGrid Name="gridDiceStartDark" Height="112" Width="55" Canvas.Left="1125" Canvas.Top="163">
-                    <Canvas>
-                        <Canvas.Background>
-                            <ImageBrush ImageSource="Resources/dice11Dark.png" Stretch="Uniform"/>
-                        </Canvas.Background>
-                    </Canvas>
-                </UniformGrid>
 
-                <UniformGrid Name="gridDiceStartLight" Height="112" Width="55" Canvas.Left="1125" Canvas.Top="390">
+                <Image x:Name="diceWhite" Source="Resources/dice11Light.png" Height="112" Canvas.Left="1125" Canvas.Top="163"/>
+                <Image x:Name="diceDark" Source="Resources/dice11Dark.png" Height="112" Canvas.Left="1125" Canvas.Top="391"/>
+
+
+                <!-- <UniformGrid Name="gridDiceStartDark" Height="112" Width="55" Canvas.Left="1125" Canvas.Top="163">
                     <Canvas>
                         <Canvas.Background>
                             <ImageBrush ImageSource="Resources/dice11Light.png" Stretch="Uniform"/>
@@ -89,9 +86,17 @@
                     </Canvas>
                 </UniformGrid>
 
+                <UniformGrid Name="gridDiceStartLight" Height="112" Width="55" Canvas.Left="1125" Canvas.Top="391">
+                    <Canvas>
+                        <Canvas.Background>
+                            <ImageBrush ImageSource="Resources/dice11Dark.png" Stretch="Uniform"/>
+                        </Canvas.Background>
+                    </Canvas>
+                </UniformGrid>--> 
 
 
-                <UniformGrid Name="utslagnaEtt" Canvas.Left="5" Canvas.Top="90" Height="181" Width="60">
+
+                <UniformGrid Name="utslagnaEtt" Canvas.Left="6" Canvas.Top="90" Height="181" Width="60">
                     <local:BrickHolder Width="auto" Height="auto"></local:BrickHolder>
                 </UniformGrid>
                 <UniformGrid Name="utslagnaTvå" Canvas.Left="6" Canvas.Top="440" Height="181" Width="60">
