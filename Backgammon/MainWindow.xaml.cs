@@ -125,6 +125,12 @@ namespace Backgammon
 					t.setSize(t.getSize()-1);
 					t.setGlowing(true);
 					t.Update();
+
+                    if (spelare == COLOR.BLACK)
+                        this.Cursor = new Cursor(Application.GetResourceStream(new Uri("../../Resources/lightHandle.cur", UriKind.Relative)).Stream);
+                    else
+                        this.Cursor = new Cursor(Application.GetResourceStream(new Uri("../../Resources/darkHandle.cur", UriKind.Relative)).Stream);
+                   
 					}
 			}
 
@@ -174,6 +180,7 @@ namespace Backgammon
                 updateSelectedTriangles();
                 renderDices();
 				trianglePos = 0;
+                this.Cursor = Cursors.Arrow;
 				}
 		}
 
