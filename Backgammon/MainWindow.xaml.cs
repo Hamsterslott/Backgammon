@@ -392,22 +392,23 @@ namespace Backgammon
         }
 
         private void btnDice_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {          
-            
+        {
+            this.IsEnabled = false;
             if (spelare == COLOR.WHITE) spelare = COLOR.BLACK;
             else spelare = COLOR.WHITE;
             dice = _model.letsRollTheDice();            
             renderDices();
-            
-            
             if (_model.canMove(gameBoard, spelare, dice) != 0)
             {
                 btnDice.Visibility = System.Windows.Visibility.Collapsed;
-                                
-                
-            }           
+
+
+            } 
+            
+                      
             shake.Stop();           
-            throwThem.PlaySync();              
+            throwThem.PlaySync();
+            this.IsEnabled = true;
         }
 
     }
