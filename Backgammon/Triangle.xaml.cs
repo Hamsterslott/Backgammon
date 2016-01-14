@@ -28,8 +28,7 @@ namespace Backgammon
         private MainWindow _mainWindow = null;
         private int _size = 0;
 		private int pos;
-        public Boolean _isClicked = false, _isGlowing = false,
-                       _isHovered = false;
+        public Boolean _isGlowing = false, _isHovered = false; 
         private COLOR _brickColor;
         private STATE _state;
         private ImageBrush _background = new ImageBrush();
@@ -112,11 +111,9 @@ namespace Backgammon
         private void triangle_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             _mainWindow.playGame((Triangle)sender);
-            _isClicked = true;
         }
         private void triangle_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            _isClicked = false;
         }
 
         private void triangle_MouseRightButtonDown(object sender, MouseButtonEventArgs e)

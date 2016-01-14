@@ -24,7 +24,6 @@ namespace Backgammon
         private ImageBrush[] brick = new ImageBrush[2];
         private int _size = 0;
 		private int _pos;
-        public Boolean _isClicked = false;
 
         public BrickHolder()
         {
@@ -60,7 +59,6 @@ namespace Backgammon
              Triangle t = new Triangle();
              t.setPos(this.getPos());
              _mainWindow.playGame(t);
-             _isClicked = true;
          }
 
         // GETTERS AND SETTERS //

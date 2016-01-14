@@ -63,8 +63,11 @@ namespace Backgammon
 			utslagna[i].setColor((COLOR)i);
 			utslagna[i].setSize(15-playercheckers[i]);
 			utslagna[i].setLink(this);
+			if(i==0)utslagna[i].setPos(i);
+			else utslagna[i].setPos(25);
 			}
         
+
 
 			for(int i = 1; i < 27; i++)
 				{
