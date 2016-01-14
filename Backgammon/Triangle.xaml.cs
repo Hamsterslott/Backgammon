@@ -111,7 +111,7 @@ namespace Backgammon
 
         private void triangle_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            _mainWindow.selectTriangle((Triangle)sender);
+            _mainWindow.playGame((Triangle)sender);
             _isClicked = true;
         }
         private void triangle_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)

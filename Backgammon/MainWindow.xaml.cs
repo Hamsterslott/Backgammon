@@ -130,7 +130,7 @@ namespace Backgammon
 
 
 
-		public void selectTriangle(Triangle t)
+		public void playGame(Triangle t)
 		{
 			int status = _model.canMove(gameBoard, spelare, dice);
 			if (trianglePos == 0 && status != 0 && t.getColor() == spelare && t.getSize() >= 1) selectedTriangles[trianglePos++] = t;
@@ -168,7 +168,8 @@ namespace Backgammon
                             if (_model.moveGoal(gameBoard, selectedTriangles[0].getPos(), dice, spelare))
                             {
                                 playercheckers[(int)spelare]--;
-								utslagna[(int)spelare].setSize(15-playercheckers[0]);
+								utslagna[(int)spelare].setSize(15-playercheckers[(int)spelare]);
+                                
                             }
                             else
                             {
