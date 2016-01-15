@@ -33,7 +33,7 @@ namespace Backgammon
 		private Triangle [] selectedTriangles = new Triangle[2];
 		private int trianglePos = 0;
 
-        private COLOR spelare = COLOR.WHITE;
+        private player spelare = player.one;
         private int [] playercheckers = new int[]{15,15};
 		private BrickHolder[] utslagna;
 
@@ -60,7 +60,7 @@ namespace Backgammon
 
 			for(int i = 0; i<2; i++)
 			{
-			utslagna[i].setColor((COLOR)i);
+			utslagna[i].setColor((player)i);
 			utslagna[i].setSize(15-playercheckers[i]);
 			utslagna[i].setLink(this);
 			if(i==0)utslagna[i].setPos(i);
@@ -124,7 +124,7 @@ namespace Backgammon
 
 			Image [] dices = new Image[]{dice1,dice2,dice3,dice4};
 
-            if (spelare == COLOR.WHITE)
+            if (spelare == player.one)
 			for (int i = 0; i < dices.Length; i++) dices[i].Source = _dices[1,dice[i]];
             else for(int i = 0; i < dices.Length; i++) dices[i].Source = _dices[0,dice[i]];
             
@@ -207,7 +207,7 @@ namespace Backgammon
 			if(selectedTriangles[1].getSize() == 1 && selectedTriangles[0].getColor() != selectedTriangles[1].getColor())
 				{
 				int bar;
-				if (selectedTriangles[0].getColor() == COLOR.WHITE) bar=26;
+				if (selectedTriangles[0].getColor() == player.one) bar=26;
 				else bar=25;
  				updateTriangle(getTriangle(bar));
 				}
@@ -366,7 +366,7 @@ namespace Backgammon
             shake.Play();
            
             
-            if (spelare == COLOR.WHITE) 
+            if (spelare == player.one) 
             {
                 diceWhite.Visibility = System.Windows.Visibility.Collapsed;
             }
@@ -382,7 +382,7 @@ namespace Backgammon
         {
             btnDice.Source = new BitmapImage(new Uri("../../Resources/diceShaker.png", UriKind.Relative));
             
-            if (spelare == COLOR.WHITE)
+            if (spelare == player.one)
             {
                 diceWhite.Visibility = System.Windows.Visibility.Visible;
             }
@@ -397,8 +397,8 @@ namespace Backgammon
         private void btnDice_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             this.IsEnabled = false;
-            if (spelare == COLOR.WHITE) spelare = COLOR.BLACK;
-            else spelare = COLOR.WHITE;
+            if (spelare == player.one) spelare = player.two;
+            else spelare = player.one;
             dice = _model.letsRollTheDice();            
             renderDices();
             if (_model.canMove(gameBoard, spelare, dice) != 0)

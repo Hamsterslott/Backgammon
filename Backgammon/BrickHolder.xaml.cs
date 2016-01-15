@@ -20,7 +20,7 @@ namespace Backgammon
     {
 
 		private MainWindow _mainWindow = null;
-        private COLOR _color;
+        private player _color;
         private ImageBrush[] brick = new ImageBrush[2];
         private int _size = 0;
 		private int _pos;
@@ -37,7 +37,7 @@ namespace Backgammon
 
          private void update() {
             int theme;
-            if (_color == COLOR.WHITE)
+            if (_color == player.one)
                 theme = 1;
             else
                 theme = 0;
@@ -66,7 +66,7 @@ namespace Backgammon
             _mainWindow = mw;
         }
 
-        public void setColor(COLOR color) {
+        public void setColor(player color) {
             _color = color;
         }
         public void setSize(int size) {

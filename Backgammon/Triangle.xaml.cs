@@ -29,7 +29,7 @@ namespace Backgammon
         private int _size = 0;
 		private int pos;
         public Boolean _isGlowing = false, _isHovered = false; 
-        private COLOR _brickColor;
+        private player _brickColor;
         private STATE _state;
         private ImageBrush _background = new ImageBrush();
         private ImageBrush[] singleBrick = new ImageBrush[2], doubleBrick = new ImageBrush[2], tripleBrick = new ImageBrush[2];
@@ -84,7 +84,7 @@ namespace Backgammon
         private void renderBricks() {
             int theme;
 			Canvas [] Brickor;
-            if (_brickColor == COLOR.WHITE) theme = 1;
+            if (_brickColor == player.one) theme = 1;
             else theme = 0;
                 
 			if(_state == STATE.UPPER) Brickor = new Canvas[]{brickSpaceOne,brickSpaceTwo,brickSpaceThree,brickSpaceFour,brickSpaceFive};
@@ -155,10 +155,10 @@ namespace Backgammon
         }
 
 
-        public COLOR getColor() {
+        public player getColor() {
             return _brickColor;
         }
-        public void setColor(COLOR color) {
+        public void setColor(player color) {
             this._brickColor = color;
         }
         public STATE getState() {
