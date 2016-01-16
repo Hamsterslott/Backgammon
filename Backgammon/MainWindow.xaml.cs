@@ -144,7 +144,7 @@ namespace Backgammon
 				if(t.getSize()>=1 && t.getColor() == spelare)
 					{ 
 					t.setSize(t.getSize()-1);
-					t.setGlowing(true);
+					if(t.getPos() < 25) t.setGlowing(true);
 					t.Update();
 					this.Cursor = plockadbricka[(int)spelare];
 					}
