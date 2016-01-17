@@ -119,13 +119,13 @@
     <Resource Include="Resources\icon.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\background.jpg" />
+    <None Include="Resources\background.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\bgBackgammon.png" />
+    <None Include="Resources\bgBackgammon.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\bgBackgammonNice.png" />
+    <None Include="Resources\bgBackgammonNice.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\splashBG.png" />
@@ -169,7 +169,7 @@
     <Resource Include="Resources\redDice.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\bgBackgammonNiceV2.png" />
+    <None Include="Resources\bgBackgammonNiceV2.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\svartKnappLigga.png" />
@@ -214,10 +214,10 @@
     <Resource Include="Resources\dice5Black.png" />
     <Resource Include="Resources\dice6Black.png" />
     <Resource Include="Resources\dice11Black.png" />
-    <Content Include="Resources\diceSound.wav" />
+    <Resource Include="Resources\diceSound.wav" />
     <Resource Include="Resources\darkHandle.cur" />
     <Resource Include="Resources\lightHandle.cur" />
-    <Content Include="Resources\ShakeSound.wav" />
+    <Resource Include="Resources\ShakeSound.wav" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

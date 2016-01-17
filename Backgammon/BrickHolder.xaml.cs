@@ -31,8 +31,8 @@ namespace Backgammon
 
             brick[0] = new ImageBrush();
             brick[1] = new ImageBrush();
-            brick[0].ImageSource = new BitmapImage(new Uri("../../Resources/vitKnappLigga.png", UriKind.Relative));
-            brick[1].ImageSource = new BitmapImage(new Uri("../../Resources/svartKnappLigga.png", UriKind.Relative));
+            brick[0].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/vitKnappLigga.png"));
+            brick[1].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/svartKnappLigga.png"));
         }
 
          private void update() {
