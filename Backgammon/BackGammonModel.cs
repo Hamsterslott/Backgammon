@@ -71,6 +71,80 @@ namespace Backgammon
            return spelplan;
 		}
 
+        //En funktion för att ta spelet till slutläge
+        public triangel[] endGame()
+        {
+            triangel[] spelplan = new triangel[26];
+            spelplan[0].antal = 4;
+            spelplan[0].color = player.two;
+            spelplan[1].antal = 1;
+            spelplan[1].color = player.two;
+            spelplan[2].color = player.two;
+            spelplan[2].antal = 2;
+            spelplan[3].color = player.two;
+            spelplan[3].antal = 3;
+            spelplan[4].color = player.two;
+            spelplan[4].antal = 1;
+            spelplan[5].color = player.two;
+            spelplan[5].antal = 4;        
+            spelplan[16].color = player.one;
+            spelplan[16].antal = 1;
+            spelplan[18].color = player.one;
+            spelplan[18].antal = 2;           
+            spelplan[20].antal = 1;
+            spelplan[20].color = player.one;
+            spelplan[22].antal = 6;
+            spelplan[22].color = player.one;
+            spelplan[25].antal = 5;
+            spelplan[25].color = player.one;            
+            return spelplan;
+        }
+
+        //En funktion för att illustrera hur det ser ut när det är staplat många på brickor på samma triangel
+        public triangel[] highStack()
+        {
+            triangel[] spelplan = new triangel[26];
+            spelplan[16].antal = 8;
+            spelplan[16].color = player.one;
+            spelplan[22].antal = 3;
+            spelplan[22].color = player.one;
+            spelplan[23].antal = 4;
+            spelplan[23].color = player.one;
+            spelplan[4].antal = 12;
+            spelplan[4].color = player.two;
+            spelplan[3].antal = 3;
+            spelplan[3].color = player.two;
+            return spelplan;
+        }
+
+        //En funktion som illustrerar hur det ser ut när man har en utslagen bricka
+        public triangel[] bricksInMiddle()
+        {
+            triangel[] spelplan = new triangel[26];
+            spelplan[0].antal = 2;
+            spelplan[0].color = player.one;
+            spelplan[5].antal = 5;
+            spelplan[5].color = player.two;
+            spelplan[6].color = player.one;
+            spelplan[8].antal = 3;
+            spelplan[8].color = player.two;
+            spelplan[12].antal = 5;
+            spelplan[12].color = player.one;
+            spelplan[13].antal = 4;
+            spelplan[13].color = player.two;
+            spelplan[17].antal = 3;
+            spelplan[17].color = player.one;
+            spelplan[19].antal = 1;
+            spelplan[19].color = player.two;
+            spelplan[20].antal = 5;
+            spelplan[20].color = player.one;
+            spelplan[25].antal = 2;
+            spelplan[25].color = player.two;
+            return spelplan;
+        }
+
+
+
 		//kollar om man kan flytta en bricka
 		// returnar -1 om man kan gå från baren, 1 om man kan flytta bland trianglarna, 2 om man kan gå i mål, -1 om man inte kan flytta något.
         public int canMove(triangel[] spelplan, player spelare, int[] dices)
