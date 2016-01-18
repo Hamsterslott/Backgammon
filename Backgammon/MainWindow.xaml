@@ -96,10 +96,10 @@
 
 
 
-                <UniformGrid Name="utslagnaEtt" Canvas.Left="6" Canvas.Top="90" Height="181" Width="60">
+                <UniformGrid Name="utslagnaEtt" Canvas.Left="6" Canvas.Top="48" Height="223" Width="60">
                     <local:BrickHolder Width="auto" Height="auto"></local:BrickHolder>
                 </UniformGrid>
-                <UniformGrid Name="utslagnaTvå" Canvas.Left="6" Canvas.Top="440" Height="181" Width="60">
+                <UniformGrid Name="utslagnaTvå" Canvas.Left="6" Canvas.Top="398" Height="223" Width="60">
                     <local:BrickHolder Width="auto" Height="auto"></local:BrickHolder>
                 </UniformGrid>
 
