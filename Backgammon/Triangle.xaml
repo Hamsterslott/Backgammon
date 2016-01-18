@@ -17,7 +17,7 @@
 
         <Canvas Name="background" Height="298" Opacity="0">
             <Canvas.Background>
-                <ImageBrush ImageSource="Resources/Misc/isClickedUpper.png"/>
+                <ImageBrush ImageSource="Resources/isClickedUpper.png"/>
             </Canvas.Background>
         </Canvas>
         

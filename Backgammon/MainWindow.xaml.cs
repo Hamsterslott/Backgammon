@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Media;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Media;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -23,10 +23,8 @@ namespace Backgammon
     {
 
         
-        //private System.Media.SoundPlayer shake = new System.Media.SoundPlayer("../../Resources/Sounds/ShakeSound.wav");
-        //private System.Media.SoundPlayer throwThem = new System.Media.SoundPlayer("../../Resources/Sounds/diceSound.wav");
         private SoundPlayer shake = new SoundPlayer(Properties.Resources.ShakeSound);
-        private SoundPlayer throwThem = new SoundPlayer(Properties.Resources.diceSound);     
+        private SoundPlayer throwThem = new SoundPlayer(Properties.Resources.diceSound);             
        	private BackgammonModel _model = new BackgammonModel();
         private int[] dice = new int[4];
 		private triangel [] gameBoard;
@@ -58,8 +56,8 @@ namespace Backgammon
 
 			utslagna = new BrickHolder[]{(BrickHolder)utslagnaEtt.Children[0],(BrickHolder)utslagnaTvå.Children[0]};
 
-            plockadbricka[0] = new Cursor(Application.GetResourceStream(new Uri("pack://application:,,,/Resources/Cursors/darkHandle.cur")).Stream);
-            plockadbricka[1] = new Cursor(Application.GetResourceStream(new Uri("pack://application:,,,/Resources/Cursors/lightHandle.cur")).Stream);
+			plockadbricka[0] = new Cursor(Application.GetResourceStream(new Uri("pack://application:,,,/Resources/darkHandle.cur")).Stream);
+			plockadbricka[1] = new Cursor(Application.GetResourceStream(new Uri("pack://application:,,,/Resources/lightHandle.cur")).Stream);
 
 			for(int i = 0; i<2; i++)
 			{
@@ -93,30 +91,31 @@ namespace Backgammon
 
             // Hämtar alla bakgrunder
             try {
-              
-                _background[0].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/Backgrounds/greenFelt.png"));
-                _background[1].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/Backgrounds/greenishFelt.png"));
-                _background[2].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/Backgrounds/blueFelt.png"));
-                _background[3].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/Backgrounds/greenOrangeFelt.png"));
-                _background[4].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/Backgrounds/orangeFelt.png"));
-                _background[5].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/Backgrounds/purpleFelt.png"));
-                _background[6].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/Backgrounds/redFelt.png"));
-                _background[7].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/Backgrounds/darkRedFelt.png"));
 
-                _dices[0, 1] = new BitmapImage(new Uri("pack://application:,,,/Resources/Dices/dice1Light.png"));
-                _dices[0, 2] = new BitmapImage(new Uri("pack://application:,,,/Resources/Dices/dice2Light.png"));
-                _dices[0, 3] = new BitmapImage(new Uri("pack://application:,,,/Resources/Dices/dice3Light.png"));
-                _dices[0, 4] = new BitmapImage(new Uri("pack://application:,,,/Resources/Dices/dice4Light.png"));
-                _dices[0, 5] = new BitmapImage(new Uri("pack://application:,,,/Resources/Dices/dice5Light.png"));
-                _dices[0, 6] = new BitmapImage(new Uri("pack://application:,,,/Resources/Dices/dice6Light.png"));
+                _background[0].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/greenFelt.png"));
+                _background[1].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/greenishFelt.png"));
+                _background[2].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/blueFelt.png"));
+                _background[3].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/greenOrangeFelt.png"));
+                _background[4].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/orangeFelt.png"));
+                _background[5].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/purpleFelt.png"));
+                _background[6].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/redFelt.png"));
+                _background[7].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/darkRedFelt.png"));
+
+
+				_dices[0, 0] = null; 
+                _dices[0, 1] = new BitmapImage(new Uri("pack://application:,,,/Resources/dice1Light.png"));
+                _dices[0, 2] = new BitmapImage(new Uri("pack://application:,,,/Resources/dice2Light.png"));
+                _dices[0, 3] = new BitmapImage(new Uri("pack://application:,,,/Resources/dice3Light.png"));
+                _dices[0, 4] = new BitmapImage(new Uri("pack://application:,,,/Resources/dice4Light.png"));
+                _dices[0, 5] = new BitmapImage(new Uri("pack://application:,,,/Resources/dice5Light.png"));
+                _dices[0, 6] = new BitmapImage(new Uri("pack://application:,,,/Resources/dice6Light.png"));
                 _dices[1, 0] = null;
-                _dices[1, 1] = new BitmapImage(new Uri("pack://application:,,,/Resources/Dices/dice1Black.png"));
-                _dices[1, 2] = new BitmapImage(new Uri("pack://application:,,,/Resources/Dices/dice2Black.png"));
-                _dices[1, 3] = new BitmapImage(new Uri("pack://application:,,,/Resources/Dices/dice3Black.png"));
-                _dices[1, 4] = new BitmapImage(new Uri("pack://application:,,,/Resources/Dices/dice4Black.png"));
-                _dices[1, 5] = new BitmapImage(new Uri("pack://application:,,,/Resources/Dices/dice5Black.png"));
-                _dices[1, 6] = new BitmapImage(new Uri("pack://application:,,,/Resources/Dices/dice6Black.png"));   
-
+                _dices[1, 1] = new BitmapImage(new Uri("pack://application:,,,/Resources/dice1Black.png"));
+                _dices[1, 2] = new BitmapImage(new Uri("pack://application:,,,/Resources/dice2Black.png"));
+                _dices[1, 3] = new BitmapImage(new Uri("pack://application:,,,/Resources/dice3Black.png"));
+                _dices[1, 4] = new BitmapImage(new Uri("pack://application:,,,/Resources/dice4Black.png"));
+                _dices[1, 5] = new BitmapImage(new Uri("pack://application:,,,/Resources/dice5Black.png"));
+                _dices[1, 6] = new BitmapImage(new Uri("pack://application:,,,/Resources/dice6Black.png"));                   
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
 
@@ -196,6 +195,7 @@ namespace Backgammon
                         diceDark.Visibility = System.Windows.Visibility.Visible;
                         diceWhite.Visibility = System.Windows.Visibility.Visible;
                     }
+
 				selectedTriangles[0].setGlowing(false);
                 updateSelectedTriangles();
                 renderDices();
@@ -362,7 +362,8 @@ namespace Backgammon
 
         private void btnDice_MouseEnter(object sender, MouseEventArgs e)
         {
-            btnDice.Source = new BitmapImage(new Uri("pack://application:,,,/Resources/Dices/diceShakerDown.png"));
+            btnDice.Source = new BitmapImage(new Uri("pack://application:,,,/Resources/diceShakerDown.png"));
+
             
                        
             shake.Play();
@@ -382,8 +383,8 @@ namespace Backgammon
 
         private void btnDice_MouseLeave(object sender, MouseEventArgs e)
         {
-            btnDice.Source = new BitmapImage(new Uri("pack://application:,,,/Resources/Dices/diceShaker.png"));
-
+            btnDice.Source = new BitmapImage(new Uri("pack://application:,,,/Resources/diceShaker.png"));
+            
             if (spelare == player.one)
             {
                 diceWhite.Visibility = System.Windows.Visibility.Visible;
@@ -406,15 +407,13 @@ namespace Backgammon
             if (_model.canMove(gameBoard, spelare, dice) != 0)
             {
                 btnDice.Visibility = System.Windows.Visibility.Collapsed;
-
-
             } 
             else
- 			{
- 				MessageBox.Show("Inga tillgängliga moves");
- 				for(int i = 0; i < 4; i++) dice[i] = 0;
- 				renderDices();
- 			}
+			{
+				MessageBox.Show("Inga tillgängliga moves");
+				for(int i = 0; i < 4; i++) dice[i] = 0;
+				renderDices();
+			}
                       
             shake.Stop();           
             throwThem.PlaySync();

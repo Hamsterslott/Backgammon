@@ -3,10 +3,10 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:local="clr-namespace:Backgammon"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="Backgammon.MainWindow"
-        x:Name="duk" Title="Backgammon" MinHeight="600" MinWidth="800" Height="720" Width="1280" BorderBrush="Black" ResizeMode="CanResizeWithGrip" WindowStartupLocation="CenterScreen" WindowStyle="None"
+        x:Name="duk" Title="Backgammon" MinHeight="600" MinWidth="800" Height="720" Width="1280" Icon="Resources/icon.png" BorderBrush="Black" ResizeMode="CanResizeWithGrip" WindowStartupLocation="CenterScreen" WindowStyle="None"
         MouseLeftButtonDown="Window_MouseLeftButtonDown" AllowsTransparency="True" SizeChanged="Window_SizeChanged" Topmost="True">
     <Window.Background>
-        <ImageBrush ImageSource="Resources/Backgrounds/blueFelt.png"/>
+        <ImageBrush ImageSource="Resources/blueFelt.png"/>
     </Window.Background>
     <Grid>
         <Label Margin="11, 2, 10, 0" Foreground="Black" FontWeight="Bold" FontSize="26" Content="Backgammon"/>
@@ -23,7 +23,7 @@
                 </Canvas.Effect>
 
                 <Canvas.Background>
-                    <ImageBrush ImageSource="Resources/Backgrounds/bgBackgammonNiceV3.png"/>
+                    <ImageBrush ImageSource="Resources/bgBackgammonNiceV3.png"/>
                 </Canvas.Background>
 
                 <UniformGrid x:Name="gridOne" Height="298" Width="494" Canvas.Left="71" Canvas.Top="14" Columns="6" Rows="1">
@@ -74,8 +74,8 @@
                     <Image Margin="10,5,10,5" x:Name="dice4" Stretch="Uniform"/>
                 </UniformGrid>
 
-                <Image x:Name="diceWhite" Source="Resources/Dices/dice11Light.png" Height="112" Canvas.Left="1125" Canvas.Top="163"/>
-                <Image x:Name="diceDark" Source="Resources/Dices/dice11Black.png" Height="112" Canvas.Left="1127" Canvas.Top="392"/>
+                <Image x:Name="diceWhite" Source="Resources/dice11Light.png" Height="112" Canvas.Left="1125" Canvas.Top="163"/>
+                <Image x:Name="diceDark" Source="Resources/dice11Black.png" Height="112" Canvas.Left="1127" Canvas.Top="392"/>
 
 
                 <!-- <UniformGrid Name="gridDiceStartDark" Height="112" Width="55" Canvas.Left="1125" Canvas.Top="163">
@@ -96,19 +96,19 @@
 
 
 
-                <UniformGrid Name="utslagnaEtt" Canvas.Left="6" Canvas.Top="48" Height="223" Width="60">
+                <UniformGrid Name="utslagnaEtt" Canvas.Left="6" Canvas.Top="90" Height="181" Width="60">
                     <local:BrickHolder Width="auto" Height="auto"></local:BrickHolder>
                 </UniformGrid>
-                <UniformGrid Name="utslagnaTvå" Canvas.Left="6" Canvas.Top="398" Height="223" Width="60">
+                <UniformGrid Name="utslagnaTvå" Canvas.Left="6" Canvas.Top="440" Height="181" Width="60">
                     <local:BrickHolder Width="auto" Height="auto"></local:BrickHolder>
                 </UniformGrid>
 
-                <Image x:Name="btnDice" Source="Resources/Dices/diceShaker.png" Height="110" Canvas.Left="1094" Canvas.Top="284" VerticalAlignment="Stretch" Width="110" Cursor="Hand"
+                <Image x:Name="btnDice" Source="Resources/diceShaker.png" Height="110" Canvas.Left="1094" Canvas.Top="284" VerticalAlignment="Stretch" Width="110" Cursor="Hand"
 					MouseEnter="btnDice_MouseEnter" MouseLeave="btnDice_MouseLeave" MouseLeftButtonDown="btnDice_MouseLeftButtonDown"/>
             </Canvas>
 
         </Viewbox>
         <Rectangle x:Name="Sidebar" Width="290" VerticalAlignment="Stretch" HorizontalAlignment="Right" Fill="#99000000" Visibility="Collapsed"/>
-        <Image Opacity="0.6" x:Name="sidebar" Width="28" Height="28" VerticalAlignment="Top" HorizontalAlignment="Right" Source="Resources/Misc/sidebar.png" Margin="0,43,10,0" MouseLeftButtonDown="sidebar_MouseLeftButtonDown"/>
+        <Image Opacity="0.6" x:Name="sidebar" Width="28" Height="28" VerticalAlignment="Top" HorizontalAlignment="Right" Source="Resources/sidebar.png" Margin="0,43,10,0" MouseLeftButtonDown="sidebar_MouseLeftButtonDown"/>
     </Grid>
 </Window>
