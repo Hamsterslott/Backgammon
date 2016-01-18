@@ -28,11 +28,13 @@ namespace Backgammon
         public BrickHolder()
         {
             InitializeComponent();
-
+			try {
             brick[0] = new ImageBrush();
             brick[1] = new ImageBrush();
             brick[0].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/vitKnappLigga.png"));
             brick[1].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/svartKnappLigga.png"));
+			}
+			catch (Exception) {}
         }
 
          private void update() {
