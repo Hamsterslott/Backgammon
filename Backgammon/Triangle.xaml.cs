@@ -172,7 +172,7 @@ namespace Backgammon
             return _isGlowing;
         }
         public void setGlowing(bool glow) {
-            _isGlowing = glow;
+            _isGlowing = false; //temporär fix för att få bort glow.
         }
         // GETTERS OCH SETTERS SLUT //
     }
