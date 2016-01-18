@@ -32,7 +32,7 @@ namespace Backgammon
 		private ImageBrush[] _background = new ImageBrush[8];
 
 		private Triangle [] selectedTriangles = new Triangle[2];
-		private int trianglePos = 0;
+		private int pickedUp = 0;
 
         private player spelare = player.one;
         private int [] playercheckers = new int[]{15,15};
@@ -138,10 +138,10 @@ namespace Backgammon
 		public void playGame(Triangle t)
 		{
 			int status = _model.canMove(gameBoard, spelare, dice);
-			if (trianglePos == 0 && status != 0 && t.getColor() == spelare && t.getSize() >= 1) selectedTriangles[trianglePos++] = t;
-			else if (trianglePos == 1) selectedTriangles[trianglePos++] = t;
+			if (pickedUp == 0 && status != 0 && t.getColor() == spelare && t.getSize() >= 1) selectedTriangles[pickedUp++] = t;
+			else if (pickedUp == 1) selectedTriangles[pickedUp++] = t;
 
-			if (trianglePos == 1)
+			if (pickedUp == 1)
 			{
 				if(t.getSize()>=1 && t.getColor() == spelare)
 					{ 
@@ -152,7 +152,7 @@ namespace Backgammon
 					}
 			}
 
-			if(trianglePos == 2)
+			if(pickedUp == 2)
 				{
                     
                     if (status == -1)
@@ -199,7 +199,7 @@ namespace Backgammon
 				selectedTriangles[0].setGlowing(false);
                 updateSelectedTriangles();
                 renderDices();
-				trianglePos = 0;
+				pickedUp = 0;
                 this.Cursor = Cursors.Arrow;
 				}
 		}
