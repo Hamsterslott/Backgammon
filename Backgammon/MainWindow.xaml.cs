@@ -22,7 +22,7 @@ namespace Backgammon
     public partial class MainWindow : Window
     {
 
-        
+        private bool canMoveWindow = true;
         private SoundPlayer shake = new SoundPlayer(Properties.Resources.ShakeSound);
         private SoundPlayer throwThem = new SoundPlayer(Properties.Resources.diceSound);             
        	private BackgammonModel _model = new BackgammonModel();
@@ -302,7 +302,10 @@ namespace Backgammon
 
         private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            try { DragMove(); }
+            try{
+                if(canMoveWindow)
+                    DragMove();
+            }
 			catch (Exception) {}
         }
         
@@ -418,6 +421,16 @@ namespace Backgammon
             shake.Stop();           
             throwThem.PlaySync();
             this.IsEnabled = true;
+        }
+
+        private void spelPlan_MouseEnter(object sender, MouseEventArgs e)
+        {
+            canMoveWindow = false;
+        }
+
+        private void spelPlan_MouseLeave(object sender, MouseEventArgs e)
+        {
+            canMoveWindow = true;
         }
 
     }
