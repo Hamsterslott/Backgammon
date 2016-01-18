@@ -46,13 +46,13 @@ namespace Backgammon
                     tripleBrick[i] = new ImageBrush();
                 }
 				
-                singleBrick[0].ImageSource = new BitmapImage(new Uri("../../Resources/whiteChip1.png", UriKind.Relative));
-                doubleBrick[0].ImageSource = new BitmapImage(new Uri("../../Resources/whiteChip2.png", UriKind.Relative));
-                tripleBrick[0].ImageSource = new BitmapImage(new Uri("../../Resources/whiteChip3.png", UriKind.Relative));
+                singleBrick[0].ImageSource = new BitmapImage(new Uri("../../Resources/Chips/whiteChip1.png", UriKind.Relative));
+                doubleBrick[0].ImageSource = new BitmapImage(new Uri("../../Resources/Chips/whiteChip2.png", UriKind.Relative));
+                tripleBrick[0].ImageSource = new BitmapImage(new Uri("../../Resources/Chips/whiteChip3.png", UriKind.Relative));
 
-                singleBrick[1].ImageSource = new BitmapImage(new Uri("../../Resources/darkChip1.png", UriKind.Relative));
-                doubleBrick[1].ImageSource = new BitmapImage(new Uri("../../Resources/darkChip2.png", UriKind.Relative));
-                tripleBrick[1].ImageSource = new BitmapImage(new Uri("../../Resources/darkChip3.png", UriKind.Relative));
+                singleBrick[1].ImageSource = new BitmapImage(new Uri("../../Resources/Chips/darkChip1.png", UriKind.Relative));
+                doubleBrick[1].ImageSource = new BitmapImage(new Uri("../../Resources/Chips/darkChip2.png", UriKind.Relative));
+                tripleBrick[1].ImageSource = new BitmapImage(new Uri("../../Resources/Chips/darkChip3.png", UriKind.Relative));
             }
             catch (Exception ex) { Console.WriteLine("brickInit: " + ex.Message); }
             
@@ -61,9 +61,9 @@ namespace Backgammon
             _size = 0;
 
             if (_state == STATE.UPPER)
-                _background.ImageSource = new BitmapImage(new Uri("../../Resources/isClickedUpper.png", UriKind.Relative));
+                _background.ImageSource = new BitmapImage(new Uri("../../Resources/Misc/isClickedUpper.png", UriKind.Relative));
             else
-                _background.ImageSource = new BitmapImage(new Uri("../../Resources/isClickedLower.png", UriKind.Relative));
+                _background.ImageSource = new BitmapImage(new Uri("../../Resources/Misc/isClickedLower.png", UriKind.Relative));
             background.Background = _background;
             Update();
         }

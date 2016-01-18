@@ -116,108 +116,84 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\icon.png" />
+    <Resource Include="Resources\Misc\isClickedAnimationLower.gif" />
+    <Resource Include="Resources\Misc\isClickedAnimationUpper.gif" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\background.jpg" />
+    <Resource Include="Resources\Chips\darkChip1.png" />
+    <Resource Include="Resources\Chips\darkChip2.png" />
+    <Resource Include="Resources\Chips\darkChip3.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\bgBackgammon.png" />
+    <Resource Include="Resources\Chips\whiteChip1.png" />
+    <Resource Include="Resources\Chips\whiteChip2.png" />
+    <Resource Include="Resources\Chips\whiteChip3.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\bgBackgammonNice.png" />
+    <Resource Include="Resources\Misc\isClickedLower.png" />
+    <Resource Include="Resources\Misc\isClickedUpper.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\splashBG.png" />
+    <Resource Include="Resources\Backgrounds\blueFelt.png" />
+    <Resource Include="Resources\Backgrounds\darkRedFelt.png" />
+    <Resource Include="Resources\Backgrounds\greenFelt.png" />
+    <Resource Include="Resources\Backgrounds\greenishFelt.png" />
+    <Resource Include="Resources\Backgrounds\greenOrangeFelt.png" />
+    <Resource Include="Resources\Backgrounds\orangeFelt.png" />
+    <Resource Include="Resources\Backgrounds\purpleFelt.png" />
+    <Resource Include="Resources\Backgrounds\redFelt.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\darkTriangle.png" />
-    <Resource Include="Resources\lightTriangle.png" />
+    <Resource Include="Resources\Misc\sidebar.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\isClickedAnimationLower.gif" />
-    <Resource Include="Resources\isClickedAnimationUpper.gif" />
+    <Resource Include="Resources\Misc\svartKnappLigga.png" />
+    <Resource Include="Resources\Misc\vitKnappLigga.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\darkChip1.png" />
-    <Resource Include="Resources\darkChip2.png" />
-    <Resource Include="Resources\darkChip3.png" />
+    <Resource Include="Resources\Dices\dice1Dark.png" />
+    <Resource Include="Resources\Dices\dice1Light.png" />
+    <Resource Include="Resources\Dices\dice1Mid.png" />
+    <Resource Include="Resources\Dices\dice2Dark.png" />
+    <Resource Include="Resources\Dices\dice2Light.png" />
+    <Resource Include="Resources\Dices\dice2Mid.png" />
+    <Resource Include="Resources\Dices\dice3Dark.png" />
+    <Resource Include="Resources\Dices\dice3Light.png" />
+    <Resource Include="Resources\Dices\dice3Mid.png" />
+    <Resource Include="Resources\Dices\dice4Dark.png" />
+    <Resource Include="Resources\Dices\dice4Light.png" />
+    <Resource Include="Resources\Dices\dice4Mid.png" />
+    <Resource Include="Resources\Dices\dice5Dark.png" />
+    <Resource Include="Resources\Dices\dice5Light.png" />
+    <Resource Include="Resources\Dices\dice5Mid.png" />
+    <Resource Include="Resources\Dices\dice6Dark.png" />
+    <Resource Include="Resources\Dices\dice6Light.png" />
+    <Resource Include="Resources\Dices\dice6Mid.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\whiteChip1.png" />
-    <Resource Include="Resources\whiteChip2.png" />
-    <Resource Include="Resources\whiteChip3.png" />
+    <Resource Include="Resources\Backgrounds\bgBackgammonNiceV3.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\isClickedLower.png" />
-    <Resource Include="Resources\isClickedUpper.png" />
+    <Resource Include="Resources\Dices\dice11Dark.png" />
+    <Resource Include="Resources\Dices\dice11Light.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\blueFelt.png" />
-    <Resource Include="Resources\darkRedFelt.png" />
-    <Resource Include="Resources\greenFelt.png" />
-    <Resource Include="Resources\greenishFelt.png" />
-    <Resource Include="Resources\greenOrangeFelt.png" />
-    <Resource Include="Resources\orangeFelt.png" />
-    <Resource Include="Resources\purpleFelt.png" />
-    <Resource Include="Resources\redFelt.png" />
+    <Resource Include="Resources\Dices\diceShaker.png" />
+    <Resource Include="Resources\Dices\diceShakerDown.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\sidebar.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resources\redDice.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resources\bgBackgammonNiceV2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resources\svartKnappLigga.png" />
-    <Resource Include="Resources\vitKnappLigga.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resources\dice1Dark.png" />
-    <Resource Include="Resources\dice1Light.png" />
-    <Resource Include="Resources\dice1Mid.png" />
-    <Resource Include="Resources\dice2Dark.png" />
-    <Resource Include="Resources\dice2Light.png" />
-    <Resource Include="Resources\dice2Mid.png" />
-    <Resource Include="Resources\dice3Dark.png" />
-    <Resource Include="Resources\dice3Light.png" />
-    <Resource Include="Resources\dice3Mid.png" />
-    <Resource Include="Resources\dice4Dark.png" />
-    <Resource Include="Resources\dice4Light.png" />
-    <Resource Include="Resources\dice4Mid.png" />
-    <Resource Include="Resources\dice5Dark.png" />
-    <Resource Include="Resources\dice5Light.png" />
-    <Resource Include="Resources\dice5Mid.png" />
-    <Resource Include="Resources\dice6Dark.png" />
-    <Resource Include="Resources\dice6Light.png" />
-    <Resource Include="Resources\dice6Mid.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resources\bgBackgammonNiceV3.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resources\dice11Dark.png" />
-    <Resource Include="Resources\dice11Light.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resources\diceShaker.png" />
-    <Resource Include="Resources\diceShakerDown.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resources\dice1Black.png" />
-    <Resource Include="Resources\dice2Black.png" />
-    <Resource Include="Resources\dice3Black.png" />
-    <Resource Include="Resources\dice4Black.png" />
-    <Resource Include="Resources\dice5Black.png" />
-    <Resource Include="Resources\dice6Black.png" />
-    <Resource Include="Resources\dice11Black.png" />
-    <Content Include="Resources\diceSound.wav" />
-    <Resource Include="Resources\darkHandle.cur" />
-    <Resource Include="Resources\lightHandle.cur" />
-    <Content Include="Resources\ShakeSound.wav" />
+    <Resource Include="Resources\Dices\dice1Black.png" />
+    <Resource Include="Resources\Dices\dice2Black.png" />
+    <Resource Include="Resources\Dices\dice3Black.png" />
+    <Resource Include="Resources\Dices\dice4Black.png" />
+    <Resource Include="Resources\Dices\dice5Black.png" />
+    <Resource Include="Resources\Dices\dice6Black.png" />
+    <Resource Include="Resources\Dices\dice11Black.png" />
+    <Resource Include="Resources\Misc\splashBG.png" />
+    <Content Include="Resources\Sounds\diceSound.wav" />
+    <Resource Include="Resources\Cursors\darkHandle.cur" />
+    <Resource Include="Resources\Cursors\lightHandle.cur" />
+    <Content Include="Resources\Sounds\ShakeSound.wav" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

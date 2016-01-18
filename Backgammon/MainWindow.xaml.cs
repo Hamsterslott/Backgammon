@@ -22,8 +22,8 @@ namespace Backgammon
     {
 
         
-        private System.Media.SoundPlayer shake = new System.Media.SoundPlayer("../../Resources/ShakeSound.wav");
-        private System.Media.SoundPlayer throwThem = new System.Media.SoundPlayer("../../Resources/diceSound.wav");             
+        private System.Media.SoundPlayer shake = new System.Media.SoundPlayer("../../Resources/Sounds/ShakeSound.wav");
+        private System.Media.SoundPlayer throwThem = new System.Media.SoundPlayer("../../Resources/Sounds/diceSound.wav");             
        	private BackgammonModel _model = new BackgammonModel();
         private int[] dice = new int[4];
 		private triangel [] gameBoard;
@@ -55,8 +55,8 @@ namespace Backgammon
 
 			utslagna = new BrickHolder[]{(BrickHolder)utslagnaEtt.Children[0],(BrickHolder)utslagnaTvå.Children[0]};
 
-			plockadbricka[0] = new Cursor(Application.GetResourceStream(new Uri("../../Resources/darkHandle.cur", UriKind.Relative)).Stream);
-			plockadbricka[1] = new Cursor(Application.GetResourceStream(new Uri("../../Resources/lightHandle.cur", UriKind.Relative)).Stream);
+			plockadbricka[0] = new Cursor(Application.GetResourceStream(new Uri("../../Resources/Cursors/darkHandle.cur", UriKind.Relative)).Stream);
+            plockadbricka[1] = new Cursor(Application.GetResourceStream(new Uri("../../Resources/Cursors/lightHandle.cur", UriKind.Relative)).Stream);
 
 			for(int i = 0; i<2; i++)
 			{
@@ -90,30 +90,30 @@ namespace Backgammon
 
             // Hämtar alla bakgrunder
             try {
-                _background[0].ImageSource = new BitmapImage(new Uri("../../Resources/greenFelt.png", UriKind.Relative));
-                _background[1].ImageSource = new BitmapImage(new Uri("../../Resources/greenishFelt.png", UriKind.Relative));
-                _background[2].ImageSource = new BitmapImage(new Uri("../../Resources/blueFelt.png", UriKind.Relative));
-                _background[3].ImageSource = new BitmapImage(new Uri("../../Resources/greenOrangeFelt.png", UriKind.Relative));
-                _background[4].ImageSource = new BitmapImage(new Uri("../../Resources/orangeFelt.png", UriKind.Relative));
-                _background[5].ImageSource = new BitmapImage(new Uri("../../Resources/purpleFelt.png", UriKind.Relative));
-                _background[6].ImageSource = new BitmapImage(new Uri("../../Resources/redFelt.png", UriKind.Relative));
-                _background[7].ImageSource = new BitmapImage(new Uri("../../Resources/darkRedFelt.png", UriKind.Relative));
+                _background[0].ImageSource = new BitmapImage(new Uri("../../Resources/Backgrounds/greenFelt.png", UriKind.Relative));
+                _background[1].ImageSource = new BitmapImage(new Uri("../../Resources/Backgrounds/greenishFelt.png", UriKind.Relative));
+                _background[2].ImageSource = new BitmapImage(new Uri("../../Resources/Backgrounds/blueFelt.png", UriKind.Relative));
+                _background[3].ImageSource = new BitmapImage(new Uri("../../Resources/Backgrounds/greenOrangeFelt.png", UriKind.Relative));
+                _background[4].ImageSource = new BitmapImage(new Uri("../../Resources/Backgrounds/orangeFelt.png", UriKind.Relative));
+                _background[5].ImageSource = new BitmapImage(new Uri("../../Resources/Backgrounds/purpleFelt.png", UriKind.Relative));
+                _background[6].ImageSource = new BitmapImage(new Uri("../../Resources/Backgrounds/redFelt.png", UriKind.Relative));
+                _background[7].ImageSource = new BitmapImage(new Uri("../../Resources/Backgrounds/darkRedFelt.png", UriKind.Relative));
 
 
 				_dices[0, 0] = null; 
-                _dices[0, 1] = new BitmapImage(new Uri("../../Resources/dice1Light.png", UriKind.Relative));
-                _dices[0, 2] = new BitmapImage(new Uri("../../Resources/dice2Light.png", UriKind.Relative));
-                _dices[0, 3] = new BitmapImage(new Uri("../../Resources/dice3Light.png", UriKind.Relative));
-                _dices[0, 4] = new BitmapImage(new Uri("../../Resources/dice4Light.png", UriKind.Relative));
-                _dices[0, 5] = new BitmapImage(new Uri("../../Resources/dice5Light.png", UriKind.Relative));
-                _dices[0, 6] = new BitmapImage(new Uri("../../Resources/dice6Light.png", UriKind.Relative));
+                _dices[0, 1] = new BitmapImage(new Uri("../../Resources/Dices/dice1Light.png", UriKind.Relative));
+                _dices[0, 2] = new BitmapImage(new Uri("../../Resources/Dices/dice2Light.png", UriKind.Relative));
+                _dices[0, 3] = new BitmapImage(new Uri("../../Resources/Dices/dice3Light.png", UriKind.Relative));
+                _dices[0, 4] = new BitmapImage(new Uri("../../Resources/Dices/dice4Light.png", UriKind.Relative));
+                _dices[0, 5] = new BitmapImage(new Uri("../../Resources/Dices/dice5Light.png", UriKind.Relative));
+                _dices[0, 6] = new BitmapImage(new Uri("../../Resources/Dices/dice6Light.png", UriKind.Relative));
                 _dices[1, 0] = null;
-                _dices[1, 1] = new BitmapImage(new Uri("../../Resources/dice1Black.png", UriKind.Relative));
-                _dices[1, 2] = new BitmapImage(new Uri("../../Resources/dice2Black.png", UriKind.Relative));
-                _dices[1, 3] = new BitmapImage(new Uri("../../Resources/dice3Black.png", UriKind.Relative));
-                _dices[1, 4] = new BitmapImage(new Uri("../../Resources/dice4Black.png", UriKind.Relative));
-                _dices[1, 5] = new BitmapImage(new Uri("../../Resources/dice5Black.png", UriKind.Relative));
-                _dices[1, 6] = new BitmapImage(new Uri("../../Resources/dice6Black.png", UriKind.Relative));                   
+                _dices[1, 1] = new BitmapImage(new Uri("../../Resources/Dices/dice1Black.png", UriKind.Relative));
+                _dices[1, 2] = new BitmapImage(new Uri("../../Resources/Dices/dice2Black.png", UriKind.Relative));
+                _dices[1, 3] = new BitmapImage(new Uri("../../Resources/Dices/dice3Black.png", UriKind.Relative));
+                _dices[1, 4] = new BitmapImage(new Uri("../../Resources/Dices/dice4Black.png", UriKind.Relative));
+                _dices[1, 5] = new BitmapImage(new Uri("../../Resources/Dices/dice5Black.png", UriKind.Relative));
+                _dices[1, 6] = new BitmapImage(new Uri("../../Resources/Dices/dice6Black.png", UriKind.Relative));                   
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
 
@@ -359,7 +359,7 @@ namespace Backgammon
 
         private void btnDice_MouseEnter(object sender, MouseEventArgs e)
         {
-            btnDice.Source = new BitmapImage(new Uri("../../Resources/diceShakerDown.png", UriKind.Relative));
+            btnDice.Source = new BitmapImage(new Uri("../../Resources/Dices/diceShakerDown.png", UriKind.Relative));
 
             
                        
@@ -380,7 +380,7 @@ namespace Backgammon
 
         private void btnDice_MouseLeave(object sender, MouseEventArgs e)
         {
-            btnDice.Source = new BitmapImage(new Uri("../../Resources/diceShaker.png", UriKind.Relative));
+            btnDice.Source = new BitmapImage(new Uri("../../Resources/Dices/diceShaker.png", UriKind.Relative));
             
             if (spelare == player.one)
             {
