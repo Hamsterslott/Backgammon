@@ -31,8 +31,8 @@ namespace Backgammon
         private BitmapImage[,] _dices = new BitmapImage[2,7];
 		private ImageBrush[] _background = new ImageBrush[8];
 
-		private Triangle [] selectedTriangles = new Triangle[2];
-		private int pickedUp = 0;
+		public Triangle [] selectedTriangles = new Triangle[2];
+		public int pickedUp = 0;
 
         private player spelare = player.one;
         private int [] playercheckers = new int[]{15,15};
