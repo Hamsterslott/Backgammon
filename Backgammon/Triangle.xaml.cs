@@ -27,7 +27,7 @@ namespace Backgammon
     {
         private MainWindow _mainWindow = null;
         private int _size = 0;
-		private int pos;
+		private int _pos;
         public Boolean _isGlowing = false, _isHovered = false; 
         private player _brickColor;
         private STATE _state;
@@ -57,6 +57,13 @@ namespace Backgammon
             catch (Exception ex) { Console.WriteLine("brickInit: " + ex.Message); }
             
         }
+
+		public Triangle(int pos)
+		{
+			InitializeComponent();
+			_pos = pos;
+		}
+
         private void init() {
             _size = 0;
 
@@ -149,10 +156,10 @@ namespace Backgammon
         }
 
 		public int getPos() {
-            return pos;
+            return _pos;
         }
         public void setPos(int pos) {
-            this.pos = pos;
+            _pos = pos;
         }
 
 

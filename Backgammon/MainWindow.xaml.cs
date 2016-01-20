@@ -31,8 +31,8 @@ namespace Backgammon
         private BitmapImage[,] _dices = new BitmapImage[2,7];
 		private ImageBrush[] _background = new ImageBrush[8];
 
-		public Triangle [] selectedTriangles = new Triangle[2];
-		public int pickedUp = 0;
+		internal Triangle [] selectedTriangles = new Triangle[2];
+		internal int pickedUp = 0;
 
         private player spelare = player.one;
         private int [] playercheckers = new int[]{15,15};
@@ -310,7 +310,7 @@ namespace Backgammon
                 if(canMoveWindow)
                     DragMove();
             }
-			catch (Exception) {}
+			catch (Exception ex) { Console.WriteLine("Messageboxarna gör så man får System.InvalidOperationException här"); }
         }
         
         private void maximize_Click(object sender, RoutedEventArgs e)
@@ -420,6 +420,9 @@ namespace Backgammon
 				MessageBox.Show("Inga tillgängliga moves");
 				for(int i = 0; i < 4; i++) dice[i] = 0;
 				renderDices();
+				btnDice.Visibility = System.Windows.Visibility.Visible;
+                diceDark.Visibility = System.Windows.Visibility.Visible;
+                diceWhite.Visibility = System.Windows.Visibility.Visible;
 			}
                       
             shake.Stop();           

@@ -58,10 +58,13 @@ namespace Backgammon
 
          private void brickHolder_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
          {
-             Triangle t = new Triangle();
-             t.setPos(this.getPos());
-             _mainWindow.playGame(t);
+			 if(_mainWindow.pickedUp != 0) _mainWindow.playGame(new Triangle(_pos));
          }
+
+		private void brickHolder_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+		{
+			 if(_mainWindow.pickedUp != 0) _mainWindow.playGame(new Triangle(_pos));
+		}
 
         // GETTERS AND SETTERS //
 		public void setLink(MainWindow mw) {
@@ -76,12 +79,11 @@ namespace Backgammon
             update();
         }
 
-		public int getPos() {
-            return _pos;
-        }
         public void setPos(int pos) {
             this._pos = pos;
         }
+
+		
         // GETTERS AND SETTERS END //
     }
 }
