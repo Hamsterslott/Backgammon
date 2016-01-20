@@ -356,10 +356,12 @@ namespace Backgammon
            if (Sidebar.Visibility == System.Windows.Visibility.Collapsed)
             {
                 Sidebar.Visibility = System.Windows.Visibility.Visible;
+                slider.Visibility = System.Windows.Visibility.Visible;
             }
             else
             {
                 Sidebar.Visibility = System.Windows.Visibility.Collapsed;
+                slider.Visibility = System.Windows.Visibility.Collapsed;
             } 
         }
 
@@ -438,6 +440,11 @@ namespace Backgammon
         private void spelPlan_MouseLeave(object sender, MouseEventArgs e)
         {
             canMoveWindow = true;
+        }
+
+        private void slider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+
         }
 
     }
