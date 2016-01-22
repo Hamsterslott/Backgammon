@@ -7,10 +7,10 @@
              d:DesignHeight="720" d:DesignWidth="290" VerticalAlignment="Stretch">
     <Grid Name="theGrid">
 
-        
+
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="100*"/>
+            <RowDefinition Height="120*"/>
 
             <RowDefinition Height="100*"/>
 
@@ -28,15 +28,21 @@
 
             <RowDefinition Height="100*"/>
 
-            <RowDefinition Height="100*"/>
+            <RowDefinition Height="50*"/>
 
         </Grid.RowDefinitions>
-        
+
         <Canvas Name="background" Height="720" Opacity="0.6" Background="Black"/>
-        <Canvas Name="Settings" Grid.Row="0">
-        </Canvas>
-        <Canvas Name="SoundEfx" Grid.Row="1">
-        </Canvas>
+        <!--Settings-->
+        <Label Name="Settings" Grid.Row="0" Content="Settings" FontSize="75" Foreground="Snow" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Nueva Std Cond" ></Label>
+        <!--SoundEffects-->
+        <Label Name="SoundEfxText" Grid.Row="1" Content="Sound Effects" FontSize="30" Foreground="Snow" HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="Nueva Std Cond"></Label>
+        <Button Grid.Row="1" Content="ON" VerticalAlignment="Bottom" HorizontalAlignment="Left" FontSize="18" FontFamily="Nueva Std Cond" BorderThickness="0" Padding="4" Margin="100,0,0,0" BorderBrush="#FFDAD9D9" Background="#FFF9F9F9" Foreground="Black" Opacity="0.8"/>
+        <Button Grid.Row="1" Content="OFF" VerticalAlignment="Bottom" HorizontalAlignment="Right" FontSize="18" Foreground="Snow" FontFamily="Nueva Std Cond" BorderThickness="0"  Padding="4" BorderBrush="Transparent" Background="Transparent" Margin="0,0,100,0"></Button>
+        <!--Volume-->
+        <Label Name="Vol" Grid.Row="2" Content="Music Volume" FontSize="30" Foreground="Snow" HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="Nueva Std Cond"></Label>
+        <Slider x:Name="slider" Grid.Row="2" Width="165"  Minimum="0" Maximum="10" IsSnapToTickEnabled="true" TickFrequency="1" TickPlacement="TopLeft" 
+                Orientation="Horizontal" Margin="0,38,61,0" VerticalAlignment="Top" HorizontalAlignment="Right" ValueChanged="slider_ValueChanged"></Slider>
         <Canvas Name="MusicVol" Grid.Row="2">
         </Canvas>
         <Canvas Name="MusicSong" Grid.Row="3">
@@ -53,8 +59,9 @@
         </Canvas>
         <Canvas Name="CloseMeny" Grid.Row="9">
         </Canvas>
-        
-        
-        
+
+
+
+
     </Grid>
 </UserControl>
