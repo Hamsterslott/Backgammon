@@ -230,6 +230,21 @@
     <Resource Include="Resources\arrowLeft.png" />
     <Resource Include="Resources\arrowRight.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\2RödKnapp.png" />
+    <Resource Include="Resources\3RödKnapp.png" />
+    <Resource Include="Resources\RödKnappV2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\SvartVitKnapp.png" />
+    <Resource Include="Resources\SvartVitRödKnapp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\2BlåKnapp.png" />
+    <Resource Include="Resources\3BlåKnapp.png" />
+    <Resource Include="Resources\BlåKnapp.png" />
+    <Resource Include="Resources\BlåSvartVitKnapp.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

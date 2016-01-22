@@ -85,11 +85,25 @@
                 <ImageBrush ImageSource="Resources/orangeFelt.png"/>
             </Canvas.Background>
         </Canvas>
-        
-        
+                
         <!--BrickColor-->
-        <Canvas Name="BrickColor" Grid.Row="5">
+        <Label Name="BrickColor" Grid.Row="5" Content="Brick Type" FontSize="30" Foreground="Snow" HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="Nueva Std Cond"></Label>
+        <Canvas Name="BlackWhite" Grid.Row="5" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="70" Height="40" Margin="35,0,0,0">
+            <Canvas.Background>
+                <ImageBrush ImageSource="Resources/SvartVitKnapp.png" Stretch="Uniform"/>
+            </Canvas.Background>
         </Canvas>
+        <Canvas Name="BlackRed" Grid.Row="5" HorizontalAlignment="Center" Width="70" VerticalAlignment="Bottom" Height="40">
+            <Canvas.Background>
+                <ImageBrush ImageSource="Resources/BlåSvartVitKnapp.png" Stretch="Uniform"/>
+            </Canvas.Background>
+        </Canvas>
+        <Canvas Name="WhiteBlur" Grid.Row="5" HorizontalAlignment="right" Width="70" VerticalAlignment="Bottom" Height="40" Margin="0,0,35,0">
+            <Canvas.Background>
+                <ImageBrush ImageSource="Resources/SvartVitRödKnapp.png" Stretch="Uniform"/>
+            </Canvas.Background>
+        </Canvas>
+        
         <!--Rotate Viewe-->
         <Canvas Name="RotateViewe" Grid.Row="6">
         </Canvas>
