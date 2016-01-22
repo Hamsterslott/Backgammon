@@ -24,7 +24,9 @@ namespace Backgammon
 
         private bool canMoveWindow = true;
         private SoundPlayer shake = new SoundPlayer(Properties.Resources.ShakeSound);
-        private SoundPlayer throwThem = new SoundPlayer(Properties.Resources.diceSound);             
+        private SoundPlayer throwThem = new SoundPlayer(Properties.Resources.diceSound);
+        private int soundFx = 1;
+        private int music = 1;     
        	private BackgammonModel _model = new BackgammonModel();
         private int[] dice = new int[4];
 		private triangel [] gameBoard;
@@ -392,8 +394,8 @@ namespace Backgammon
             btnDice.Source = new BitmapImage(new Uri("pack://application:,,,/Resources/diceShakerDown.png"));
 
             
-                       
-            shake.Play();
+            if (soundFx==1)           
+                shake.Play();
            
             
             if (spelare == player.one) 
@@ -420,8 +422,8 @@ namespace Backgammon
             {
                 diceDark.Visibility = System.Windows.Visibility.Visible;
             }
-            
-            shake.Stop();
+            if (soundFx == 1)    
+                shake.Stop();
         }
 
         private void btnDice_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -444,10 +446,12 @@ namespace Backgammon
                 diceDark.Visibility = System.Windows.Visibility.Visible;
                 diceWhite.Visibility = System.Windows.Visibility.Visible;
 			}
-                      
-            shake.Stop();           
-            throwThem.PlaySync();
-            this.IsEnabled = true;
+            if (soundFx == 1)
+            {
+                shake.Stop();
+                throwThem.PlaySync();
+            }
+                this.IsEnabled = true;
         }
 
         private void spelPlan_MouseEnter(object sender, MouseEventArgs e)

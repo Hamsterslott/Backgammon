@@ -57,6 +57,9 @@
     <Compile Include="BrickHolder.xaml.cs">
       <DependentUpon>BrickHolder.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Rectangel.xaml.cs">
+      <DependentUpon>Rectangel.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Splash.xaml.cs">
       <DependentUpon>Splash.xaml</DependentUpon>
     </Compile>
@@ -79,6 +82,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Rectangel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Splash.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
