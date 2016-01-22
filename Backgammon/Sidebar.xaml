@@ -1,10 +1,10 @@
-﻿<UserControl x:Class="Backgammon.Rectangel"
+﻿<UserControl x:Class="Backgammon.Sidebar"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
-             d:DesignHeight="720" d:DesignWidth="290" VerticalAlignment="Stretch">
+            d:DesignHeight="720" d:DesignWidth="290" VerticalAlignment="Stretch">
     <Grid Name="theGrid">
 
 

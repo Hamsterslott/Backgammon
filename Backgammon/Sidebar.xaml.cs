@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace Backgammon
 {
     /// <summary>
-    /// Interaction logic for Rectangel.xaml
+    /// Interaction logic for Sidebar.xaml
     /// </summary>
-    public partial class Rectangel : UserControl
+    public partial class Sidebar : UserControl
     {
-        public Rectangel()
+        public Sidebar()
         {
             InitializeComponent();
         }
