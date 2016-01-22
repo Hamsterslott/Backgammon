@@ -43,20 +43,63 @@
         <Label Name="Vol" Grid.Row="2" Content="Music Volume" FontSize="30" Foreground="Snow" HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="Nueva Std Cond"></Label>
         <Slider x:Name="slider" Grid.Row="2" Width="165"  Minimum="0" Maximum="10" IsSnapToTickEnabled="true" TickFrequency="1" TickPlacement="TopLeft" 
                 Orientation="Horizontal" Margin="0,38,61,0" VerticalAlignment="Top" HorizontalAlignment="Right" ValueChanged="slider_ValueChanged"></Slider>
-        <Canvas Name="MusicVol" Grid.Row="2">
+        <!--Song Playing-->
+        <Label Name="MusicName" Grid.Row="3" Content="Song Playing" FontSize="30" Foreground="Snow" HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="Nueva Std Cond"></Label>
+        <Label Name="NameOfTheSong" Grid.Row="3" Content="Name of the song" FontSize="20" Foreground="Snow" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontFamily="Nueva Std Cond" MaxWidth="195" Margin="0,0,0,7"></Label>
+        <Button Name="PrevSong" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Left" Height="30" Margin="10,34,0,10" Width="38" >
+            <Button.Background>
+                <ImageBrush ImageSource="Resources/arrowLeft.png"/>
+            </Button.Background>
+        </Button>
+        <Button Name="NextSong" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Left" Height="30" Margin="242,34,0,10" Width="38">
+            <Button.Background>
+                <ImageBrush ImageSource="Resources/arrowRight.png"/>
+            </Button.Background>
+        </Button>
+
+        <!--Background-->
+
+        <Label Name="Background" Grid.Row="4" Content="Background" FontSize="30" Foreground="Snow" HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="Nueva Std Cond"></Label>
+        <Canvas Name="BackgroundActive" Grid.Row="4" Width="80" Height="40" HorizontalAlignment="Center" VerticalAlignment="Bottom">
+            <Canvas.Background>
+                <ImageBrush ImageSource="Resources/greenFelt.png"/>
+            </Canvas.Background>
         </Canvas>
-        <Canvas Name="MusicSong" Grid.Row="3">
+        <Canvas Name="BackgroundPrev" Grid.Row="4" Width="40" Height="30" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="60,0,0,5">
+            <Canvas.Background>
+                <ImageBrush ImageSource="Resources/blueFelt.png"/>
+            </Canvas.Background>
         </Canvas>
-        <Canvas Name="Background" Grid.Row="4">
+        <Canvas Name="BackgroundNext" Grid.Row="4" Width="40" Height="30" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,60,5">
+            <Canvas.Background>
+                <ImageBrush ImageSource="Resources/purpleFelt.png"/>
+            </Canvas.Background>
         </Canvas>
+        <Canvas Name="BackgroundNext2" Grid.Row="4" Width="35" Height="20" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,20,7.5">
+            <Canvas.Background>
+                <ImageBrush ImageSource="Resources/darkRedFelt.png"/>
+            </Canvas.Background>
+        </Canvas>
+        <Canvas Name="BackgroundPrev2" Grid.Row="4" Width="35" Height="20" HorizontalAlignment="left" VerticalAlignment="Bottom" Margin="20,0,0,7.5">
+            <Canvas.Background>
+                <ImageBrush ImageSource="Resources/orangeFelt.png"/>
+            </Canvas.Background>
+        </Canvas>
+        
+        
+        <!--BrickColor-->
         <Canvas Name="BrickColor" Grid.Row="5">
         </Canvas>
+        <!--Rotate Viewe-->
         <Canvas Name="RotateViewe" Grid.Row="6">
         </Canvas>
+        <!--How to playh-->
         <Canvas Name="HowToPlay" Grid.Row="7">
         </Canvas>
+        <!--New Game-->
         <Canvas Name="NewGame" Grid.Row="8">
         </Canvas>
+        <!--Close-->
         <Canvas Name="CloseMeny" Grid.Row="9">
         </Canvas>
 
