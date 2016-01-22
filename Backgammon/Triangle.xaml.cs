@@ -37,25 +37,6 @@ namespace Backgammon
         public Triangle()
         {
             InitializeComponent();
-
-            try {
-                // Behövde göras	
-                for (int i = 0; i < singleBrick.Length; i++) {
-                    singleBrick[i] = new ImageBrush();
-                    doubleBrick[i] = new ImageBrush();
-                    tripleBrick[i] = new ImageBrush();
-                }
-				
-                singleBrick[0].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/whiteChip1.png"));
-                doubleBrick[0].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/whiteChip2.png"));
-                tripleBrick[0].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/whiteChip3.png"));
-
-                singleBrick[1].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/darkChip1.png"));
-                doubleBrick[1].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/darkChip2.png"));
-                tripleBrick[1].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/darkChip3.png"));
-            }
-            catch (Exception ex) { Console.WriteLine("brickInit: " + ex.Message); }
-            
         }
 
 		public Triangle(int pos)
@@ -105,11 +86,11 @@ namespace Backgammon
 					break;
 					}
 
-				else if (_size > i && _size <= 5+i) Brickor[i].Background = singleBrick[theme];
+				else if (_size > i && _size <= 5+i) Brickor[i].Background = _mainWindow.singleBrick[theme];
 				
-				else if (_size > 5+i && _size <= 10+i) Brickor[i].Background = doubleBrick[theme];
+				else if (_size > 5+i && _size <= 10+i) Brickor[i].Background = _mainWindow.doubleBrick[theme];
                 
-				else if (_size > 10+i) Brickor[i].Background = tripleBrick[theme];
+				else if (_size > 10+i) Brickor[i].Background = _mainWindow.tripleBrick[theme];
                 
 			}
 

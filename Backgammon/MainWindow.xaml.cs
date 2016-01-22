@@ -31,6 +31,7 @@ namespace Backgammon
         private BitmapImage[,] _dices = new BitmapImage[2,7];
 		private ImageBrush[] _background = new ImageBrush[8];
 
+		internal ImageBrush[] singleBrick = new ImageBrush[2], doubleBrick = new ImageBrush[2], tripleBrick = new ImageBrush[2];
 		internal Triangle [] selectedTriangles = new Triangle[2];
 		internal int pickedUp = 0;
 
@@ -92,6 +93,11 @@ namespace Backgammon
 			 for (int i = 0; i < _background.Length; i++)
                 _background[i] = new ImageBrush();
 
+			for (int i = 0; i < singleBrick.Length; i++) {
+                    singleBrick[i] = new ImageBrush();
+                    doubleBrick[i] = new ImageBrush();
+                    tripleBrick[i] = new ImageBrush();
+                }
 
             // Hämtar alla bakgrunder
             try {
@@ -119,8 +125,20 @@ namespace Backgammon
                 _dices[1, 3] = new BitmapImage(new Uri("pack://application:,,,/Resources/dice3Black.png"));
                 _dices[1, 4] = new BitmapImage(new Uri("pack://application:,,,/Resources/dice4Black.png"));
                 _dices[1, 5] = new BitmapImage(new Uri("pack://application:,,,/Resources/dice5Black.png"));
-                _dices[1, 6] = new BitmapImage(new Uri("pack://application:,,,/Resources/dice6Black.png"));                   
+                _dices[1, 6] = new BitmapImage(new Uri("pack://application:,,,/Resources/dice6Black.png"));
+               
+				
+                singleBrick[0].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/whiteChip1.png"));
+                doubleBrick[0].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/whiteChip2.png"));
+                tripleBrick[0].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/whiteChip3.png"));
+
+                singleBrick[1].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/darkChip1.png"));
+                doubleBrick[1].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/darkChip2.png"));
+                tripleBrick[1].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/darkChip3.png"));
             }
+
+
+            
             catch (Exception ex) { MessageBox.Show(ex.Message); }
 
 		}
