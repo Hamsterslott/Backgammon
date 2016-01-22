@@ -7,21 +7,54 @@
              d:DesignHeight="720" d:DesignWidth="290" VerticalAlignment="Stretch">
     <Grid Name="theGrid">
 
-        <Canvas Name="background" Height="720" Opacity="0.6" Background="Black">
-            
+        
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100*"/>
+
+            <RowDefinition Height="100*"/>
+
+            <RowDefinition Height="100*"/>
+
+            <RowDefinition Height="100*"/>
+
+            <RowDefinition Height="100*"/>
+
+            <RowDefinition Height="100*"/>
+
+            <RowDefinition Height="100*"/>
+
+            <RowDefinition Height="100*"/>
+
+            <RowDefinition Height="100*"/>
+
+            <RowDefinition Height="100*"/>
+
+        </Grid.RowDefinitions>
+        
+        <Canvas Name="background" Height="720" Opacity="0.6" Background="Black"/>
+        <Canvas Name="Settings" Grid.Row="0">
+        </Canvas>
+        <Canvas Name="SoundEfx" Grid.Row="1">
+        </Canvas>
+        <Canvas Name="MusicVol" Grid.Row="2">
+        </Canvas>
+        <Canvas Name="MusicSong" Grid.Row="3">
+        </Canvas>
+        <Canvas Name="Background" Grid.Row="4">
+        </Canvas>
+        <Canvas Name="BrickColor" Grid.Row="5">
+        </Canvas>
+        <Canvas Name="RotateViewe" Grid.Row="6">
+        </Canvas>
+        <Canvas Name="HowToPlay" Grid.Row="7">
+        </Canvas>
+        <Canvas Name="NewGame" Grid.Row="8">
+        </Canvas>
+        <Canvas Name="CloseMeny" Grid.Row="9">
         </Canvas>
         
-        <Grid.RowDefinitions>
-            <RowDefinition Name="Settings" Height="100*"/>
-            <RowDefinition Name="SoundEfx" Height="100*"/>
-            <RowDefinition Name="MusicVol" Height="100*"/>
-            <RowDefinition Name="MusicSong" Height="100*"/>
-            <RowDefinition Name="Background" Height="100*"/>
-            <RowDefinition Name="BrickColor" Height="100*"/>
-            <RowDefinition Name="RotateViewe" Height="100*"/>
-            <RowDefinition Name="HowToPlay" Height="100*"/>
-            <RowDefinition Name="NewGame" Height="100*"/>
-            <RowDefinition Name="CloseMeny" Height="100*"/>
-        </Grid.RowDefinitions>        
+        
+        
     </Grid>
 </UserControl>
