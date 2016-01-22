@@ -32,7 +32,7 @@
 
         </Grid.RowDefinitions>
 
-        <Canvas Name="background" Height="720" Opacity="0.6" Background="Black"/>
+        <Canvas Name="background" Height="720" Opacity="0.9" Background="Black"/>
         <!--Settings-->
         <Label Name="Settings" Grid.Row="0" Content="Settings" FontSize="75" Foreground="Snow" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Nueva Std Cond" ></Label>
         <!--SoundEffects-->
@@ -42,7 +42,7 @@
         <!--Volume-->
         <Label Name="Vol" Grid.Row="2" Content="Music Volume" FontSize="30" Foreground="Snow" HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="Nueva Std Cond"></Label>
         <Slider x:Name="slider" Grid.Row="2" Width="165"  Minimum="0" Maximum="10" IsSnapToTickEnabled="true" TickFrequency="1" TickPlacement="TopLeft" 
-                Orientation="Horizontal" Margin="0,38,61,0" VerticalAlignment="Top" HorizontalAlignment="Right" ValueChanged="slider_ValueChanged"></Slider>
+                Orientation="Horizontal" Margin="0,38,61,0" VerticalAlignment="Top" HorizontalAlignment="Right"></Slider>
         <!--Song Playing-->
         <Label Name="MusicName" Grid.Row="3" Content="Song Playing" FontSize="30" Foreground="Snow" HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="Nueva Std Cond"></Label>
         <Label Name="NameOfTheSong" Grid.Row="3" Content="Name of the song" FontSize="20" Foreground="Snow" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontFamily="Nueva Std Cond" MaxWidth="195" Margin="0,0,0,7"></Label>

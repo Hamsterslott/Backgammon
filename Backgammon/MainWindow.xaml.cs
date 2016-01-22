@@ -376,12 +376,12 @@ namespace Backgammon
            if (Sidebar.Visibility == System.Windows.Visibility.Collapsed)
             {
                 Sidebar.Visibility = System.Windows.Visibility.Visible;
-                slider.Visibility = System.Windows.Visibility.Visible;
+                //slider.Visibility = System.Windows.Visibility.Visible;
             }
             else
             {
                 Sidebar.Visibility = System.Windows.Visibility.Collapsed;
-                slider.Visibility = System.Windows.Visibility.Collapsed;
+                //slider.Visibility = System.Windows.Visibility.Collapsed;
             } 
         }
 
