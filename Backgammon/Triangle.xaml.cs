@@ -28,11 +28,11 @@ namespace Backgammon
         private MainWindow _mainWindow = null;
         private int _size = 0;
 		private int _pos;
+		private player _brickColor;
+
         public Boolean _isGlowing = false, _isHovered = false; 
-        private player _brickColor;
         private STATE _state;
-        private ImageBrush _background = new ImageBrush();
-        private ImageBrush[] singleBrick = new ImageBrush[2], doubleBrick = new ImageBrush[2], tripleBrick = new ImageBrush[2];
+
 
         public Triangle()
         {
@@ -45,16 +45,6 @@ namespace Backgammon
 			_pos = pos;
 		}
 
-        private void init() {
-            _size = 0;
-
-            if (_state == STATE.UPPER)
-                _background.ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/isClickedUpper.png"));
-            else
-                _background.ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/isClickedLower.png"));
-            background.Background = _background;
-            Update();
-        }
 
         public void Update() {
             try {
@@ -71,9 +61,6 @@ namespace Backgammon
 
         private void renderBricks() {
 
-            int theme = Settings.playerTheme[(int)_brickColor];
-
-
 			Canvas [] Brickor;
 			if(_state == STATE.UPPER) Brickor = new Canvas[]{brickSpaceOne,brickSpaceTwo,brickSpaceThree,brickSpaceFour,brickSpaceFive};
 			else Brickor = new Canvas[]{brickSpaceFive,brickSpaceFour,brickSpaceThree,brickSpaceTwo,brickSpaceOne};
@@ -86,11 +73,11 @@ namespace Backgammon
 					break;
 					}
 
-				else if (_size > i && _size <= 5+i) Brickor[i].Background = _mainWindow.singleBrick[theme];
+				else if (_size > i && _size <= 5+i) Brickor[i].Background = _mainWindow.singleBrick[Settings.playerTheme[(int)_brickColor]];
 				
-				else if (_size > 5+i && _size <= 10+i) Brickor[i].Background = _mainWindow.doubleBrick[theme];
+				else if (_size > 5+i && _size <= 10+i) Brickor[i].Background = _mainWindow.doubleBrick[Settings.playerTheme[(int)_brickColor]];
                 
-				else if (_size > 10+i) Brickor[i].Background = _mainWindow.tripleBrick[theme];
+				else if (_size > 10+i) Brickor[i].Background = _mainWindow.tripleBrick[Settings.playerTheme[(int)_brickColor]];
                 
 			}
 
@@ -155,7 +142,11 @@ namespace Backgammon
         }
         public void setState(STATE state) {
             _state = state;
-            init();
+
+            if (_state == STATE.UPPER)
+                background.Background = _mainWindow._triangelIsClicked[0];
+            else
+                background.Background = _mainWindow._triangelIsClicked[1];
         }
         public bool getGlowing() {
             return _isGlowing;

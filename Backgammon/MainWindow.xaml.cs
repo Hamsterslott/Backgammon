@@ -23,25 +23,37 @@ namespace Backgammon
     {
 
         private bool canMoveWindow = true;
-        private SoundPlayer shake = new SoundPlayer(Properties.Resources.ShakeSound);
-        private SoundPlayer throwThem = new SoundPlayer(Properties.Resources.diceSound);  
+        
        	private BackgammonModel _model = new BackgammonModel();
-        private int[] dice = new int[4];
 		private triangel [] gameBoard;
+        private int[] dice = new int[4];
+		private player spelare = player.one;
+
+		internal Triangle [] selectedTriangles = new Triangle[2];
+		internal int pickedUp = 0;
+		
+		private BrickHolder[] utslagna;
+        private int [] playercheckers = new int[]{15,15};
+		
+
+		//mainwindow bilder
         private BitmapImage[,] _dices = new BitmapImage[2,7];
 		private BitmapImage[] _diceshaker = new BitmapImage[2];
 		private ImageBrush[] _background = new ImageBrush[8];
+		private Cursor [] plockadbricka = new Cursor[4];
+		
+		//mainwindow ljud
+		private SoundPlayer shake = new SoundPlayer(Properties.Resources.ShakeSound);
+        private SoundPlayer throwThem = new SoundPlayer(Properties.Resources.diceSound);  
+
+
+		//triangel bilder
+		internal ImageBrush[] singleBrick = new ImageBrush[4], doubleBrick = new ImageBrush[4], tripleBrick = new ImageBrush[4];
+		internal ImageBrush[] _triangelIsClicked = new ImageBrush[2];
+
 		
 
-		internal ImageBrush[] singleBrick = new ImageBrush[4], doubleBrick = new ImageBrush[4], tripleBrick = new ImageBrush[4];
-		internal Triangle [] selectedTriangles = new Triangle[2];
-		internal int pickedUp = 0;
-
-        private player spelare = player.one;
-        private int [] playercheckers = new int[]{15,15};
-		private BrickHolder[] utslagna;
-
-		private Cursor [] plockadbricka = new Cursor[4];
+		
 
         public MainWindow()
         {
@@ -67,7 +79,7 @@ namespace Backgammon
 			for(int i = 0; i<2; i++)
 			{
 			utslagna[i].setColor((player)i);
-			utslagna[i].setSize(15-playercheckers[i]);
+			utslagna[i].setSize(0);
 			utslagna[i].setLink(this);
 			if(i==0)utslagna[i].setPos(i);
 			else utslagna[i].setPos(25);
@@ -90,14 +102,20 @@ namespace Backgammon
 		private void initimages()
 		{
 			
-			 for (int i = 0; i < _background.Length; i++)
+			for (int i = 0; i < _background.Length; i++)
                 _background[i] = new ImageBrush();
 
-			for (int i = 0; i < singleBrick.Length; i++) {
+			for (int i = 0; i < singleBrick.Length; i++) 
+				{
                     singleBrick[i] = new ImageBrush();
                     doubleBrick[i] = new ImageBrush();
                     tripleBrick[i] = new ImageBrush();
                 }
+
+			
+			for (int i = 0; i < _triangelIsClicked.Length; i++)
+                _triangelIsClicked[i] = new ImageBrush();
+			 
 
             // Hämtar alla bakgrunder
             try {
@@ -111,9 +129,9 @@ namespace Backgammon
                 _background[6].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/redFelt.png"));
                 _background[7].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/darkRedFelt.png"));
 
-
-				plockadbricka[0] = new Cursor(Application.GetResourceStream(new Uri("pack://application:,,,/Resources/darkHandle.cur")).Stream);
-				plockadbricka[1] = new Cursor(Application.GetResourceStream(new Uri("pack://application:,,,/Resources/lightHandle.cur")).Stream);
+			
+				plockadbricka[0] = new Cursor(Application.GetResourceStream(new Uri("pack://application:,,,/Resources/lightHandle.cur")).Stream);
+				plockadbricka[1] = new Cursor(Application.GetResourceStream(new Uri("pack://application:,,,/Resources/darkHandle.cur")).Stream);
 				plockadbricka[2] = new Cursor(Application.GetResourceStream(new Uri("pack://application:,,,/Resources/blueHandle.cur")).Stream);
 				plockadbricka[3] = new Cursor(Application.GetResourceStream(new Uri("pack://application:,,,/Resources/redHandle.cur")).Stream);
 
@@ -134,7 +152,10 @@ namespace Backgammon
                 _dices[1, 4] = new BitmapImage(new Uri("pack://application:,,,/Resources/dice4Black.png"));
                 _dices[1, 5] = new BitmapImage(new Uri("pack://application:,,,/Resources/dice5Black.png"));
                 _dices[1, 6] = new BitmapImage(new Uri("pack://application:,,,/Resources/dice6Black.png"));
-               
+
+
+				_triangelIsClicked[0].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/isClickedUpper.png"));
+				_triangelIsClicked[1].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/isClickedLower.png"));
 				
                 singleBrick[0].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/whiteChip1.png"));
                 doubleBrick[0].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/whiteChip2.png"));
