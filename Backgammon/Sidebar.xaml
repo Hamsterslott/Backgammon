@@ -108,13 +108,29 @@
         <Canvas Name="RotateViewe" Grid.Row="6">
         </Canvas>
         <!--How to playh-->
-        <Canvas Name="HowToPlay" Grid.Row="7">
+        <Label Name="HowToPlayTxt" Grid.Row="7" Content="How To Play" FontSize="30" Foreground="Snow" HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="Nueva Std Cond"></Label>
+        <Canvas Name="HowToPlay" Grid.Row="7" Width="70" Height="40" VerticalAlignment="Bottom">
+            <Canvas.Background>
+                <ImageBrush ImageSource="Resources/omspelet.png" Stretch="Uniform"/>
+            </Canvas.Background>
+
         </Canvas>
         <!--New Game-->
-        <Canvas Name="NewGame" Grid.Row="8">
+
+        <Label Name="NewGame" Grid.Row="8" Content="New Game" FontSize="30" Foreground="Snow" HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="Nueva Std Cond"></Label>
+        <Canvas Name="NewGameImg" Grid.Row="8" Width="70" Height="40" VerticalAlignment="Bottom">
+            <Canvas.Background>
+                <ImageBrush ImageSource="Resources/NewGame.png" Stretch="Uniform"/>
+            </Canvas.Background>
+
         </Canvas>
         <!--Close-->
-        <Canvas Name="CloseMeny" Grid.Row="9">
+        <Label Name="CloseMenyText" Grid.Row="9" Content="Close Settings" FontSize="30" Foreground="Snow" HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="Nueva Std Cond"></Label>
+        <Canvas Name="CloseMeny" Grid.Row="9" Width="70" Height="40" HorizontalAlignment="Left">
+            <Canvas.Background>
+                <ImageBrush ImageSource="Resources/PilRight.png" Stretch="Uniform"/>
+            </Canvas.Background>
+
         </Canvas>
 
 
