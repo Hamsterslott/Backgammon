@@ -246,6 +246,12 @@
     <Resource Include="Resources\BlåKnapp.png" />
     <Resource Include="Resources\BlåSvartVitKnapp.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\blueHandle.cur" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\redHandle.cur" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -41,7 +41,7 @@ namespace Backgammon
         private int [] playercheckers = new int[]{15,15};
 		private BrickHolder[] utslagna;
 
-		private Cursor [] plockadbricka = new Cursor[2];
+		private Cursor [] plockadbricka = new Cursor[4];
 
         public MainWindow()
         {
@@ -114,7 +114,8 @@ namespace Backgammon
 
 				plockadbricka[0] = new Cursor(Application.GetResourceStream(new Uri("pack://application:,,,/Resources/darkHandle.cur")).Stream);
 				plockadbricka[1] = new Cursor(Application.GetResourceStream(new Uri("pack://application:,,,/Resources/lightHandle.cur")).Stream);
-
+				plockadbricka[2] = new Cursor(Application.GetResourceStream(new Uri("pack://application:,,,/Resources/blueHandle.cur")).Stream);
+				plockadbricka[3] = new Cursor(Application.GetResourceStream(new Uri("pack://application:,,,/Resources/redHandle.cur")).Stream);
 
 				_diceshaker[0] = new BitmapImage(new Uri("pack://application:,,,/Resources/diceShaker.png"));
 				_diceshaker[1] = new BitmapImage(new Uri("pack://application:,,,/Resources/diceShakerDown.png"));
@@ -191,7 +192,7 @@ namespace Backgammon
 					t.setSize(t.getSize()-1);
 					if(t.getPos() < 25) t.setGlowing(true);
 					t.Update();
-					this.Cursor = plockadbricka[(int)spelare];
+					this.Cursor = plockadbricka[Settings.playerTheme[(int)spelare]];
 					}
 			}
 

@@ -10,8 +10,7 @@ namespace Backgammon
 	{
 		internal static bool playMusic = true;
 		internal static bool playSound = true;
-		internal static int player1Theme = 2;
-		internal static int player2Theme = 3;
+		internal static int [] playerTheme = new int [2]{2,3};
 		internal static int background = 2;
 	}
 }
