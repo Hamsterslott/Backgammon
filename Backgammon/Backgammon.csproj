@@ -57,6 +57,7 @@
     <Compile Include="BrickHolder.xaml.cs">
       <DependentUpon>BrickHolder.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Settings.cs" />
     <Compile Include="Sidebar.xaml.cs">
       <DependentUpon>Sidebar.xaml</DependentUpon>
     </Compile>

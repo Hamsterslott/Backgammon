@@ -72,8 +72,8 @@ namespace Backgammon
         private void renderBricks() {
             int theme;
 			Canvas [] Brickor;
-            if (_brickColor == player.one) theme = 1;
-            else theme = 0;
+            if (_brickColor == player.one) theme = Settings.player1Theme;
+            else theme = Settings.player2Theme;
                 
 			if(_state == STATE.UPPER) Brickor = new Canvas[]{brickSpaceOne,brickSpaceTwo,brickSpaceThree,brickSpaceFour,brickSpaceFive};
 			else Brickor = new Canvas[]{brickSpaceFive,brickSpaceFour,brickSpaceThree,brickSpaceTwo,brickSpaceOne};

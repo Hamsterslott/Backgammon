@@ -24,16 +24,16 @@ namespace Backgammon
 
         private bool canMoveWindow = true;
         private SoundPlayer shake = new SoundPlayer(Properties.Resources.ShakeSound);
-        private SoundPlayer throwThem = new SoundPlayer(Properties.Resources.diceSound);
-        private int soundFx = 1;
-        private int music = 1;     
+        private SoundPlayer throwThem = new SoundPlayer(Properties.Resources.diceSound);  
        	private BackgammonModel _model = new BackgammonModel();
         private int[] dice = new int[4];
 		private triangel [] gameBoard;
         private BitmapImage[,] _dices = new BitmapImage[2,7];
+		private BitmapImage[] _diceshaker = new BitmapImage[2];
 		private ImageBrush[] _background = new ImageBrush[8];
+		
 
-		internal ImageBrush[] singleBrick = new ImageBrush[2], doubleBrick = new ImageBrush[2], tripleBrick = new ImageBrush[2];
+		internal ImageBrush[] singleBrick = new ImageBrush[4], doubleBrick = new ImageBrush[4], tripleBrick = new ImageBrush[4];
 		internal Triangle [] selectedTriangles = new Triangle[2];
 		internal int pickedUp = 0;
 
@@ -63,8 +63,6 @@ namespace Backgammon
 
 			utslagna = new BrickHolder[]{(BrickHolder)utslagnaEtt.Children[0],(BrickHolder)utslagnaTvå.Children[0]};
 
-			plockadbricka[0] = new Cursor(Application.GetResourceStream(new Uri("pack://application:,,,/Resources/darkHandle.cur")).Stream);
-			plockadbricka[1] = new Cursor(Application.GetResourceStream(new Uri("pack://application:,,,/Resources/lightHandle.cur")).Stream);
 
 			for(int i = 0; i<2; i++)
 			{
@@ -114,6 +112,13 @@ namespace Backgammon
                 _background[7].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/darkRedFelt.png"));
 
 
+				plockadbricka[0] = new Cursor(Application.GetResourceStream(new Uri("pack://application:,,,/Resources/darkHandle.cur")).Stream);
+				plockadbricka[1] = new Cursor(Application.GetResourceStream(new Uri("pack://application:,,,/Resources/lightHandle.cur")).Stream);
+
+
+				_diceshaker[0] = new BitmapImage(new Uri("pack://application:,,,/Resources/diceShaker.png"));
+				_diceshaker[1] = new BitmapImage(new Uri("pack://application:,,,/Resources/diceShakerDown.png"));
+
 				_dices[0, 0] = null; 
                 _dices[0, 1] = new BitmapImage(new Uri("pack://application:,,,/Resources/dice1Light.png"));
                 _dices[0, 2] = new BitmapImage(new Uri("pack://application:,,,/Resources/dice2Light.png"));
@@ -137,11 +142,25 @@ namespace Backgammon
                 singleBrick[1].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/darkChip1.png"));
                 doubleBrick[1].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/darkChip2.png"));
                 tripleBrick[1].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/darkChip3.png"));
+
+				singleBrick[2].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/BlåKnapp.png"));
+                doubleBrick[2].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/2BlåKnapp.png"));
+                tripleBrick[2].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/3BlåKnapp.png"));
+
+				singleBrick[3].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/RödKnappV2.png"));
+                doubleBrick[3].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/2RödKnapp.png"));
+                tripleBrick[3].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/3RödKnapp.png"));
+
+
             }
 
 
             
-            catch (Exception ex) { MessageBox.Show(ex.Message); }
+            catch (Exception ex) 
+			{ 
+				MessageBox.Show(ex.Message);
+ 				Environment.Exit(0);
+			}
 
 		}
 
@@ -280,7 +299,7 @@ namespace Backgammon
 
 			//Tänker mig att denna funktionen tar variabler från sidebar
 			// och sedan uppdaterar baserat på vad man valt.
-			setBackground(2);
+			setBackground(Settings.background);
             alignLeft();
 
 			getTriangle(25).setPos(25);
@@ -330,7 +349,7 @@ namespace Backgammon
                 if(canMoveWindow)
                     DragMove();
             }
-			catch (Exception ex) { Console.WriteLine("Messageboxarna gör så man får System.InvalidOperationException här"); }
+			catch (Exception ) { Console.WriteLine("Messageboxarna gör så man får System.InvalidOperationException här"); }
         }
         
         private void maximize_Click(object sender, RoutedEventArgs e)
@@ -376,12 +395,10 @@ namespace Backgammon
            if (Sidebar.Visibility == System.Windows.Visibility.Collapsed)
             {
                 Sidebar.Visibility = System.Windows.Visibility.Visible;
-                //slider.Visibility = System.Windows.Visibility.Visible;
             }
             else
             {
                 Sidebar.Visibility = System.Windows.Visibility.Collapsed;
-                //slider.Visibility = System.Windows.Visibility.Collapsed;
             } 
         }
 
@@ -391,10 +408,10 @@ namespace Backgammon
 
         private void btnDice_MouseEnter(object sender, MouseEventArgs e)
         {
-            btnDice.Source = new BitmapImage(new Uri("pack://application:,,,/Resources/diceShakerDown.png"));
+            btnDice.Source = _diceshaker[1];
 
             
-            if (soundFx==1)           
+            if (Settings.playSound)           
                 shake.Play();
            
             
@@ -412,7 +429,7 @@ namespace Backgammon
 
         private void btnDice_MouseLeave(object sender, MouseEventArgs e)
         {
-            btnDice.Source = new BitmapImage(new Uri("pack://application:,,,/Resources/diceShaker.png"));
+            btnDice.Source = _diceshaker[0];
             
             if (spelare == player.one)
             {
@@ -422,7 +439,7 @@ namespace Backgammon
             {
                 diceDark.Visibility = System.Windows.Visibility.Visible;
             }
-            if (soundFx == 1)    
+            if (Settings.playSound)    
                 shake.Stop();
         }
 
@@ -446,7 +463,7 @@ namespace Backgammon
                 diceDark.Visibility = System.Windows.Visibility.Visible;
                 diceWhite.Visibility = System.Windows.Visibility.Visible;
 			}
-            if (soundFx == 1)
+            if (Settings.playSound)
             {
                 shake.Stop();
                 throwThem.PlaySync();
