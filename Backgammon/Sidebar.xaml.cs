@@ -65,5 +65,24 @@ namespace Backgammon
             _mainWindow = mw;
         }
 
+		private void BlackWhite_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+		{
+			Settings.playerTheme = new int[]{1,0};
+			_mainWindow.updateView();
+		}
+
+
+		private void WhiteBlue_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+		{
+			Settings.playerTheme = new int[]{2,0};
+			_mainWindow.updateView();
+		}
+
+		private void RedBlack_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+		{
+			Settings.playerTheme = new int[]{3,1};
+			_mainWindow.updateView();
+		}
+
     }
 }

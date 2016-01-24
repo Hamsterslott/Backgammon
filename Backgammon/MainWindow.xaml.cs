@@ -72,7 +72,10 @@ namespace Backgammon
 
             initimages();
             Sidebar.setLink(this);
+			setBackground(Settings.background);
+            
 
+			
 			utslagna = new BrickHolder[]{(BrickHolder)utslagnaEtt.Children[0],(BrickHolder)utslagnaTvå.Children[0]};
 
 
@@ -305,6 +308,9 @@ namespace Backgammon
 					if(i < 13) getTriangle(i).setPos(25-i);
 					else getTriangle(i).setPos(i-12);
 				}
+
+			getTriangle(25).setPos(25);
+			getTriangle(26).setPos(26);
 		}
 
 		private void alignRight()
@@ -314,19 +320,17 @@ namespace Backgammon
 					if(i < 13) getTriangle(i).setPos(12+i);
 					else getTriangle(i).setPos(25-i);
 				}
+
+			getTriangle(25).setPos(25);
+			getTriangle(26).setPos(26);
 		}
 
-        private void updateView() 
+        internal void updateView() 
 		{
 
 			//Tänker mig att denna funktionen tar variabler från sidebar
 			// och sedan uppdaterar baserat på vad man valt.
-			setBackground(Settings.background);
-            alignLeft();
-
-			getTriangle(25).setPos(25);
-			getTriangle(26).setPos(26);
-
+			alignLeft();
 			for (int i = 0; i<26; i++) updateTriangle(getTriangle(i+1));
 
         }
