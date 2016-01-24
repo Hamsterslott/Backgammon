@@ -29,16 +29,11 @@ namespace Backgammon
             InitializeComponent();
         }
 
-         private void update() {
-            int theme;
-            if (_color == player.one)
-                theme = 1;
-            else
-                theme = 0;
+         internal void update() {
 
             for (int i = 0; i < _size; i++) {
                 Image image = brickor.Children[14 - i] as Image;
-                image.Source = _mainWindow.brick[theme].ImageSource;    
+                image.Source = _mainWindow.brick[Settings.playerTheme[(int)_color]].ImageSource;    
             }
             if (_size < 15) {
                 for (int i = _size; i < 15; i++) {

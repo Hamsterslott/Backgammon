@@ -37,7 +37,7 @@ namespace Backgammon
 		
 
 		//mainwindow bilder
-        private BitmapImage[,] _dices = new BitmapImage[2,7];
+        private BitmapImage[,] _dices = new BitmapImage[4,7];
 		private BitmapImage[] _diceshaker = new BitmapImage[2];
 		private ImageBrush[] _background = new ImageBrush[8];
 		private Cursor [] plockadbricka = new Cursor[4];
@@ -52,7 +52,7 @@ namespace Backgammon
 		internal ImageBrush[] _triangelIsClicked = new ImageBrush[2];
 
 		//brickholder bilder
-		internal ImageBrush[] brick = new ImageBrush[2];
+		internal ImageBrush[] brick = new ImageBrush[4];
 		
 
         public MainWindow()
@@ -81,7 +81,6 @@ namespace Backgammon
 			for(int i = 0; i<2; i++)
 			{
 			utslagna[i].setColor((player)i);
-			utslagna[i].setSize(0);
 			utslagna[i].setLink(this);
 			if(i==0)utslagna[i].setPos(i);
 			else utslagna[i].setPos(25);
@@ -112,14 +111,13 @@ namespace Backgammon
                     singleBrick[i] = new ImageBrush();
                     doubleBrick[i] = new ImageBrush();
                     tripleBrick[i] = new ImageBrush();
+					brick[i] = new ImageBrush();
                 }
 
 			
 			for (int i = 0; i < _triangelIsClicked.Length; i++)
                 _triangelIsClicked[i] = new ImageBrush();
-			 
-			brick[0] = new ImageBrush();
-            brick[1] = new ImageBrush();
+
 
 
             // Hämtar alla bakgrunder
@@ -157,7 +155,20 @@ namespace Backgammon
                 _dices[1, 4] = new BitmapImage(new Uri("pack://application:,,,/Resources/dice4Black.png"));
                 _dices[1, 5] = new BitmapImage(new Uri("pack://application:,,,/Resources/dice5Black.png"));
                 _dices[1, 6] = new BitmapImage(new Uri("pack://application:,,,/Resources/dice6Black.png"));
-
+				_dices[2, 0] = null;
+				_dices[2, 1] = new BitmapImage(new Uri("pack://application:,,,/Resources/dice1Blue.png"));
+				_dices[2, 2] = new BitmapImage(new Uri("pack://application:,,,/Resources/dice2Blue.png"));
+				_dices[2, 3] = new BitmapImage(new Uri("pack://application:,,,/Resources/dice3Blue.png"));
+				_dices[2, 4] = new BitmapImage(new Uri("pack://application:,,,/Resources/dice4Blue.png"));
+				_dices[2, 5] = new BitmapImage(new Uri("pack://application:,,,/Resources/dice5Blue.png"));
+				_dices[2, 6] = new BitmapImage(new Uri("pack://application:,,,/Resources/dice6Blue.png"));
+				_dices[3, 0] = null;
+				_dices[3, 1] = new BitmapImage(new Uri("pack://application:,,,/Resources/dice1Red.png"));
+				_dices[3, 2] = new BitmapImage(new Uri("pack://application:,,,/Resources/dice2Red.png"));
+				_dices[3, 3] = new BitmapImage(new Uri("pack://application:,,,/Resources/dice3Red.png"));
+				_dices[3, 4] = new BitmapImage(new Uri("pack://application:,,,/Resources/dice4Red.png"));
+				_dices[3, 5] = new BitmapImage(new Uri("pack://application:,,,/Resources/dice5Red.png"));
+				_dices[3, 6] = new BitmapImage(new Uri("pack://application:,,,/Resources/dice6Red.png"));
 
 				_triangelIsClicked[0].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/isClickedUpper.png"));
 				_triangelIsClicked[1].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/isClickedLower.png"));
@@ -174,12 +185,14 @@ namespace Backgammon
                 doubleBrick[2].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/2BlåKnapp.png"));
                 tripleBrick[2].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/3BlåKnapp.png"));
 
-				singleBrick[3].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/RödKnappV2.png"));
+				singleBrick[3].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/RödKnapp.png"));
                 doubleBrick[3].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/2RödKnapp.png"));
                 tripleBrick[3].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/3RödKnapp.png"));
 
 				brick[0].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/vitKnappLigga.png"));
 				brick[1].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/svartKnappLigga.png"));
+				brick[2].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/blåKnappLigga.png"));
+				brick[3].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/rödKnappLigga.png"));
 
             }
 
@@ -195,14 +208,8 @@ namespace Backgammon
 
 
 		private void renderDices() {
-
 			Image [] dices = new Image[]{dice1,dice2,dice3,dice4};
-
-            if (spelare == player.one)
-			for (int i = 0; i < dices.Length; i++) dices[i].Source = _dices[1,dice[i]];
-            else for(int i = 0; i < dices.Length; i++) dices[i].Source = _dices[0,dice[i]];
-            
-
+			for (int i = 0; i < dices.Length; i++) dices[i].Source = _dices[Settings.playerTheme[(int)spelare],dice[i]];
 		}
 
 
@@ -335,6 +342,8 @@ namespace Backgammon
 			//Tänker mig att denna funktionen tar variabler från sidebar
 			// och sedan uppdaterar baserat på vad man valt.
 			alignLeft();
+			foreach(BrickHolder u in utslagna) u.update();
+			renderDices();
 			for (int i = 0; i<26; i++) updateTriangle(getTriangle(i+1));
 
         }
@@ -425,7 +434,6 @@ namespace Backgammon
            if (Sidebar.Visibility == System.Windows.Visibility.Collapsed)
             {
                 Sidebar.Visibility = System.Windows.Visibility.Visible;
-              // sidebar.Visibility = System.Windows.Visibility.Collapsed;
             }           
         }
 
