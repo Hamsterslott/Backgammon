@@ -80,11 +80,13 @@ namespace Backgammon
         private void NameOfTheSong_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Filter = "MP3 files (*.mp3)|*.mp3|All files (*.*)|*.*";
+            openFileDialog.Filter = "MP3 files (*.mp3)|*.mp3|WAV files (*.wav)|*.wav";
             if (openFileDialog.ShowDialog() == true)
             {
                 NameOfTheSong.Content = openFileDialog.SafeFileName;
                 _mainWindow.song.Open(new Uri(openFileDialog.FileName));
+                slider.Value = 5;
+                _mainWindow.song.Volume = slider.Value / 10;
                 _mainWindow.song.Play();
             }
         }
