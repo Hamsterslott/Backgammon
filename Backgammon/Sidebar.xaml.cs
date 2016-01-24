@@ -107,5 +107,65 @@ namespace Backgammon
             _mainWindow.updateView();
         }
 
+        private void CloseMeny_MouseEnter(object sender, MouseEventArgs e)
+        {
+            CloseMeny.Background.Opacity = 1;
+        }
+
+        private void CloseMeny_MouseLeave(object sender, MouseEventArgs e)
+        {
+            CloseMeny.Background.Opacity = 0.5;
+        }
+
+        private void BlackWhite_MouseEnter(object sender, MouseEventArgs e)
+        {
+            BlackWhite.Background.Opacity = 1;
+        }
+
+        private void BlackWhite_MouseLeave(object sender, MouseEventArgs e)
+        {
+            BlackWhite.Background.Opacity = 0.5;
+        }
+
+        private void WhiteBlue_MouseEnter(object sender, MouseEventArgs e)
+        {
+            WhiteBlue.Background.Opacity = 1;
+        }
+
+        private void WhiteBlue_MouseLeave(object sender, MouseEventArgs e)
+        {
+            WhiteBlue.Background.Opacity = 0.5;
+        }
+
+        private void RedBlack_MouseEnter(object sender, MouseEventArgs e)
+        {
+            RedBlack.Background.Opacity = 1;
+        }
+
+        private void RedBlack_MouseLeave(object sender, MouseEventArgs e)
+        {
+            RedBlack.Background.Opacity = 0.5;
+        }
+
+        private void HowToPlay_MouseEnter(object sender, MouseEventArgs e)
+        {
+            HowToPlay.Background.Opacity = 1;
+        }
+
+        private void HowToPlay_MouseLeave(object sender, MouseEventArgs e)
+        {
+            HowToPlay.Background.Opacity = 0.5;
+        }
+
+        private void NewGameImg_MouseEnter(object sender, MouseEventArgs e)
+        {
+            NewGameImg.Background.Opacity = 1;
+        }
+
+        private void NewGameImg_MouseLeave(object sender, MouseEventArgs e)
+        {
+            NewGameImg.Background.Opacity = 0.5;
+        }
+
     }
 }

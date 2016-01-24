@@ -96,19 +96,19 @@
 
         <!--BrickColor-->
         <Label Name="BrickColor" Grid.Row="5" Content="Brick Type" FontSize="30" Foreground="Snow" HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="Nueva Std Cond"></Label>
-        <Canvas Name="BlackWhite" Grid.Row="5" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="70" Height="40" Margin="35,0,0,0" MouseLeftButtonDown="BlackWhite_MouseLeftButtonDown">
+        <Canvas Name="BlackWhite" Grid.Row="5" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="70" Height="40" Margin="35,0,0,0" MouseLeftButtonDown="BlackWhite_MouseLeftButtonDown" MouseEnter="BlackWhite_MouseEnter" MouseLeave="BlackWhite_MouseLeave">
             <Canvas.Background>
-                <ImageBrush ImageSource="Resources/SvartVitKnapp.png" Stretch="Uniform"/>
+                <ImageBrush ImageSource="Resources/SvartVitKnapp.png" Stretch="Uniform" Opacity="0.5"/>
             </Canvas.Background>
         </Canvas>
-        <Canvas Name="WhiteBlue" Grid.Row="5" HorizontalAlignment="Center" Width="70" VerticalAlignment="Bottom" Height="40" MouseLeftButtonDown="WhiteBlue_MouseLeftButtonDown">
+        <Canvas Name="WhiteBlue" Grid.Row="5" HorizontalAlignment="Center" Width="70" VerticalAlignment="Bottom" Height="40" MouseLeftButtonDown="WhiteBlue_MouseLeftButtonDown" MouseEnter="WhiteBlue_MouseEnter" MouseLeave="WhiteBlue_MouseLeave">
             <Canvas.Background>
-                <ImageBrush ImageSource="Resources/BlåSvartVitKnapp.png" Stretch="Uniform"/>
+                <ImageBrush ImageSource="Resources/BlåSvartVitKnapp.png" Stretch="Uniform" Opacity="0.5"/>
             </Canvas.Background>
         </Canvas>
-        <Canvas Name="RedBlack" Grid.Row="5" HorizontalAlignment="right" Width="70" VerticalAlignment="Bottom" Height="40" Margin="0,0,35,0" MouseLeftButtonDown="RedBlack_MouseLeftButtonDown">
+        <Canvas Name="RedBlack" Grid.Row="5" HorizontalAlignment="right" Width="70" VerticalAlignment="Bottom" Height="40" Margin="0,0,35,0" MouseLeftButtonDown="RedBlack_MouseLeftButtonDown" MouseEnter="RedBlack_MouseEnter" MouseLeave="RedBlack_MouseLeave">
             <Canvas.Background>
-                <ImageBrush ImageSource="Resources/SvartVitRödKnapp.png" Stretch="Uniform"/>
+                <ImageBrush ImageSource="Resources/SvartVitRödKnapp.png" Stretch="Uniform" Opacity="0.5"/>
             </Canvas.Background>
         </Canvas>
 
@@ -117,26 +117,26 @@
         </Canvas>
         <!--How to playh-->
         <Label Name="HowToPlayTxt" Grid.Row="7" Content="How To Play" FontSize="30" Foreground="Snow" HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="Nueva Std Cond"></Label>
-        <Canvas Name="HowToPlay" Grid.Row="7" Width="70" Height="40" VerticalAlignment="Bottom">
+        <Canvas Name="HowToPlay" Grid.Row="7" Width="70" Height="40" VerticalAlignment="Bottom" MouseEnter="HowToPlay_MouseEnter" MouseLeave="HowToPlay_MouseLeave">
             <Canvas.Background>
-                <ImageBrush ImageSource="Resources/omspelet.png" Stretch="Uniform"/>
+                <ImageBrush ImageSource="Resources/omspelet.png" Stretch="Uniform" Opacity="0.5"/>
             </Canvas.Background>
 
         </Canvas>
         <!--New Game-->
 
         <Label Name="NewGame" Grid.Row="8" Content="New Game" FontSize="30" Foreground="Snow" HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="Nueva Std Cond"></Label>
-        <Canvas Name="NewGameImg" Grid.Row="8" Width="70" Height="40" VerticalAlignment="Bottom">
+        <Canvas Name="NewGameImg" Grid.Row="8" Width="70" Height="40" VerticalAlignment="Bottom" MouseEnter="NewGameImg_MouseEnter" MouseLeave="NewGameImg_MouseLeave">
             <Canvas.Background>
-                <ImageBrush ImageSource="Resources/NewGame.png" Stretch="Uniform"/>
+                <ImageBrush ImageSource="Resources/NewGame.png" Stretch="Uniform" Opacity="0.5"/>
             </Canvas.Background>
 
         </Canvas>
         <!--Close-->
         <Label Name="CloseMenyText" Grid.Row="9" Content="Close Settings" FontSize="30" Foreground="Snow" HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="Nueva Std Cond"></Label>
-        <Canvas Name="CloseMeny" Grid.Row="9" Width="70" Height="40" HorizontalAlignment="Left" MouseLeftButtonDown="CloseMeny_MouseLeftButtonDown">
+        <Canvas Name="CloseMeny" Grid.Row="9" Width="70" Height="40" HorizontalAlignment="Left" MouseLeftButtonDown="CloseMeny_MouseLeftButtonDown" MouseEnter="CloseMeny_MouseEnter" MouseLeave="CloseMeny_MouseLeave">
             <Canvas.Background>
-                <ImageBrush ImageSource="Resources/PilRight.png" Stretch="Uniform"/>
+                <ImageBrush ImageSource="Resources/PilRight.png" Stretch="Uniform" Opacity="0.5"/>
             </Canvas.Background>
 
         </Canvas>
