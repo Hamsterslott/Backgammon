@@ -4,7 +4,7 @@
         xmlns:local="clr-namespace:Backgammon"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="Backgammon.MainWindow"
         x:Name="duk" Title="Backgammon" MinHeight="600" MinWidth="800" Height="720" Width="1280" Icon="Resources/icon.png" BorderBrush="Black" ResizeMode="CanResizeWithGrip" WindowStartupLocation="CenterScreen" WindowStyle="None"
-        MouseLeftButtonDown="Window_MouseLeftButtonDown" AllowsTransparency="True" SizeChanged="Window_SizeChanged" Topmost="True">
+        MouseLeftButtonDown="Window_MouseLeftButtonDown" AllowsTransparency="True" SizeChanged="Window_SizeChanged" Topmost="True" >
     <Window.Background>
         <ImageBrush ImageSource="Resources/blueFelt.png"/>
     </Window.Background>

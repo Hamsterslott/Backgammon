@@ -22,7 +22,7 @@ namespace Backgammon
     public partial class MainWindow : Window
     {
 
-        private bool canMoveWindow = true;
+        internal bool canMoveWindow = true;
         
        	private BackgammonModel _model = new BackgammonModel();
 		private triangel [] gameBoard;
@@ -70,8 +70,8 @@ namespace Backgammon
             //gameBoard = _model.bricksInMiddle();
 
 
-            initimages();                                          
-               
+            initimages();
+            Sidebar.setLink(this);
 
 			utslagna = new BrickHolder[]{(BrickHolder)utslagnaEtt.Children[0],(BrickHolder)utslagnaTvå.Children[0]};
 

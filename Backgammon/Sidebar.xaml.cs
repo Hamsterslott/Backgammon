@@ -20,6 +20,7 @@ namespace Backgammon
     /// </summary>
     public partial class Sidebar : UserControl
     {
+        MainWindow _mainWindow = null;
         public bool closedMeny = false;
 
         public Sidebar()
@@ -30,9 +31,39 @@ namespace Backgammon
         private void CloseMeny_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             this.Visibility = System.Windows.Visibility.Collapsed;
-            
         }
 
-        
+        private void btnOn_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            btnOn.Background = Brushes.LawnGreen;
+            btnOff.Background = Brushes.Transparent;
+            btnOn.Foreground = Brushes.Black;
+            btnOff.Foreground = Brushes.White;
+            Settings.playSound = true;
+        }
+
+        private void btnOff_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            btnOn.Background = Brushes.Transparent;
+            btnOff.Background = Brushes.LawnGreen;
+            btnOn.Foreground = Brushes.White;
+            btnOff.Foreground = Brushes.Black;
+            Settings.playSound = false;
+        }
+
+        private void SettingsWindow_MouseEnter(object sender, MouseEventArgs e)
+        {
+            _mainWindow.canMoveWindow = false;
+        }
+
+        private void SettingsWindow_MouseLeave(object sender, MouseEventArgs e)
+        {
+            _mainWindow.canMoveWindow = true;
+        }
+
+        public void setLink(MainWindow mw) {
+            _mainWindow = mw;
+        }
+
     }
 }
