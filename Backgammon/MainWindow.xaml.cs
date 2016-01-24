@@ -51,8 +51,8 @@ namespace Backgammon
 		internal ImageBrush[] singleBrick = new ImageBrush[4], doubleBrick = new ImageBrush[4], tripleBrick = new ImageBrush[4];
 		internal ImageBrush[] _triangelIsClicked = new ImageBrush[2];
 
-		
-
+		//brickholder bilder
+		internal ImageBrush[] brick = new ImageBrush[2];
 		
 
         public MainWindow()
@@ -64,8 +64,8 @@ namespace Backgammon
 
 		private void init()
 		{
-			gameBoard = _model.newGame();
-            //gameBoard = _model.endGame();
+			//gameBoard = _model.newGame();
+            gameBoard = _model.endGame();
             //gameBoard = _model.highStack();
             //gameBoard = _model.bricksInMiddle();
 
@@ -119,6 +119,9 @@ namespace Backgammon
 			for (int i = 0; i < _triangelIsClicked.Length; i++)
                 _triangelIsClicked[i] = new ImageBrush();
 			 
+			brick[0] = new ImageBrush();
+            brick[1] = new ImageBrush();
+
 
             // Hämtar alla bakgrunder
             try {
@@ -176,6 +179,8 @@ namespace Backgammon
                 doubleBrick[3].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/2RödKnapp.png"));
                 tripleBrick[3].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/3RödKnapp.png"));
 
+				brick[0].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/vitKnappLigga.png"));
+				brick[1].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/svartKnappLigga.png"));
 
             }
 
