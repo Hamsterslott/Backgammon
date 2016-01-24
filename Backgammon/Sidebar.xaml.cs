@@ -20,9 +20,19 @@ namespace Backgammon
     /// </summary>
     public partial class Sidebar : UserControl
     {
+        public bool closedMeny = false;
+
         public Sidebar()
         {
             InitializeComponent();
         }
+
+        private void CloseMeny_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            this.Visibility = System.Windows.Visibility.Collapsed;
+            
+        }
+
+        
     }
 }

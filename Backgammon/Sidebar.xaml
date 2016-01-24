@@ -126,7 +126,7 @@
         </Canvas>
         <!--Close-->
         <Label Name="CloseMenyText" Grid.Row="9" Content="Close Settings" FontSize="30" Foreground="Snow" HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="Nueva Std Cond"></Label>
-        <Canvas Name="CloseMeny" Grid.Row="9" Width="70" Height="40" HorizontalAlignment="Left">
+        <Canvas Name="CloseMeny" Grid.Row="9" Width="70" Height="40" HorizontalAlignment="Left" MouseLeftButtonDown="CloseMeny_MouseLeftButtonDown">
             <Canvas.Background>
                 <ImageBrush ImageSource="Resources/PilRight.png" Stretch="Uniform"/>
             </Canvas.Background>
