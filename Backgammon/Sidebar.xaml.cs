@@ -69,7 +69,7 @@ namespace Backgammon
 
         private void slider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            _mainWindow.song.Volume = e.NewValue;
+            _mainWindow.song.Volume = e.NewValue / 10;
         }
 
         private void getSource_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -85,8 +85,7 @@ namespace Backgammon
             {
                 NameOfTheSong.Content = openFileDialog.SafeFileName;
                 _mainWindow.song.Open(new Uri(openFileDialog.FileName));
-                //_mainWindow.song.Play();
-                _mainWindow.song.Stop();
+                _mainWindow.song.Play();
             }
         }
 
