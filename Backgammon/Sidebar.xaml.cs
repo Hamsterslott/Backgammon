@@ -27,6 +27,7 @@ namespace Backgammon
         public Sidebar()
         {
             InitializeComponent();
+            BlackWhite.Background.Opacity = 1;
         }
 
         private void CloseMeny_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -91,18 +92,24 @@ namespace Backgammon
 
         private void BlackWhite_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
+            WhiteBlue.Background.Opacity = 0.5;
+            RedBlack.Background.Opacity = 0.5;
             Settings.playerTheme = new int[] { 1, 0 };
             _mainWindow.updateView();
         }
 
         private void WhiteBlue_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
+            BlackWhite.Background.Opacity = 0.5;
+            RedBlack.Background.Opacity = 0.5;
             Settings.playerTheme = new int[] { 2, 0 };
             _mainWindow.updateView();
         }
 
         private void RedBlack_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
+            WhiteBlue.Background.Opacity = 0.5;
+            BlackWhite.Background.Opacity = 0.5;
             Settings.playerTheme = new int[] { 3, 1 };
             _mainWindow.updateView();
         }
@@ -124,7 +131,8 @@ namespace Backgammon
 
         private void BlackWhite_MouseLeave(object sender, MouseEventArgs e)
         {
-            BlackWhite.Background.Opacity = 0.5;
+            if(Settings.playerTheme[0] != 1)
+                BlackWhite.Background.Opacity = 0.5;
         }
 
         private void WhiteBlue_MouseEnter(object sender, MouseEventArgs e)
@@ -134,7 +142,8 @@ namespace Backgammon
 
         private void WhiteBlue_MouseLeave(object sender, MouseEventArgs e)
         {
-            WhiteBlue.Background.Opacity = 0.5;
+            if (Settings.playerTheme[0] != 2)
+                WhiteBlue.Background.Opacity = 0.5;
         }
 
         private void RedBlack_MouseEnter(object sender, MouseEventArgs e)
@@ -144,7 +153,8 @@ namespace Backgammon
 
         private void RedBlack_MouseLeave(object sender, MouseEventArgs e)
         {
-            RedBlack.Background.Opacity = 0.5;
+            if (Settings.playerTheme[0] != 3)
+                RedBlack.Background.Opacity = 0.5;
         }
 
         private void HowToPlay_MouseEnter(object sender, MouseEventArgs e)
