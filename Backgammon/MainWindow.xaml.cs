@@ -44,8 +44,8 @@ namespace Backgammon
 		
 		//mainwindow ljud
 		private SoundPlayer shake = new SoundPlayer(Properties.Resources.ShakeSound);
-        private SoundPlayer throwThem = new SoundPlayer(Properties.Resources.diceSound);  
-
+        private SoundPlayer throwThem = new SoundPlayer(Properties.Resources.diceSound);
+        public MediaPlayer song = new MediaPlayer();
 
 		//triangel bilder
 		internal ImageBrush[] singleBrick = new ImageBrush[4], doubleBrick = new ImageBrush[4], tripleBrick = new ImageBrush[4];
@@ -74,7 +74,6 @@ namespace Backgammon
             Sidebar.setLink(this);
 
 			utslagna = new BrickHolder[]{(BrickHolder)utslagnaEtt.Children[0],(BrickHolder)utslagnaTvå.Children[0]};
-
 
 			for(int i = 0; i<2; i++)
 			{
@@ -429,9 +428,9 @@ namespace Backgammon
         {
             btnDice.Source = _diceshaker[1];
 
-            
-            if (Settings.playSound)           
-                shake.Play();
+
+            if (Settings.playSound)
+                throwThem.Play();
            
             
             if (spelare == player.one) 
@@ -458,8 +457,8 @@ namespace Backgammon
             {
                 diceDark.Visibility = System.Windows.Visibility.Visible;
             }
-            if (Settings.playSound)    
-                shake.Stop();
+            if (Settings.playSound)
+                throwThem.Stop();
         }
 
         private void btnDice_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -484,7 +483,7 @@ namespace Backgammon
 			}
             if (Settings.playSound)
             {
-                shake.Stop();
+                throwThem.Stop();
                 throwThem.PlaySync();
             }
                 this.IsEnabled = true;

@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Microsoft.Win32;
 
 namespace Backgammon
 {
@@ -63,6 +64,29 @@ namespace Backgammon
 
         public void setLink(MainWindow mw) {
             _mainWindow = mw;
+        }
+
+        private void slider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            _mainWindow.song.Volume = e.NewValue;
+        }
+
+        private void getSource_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            
+        }
+
+        private void NameOfTheSong_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "MP3 files (*.mp3)|*.mp3|All files (*.*)|*.*";
+            if (openFileDialog.ShowDialog() == true)
+            {
+                NameOfTheSong.Content = openFileDialog.SafeFileName;
+                _mainWindow.song.Open(new Uri(openFileDialog.FileName));
+                //_mainWindow.song.Play();
+                _mainWindow.song.Stop();
+            }
         }
 
     }
