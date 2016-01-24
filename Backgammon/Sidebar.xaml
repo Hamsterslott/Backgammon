@@ -40,8 +40,8 @@
         <Label Name="lblSettings" Grid.Row="0" Content="Settings" FontSize="75" Foreground="Snow" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Nueva Std Cond" ></Label>
         <!--SoundEffects-->
         <Label Name="SoundEfxText" Grid.Row="1" Content="Sound Effects" FontSize="30" Foreground="Snow" HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="Nueva Std Cond"></Label>
-        <Button Name="btnOn" MouseLeftButtonDown="btnOn_MouseLeftButtonDown" Grid.Row="1" Content="ON" VerticalAlignment="Bottom" HorizontalAlignment="Left" FontSize="18" FontFamily="Nueva Std Cond" BorderThickness="0" Padding="4" Margin="100,0,0,0" Background="LawnGreen" Foreground="Black" Opacity="0.8"/>
-        <Button Name="btnOff" MouseLeftButtonDown="btnOff_MouseLeftButtonDown" Grid.Row="1" Content="OFF" VerticalAlignment="Bottom" HorizontalAlignment="Right" FontSize="18" Foreground="Snow" FontFamily="Nueva Std Cond" BorderThickness="0"  Padding="4" Background="Transparent" Margin="0,0,100,0"></Button>
+        <Button x:Name="btnOn" MouseLeftButtonDown="btnOn_MouseLeftButtonDown" Grid.Row="1" Content="ON" VerticalAlignment="Bottom" HorizontalAlignment="Left" FontSize="18" FontFamily="Nueva Std Cond" BorderThickness="0" Padding="4" Margin="100,0,0,0" Background="LawnGreen" Foreground="Black" Opacity="0.8"/>
+        <Button x:Name="btnOff" MouseLeftButtonDown="btnOff_MouseLeftButtonDown" Grid.Row="1" Content="OFF" VerticalAlignment="Bottom" HorizontalAlignment="Right" FontSize="18" Foreground="Snow" FontFamily="Nueva Std Cond" BorderThickness="0"  Padding="4" Background="Transparent" Margin="0,0,100,0"/>
         <!--Volume-->
         <Label Name="Vol" Grid.Row="2" Content="Music Volume" FontSize="30" Foreground="Snow" HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="Nueva Std Cond"></Label>
         <Slider x:Name="slider" ValueChanged="slider_ValueChanged" Grid.Row="2" Width="165"  Minimum="0" Maximum="10" IsSnapToTickEnabled="true" TickFrequency="1" TickPlacement="TopLeft" 
@@ -96,17 +96,17 @@
 
         <!--BrickColor-->
         <Label Name="BrickColor" Grid.Row="5" Content="Brick Type" FontSize="30" Foreground="Snow" HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="Nueva Std Cond"></Label>
-        <Canvas Name="BlackWhite" Grid.Row="5" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="70" Height="40" Margin="35,0,0,0">
+        <Canvas Name="BlackWhite" Grid.Row="5" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="70" Height="40" Margin="35,0,0,0" MouseLeftButtonDown="BlackWhite_MouseLeftButtonDown">
             <Canvas.Background>
                 <ImageBrush ImageSource="Resources/SvartVitKnapp.png" Stretch="Uniform"/>
             </Canvas.Background>
         </Canvas>
-        <Canvas Name="BlackRed" Grid.Row="5" HorizontalAlignment="Center" Width="70" VerticalAlignment="Bottom" Height="40">
+        <Canvas Name="WhiteBlue" Grid.Row="5" HorizontalAlignment="Center" Width="70" VerticalAlignment="Bottom" Height="40" MouseLeftButtonDown="WhiteBlue_MouseLeftButtonDown">
             <Canvas.Background>
                 <ImageBrush ImageSource="Resources/BlåSvartVitKnapp.png" Stretch="Uniform"/>
             </Canvas.Background>
         </Canvas>
-        <Canvas Name="WhiteBlur" Grid.Row="5" HorizontalAlignment="right" Width="70" VerticalAlignment="Bottom" Height="40" Margin="0,0,35,0">
+        <Canvas Name="RedBlack" Grid.Row="5" HorizontalAlignment="right" Width="70" VerticalAlignment="Bottom" Height="40" Margin="0,0,35,0" MouseLeftButtonDown="RedBlack_MouseLeftButtonDown">
             <Canvas.Background>
                 <ImageBrush ImageSource="Resources/SvartVitRödKnapp.png" Stretch="Uniform"/>
             </Canvas.Background>

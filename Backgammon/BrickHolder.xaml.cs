@@ -21,20 +21,12 @@ namespace Backgammon
 
 		private MainWindow _mainWindow = null;
         private player _color;
-        private ImageBrush[] brick = new ImageBrush[2];
         private int _size = 0;
 		private int _pos;
 
         public BrickHolder()
         {
             InitializeComponent();
-			try {
-            brick[0] = new ImageBrush();
-            brick[1] = new ImageBrush();
-            brick[0].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/vitKnappLigga.png"));
-            brick[1].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/svartKnappLigga.png"));
-			}
-			catch (Exception) {}
         }
 
          private void update() {
@@ -46,7 +38,7 @@ namespace Backgammon
 
             for (int i = 0; i < _size; i++) {
                 Image image = brickor.Children[14 - i] as Image;
-                image.Source = brick[theme].ImageSource;    
+                image.Source = _mainWindow.brick[theme].ImageSource;    
             }
             if (_size < 15) {
                 for (int i = _size; i < 15; i++) {

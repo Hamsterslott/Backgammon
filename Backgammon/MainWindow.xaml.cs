@@ -51,8 +51,8 @@ namespace Backgammon
 		internal ImageBrush[] singleBrick = new ImageBrush[4], doubleBrick = new ImageBrush[4], tripleBrick = new ImageBrush[4];
 		internal ImageBrush[] _triangelIsClicked = new ImageBrush[2];
 
-		
-
+		//brickholder bilder
+		internal ImageBrush[] brick = new ImageBrush[2];
 		
 
         public MainWindow()
@@ -64,15 +64,18 @@ namespace Backgammon
 
 		private void init()
 		{
-			gameBoard = _model.newGame();
-            //gameBoard = _model.endGame();
+			//gameBoard = _model.newGame();
+            gameBoard = _model.endGame();
             //gameBoard = _model.highStack();
             //gameBoard = _model.bricksInMiddle();
 
 
             initimages();
             Sidebar.setLink(this);
+			setBackground(Settings.background);
+            
 
+			
 			utslagna = new BrickHolder[]{(BrickHolder)utslagnaEtt.Children[0],(BrickHolder)utslagnaTvå.Children[0]};
 
 			for(int i = 0; i<2; i++)
@@ -115,6 +118,9 @@ namespace Backgammon
 			for (int i = 0; i < _triangelIsClicked.Length; i++)
                 _triangelIsClicked[i] = new ImageBrush();
 			 
+			brick[0] = new ImageBrush();
+            brick[1] = new ImageBrush();
+
 
             // Hämtar alla bakgrunder
             try {
@@ -172,6 +178,8 @@ namespace Backgammon
                 doubleBrick[3].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/2RödKnapp.png"));
                 tripleBrick[3].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/3RödKnapp.png"));
 
+				brick[0].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/vitKnappLigga.png"));
+				brick[1].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/svartKnappLigga.png"));
 
             }
 
@@ -304,6 +312,9 @@ namespace Backgammon
 					if(i < 13) getTriangle(i).setPos(25-i);
 					else getTriangle(i).setPos(i-12);
 				}
+
+			getTriangle(25).setPos(25);
+			getTriangle(26).setPos(26);
 		}
 
 		private void alignRight()
@@ -313,19 +324,17 @@ namespace Backgammon
 					if(i < 13) getTriangle(i).setPos(12+i);
 					else getTriangle(i).setPos(25-i);
 				}
+
+			getTriangle(25).setPos(25);
+			getTriangle(26).setPos(26);
 		}
 
-        private void updateView() 
+        internal void updateView() 
 		{
 
 			//Tänker mig att denna funktionen tar variabler från sidebar
 			// och sedan uppdaterar baserat på vad man valt.
-			setBackground(Settings.background);
-            alignLeft();
-
-			getTriangle(25).setPos(25);
-			getTriangle(26).setPos(26);
-
+			alignLeft();
 			for (int i = 0; i<26; i++) updateTriangle(getTriangle(i+1));
 
         }
