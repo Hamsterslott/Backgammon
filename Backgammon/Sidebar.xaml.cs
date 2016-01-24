@@ -89,5 +89,20 @@ namespace Backgammon
             }
         }
 
+        private void BlackWhite_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void WhiteBlue_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void RedBlack_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
     }
 }
