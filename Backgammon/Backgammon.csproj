@@ -261,6 +261,26 @@
   <ItemGroup>
     <Resource Include="Resources\PilRight.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\dice11Blue.png" />
+    <Resource Include="Resources\dice11Red.png" />
+    <Resource Include="Resources\dice1Blue.png" />
+    <Resource Include="Resources\dice1Red.png" />
+    <Resource Include="Resources\dice2Blue.png" />
+    <Resource Include="Resources\dice2Red.png" />
+    <Resource Include="Resources\dice3Blue.png" />
+    <Resource Include="Resources\dice3Red.png" />
+    <Resource Include="Resources\dice4Blue.png" />
+    <Resource Include="Resources\dice4Red.png" />
+    <Resource Include="Resources\dice5Blue.png" />
+    <Resource Include="Resources\dice5Red.png" />
+    <Resource Include="Resources\dice6Blue.png" />
+    <Resource Include="Resources\dice6Red.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\blåKnappLigga.png" />
+    <Resource Include="Resources\rödKnappLigga.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
