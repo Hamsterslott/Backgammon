@@ -25,7 +25,7 @@ namespace Backgammon
         internal bool canMoveWindow = true;
        
         internal int[] dice = new int[4];
-		internal player spelare = player.one;
+		internal player spelare = player.two;
 		internal triangel [] gameBoard;
 		internal BackgammonModel _model = new BackgammonModel();
 

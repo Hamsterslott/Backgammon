@@ -240,11 +240,14 @@ namespace Backgammon
 		{
 			_mainWindow.gameBoard = _mainWindow._model.newGame();
 			_mainWindow.dice = new int[4];
+			_mainWindow.pickedUp = 0;
+			_mainWindow.Cursor = Cursors.Arrow;
 			_mainWindow.spelare = player.two;
 			_mainWindow.updateView();
 			_mainWindow.btnDice.Visibility = System.Windows.Visibility.Visible;
             _mainWindow.diceTop.Visibility = System.Windows.Visibility.Visible;
             _mainWindow.diceBot.Visibility = System.Windows.Visibility.Visible;
+			
 		}
     }
 }

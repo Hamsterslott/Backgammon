@@ -417,9 +417,8 @@ namespace Backgammon
 			bool ok = true;
 			BackgammonModel test = new BackgammonModel();
 
-
-			// Test för Triangel Struct
-			//
+			// Test för Triangel
+			
 			triangel [] test1 = new triangel [4];
 			test1[0].antal = 3;
 			test1[0].color = player.two;
@@ -433,11 +432,10 @@ namespace Backgammon
 
 			ok = ok && (int)player.two == 1;
 			ok = ok && (int)player.one == 0;
-
+			
 			System.Diagnostics.Debug.WriteLine("Triangel " + ok);
 
 			// Test för LetsRollTheDice()
-			//
 			for (int i = 0; i < 100 && ok; i++)
 			{
 				int[] dices = test.letsRollTheDice();
@@ -447,7 +445,6 @@ namespace Backgammon
 			System.Diagnostics.Debug.WriteLine("LetsRollTheDice " + ok);
 
 			// Test för newGame()
-			//
 			triangel[] testspelplan = new triangel[5];
 
 			for(int i = 0; i<5;i++) testspelplan[i].antal = 1;
@@ -456,23 +453,18 @@ namespace Backgammon
 
 			for(int i = 0; i<5;i++) ok = ok && testspelplan[i].antal != 1;
 			ok = ok && testspelplan.Length==26;
-
 			System.Diagnostics.Debug.WriteLine("newGame " + ok);
 
 			// Test för correctPos()
-			//
-			ok = ok && test.correctPos(1) == 0;
+						ok = ok && test.correctPos(1) == 0;
 			ok = ok && test.correctPos(6) == 5;
 			ok = ok && test.correctPos(7) == 7;
 			ok = ok && test.correctPos(18) == 18;
 			ok = ok && test.correctPos(19) == 20;
 			ok = ok && test.correctPos(24) == 25;
-
 			System.Diagnostics.Debug.WriteLine("correctPos " + ok);
 			
-
             //Test för legitMove()
-			//
             int[] dices1 = { 2, 1, 0, 0 };
 			testspelplan = test.newGame();
 
@@ -582,12 +574,10 @@ namespace Backgammon
 			}
 
 
-
             System.Diagnostics.Debug.WriteLine("legitMove " + ok);
 
             //Test för legitMoveGoal()
-			
-			testspelplan = new triangel[26];
+						testspelplan = new triangel[26];
 			testspelplan[25].antal = 1;
 			testspelplan[25].color = player.one;
 			testspelplan[0].antal = 1;
@@ -598,12 +588,9 @@ namespace Backgammon
 			ok = ok && test.legitMoveGoal(testspelplan,24,dices1,player.one) == 3;
 			ok = ok && test.legitMoveGoal(testspelplan,1,dices1,player.two) == 3;
 
-
             System.Diagnostics.Debug.WriteLine("legitMoveGoal " + ok);
 
-
             //Test för moveGoal()
-
 			testspelplan = new triangel[26];
 			testspelplan[25].antal = 1;
 			testspelplan[25].color = player.one;
@@ -657,11 +644,9 @@ namespace Backgammon
             //spela från bar
             testspelplan[6].antal = 1;
             ok = ok && test.move(testspelplan, -1, 21, dices1, player.one) == false;
-
             System.Diagnostics.Debug.WriteLine("move " + ok);
 
             //Test för canMove()
-            //
             testspelplan = test.newGame();
 
             //spelare Black
@@ -676,8 +661,9 @@ namespace Backgammon
             testspelplan[6].antal = 1;
             for (int i = 0; i < 4; i++) dices1[i] = i + 1;
             ok = ok && test.canMove(testspelplan, player.two, dices1) == -1;
-
             System.Diagnostics.Debug.WriteLine("canMove " + ok);
+
+
             return ok;
 		}
 
