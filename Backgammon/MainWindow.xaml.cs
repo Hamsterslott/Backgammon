@@ -23,11 +23,11 @@ namespace Backgammon
     {
 
         internal bool canMoveWindow = true;
-        
-       	private BackgammonModel _model = new BackgammonModel();
-		private triangel [] gameBoard;
-        private int[] dice = new int[4];
-		private player spelare = player.one;
+       
+        internal int[] dice = new int[4];
+		internal player spelare = player.one;
+		internal triangel [] gameBoard;
+		internal BackgammonModel _model = new BackgammonModel();
 
 		internal Triangle [] selectedTriangles = new Triangle[2];
 		internal int pickedUp = 0;
@@ -40,13 +40,13 @@ namespace Backgammon
         private BitmapImage[,] _dices = new BitmapImage[4,7];
 		private BitmapImage[] _waitingdices = new BitmapImage[4];
 		private BitmapImage[] _diceshaker = new BitmapImage[2];
-		private ImageBrush[] _background = new ImageBrush[8];
 		private Cursor [] plockadbricka = new Cursor[4];
-		
+		internal ImageBrush[] _background = new ImageBrush[8];
+
 		//mainwindow ljud
 		private SoundPlayer shake = new SoundPlayer(Properties.Resources.ShakeSound);
         private SoundPlayer throwThem = new SoundPlayer(Properties.Resources.diceSound);
-        public MediaPlayer song = new MediaPlayer();
+        internal MediaPlayer song = new MediaPlayer();
 
 		//triangel bilder
 		internal ImageBrush[] singleBrick = new ImageBrush[4], doubleBrick = new ImageBrush[4], tripleBrick = new ImageBrush[4];

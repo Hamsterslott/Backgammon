@@ -22,7 +22,9 @@ namespace Backgammon
     public partial class Sidebar : UserControl
     {
         MainWindow _mainWindow = null;
-        public bool closedMeny = false;
+		private int[] _backgroundnumbers = new int []{0,2,4,5,7};
+
+
 
         public Sidebar()
         {
@@ -167,29 +169,44 @@ namespace Backgammon
             NewGameImg.Background.Opacity = 0.5;
         }      
 
-        private void BackgroundActive_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            _mainWindow.setBackground(0);
-        }
-
         private void BackgroundPrev_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            _mainWindow.setBackground(2);
+            _mainWindow.setBackground(_backgroundnumbers[1]);
+			int temp = _backgroundnumbers[0];
+			BackgroundActive.Background = _mainWindow._background[_backgroundnumbers[1]];
+			BackgroundPrev.Background = _mainWindow._background[temp];
+			_backgroundnumbers[0] = _backgroundnumbers[1];
+			_backgroundnumbers[1] = temp;
         }
 
         private void BackgroundPrev2_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            _mainWindow.setBackground(4);
+            _mainWindow.setBackground(_backgroundnumbers[2]);
+			int temp = _backgroundnumbers[0];
+			BackgroundActive.Background = _mainWindow._background[_backgroundnumbers[2]];
+			BackgroundPrev2.Background = _mainWindow._background[temp];
+			_backgroundnumbers[0] = _backgroundnumbers[2];
+			_backgroundnumbers[2] = temp;
         }
 
         private void BackgroundNext_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            _mainWindow.setBackground(5);
+            _mainWindow.setBackground(_backgroundnumbers[3]);
+			int temp = _backgroundnumbers[0];
+			BackgroundActive.Background = _mainWindow._background[_backgroundnumbers[3]];
+			BackgroundNext.Background = _mainWindow._background[temp];
+			_backgroundnumbers[0] = _backgroundnumbers[3];
+			_backgroundnumbers[3] = temp;
         }
 
         private void BackgroundNext2_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            _mainWindow.setBackground(7);
+            _mainWindow.setBackground(_backgroundnumbers[4]);
+			int temp = _backgroundnumbers[0];
+			BackgroundActive.Background = _mainWindow._background[_backgroundnumbers[4]];
+			BackgroundNext2.Background = _mainWindow._background[temp];
+			_backgroundnumbers[0] = _backgroundnumbers[4];
+			_backgroundnumbers[4] = temp;
         }
 
 		private void btnOn_Click(object sender, RoutedEventArgs e)
@@ -218,6 +235,17 @@ namespace Backgammon
 		private void NextSong_Click(object sender, RoutedEventArgs e)
 		{
 			_mainWindow.song.Pause();
+		}
+
+		private void NewGameImg_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+		{
+			_mainWindow.gameBoard = _mainWindow._model.newGame();
+			_mainWindow.dice = new int[4];
+			_mainWindow.spelare = player.two;
+			_mainWindow.updateView();
+			_mainWindow.btnDice.Visibility = System.Windows.Visibility.Visible;
+            _mainWindow.diceTop.Visibility = System.Windows.Visibility.Visible;
+            _mainWindow.diceBot.Visibility = System.Windows.Visibility.Visible;
 		}
 
     }

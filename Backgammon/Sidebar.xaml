@@ -68,7 +68,7 @@
         <!--Background-->
 
         <Label Name="BackgroundLabel" Grid.Row="4" Content="Background" FontSize="30" Foreground="Snow" HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="Nueva Std Cond"></Label>
-        <Canvas MouseLeftButtonDown="BackgroundActive_MouseLeftButtonDown" Name="BackgroundActive" Grid.Row="4" Width="80" Height="40" HorizontalAlignment="Center" VerticalAlignment="Bottom">
+        <Canvas Name="BackgroundActive" Grid.Row="4" Width="80" Height="40" HorizontalAlignment="Center" VerticalAlignment="Bottom">
             <Canvas.Background>
                 <ImageBrush ImageSource="Resources/greenFelt.png"/>
             </Canvas.Background>
@@ -126,7 +126,7 @@
         <!--New Game-->
 
         <Label Name="NewGame" Grid.Row="8" Content="New Game" FontSize="30" Foreground="Snow" HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="Nueva Std Cond"></Label>
-        <Canvas Name="NewGameImg" Grid.Row="8" Width="70" Height="40" VerticalAlignment="Bottom" MouseEnter="NewGameImg_MouseEnter" MouseLeave="NewGameImg_MouseLeave">
+        <Canvas Name="NewGameImg" MouseLeftButtonDown="NewGameImg_MouseLeftButtonDown" Grid.Row="8" Width="70" Height="40" VerticalAlignment="Bottom" MouseEnter="NewGameImg_MouseEnter" MouseLeave="NewGameImg_MouseLeave">
             <Canvas.Background>
                 <ImageBrush ImageSource="Resources/NewGame.png" Stretch="Uniform" Opacity="0.5"/>
             </Canvas.Background>
