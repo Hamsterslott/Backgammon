@@ -197,7 +197,7 @@ namespace Backgammon
 			btnOn.Background = Brushes.LawnGreen;
             btnOff.Background = Brushes.Transparent;
             btnOn.Foreground = Brushes.Black;
-            btnOff.Foreground = Brushes.White;
+            btnOff.Foreground = Brushes.Snow;
             Settings.playSound = true;
 		}
 
@@ -205,7 +205,7 @@ namespace Backgammon
 		{
 			btnOn.Background = Brushes.Transparent;
             btnOff.Background = Brushes.LawnGreen;
-            btnOn.Foreground = Brushes.White;
+            btnOn.Foreground = Brushes.Snow;
             btnOff.Foreground = Brushes.Black;
             Settings.playSound = false;
 		}

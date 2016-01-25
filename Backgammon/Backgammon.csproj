@@ -186,10 +186,8 @@
     <Resource Include="Resources\dice5Black.png" />
     <Resource Include="Resources\dice6Black.png" />
     <Resource Include="Resources\dice11Black.png" />
-    <Resource Include="Resources\diceSound.wav" />
     <Resource Include="Resources\darkHandle.cur" />
     <Resource Include="Resources\lightHandle.cur" />
-    <Resource Include="Resources\ShakeSound.wav" />
     <Resource Include="Resources\arrowLeft.png" />
     <Resource Include="Resources\arrowRight.png" />
     <Resource Include="Resources\2RödKnapp.png" />
