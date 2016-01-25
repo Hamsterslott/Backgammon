@@ -68,27 +68,27 @@
         <!--Background-->
 
         <Label Name="BackgroundLabel" Grid.Row="4" Content="Background" FontSize="30" Foreground="Snow" HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="Nueva Std Cond"></Label>
-        <Canvas Name="BackgroundActive" Grid.Row="4" Width="80" Height="40" HorizontalAlignment="Center" VerticalAlignment="Bottom">
+        <Canvas MouseLeftButtonDown="BackgroundActive_MouseLeftButtonDown" Name="BackgroundActive" Grid.Row="4" Width="80" Height="40" HorizontalAlignment="Center" VerticalAlignment="Bottom">
             <Canvas.Background>
                 <ImageBrush ImageSource="Resources/greenFelt.png"/>
             </Canvas.Background>
         </Canvas>
-        <Canvas Name="BackgroundPrev" Grid.Row="4" Width="40" Height="30" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="60,0,0,5">
+        <Canvas MouseLeftButtonDown="BackgroundPrev_MouseLeftButtonDown" Name="BackgroundPrev" Grid.Row="4" Width="40" Height="30" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="60,0,0,5">
             <Canvas.Background>
                 <ImageBrush ImageSource="Resources/blueFelt.png"/>
             </Canvas.Background>
         </Canvas>
-        <Canvas Name="BackgroundNext" Grid.Row="4" Width="40" Height="30" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,60,5">
+        <Canvas MouseLeftButtonDown="BackgroundNext_MouseLeftButtonDown" Name="BackgroundNext" Grid.Row="4" Width="40" Height="30" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,60,5">
             <Canvas.Background>
                 <ImageBrush ImageSource="Resources/purpleFelt.png"/>
             </Canvas.Background>
         </Canvas>
-        <Canvas Name="BackgroundNext2" Grid.Row="4" Width="35" Height="20" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,20,7.5">
+        <Canvas MouseLeftButtonDown="BackgroundNext2_MouseLeftButtonDown" Name="BackgroundNext2" Grid.Row="4" Width="35" Height="20" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,20,7.5">
             <Canvas.Background>
                 <ImageBrush ImageSource="Resources/darkRedFelt.png"/>
             </Canvas.Background>
         </Canvas>
-        <Canvas Name="BackgroundPrev2" Grid.Row="4" Width="35" Height="20" HorizontalAlignment="left" VerticalAlignment="Bottom" Margin="20,0,0,7.5">
+        <Canvas MouseLeftButtonDown="BackgroundPrev2_MouseLeftButtonDown" Name="BackgroundPrev2" Grid.Row="4" Width="35" Height="20" HorizontalAlignment="left" VerticalAlignment="Bottom" Margin="20,0,0,7.5">
             <Canvas.Background>
                 <ImageBrush ImageSource="Resources/orangeFelt.png"/>
             </Canvas.Background>

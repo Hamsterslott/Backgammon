@@ -307,7 +307,7 @@ namespace Backgammon
 		}
 
 
-        private void setBackground(int index) {
+        public void setBackground(int index) {
             duk.Background = _background[index];
         }
 

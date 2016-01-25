@@ -186,5 +186,30 @@ namespace Backgammon
             NewGameImg.Background.Opacity = 0.5;
         }      
 
+        private void BackgroundActive_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            _mainWindow.setBackground(0);
+        }
+
+        private void BackgroundPrev_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            _mainWindow.setBackground(2);
+        }
+
+        private void BackgroundPrev2_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            _mainWindow.setBackground(4);
+        }
+
+        private void BackgroundNext_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            _mainWindow.setBackground(5);
+        }
+
+        private void BackgroundNext2_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            _mainWindow.setBackground(7);
+        }
+
     }
 }
