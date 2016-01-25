@@ -65,8 +65,8 @@ namespace Backgammon
 
 		private void init()
 		{
-			//gameBoard = _model.newGame();
-            gameBoard = _model.endGame();
+			gameBoard = _model.newGame();
+            //gameBoard = _model.endGame();
             //gameBoard = _model.highStack();
             //gameBoard = _model.bricksInMiddle();
 
