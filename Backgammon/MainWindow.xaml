@@ -78,8 +78,8 @@
                 </UniformGrid>
                 
                 <!--Målar ut bilderna på tärningarna över spelbrädan-->
-                <Image x:Name="diceWhite" Source="Resources/dice11Light.png" Height="112" Canvas.Left="1125" Canvas.Top="163"/>
-                <Image x:Name="diceDark" Source="Resources/dice11Black.png" Height="112" Canvas.Left="1127" Canvas.Top="392"/>
+                <Image x:Name="diceTop" Source="Resources/dice11Light.png" Height="112" Canvas.Left="1125" Canvas.Top="163"/>
+                <Image x:Name="diceBot" Source="Resources/dice11Black.png" Height="112" Canvas.Left="1127" Canvas.Top="392"/>
 
                 
                 <UniformGrid Name="utslagnaEtt" Canvas.Left="6" Canvas.Top="48" Height="223" Width="60">
