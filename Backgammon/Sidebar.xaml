@@ -117,7 +117,7 @@
         </Canvas>
         <!--How to playh-->
         <Label Name="HowToPlayTxt" Grid.Row="7" Content="How To Play" FontSize="30" Foreground="Snow" HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="Nueva Std Cond"></Label>
-        <Canvas Name="HowToPlay" Grid.Row="7" Width="70" Height="40" VerticalAlignment="Bottom" MouseEnter="HowToPlay_MouseEnter" MouseLeave="HowToPlay_MouseLeave">
+        <Canvas Name="HowToPlay" Grid.Row="7" Width="70" Height="40" VerticalAlignment="Bottom" MouseLeftButtonDown="HowToPlay_MouseLeftButtonDown" MouseEnter="HowToPlay_MouseEnter" MouseLeave="HowToPlay_MouseLeave">
             <Canvas.Background>
                 <ImageBrush ImageSource="Resources/omspelet.png" Stretch="Uniform" Opacity="0.5"/>
             </Canvas.Background>

@@ -114,7 +114,15 @@ namespace Backgammon
             Settings.playerTheme = new int[] { 3, 1 };
             _mainWindow.updateView();
         }
+        private void HowToPlay_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
 
+        {
+            //Sökvägen kuka!!!!! Och det hade varit fint om det gick på svenska med å ä ö med
+            //string rules = System.IO.File.ReadAllText("Resources/rules.txt");
+            //MessageBox.Show(rules);
+        }
+
+        
         private void CloseMeny_MouseEnter(object sender, MouseEventArgs e)
         {
             CloseMeny.Background.Opacity = 1;
@@ -176,7 +184,7 @@ namespace Backgammon
         private void NewGameImg_MouseLeave(object sender, MouseEventArgs e)
         {
             NewGameImg.Background.Opacity = 0.5;
-        }
+        }      
 
     }
 }
