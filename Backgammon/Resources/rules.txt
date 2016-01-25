@@ -1,33 +1,33 @@
-Spelet spelas av två spelare med 15 brickor var samt två tärningar.\n\n
+Spelet spelas av två spelare med 15 brickor var samt två tärningar.
 
-Målet med spelet är att tömma brädan på sina egna brickor.\n\n
+Målet med spelet är att tömma brädan på sina egna brickor.
 
-Man flyttar sina brickor i motsatt riktning av motståndaren.\n\n
+Man flyttar sina brickor i motsatt riktning av motståndaren.
 
-För att flytta en bricka måste du först slå tärningarna.\n
-Får du 2 av samma siffra dubbleras antalet tärningar.\n\n
+För att flytta en bricka måste du först slå tärningarna.
+Får du 2 av samma siffra dubbleras antalet tärningar.
 
-Flytta en bricka lika många steg som tärningen visar.\n\n
+Flytta en bricka lika många steg som tärningen visar.
 
-Man får inte lägga sig på samma triangel som motståndaren om \n
-denna har 2 eller fler brickor på triangeln.\n
-Skulle motståndaren bara ha en bricka på en triangel du kan gå \n
-till kan du slå ut denne.\n
-Då detta händer flyttar du motståndarens bricka till mitten (the bar).\n\n
+Man får inte lägga sig på samma triangel som motståndaren om
+denna har 2 eller fler brickor på triangeln.
+Skulle motståndaren bara ha en bricka på en triangel du kan gå
+till kan du slå ut denne.
+Då detta händer flyttar du motståndarens bricka till mitten (the bar).
 
-Efter din motståndare har kastat sina tärningar MÅSTE hen först placera \n
-ut den utslagna brickan på spelplanen igen.\n\n
+Efter din motståndare har kastat sina tärningar MÅSTE hen först placera
+ut den utslagna brickan på spelplanen igen.
 
-När du har fått alla dina brickor till din hemplan får du börja\n
-gå i mål.\n\n
+När du har fått alla dina brickor till din hemplan får du börja
+gå i mål.
 
-Undantag och förtydliganden.\n
-Du kan inte lägga ihop tärningarnas värden och gå hela vägen dit \n
-utan att mellanlanda ( du måste kunna gå en tärning i taget).\n
-När du är i fasen då du går i mål kan följande hända:\n
-Brickan som ligger längs från målen är 4 trianglar bort, \n
-om du skulle så en 5a eller 6a skulle du få flytta in denna bricka ändå.\n\n
+Undantag och förtydliganden.
+Du kan inte lägga ihop tärningarnas värden och gå hela vägen dit
+utan att mellanlanda ( du måste kunna gå en tärning i taget).
+När du är i fasen då du går i mål kan följande hända:
+Brickan som ligger längs från målen är 4 trianglar bort,
+om du skulle så en 5a eller 6a skulle du få flytta in denna bricka ändå.
 
-Första spelaren som tömmer planen från sin färg vinner!\n\n
+Första spelaren som tömmer planen från sin färg vinner!
 
 Lycka till och ha kul!

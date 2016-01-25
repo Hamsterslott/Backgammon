@@ -117,9 +117,7 @@ namespace Backgammon
         private void HowToPlay_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
 
         {
-            //Sökvägen kuka!!!!! Och det hade varit fint om det gick på svenska med å ä ö med
-            //string rules = System.IO.File.ReadAllText("Resources/rules.txt");
-            //MessageBox.Show(rules);
+            MessageBox.Show(Properties.Resources.rules);
         }
 
         
