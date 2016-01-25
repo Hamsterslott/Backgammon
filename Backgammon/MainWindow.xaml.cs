@@ -396,8 +396,13 @@ namespace Backgammon
         private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             try{
-                if(canMoveWindow)
-                    DragMove();
+                if (canMoveWindow)
+                {
+                    if (Sidebar.Visibility == System.Windows.Visibility.Visible)
+                        Sidebar.Visibility = System.Windows.Visibility.Collapsed;
+                    else
+                        DragMove();
+                }
             }
 			catch (Exception ) { Console.WriteLine("Messageboxarna gör så man får System.InvalidOperationException här"); }
         }
@@ -530,6 +535,21 @@ namespace Backgammon
         private void slider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
 
+        }
+
+        private void sidebar_MouseEnter(object sender, MouseEventArgs e)
+        {
+            canMoveWindow = false;
+        }
+
+        private void sidebar_MouseLeave(object sender, MouseEventArgs e)
+        {
+            canMoveWindow = true;
+        }
+
+        private void spelPlan_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            Sidebar.Visibility = System.Windows.Visibility.Collapsed;
         }
 
     }

@@ -132,13 +132,13 @@
             </Canvas.Background>
 
         </Canvas>
-        <!--Close-->
-        <Label Name="CloseMenyText" Grid.Row="9" Content="Close Settings" FontSize="29" Foreground="Snow" HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="Nueva Std Cond"></Label>
-        <Canvas Name="CloseMeny" Grid.Row="9" Width="70" Height="40" HorizontalAlignment="Left" MouseLeftButtonDown="CloseMeny_MouseLeftButtonDown" MouseEnter="CloseMeny_MouseEnter" MouseLeave="CloseMeny_MouseLeave">
+
+
+        <Canvas Name="CloseMeny" Grid.Row="9" Width="70" HorizontalAlignment="Left">
             <Canvas.Background>
                 <ImageBrush ImageSource="Resources/PilRight.png" Stretch="Uniform" Opacity="0.5"/>
             </Canvas.Background>
-
         </Canvas>
+        <Label Name="CloseMenyText" MouseEnter="CloseMenyText_MouseEnter" MouseLeave="CloseMenyText_MouseLeave" MouseLeftButtonDown="CloseMenyText_MouseLeftButtonDown" Grid.Row="9" Content="                      Close Settings" FontSize="29" Foreground="Snow" HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="Nueva Std Cond" Width="290" Opacity="0.5"/>
     </Grid>
 </UserControl>

@@ -18,7 +18,7 @@
         
 
 
-        <Viewbox x:Name="spelPlan" Stretch="Fill" MouseEnter="spelPlan_MouseEnter" MouseLeave="spelPlan_MouseLeave">
+        <Viewbox x:Name="spelPlan" Stretch="Fill" MouseEnter="spelPlan_MouseEnter" MouseLeave="spelPlan_MouseLeave" MouseLeftButtonDown="spelPlan_MouseLeftButtonDown">
             <Canvas HorizontalAlignment="Left" Height="667" Margin="60,100,60,60" VerticalAlignment="Top" Width="1192">
 
                 <Canvas.Effect>
@@ -102,6 +102,6 @@
             <local:Sidebar x:Name="Sidebar" Width="290" Height="720" VerticalAlignment="Stretch" HorizontalAlignment="Right" Visibility="Collapsed"></local:Sidebar>
         </Viewbox>
         
-        <Image Opacity="0.6" x:Name="sidebar" Width="28" Height="28" VerticalAlignment="Top" HorizontalAlignment="Right" Source="Resources/sidebar.png" Margin="0,43,10,0" MouseLeftButtonDown="sidebar_MouseLeftButtonDown"/>
+        <Image Opacity="0.6" x:Name="sidebar" Width="28" Height="28" VerticalAlignment="Top" HorizontalAlignment="Right" Source="Resources/sidebar.png" Margin="0,43,10,0" MouseLeftButtonDown="sidebar_MouseLeftButtonDown" MouseEnter="sidebar_MouseEnter" MouseLeave="sidebar_MouseLeave"/>
     </Grid>
 </Window>
