@@ -30,12 +30,6 @@ namespace Backgammon
             BlackWhite.Background.Opacity = 1;
         }
 
-        private void CloseMeny_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            this.Visibility = System.Windows.Visibility.Collapsed;
-        }
-
-
         private void SettingsWindow_MouseEnter(object sender, MouseEventArgs e)
         {
             _mainWindow.canMoveWindow = false;
@@ -101,17 +95,6 @@ namespace Backgammon
 
         {
             MessageBox.Show(Properties.Resources.rules);
-        }
-
-        
-        private void CloseMeny_MouseEnter(object sender, MouseEventArgs e)
-        {
-            CloseMeny.Background.Opacity = 1;
-        }
-
-        private void CloseMeny_MouseLeave(object sender, MouseEventArgs e)
-        {
-            CloseMeny.Background.Opacity = 0.5;
         }
 
         private void BlackWhite_MouseEnter(object sender, MouseEventArgs e)
@@ -209,6 +192,23 @@ namespace Backgammon
             btnOff.Foreground = Brushes.Black;
             Settings.playSound = false;
 		}
+
+        private void CloseMenyText_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            this.Visibility = System.Windows.Visibility.Collapsed;
+        }
+
+        private void CloseMenyText_MouseEnter(object sender, MouseEventArgs e)
+        {
+            CloseMenyText.Opacity = 1;
+            CloseMeny.Background.Opacity = 1;
+        }
+
+        private void CloseMenyText_MouseLeave(object sender, MouseEventArgs e)
+        {
+            CloseMenyText.Opacity = 0.5;
+            CloseMeny.Background.Opacity = 0.5;
+        }
 
     }
 }
