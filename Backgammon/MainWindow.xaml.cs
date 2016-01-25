@@ -38,6 +38,7 @@ namespace Backgammon
 
 		//mainwindow bilder
         private BitmapImage[,] _dices = new BitmapImage[4,7];
+		private BitmapImage[] _waitingdices = new BitmapImage[4];
 		private BitmapImage[] _diceshaker = new BitmapImage[2];
 		private ImageBrush[] _background = new ImageBrush[8];
 		private Cursor [] plockadbricka = new Cursor[4];
@@ -170,6 +171,12 @@ namespace Backgammon
 				_dices[3, 5] = new BitmapImage(new Uri("pack://application:,,,/Resources/dice5Red.png"));
 				_dices[3, 6] = new BitmapImage(new Uri("pack://application:,,,/Resources/dice6Red.png"));
 
+
+				_waitingdices[0] = new BitmapImage(new Uri("pack://application:,,,/Resources/dice11Light.png"));
+				_waitingdices[1] = new BitmapImage(new Uri("pack://application:,,,/Resources/dice11Black.png"));
+				_waitingdices[2] = new BitmapImage(new Uri("pack://application:,,,/Resources/dice11Blue.png"));
+				_waitingdices[3] = new BitmapImage(new Uri("pack://application:,,,/Resources/dice11Red.png"));
+
 				_triangelIsClicked[0].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/isClickedUpper.png"));
 				_triangelIsClicked[1].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/isClickedLower.png"));
 				
@@ -271,8 +278,8 @@ namespace Backgammon
 						for(int i = 0; i < 4; i++) dice[i] = 0;
 						renderDices();
                         btnDice.Visibility = System.Windows.Visibility.Visible;
-                        diceDark.Visibility = System.Windows.Visibility.Visible;
-                        diceWhite.Visibility = System.Windows.Visibility.Visible;
+                        diceTop.Visibility = System.Windows.Visibility.Visible;
+                        diceBot.Visibility = System.Windows.Visibility.Visible;
                     }
 
 				selectedTriangles[0].setGlowing(false);
@@ -344,6 +351,10 @@ namespace Backgammon
 			alignLeft();
 			foreach(BrickHolder u in utslagna) u.update();
 			renderDices();
+
+			diceTop.Source = _waitingdices[Settings.playerTheme[0]];
+			diceBot.Source = _waitingdices[Settings.playerTheme[1]];
+
 			for (int i = 0; i<26; i++) updateTriangle(getTriangle(i+1));
 
         }
@@ -452,11 +463,11 @@ namespace Backgammon
             
             if (spelare == player.one) 
             {
-                diceWhite.Visibility = System.Windows.Visibility.Collapsed;
+                diceBot.Visibility = System.Windows.Visibility.Collapsed;
             }
             else
             {
-                diceDark.Visibility = System.Windows.Visibility.Collapsed;
+                diceTop.Visibility = System.Windows.Visibility.Collapsed;
             }
             
             
@@ -468,11 +479,11 @@ namespace Backgammon
             
             if (spelare == player.one)
             {
-                diceWhite.Visibility = System.Windows.Visibility.Visible;
+                diceBot.Visibility = System.Windows.Visibility.Visible;
             }
             else
             {
-                diceDark.Visibility = System.Windows.Visibility.Visible;
+                diceTop.Visibility = System.Windows.Visibility.Visible;
             }
             if (Settings.playSound)
                 shake.Stop();
@@ -495,8 +506,8 @@ namespace Backgammon
 				for(int i = 0; i < 4; i++) dice[i] = 0;
 				renderDices();
 				btnDice.Visibility = System.Windows.Visibility.Visible;
-                diceDark.Visibility = System.Windows.Visibility.Visible;
-                diceWhite.Visibility = System.Windows.Visibility.Visible;
+                diceTop.Visibility = System.Windows.Visibility.Visible;
+                diceBot.Visibility = System.Windows.Visibility.Visible;
 			}
             if (Settings.playSound)
             {

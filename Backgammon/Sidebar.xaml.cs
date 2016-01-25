@@ -94,7 +94,7 @@ namespace Backgammon
         {
             WhiteBlue.Background.Opacity = 0.5;
             BlackWhite.Background.Opacity = 0.5;
-            Settings.playerTheme = new int[] { 3, 1 };
+            Settings.playerTheme = new int[] { 1, 3 };
             _mainWindow.updateView();
         }
         private void HowToPlay_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
