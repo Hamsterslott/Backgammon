@@ -447,7 +447,7 @@ namespace Backgammon
 
 
             if (Settings.playSound)
-                throwThem.Play();
+                shake.Play();
            
             
             if (spelare == player.one) 
@@ -475,7 +475,7 @@ namespace Backgammon
                 diceDark.Visibility = System.Windows.Visibility.Visible;
             }
             if (Settings.playSound)
-                throwThem.Stop();
+                shake.Stop();
         }
 
         private void btnDice_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
