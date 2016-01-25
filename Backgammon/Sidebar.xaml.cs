@@ -210,5 +210,15 @@ namespace Backgammon
             Settings.playSound = false;
 		}
 
+		private void PrevSong_Click(object sender, RoutedEventArgs e)
+		{
+			_mainWindow.song.Play();
+		}
+
+		private void NextSong_Click(object sender, RoutedEventArgs e)
+		{
+			_mainWindow.song.Pause();
+		}
+
     }
 }
