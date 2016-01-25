@@ -35,23 +35,6 @@ namespace Backgammon
             this.Visibility = System.Windows.Visibility.Collapsed;
         }
 
-        private void btnOn_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            btnOn.Background = Brushes.LawnGreen;
-            btnOff.Background = Brushes.Transparent;
-            btnOn.Foreground = Brushes.Black;
-            btnOff.Foreground = Brushes.White;
-            Settings.playSound = true;
-        }
-
-        private void btnOff_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            btnOn.Background = Brushes.Transparent;
-            btnOff.Background = Brushes.LawnGreen;
-            btnOn.Foreground = Brushes.White;
-            btnOff.Foreground = Brushes.Black;
-            Settings.playSound = false;
-        }
 
         private void SettingsWindow_MouseEnter(object sender, MouseEventArgs e)
         {
@@ -208,6 +191,24 @@ namespace Backgammon
         {
             _mainWindow.setBackground(7);
         }
+
+		private void btnOn_Click(object sender, RoutedEventArgs e)
+		{
+			btnOn.Background = Brushes.LawnGreen;
+            btnOff.Background = Brushes.Transparent;
+            btnOn.Foreground = Brushes.Black;
+            btnOff.Foreground = Brushes.White;
+            Settings.playSound = true;
+		}
+
+		private void btnOff_Click(object sender, RoutedEventArgs e)
+		{
+			btnOn.Background = Brushes.Transparent;
+            btnOff.Background = Brushes.LawnGreen;
+            btnOn.Foreground = Brushes.White;
+            btnOff.Foreground = Brushes.Black;
+            Settings.playSound = false;
+		}
 
     }
 }
