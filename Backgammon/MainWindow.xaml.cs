@@ -32,7 +32,7 @@ namespace Backgammon
 		internal Triangle [] selectedTriangles = new Triangle[2];
 		internal int pickedUp = 0;
 		
-		private BrickHolder[] utslagna;
+		internal BrickHolder[] utslagna;
         private int [] playercheckers = new int[]{15,15};
 		
 

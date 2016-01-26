@@ -243,6 +243,8 @@ namespace Backgammon
 			_mainWindow.pickedUp = 0;
 			_mainWindow.Cursor = Cursors.Arrow;
 			_mainWindow.spelare = player.two;
+			_mainWindow.utslagna[0].setSize(0);
+			_mainWindow.utslagna[1].setSize(0);
 			_mainWindow.updateView();
 			_mainWindow.btnDice.Visibility = System.Windows.Visibility.Visible;
             _mainWindow.diceTop.Visibility = System.Windows.Visibility.Visible;
