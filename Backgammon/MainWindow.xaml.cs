@@ -40,7 +40,7 @@ namespace Backgammon
         private BitmapImage[,] _dices = new BitmapImage[4,7];
 		private BitmapImage[] _waitingdices = new BitmapImage[4];
 		private BitmapImage[] _diceshaker = new BitmapImage[2];
-		private Cursor [] plockadbricka = new Cursor[4];
+		internal Cursor [] plockadbricka = new Cursor[4];
 		internal ImageBrush[] _background = new ImageBrush[8];
 
 		//mainwindow ljud
@@ -357,6 +357,11 @@ namespace Backgammon
 
 			for (int i = 0; i<26; i++) updateTriangle(getTriangle(i+1));
 
+			if (pickedUp == 1) 
+			{
+				selectedTriangles[0].setSize(selectedTriangles[0].getSize()-1);
+				selectedTriangles[0].Update();
+			}
         }
 
         // Håller en 16:9 ratio på spelplanen
