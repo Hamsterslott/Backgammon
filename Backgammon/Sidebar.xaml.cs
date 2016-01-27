@@ -101,20 +101,16 @@ namespace Backgammon
         {
 			if(info.Width == new GridLength(0))
 			{
-			_mainWindow.Sidebar.Width = _mainWindow.Width*0.67;
-			info.Width = new GridLength(_mainWindow.Width*0.44);
+			_mainWindow.Sidebar.Width = 290+600;
+			info.Width = new GridLength(600);
 			}
 			else
 			{
 				_mainWindow.Sidebar.Width = 290;
 				info.Width = new GridLength(0);
 			}
-			if(_mainWindow.Sidebar.Width > 600) 
-			{
-				_mainWindow.Sidebar.Width = 900;
-				info.Width = new GridLength(610);
-			}
-
+			
+			
         }
 
         private void BlackWhite_MouseEnter(object sender, MouseEventArgs e)
