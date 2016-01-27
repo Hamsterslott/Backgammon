@@ -30,6 +30,7 @@ namespace Backgammon
         {
             InitializeComponent();
             BlackWhite.Background.Opacity = 1;
+			howtoplay.Content = Properties.Resources.rules;
         }
 
         private void SettingsWindow_MouseEnter(object sender, MouseEventArgs e)
@@ -98,14 +99,22 @@ namespace Backgammon
         }
         private void HowToPlay_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
+			if(info.Width == new GridLength(0))
+			{
 			_mainWindow.Sidebar.Width = _mainWindow.Width*0.67;
 			info.Width = new GridLength(_mainWindow.Width*0.44);
+			}
+			else
+			{
+				_mainWindow.Sidebar.Width = 290;
+				info.Width = new GridLength(0);
+			}
 			if(_mainWindow.Sidebar.Width > 600) 
 			{
 				_mainWindow.Sidebar.Width = 900;
 				info.Width = new GridLength(610);
 			}
-			howtoplay.Content = Properties.Resources.rules;
+
         }
 
         private void BlackWhite_MouseEnter(object sender, MouseEventArgs e)
