@@ -13,10 +13,10 @@ Man får inte lägga sig på samma triangel som motståndaren om
 denna har 2 eller fler brickor på triangeln.
 Skulle motståndaren bara ha en bricka på en triangel du kan gå
 till kan du slå ut denne.
-Då detta händer flyttar du motståndarens bricka till mitten (the bar).
+Då detta händer flyttar du motståndarens bricka till mitten.
 
-Efter din motståndare har kastat sina tärningar MÅSTE hen först placera
-ut den utslagna brickan på spelplanen igen.
+Efter din motståndare har kastat sina tärningar MÅSTE hen 
+först placera ut den utslagna brickan på spelplanen igen.
 
 När du har fått alla dina brickor till din hemplan får du börja
 gå i mål.
@@ -25,8 +25,8 @@ Undantag och förtydliganden.
 Du kan inte lägga ihop tärningarnas värden och gå hela vägen dit
 utan att mellanlanda ( du måste kunna gå en tärning i taget).
 När du är i fasen då du går i mål kan följande hända:
-Brickan som ligger längs från målen är 4 trianglar bort,
-om du skulle så en 5a eller 6a skulle du få flytta in denna bricka ändå.
+Brickan som ligger längst från målet är 4 trianglar bort,
+om du skulle slå en 5a eller 6a skulle du få flytta in denna bricka.
 
 Första spelaren som tömmer planen från sin färg vinner!
 

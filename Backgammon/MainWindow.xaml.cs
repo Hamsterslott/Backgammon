@@ -404,7 +404,12 @@ namespace Backgammon
                 if (canMoveWindow)
                 {
                     if (Sidebar.Visibility == System.Windows.Visibility.Visible)
+						{
                         Sidebar.Visibility = System.Windows.Visibility.Collapsed;
+						Sidebar.Width = 290;
+						Sidebar.info.Width = new GridLength(0);
+						}
+
                     else
                         DragMove();
                 }
@@ -555,6 +560,8 @@ namespace Backgammon
         private void spelPlan_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             Sidebar.Visibility = System.Windows.Visibility.Collapsed;
+			Sidebar.Width = 290;
+			Sidebar.info.Width = new GridLength(0);
         }
 
     }

@@ -9,7 +9,10 @@
         <SolidColorBrush Color="Black" Opacity="0.9"/>
     </UserControl.Background>
     <Grid Name="theGrid">
-
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition x:Name="info" Width="0"/>
+            <ColumnDefinition Width="290"/>
+        </Grid.ColumnDefinitions>
 
 
         <Grid.RowDefinitions>
@@ -35,31 +38,32 @@
 
         </Grid.RowDefinitions>
 
-        <!--<Canvas Name="background" Height="720" Opacity="0.9" Background="Black"/>-->
+        <Label Name="howtoplay" Grid.RowSpan="10" Grid.Column="0" FontSize="15" Foreground="Snow" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Consolas" ></Label>
+
         <!--Settings-->
-        <Label Name="lblSettings" Grid.Row="0" Content="Settings" FontSize="75" Foreground="Snow" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Nueva Std Cond" ></Label>
+        <Label Name="lblSettings" Grid.Row="0" Grid.Column="1" Content="Settings" FontSize="75" Foreground="Snow" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Nueva Std Cond" ></Label>
         <!--SoundEffects-->
-        <Label Name="SoundEfxText" Grid.Row="1" Content="Sound Effects" FontSize="29" Foreground="Snow" HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="Nueva Std Cond"></Label>
-        <Button x:Name="btnOn" Click="btnOn_Click" Grid.Row="1" Content="ON" VerticalAlignment="Bottom" HorizontalAlignment="Left" FontSize="18" FontFamily="Nueva Std Cond" BorderThickness="0" Padding="4" Margin="100,0,0,0" Background="LawnGreen" Foreground="Black"/>
-        <Button x:Name="btnOff" Click="btnOff_Click" Grid.Row="1" Content="OFF" VerticalAlignment="Bottom" HorizontalAlignment="Right" FontSize="18" FontFamily="Nueva Std Cond" BorderThickness="0" Padding="4" Margin="0,0,100,0" Background="Transparent" Foreground="Snow"/>
+        <Label Name="SoundEfxText" Grid.Row="1" Grid.Column="1" Content="Sound Effects" FontSize="29" Foreground="Snow" HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="Nueva Std Cond"></Label>
+        <Button x:Name="btnOn" Click="btnOn_Click" Grid.Row="1" Grid.Column="1" Content="ON" VerticalAlignment="Bottom" HorizontalAlignment="Left" FontSize="18" FontFamily="Nueva Std Cond" BorderThickness="0" Padding="4" Margin="100,0,0,0" Background="LawnGreen" Foreground="Black"/>
+        <Button x:Name="btnOff" Click="btnOff_Click" Grid.Row="1" Grid.Column="1" Content="OFF" VerticalAlignment="Bottom" HorizontalAlignment="Right" FontSize="18" FontFamily="Nueva Std Cond" BorderThickness="0" Padding="4" Margin="0,0,100,0" Background="Transparent" Foreground="Snow"/>
         <!--Volume-->
-        <Label Name="Vol" Grid.Row="2" Content="Music Volume" FontSize="29" Foreground="Snow" HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="Nueva Std Cond"></Label>
-        <Slider x:Name="slider" ValueChanged="slider_ValueChanged" Grid.Row="2" Width="165"  Minimum="0" Maximum="10" IsSnapToTickEnabled="true" TickFrequency="1" TickPlacement="TopLeft" 
+        <Label Name="Vol" Grid.Row="2" Grid.Column="1" Content="Music Volume" FontSize="29" Foreground="Snow" HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="Nueva Std Cond"></Label>
+        <Slider x:Name="slider" ValueChanged="slider_ValueChanged" Grid.Row="2" Grid.Column="1" Width="165"  Minimum="0" Maximum="10" IsSnapToTickEnabled="true" TickFrequency="1" TickPlacement="TopLeft" 
                 Orientation="Horizontal" Margin="0,38,61,0" VerticalAlignment="Top" HorizontalAlignment="Right"></Slider>
         <!--Song Playing-->
-        <Image Name="getSource" MouseLeftButtonDown="getSource_MouseLeftButtonDown" HorizontalAlignment="Left" Height="23" Margin="242,6,0,0" Grid.Row="3" VerticalAlignment="Top" Width="38">
+        <Image Name="getSource" MouseLeftButtonDown="getSource_MouseLeftButtonDown" HorizontalAlignment="Left" Height="23" Margin="242,6,0,0" Grid.Row="3" Grid.Column="1" VerticalAlignment="Top" Width="38">
             <Image.OpacityMask>
                 <ImageBrush ImageSource="Resources/folder.png"/>
             </Image.OpacityMask>
         </Image>
-        <Label Name="MusicName" Grid.Row="3" Content="Song Playing" FontSize="29" Foreground="Snow" HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="Nueva Std Cond"></Label>
-        <Label Name="NameOfTheSong" MouseLeftButtonDown="NameOfTheSong_MouseLeftButtonDown" Grid.Row="3" Content="Name of the song" FontSize="20" Foreground="Snow" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontFamily="Nueva Std Cond" MaxWidth="195" Margin="0,0,0,7"></Label>
-        <Button Name="PrevSong" Click="PrevSong_Click" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Left" Height="30" Margin="10,34,0,10" Width="38" >
+        <Label Name="MusicName" Grid.Row="3" Grid.Column="1" Content="Song Playing" FontSize="29" Foreground="Snow" HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="Nueva Std Cond"></Label>
+        <Label Name="NameOfTheSong" MouseLeftButtonDown="NameOfTheSong_MouseLeftButtonDown" Grid.Row="3" Grid.Column="1" Content="Name of the song" FontSize="20" Foreground="Snow" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontFamily="Nueva Std Cond" MaxWidth="195" Margin="0,0,0,7"></Label>
+        <Button Name="PrevSong" Click="PrevSong_Click" Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Height="30" Margin="10,34,0,10" Width="38" >
             <Button.Background>
                 <ImageBrush ImageSource="Resources/arrowLeft.png"/>
             </Button.Background>
         </Button>
-        <Button Name="NextSong" Click="NextSong_Click" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Left" Height="30" Margin="242,34,0,10" Width="38">
+        <Button Name="NextSong" Click="NextSong_Click" Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Height="30" Margin="242,34,0,10" Width="38">
             <Button.Background>
                 <ImageBrush ImageSource="Resources/arrowRight.png"/>
             </Button.Background>
@@ -67,66 +71,65 @@
 
         <!--Background-->
 
-        <Label Name="BackgroundLabel" Grid.Row="4" Content="Background" Padding="0,0,0,1" FontSize="29" Foreground="Snow" HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="Nueva Std Cond"></Label>
-        <Canvas Name="BackgroundActive" Grid.Row="4" Width="80" Height="40" HorizontalAlignment="Center" VerticalAlignment="Bottom">
+        <Label Name="BackgroundLabel" Grid.Row="4" Grid.Column="1" Content="Background" Padding="0,0,0,1" FontSize="29" Foreground="Snow" HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="Nueva Std Cond"></Label>
+        <Canvas Name="BackgroundActive" Grid.Row="4" Grid.Column="1" Width="80" Height="40" HorizontalAlignment="Center" VerticalAlignment="Bottom">
             <Canvas.Background>
                 <ImageBrush ImageSource="Resources/greenFelt.png"/>
             </Canvas.Background>
         </Canvas>
-        <Canvas MouseLeftButtonDown="BackgroundPrev_MouseLeftButtonDown" Name="BackgroundPrev" Grid.Row="4" Width="40" Height="30" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="60,0,0,5">
+        <Canvas MouseLeftButtonDown="BackgroundPrev_MouseLeftButtonDown" Name="BackgroundPrev" Grid.Row="4" Grid.Column="1" Width="40" Height="30" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="60,0,0,5">
             <Canvas.Background>
                 <ImageBrush ImageSource="Resources/blueFelt.png"/>
             </Canvas.Background>
         </Canvas>
-        <Canvas MouseLeftButtonDown="BackgroundNext_MouseLeftButtonDown" Name="BackgroundNext" Grid.Row="4" Width="40" Height="30" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,60,5">
+        <Canvas MouseLeftButtonDown="BackgroundNext_MouseLeftButtonDown" Name="BackgroundNext" Grid.Row="4" Grid.Column="1" Width="40" Height="30" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,60,5">
             <Canvas.Background>
                 <ImageBrush ImageSource="Resources/purpleFelt.png"/>
             </Canvas.Background>
         </Canvas>
-        <Canvas MouseLeftButtonDown="BackgroundNext2_MouseLeftButtonDown" Name="BackgroundNext2" Grid.Row="4" Width="35" Height="20" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,20,7.5">
+        <Canvas MouseLeftButtonDown="BackgroundNext2_MouseLeftButtonDown" Name="BackgroundNext2" Grid.Row="4" Grid.Column="1" Width="35" Height="20" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,20,7.5">
             <Canvas.Background>
                 <ImageBrush ImageSource="Resources/darkRedFelt.png"/>
             </Canvas.Background>
         </Canvas>
-        <Canvas MouseLeftButtonDown="BackgroundPrev2_MouseLeftButtonDown" Name="BackgroundPrev2" Grid.Row="4" Width="35" Height="20" HorizontalAlignment="left" VerticalAlignment="Bottom" Margin="20,0,0,7.5">
+        <Canvas MouseLeftButtonDown="BackgroundPrev2_MouseLeftButtonDown" Name="BackgroundPrev2" Grid.Row="4" Grid.Column="1" Width="35" Height="20" HorizontalAlignment="left" VerticalAlignment="Bottom" Margin="20,0,0,7.5">
             <Canvas.Background>
                 <ImageBrush ImageSource="Resources/orangeFelt.png"/>
             </Canvas.Background>
         </Canvas>
 
         <!--BrickColor-->
-        <Label Name="BrickColor" Grid.Row="5" Content="Brick Type" Padding="0,0,0,1" FontSize="29" Foreground="Snow" HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="Nueva Std Cond"></Label>
-        <Canvas Name="BlackWhite" Grid.Row="5" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="70" Height="40" Margin="35,0,0,0" MouseLeftButtonDown="BlackWhite_MouseLeftButtonDown" MouseEnter="BlackWhite_MouseEnter" MouseLeave="BlackWhite_MouseLeave">
+        <Label Name="BrickColor" Grid.Row="5" Grid.Column="1" Content="Brick Type" Padding="0,0,0,1" FontSize="29" Foreground="Snow" HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="Nueva Std Cond"></Label>
+        <Canvas Name="BlackWhite" Grid.Row="5" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="70" Height="40" Margin="35,0,0,0" MouseLeftButtonDown="BlackWhite_MouseLeftButtonDown" MouseEnter="BlackWhite_MouseEnter" MouseLeave="BlackWhite_MouseLeave">
             <Canvas.Background>
                 <ImageBrush ImageSource="Resources/SvartVitKnapp.png" Stretch="Uniform" Opacity="0.5"/>
             </Canvas.Background>
         </Canvas>
-        <Canvas Name="WhiteBlue" Grid.Row="5" HorizontalAlignment="Center" Width="70" VerticalAlignment="Bottom" Height="40" MouseLeftButtonDown="WhiteBlue_MouseLeftButtonDown" MouseEnter="WhiteBlue_MouseEnter" MouseLeave="WhiteBlue_MouseLeave">
+        <Canvas Name="WhiteBlue" Grid.Row="5" Grid.Column="1" HorizontalAlignment="Center" Width="70" VerticalAlignment="Bottom" Height="40" MouseLeftButtonDown="WhiteBlue_MouseLeftButtonDown" MouseEnter="WhiteBlue_MouseEnter" MouseLeave="WhiteBlue_MouseLeave">
             <Canvas.Background>
                 <ImageBrush ImageSource="Resources/BlåSvartVitKnapp.png" Stretch="Uniform" Opacity="0.5"/>
             </Canvas.Background>
         </Canvas>
-        <Canvas Name="RedBlack" Grid.Row="5" HorizontalAlignment="right" Width="70" VerticalAlignment="Bottom" Height="40" Margin="0,0,35,0" MouseLeftButtonDown="RedBlack_MouseLeftButtonDown" MouseEnter="RedBlack_MouseEnter" MouseLeave="RedBlack_MouseLeave">
+        <Canvas Name="RedBlack" Grid.Row="5" Grid.Column="1" HorizontalAlignment="right" Width="70" VerticalAlignment="Bottom" Height="40" Margin="0,0,35,0" MouseLeftButtonDown="RedBlack_MouseLeftButtonDown" MouseEnter="RedBlack_MouseEnter" MouseLeave="RedBlack_MouseLeave">
             <Canvas.Background>
                 <ImageBrush ImageSource="Resources/SvartVitRödKnapp.png" Stretch="Uniform" Opacity="0.5"/>
             </Canvas.Background>
         </Canvas>
 
         <!--Rotate Viewe-->
-        <Canvas Name="RotateViewe" Grid.Row="6">
+        <Canvas Name="RotateViewe" Grid.Row="6" Grid.Column="1" >
         </Canvas>
         <!--How to playh-->
-        <Label Name="HowToPlayTxt" Grid.Row="7" Content="How To Play" Padding="0,0,0,1" FontSize="29" Foreground="Snow" HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="Nueva Std Cond"></Label>
-        <Canvas Name="HowToPlay" Grid.Row="7" Width="70" Height="40" VerticalAlignment="Bottom" MouseLeftButtonDown="HowToPlay_MouseLeftButtonDown" MouseEnter="HowToPlay_MouseEnter" MouseLeave="HowToPlay_MouseLeave">
+        <Label Name="HowToPlayTxt" Grid.Row="7" Grid.Column="1" Content="How To Play" Padding="0,0,0,1" FontSize="29" Foreground="Snow" HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="Nueva Std Cond"></Label>
+        <Canvas Name="HowToPlay" Grid.Row="7" Grid.Column="1" Width="70" Height="40" VerticalAlignment="Bottom" MouseLeftButtonDown="HowToPlay_MouseLeftButtonDown" MouseEnter="HowToPlay_MouseEnter" MouseLeave="HowToPlay_MouseLeave">
             <Canvas.Background>
                 <ImageBrush ImageSource="Resources/omspelet.png" Stretch="Uniform" Opacity="0.5"/>
             </Canvas.Background>
-
         </Canvas>
         <!--New Game-->
 
-        <Label Name="NewGame" Grid.Row="8" Content="New Game" FontSize="29" Padding="0,0,0,1" Foreground="Snow" HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="Nueva Std Cond"></Label>
-        <Canvas Name="NewGameImg" MouseLeftButtonDown="NewGameImg_MouseLeftButtonDown" Grid.Row="8" Width="70" Height="40" VerticalAlignment="Bottom" MouseEnter="NewGameImg_MouseEnter" MouseLeave="NewGameImg_MouseLeave">
+        <Label Name="NewGame" Grid.Row="8" Grid.Column="1" Content="New Game" FontSize="29" Padding="0,0,0,1" Foreground="Snow" HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="Nueva Std Cond"></Label>
+        <Canvas Name="NewGameImg" MouseLeftButtonDown="NewGameImg_MouseLeftButtonDown" Grid.Row="8" Grid.Column="1" Width="70" Height="40" VerticalAlignment="Bottom" MouseEnter="NewGameImg_MouseEnter" MouseLeave="NewGameImg_MouseLeave">
             <Canvas.Background>
                 <ImageBrush ImageSource="Resources/NewGame.png" Stretch="Uniform" Opacity="0.5"/>
             </Canvas.Background>
@@ -134,11 +137,11 @@
         </Canvas>
 
 
-        <Canvas Name="CloseMeny" Grid.Row="9" Width="70" HorizontalAlignment="Left">
+        <Canvas Name="CloseMeny" Grid.Row="9" Grid.Column="1" Width="70" HorizontalAlignment="Left">
             <Canvas.Background>
                 <ImageBrush ImageSource="Resources/PilRight.png" Stretch="Uniform" Opacity="0.5"/>
             </Canvas.Background>
         </Canvas>
-        <Label Name="CloseMenyText" MouseEnter="CloseMenyText_MouseEnter" MouseLeave="CloseMenyText_MouseLeave" MouseLeftButtonDown="CloseMenyText_MouseLeftButtonDown" Grid.Row="9" Content="Close Settings" FontSize="29" Foreground="Snow" FontFamily="Nueva Std Cond" Width="290" Opacity="0.5" HorizontalAlignment="Right" Padding="75,5,0,0"/>
+        <Label Name="CloseMenyText" MouseEnter="CloseMenyText_MouseEnter" MouseLeave="CloseMenyText_MouseLeave" MouseLeftButtonDown="CloseMenyText_MouseLeftButtonDown" Grid.Row="9" Grid.Column="1" Content="Close Settings" FontSize="29" Foreground="Snow" FontFamily="Nueva Std Cond" Width="290" Opacity="0.5" HorizontalAlignment="Right" Padding="75,5,0,0"/>
     </Grid>
 </UserControl>

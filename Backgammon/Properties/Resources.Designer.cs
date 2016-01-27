@@ -70,20 +70,20 @@ namespace Backgammon.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Spelet spelas av två spelare med 15 brickor var samt två tärningar.\n\n
+        ///   Looks up a localized string similar to Spelet spelas av två spelare med 15 brickor var samt två tärningar.
         ///
-        ///Målet med spelet är att tömma brädan på sina egna brickor.\n\n
+        ///Målet med spelet är att tömma brädan på sina egna brickor.
         ///
-        ///Man flyttar sina brickor i motsatt riktning av motståndaren.\n\n
+        ///Man flyttar sina brickor i motsatt riktning av motståndaren.
         ///
-        ///För att flytta en bricka måste du först slå tärningarna.\n
-        ///Får du 2 av samma siffra dubbleras antalet tärningar.\n\n
+        ///För att flytta en bricka måste du först slå tärningarna.
+        ///Får du 2 av samma siffra dubbleras antalet tärningar.
         ///
-        ///Flytta en bricka lika många steg som tärningen visar.\n\n
+        ///Flytta en bricka lika många steg som tärningen visar.
         ///
-        ///Man får inte lägga sig på samma triangel som motståndaren om \n
-        ///denna har 2 eller fler brickor på triangeln.\n
-        ///Skulle m [rest of string was truncated]&quot;;.
+        ///Man får inte lägga sig på samma triangel som motståndaren om
+        ///denna har 2 eller fler brickor på triangeln.
+        ///Skulle motståndaren bara ha en bric [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string rules {
             get {
