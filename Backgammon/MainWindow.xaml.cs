@@ -234,7 +234,7 @@ namespace Backgammon
 					t.setSize(t.getSize()-1);
 					if(t.getPos() < 25) t.setGlowing(true);
 					t.Update();
-					this.Cursor = plockadbricka[Settings.playerTheme[(int)spelare]];
+					setCursor();
 					}
 			}
 
@@ -286,7 +286,7 @@ namespace Backgammon
                 updateSelectedTriangles();
                 renderDices();
 				pickedUp = 0;
-                this.Cursor = Cursors.Arrow;
+                setCursor();
 				}
 		}
 
@@ -363,6 +363,12 @@ namespace Backgammon
 				selectedTriangles[0].Update();
 			}
         }
+
+		internal void setCursor()
+		{
+			if (pickedUp == 1) this.Cursor = plockadbricka[Settings.playerTheme[(int)spelare]];
+			else this.Cursor = Cursors.Arrow;
+		}
 
         // Håller en 16:9 ratio på spelplanen
 		private void updateScale()

@@ -84,7 +84,7 @@ namespace Backgammon
             WhiteBlue.Background.Opacity = 0.5;
             RedBlack.Background.Opacity = 0.5;
             Settings.playerTheme = new int[] { 1, 0 };
-			if(_mainWindow.pickedUp == 1) _mainWindow.Cursor = _mainWindow.plockadbricka[Settings.playerTheme[(int)_mainWindow.spelare]];
+			_mainWindow.setCursor();
             _mainWindow.updateView();
         }
 
@@ -93,7 +93,7 @@ namespace Backgammon
             BlackWhite.Background.Opacity = 0.5;
             RedBlack.Background.Opacity = 0.5;
             Settings.playerTheme = new int[] { 2, 0 };
-			if(_mainWindow.pickedUp == 1) _mainWindow.Cursor = _mainWindow.plockadbricka[Settings.playerTheme[(int)_mainWindow.spelare]];
+			_mainWindow.setCursor();
             _mainWindow.updateView();
         }
 
@@ -102,7 +102,7 @@ namespace Backgammon
             WhiteBlue.Background.Opacity = 0.5;
             BlackWhite.Background.Opacity = 0.5;
             Settings.playerTheme = new int[] { 1, 3 };
-			if(_mainWindow.pickedUp == 1) _mainWindow.Cursor = _mainWindow.plockadbricka[Settings.playerTheme[(int)_mainWindow.spelare]];
+			_mainWindow.setCursor();
             _mainWindow.updateView();
         }
         private void HowToPlay_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -258,7 +258,7 @@ namespace Backgammon
 			_mainWindow.gameBoard = _mainWindow._model.newGame();
 			_mainWindow.dice = new int[4];
 			_mainWindow.pickedUp = 0;
-			_mainWindow.Cursor = Cursors.Arrow;
+			_mainWindow.setCursor();
 			_mainWindow.spelare = player.two;
 			_mainWindow.utslagna[0].setSize(0);
 			_mainWindow.utslagna[1].setSize(0);

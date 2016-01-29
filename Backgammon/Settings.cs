@@ -8,7 +8,6 @@ namespace Backgammon
 {
 	public static class Settings
 	{
-		internal static bool playMusic = true;
 		internal static bool playSound = true;
 		internal static int [] playerTheme = new int [2]{1,0};
 		internal static int background = 1;
