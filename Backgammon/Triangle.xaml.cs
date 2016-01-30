@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Media.Animation;
 
 namespace Backgammon
 {
@@ -86,10 +87,19 @@ namespace Backgammon
         private void triangle_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             _mainWindow.playGame((Triangle)sender);
+         
+           
+            DoubleAnimation animation = new DoubleAnimation(0, 1, TimeSpan.FromSeconds(1.5));
+            Triangle test = (Triangle)sender;
+            animation.RepeatBehavior = RepeatBehavior.Forever;
+            animation.AutoReverse = true;
+            test.background.BeginAnimation(System.Windows.Controls.Canvas.OpacityProperty, animation);  
         }
         private void triangle_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
 			if((Triangle)sender != _mainWindow.selectedTriangles[0] && _mainWindow.pickedUp != 0) _mainWindow.playGame((Triangle)sender);
+          //  Triangle test = (Triangle)sender;
+           // test.background.Opacity = 0;
         }
 
         private void triangle_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
