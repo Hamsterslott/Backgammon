@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Media.Animation;
 
 
 namespace Backgammon
@@ -471,10 +472,10 @@ namespace Backgammon
 
         private void sidebar_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-           if (Sidebar.Visibility == System.Windows.Visibility.Collapsed)
-            {
                 Sidebar.Visibility = System.Windows.Visibility.Visible;
-            }           
+                Sidebar.Opacity = 0;
+                DoubleAnimation animation = new DoubleAnimation(0, 1, TimeSpan.FromSeconds(2));
+                Sidebar.BeginAnimation(Sidebar.OpacityProperty, animation);
         }
 
        
