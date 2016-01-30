@@ -40,7 +40,7 @@ namespace Backgammon
         private BitmapImage[,] _dices = new BitmapImage[4,7];
 		private BitmapImage[] _waitingdices = new BitmapImage[4];
 		private BitmapImage[] _diceshaker = new BitmapImage[2];
-		internal Cursor [] plockadbricka = new Cursor[4];
+		internal Cursor [,] plockadbricka = new Cursor[2,4];
 		internal ImageBrush[] _background = new ImageBrush[8];
 
 		//mainwindow ljud
@@ -133,11 +133,15 @@ namespace Backgammon
                 _background[6].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/redFelt.png"));
                 _background[7].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/darkRedFelt.png"));
 
-			
-				plockadbricka[0] = new Cursor(Application.GetResourceStream(new Uri("pack://application:,,,/Resources/lightHandle.cur")).Stream);
-				plockadbricka[1] = new Cursor(Application.GetResourceStream(new Uri("pack://application:,,,/Resources/darkHandle.cur")).Stream);
-				plockadbricka[2] = new Cursor(Application.GetResourceStream(new Uri("pack://application:,,,/Resources/blueHandle.cur")).Stream);
-				plockadbricka[3] = new Cursor(Application.GetResourceStream(new Uri("pack://application:,,,/Resources/redHandle.cur")).Stream);
+				
+				plockadbricka[0,0] = new Cursor(Application.GetResourceStream(new Uri("pack://application:,,,/Resources/lightHandleSmall.cur")).Stream);
+				plockadbricka[0,1] = new Cursor(Application.GetResourceStream(new Uri("pack://application:,,,/Resources/darkHandleSmall.cur")).Stream);
+				plockadbricka[0,2] = new Cursor(Application.GetResourceStream(new Uri("pack://application:,,,/Resources/blueHandleSmall.cur")).Stream);
+				plockadbricka[0,3] = new Cursor(Application.GetResourceStream(new Uri("pack://application:,,,/Resources/redHandleSmall.cur")).Stream);
+				plockadbricka[1,0] = new Cursor(Application.GetResourceStream(new Uri("pack://application:,,,/Resources/lightHandle.cur")).Stream);
+				plockadbricka[1,1] = new Cursor(Application.GetResourceStream(new Uri("pack://application:,,,/Resources/darkHandle.cur")).Stream);
+				plockadbricka[1,2] = new Cursor(Application.GetResourceStream(new Uri("pack://application:,,,/Resources/blueHandle.cur")).Stream);
+				plockadbricka[1,3] = new Cursor(Application.GetResourceStream(new Uri("pack://application:,,,/Resources/redHandle.cur")).Stream);
 
 				_diceshaker[0] = new BitmapImage(new Uri("pack://application:,,,/Resources/diceShaker.png"));
 				_diceshaker[1] = new BitmapImage(new Uri("pack://application:,,,/Resources/diceShakerDown.png"));
@@ -366,7 +370,11 @@ namespace Backgammon
 
 		internal void setCursor()
 		{
-			if (pickedUp == 1) this.Cursor = plockadbricka[Settings.playerTheme[(int)spelare]];
+			if (pickedUp == 1) 
+			{
+				if(Width*Height < 850000) this.Cursor = plockadbricka[0,Settings.playerTheme[(int)spelare]];
+				else this.Cursor = plockadbricka[1,Settings.playerTheme[(int)spelare]];
+			}
 			else this.Cursor = Cursors.Arrow;
 		}
 

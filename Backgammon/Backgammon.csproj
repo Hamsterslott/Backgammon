@@ -125,16 +125,7 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\icon.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\background.jpg" />
-    <None Include="Resources\bgBackgammon.png" />
-    <None Include="Resources\bgBackgammonNice.png" />
     <Resource Include="Resources\splashBG.png" />
-    <Resource Include="Resources\darkTriangle.png" />
-    <Resource Include="Resources\lightTriangle.png" />
-    <Resource Include="Resources\isClickedAnimationLower.gif" />
-    <Resource Include="Resources\isClickedAnimationUpper.gif" />
     <Resource Include="Resources\darkChip1.png" />
     <Resource Include="Resources\darkChip2.png" />
     <Resource Include="Resources\darkChip3.png" />
@@ -153,21 +144,14 @@
     <Resource Include="Resources\redFelt.png" />
     <Resource Include="Resources\sidebar.png" />
     <Resource Include="Resources\redDice.png" />
-    <None Include="Resources\bgBackgammonNiceV2.png" />
     <Resource Include="Resources\svartKnappLigga.png" />
     <Resource Include="Resources\vitKnappLigga.png" />
     <Resource Include="Resources\dice1Light.png" />
-    <Resource Include="Resources\dice1Mid.png" />
     <Resource Include="Resources\dice2Light.png" />
-    <Resource Include="Resources\dice2Mid.png" />
     <Resource Include="Resources\dice3Light.png" />
-    <Resource Include="Resources\dice3Mid.png" />
     <Resource Include="Resources\dice4Light.png" />
-    <Resource Include="Resources\dice4Mid.png" />
     <Resource Include="Resources\dice5Light.png" />
-    <Resource Include="Resources\dice5Mid.png" />
     <Resource Include="Resources\dice6Light.png" />
-    <Resource Include="Resources\dice6Mid.png" />
     <Resource Include="Resources\bgBackgammonNiceV3.png" />
     <Resource Include="Resources\dice11Light.png" />
     <Resource Include="Resources\diceShaker.png" />
@@ -213,13 +197,12 @@
     <Resource Include="Resources\dice5Red.png" />
     <Resource Include="Resources\dice6Blue.png" />
     <Resource Include="Resources\dice6Red.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Resources\dice11Blue.png" />
     <Resource Include="Resources\dice11Red.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\rules.txt" />
+    <Resource Include="Resources\blueHandleSmall.cur" />
+    <Resource Include="Resources\darkHandleSmall.cur" />
+    <Resource Include="Resources\lightHandleSmall.cur" />
+    <Resource Include="Resources\redHandleSmall.cur" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
