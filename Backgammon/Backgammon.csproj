@@ -210,9 +210,8 @@
     <Resource Include="Resources\darkHandleSmall.cur" />
     <Resource Include="Resources\lightHandleSmall.cur" />
     <Resource Include="Resources\redHandleSmall.cur" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Windows Balloon.wav" />
+    <Resource Include="Resources\isClickedLowerRed.png" />
+    <Resource Include="Resources\isClickedUpperRed.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

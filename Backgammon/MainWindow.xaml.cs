@@ -53,7 +53,7 @@ namespace Backgammon
 
 		//triangel bilder
 		internal ImageBrush[] singleBrick = new ImageBrush[4], doubleBrick = new ImageBrush[4], tripleBrick = new ImageBrush[4];
-		internal ImageBrush[] _triangelIsClicked = new ImageBrush[2];
+		internal ImageBrush[] _triangelIsClicked = new ImageBrush[4];
 
 		//brickholder bilder
 		internal ImageBrush[] brick = new ImageBrush[4];
@@ -187,6 +187,8 @@ namespace Backgammon
 
 				_triangelIsClicked[0].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/isClickedUpper.png"));
 				_triangelIsClicked[1].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/isClickedLower.png"));
+				_triangelIsClicked[2].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/isClickedUpperRed.png"));
+				_triangelIsClicked[3].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/isClickedLowerRed.png"));
 				
                 singleBrick[0].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/whiteChip1.png"));
                 doubleBrick[0].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/whiteChip2.png"));
@@ -261,6 +263,7 @@ namespace Backgammon
                         else if (!_model.move(gameBoard, selectedTriangles[0].getPos(), selectedTriangles[1].getPos(), dice, spelare))
                         {
 							if(Settings.playSound) wrongMove.Play();
+							selectedTriangles[1].wrongMove();
                             message.setText("Felaktig placering");
                             message.Visibility = System.Windows.Visibility.Visible;
                             //MessageBox.Show("felaktigt move");
@@ -279,6 +282,7 @@ namespace Backgammon
                             else
                             {
                                 if (Settings.playSound) wrongMove.Play();
+								selectedTriangles[1].wrongMove();
                                 message.setText("Felaktig placering");
                                 message.Visibility = System.Windows.Visibility.Visible;
 								//MessageBox.Show("felaktigt move");
@@ -287,6 +291,7 @@ namespace Backgammon
                         else if (!_model.move(gameBoard, selectedTriangles[0].getPos(), selectedTriangles[1].getPos(), dice, spelare))
                         {
                             if(Settings.playSound) wrongMove.Play();
+							selectedTriangles[1].wrongMove();
                             message.setText("Felaktig placering");
                             message.Visibility = System.Windows.Visibility.Visible;
                             //MessageBox.Show("felaktigt move");
@@ -553,11 +558,6 @@ namespace Backgammon
         private void spelPlan_MouseLeave(object sender, MouseEventArgs e)
         {
             canMoveWindow = true;
-        }
-
-        private void slider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
-        {
-
         }
 
         private void sidebar_MouseEnter(object sender, MouseEventArgs e)

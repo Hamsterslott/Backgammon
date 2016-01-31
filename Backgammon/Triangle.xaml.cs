@@ -59,6 +59,19 @@ namespace Backgammon
             catch (Exception ex) { Console.WriteLine("renderUpdate: " + ex.Message); }
         }
 
+		public void wrongMove()
+		{
+			try {  //exception när man försöker gå i mål.
+			if (_state == STATE.UPPER)
+                background.Background = _mainWindow._triangelIsClicked[2];
+            else
+                background.Background = _mainWindow._triangelIsClicked[3];
+
+			DoubleAnimation animation = new DoubleAnimation(0.75, 0, TimeSpan.FromSeconds(0.5));
+            this.background.BeginAnimation(System.Windows.Controls.Canvas.OpacityProperty, animation); 
+			}
+			catch {}  
+		}
 
         private void renderBricks() {
 
@@ -87,19 +100,11 @@ namespace Backgammon
         private void triangle_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             _mainWindow.playGame((Triangle)sender);
-         
-           
-            DoubleAnimation animation = new DoubleAnimation(0, 1, TimeSpan.FromSeconds(1.5));
-            Triangle test = (Triangle)sender;
-            animation.RepeatBehavior = RepeatBehavior.Forever;
-            animation.AutoReverse = true;
-            test.background.BeginAnimation(System.Windows.Controls.Canvas.OpacityProperty, animation);  
         }
+
         private void triangle_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
 			if((Triangle)sender != _mainWindow.selectedTriangles[0] && _mainWindow.pickedUp != 0) _mainWindow.playGame((Triangle)sender);
-          //  Triangle test = (Triangle)sender;
-           // test.background.Opacity = 0;
         }
 
         private void triangle_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
@@ -152,11 +157,6 @@ namespace Backgammon
         }
         public void setState(STATE state) {
             _state = state;
-
-            if (_state == STATE.UPPER)
-                background.Background = _mainWindow._triangelIsClicked[0];
-            else
-                background.Background = _mainWindow._triangelIsClicked[1];
         }
         public bool getGlowing() {
             return _isGlowing;
