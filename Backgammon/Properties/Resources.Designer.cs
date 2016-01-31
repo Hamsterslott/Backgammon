@@ -99,5 +99,14 @@ namespace Backgammon.Properties {
                 return ResourceManager.GetStream("ShakeSound", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        internal static System.IO.UnmanagedMemoryStream wrongMove {
+            get {
+                return ResourceManager.GetStream("wrongMove", resourceCulture);
+            }
+        }
     }
 }

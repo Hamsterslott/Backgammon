@@ -47,6 +47,7 @@ namespace Backgammon
 		//mainwindow ljud
 		private SoundPlayer shake = new SoundPlayer(Properties.Resources.ShakeSound);
         private SoundPlayer throwThem = new SoundPlayer(Properties.Resources.diceSound);
+		private SoundPlayer wrongMove = new SoundPlayer(Properties.Resources.wrongMove);
         internal MediaPlayer song = new MediaPlayer();
 
 		//triangel bilder
@@ -254,7 +255,8 @@ namespace Backgammon
                         }
                         else if (!_model.move(gameBoard, selectedTriangles[0].getPos(), selectedTriangles[1].getPos(), dice, spelare))
                         {
-                            MessageBox.Show("felaktigt move");
+							if(Settings.playSound) wrongMove.Play();
+                            //MessageBox.Show("felaktigt move");
                         }
                     }
                     else
@@ -269,12 +271,14 @@ namespace Backgammon
                             }
                             else
                             {
-                                MessageBox.Show("felaktigt move");
+                                if(Settings.playSound) wrongMove.Play();
+								//MessageBox.Show("felaktigt move");
                             }
                         }
                         else if (!_model.move(gameBoard, selectedTriangles[0].getPos(), selectedTriangles[1].getPos(), dice, spelare))
                         {
-                            MessageBox.Show("felaktigt move");
+                            if(Settings.playSound) wrongMove.Play();
+                            //MessageBox.Show("felaktigt move");
                         }
                     }
                     status = _model.canMove(gameBoard, spelare, dice);
@@ -455,21 +459,6 @@ namespace Backgammon
             updateScale();
         }
 
-        private void Grid_MouseEnter(object sender, MouseEventArgs e)
-        {
-
-        }
-
-        private void Grid_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-
-        }
-
-        private void Grid_MouseLeave(object sender, MouseEventArgs e)
-        {
-
-        }
-
         private void sidebar_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
                 Sidebar.Visibility = System.Windows.Visibility.Visible;
@@ -477,10 +466,6 @@ namespace Backgammon
                 DoubleAnimation animation = new DoubleAnimation(0, 1, TimeSpan.FromSeconds(2));
                 Sidebar.BeginAnimation(Sidebar.OpacityProperty, animation);
         }
-
-       
-        
-            
 
         private void btnDice_MouseEnter(object sender, MouseEventArgs e)
         {

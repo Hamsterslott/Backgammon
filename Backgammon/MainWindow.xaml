@@ -94,9 +94,6 @@
             </Canvas>  
             
         </Viewbox>
-        <!--<Rectangle x:Name="Sidebar" Width="290" VerticalAlignment="Stretch" HorizontalAlignment="Right" Fill="#99000000" Visibility="Collapsed"/>
-        <Slider x:Name="slider" Width="190"  Minimum="0" Maximum="10" IsSnapToTickEnabled="true" TickFrequency="2" TickPlacement="TopLeft" 
-                Orientation="Horizontal" Visibility="Collapsed" Margin="0,20,40,0" VerticalAlignment="Top" HorizontalAlignment="Right" ValueChanged="slider_ValueChanged"></Slider>-->
         
         <Viewbox VerticalAlignment="Stretch" HorizontalAlignment="Right">
             <local:Sidebar x:Name="Sidebar" Width="290" Height="720" VerticalAlignment="Stretch" HorizontalAlignment="Right" Visibility="Collapsed"></local:Sidebar>
