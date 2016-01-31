@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Media.Animation;
 
 namespace Backgammon
 {
@@ -29,6 +30,8 @@ namespace Backgammon
         {
             Text.Content = text;
             this.Visibility = System.Windows.Visibility.Visible;
+            DoubleAnimation animation = new DoubleAnimation(1, 0, TimeSpan.FromSeconds(5));
+            this.BeginAnimation(System.Windows.Controls.Canvas.OpacityProperty, animation); 
         }
     }
 }
