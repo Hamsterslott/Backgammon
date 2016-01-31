@@ -24,7 +24,8 @@ namespace Backgammon
     {
 
         internal bool canMoveWindow = true;
-       
+
+        private Message message = null;
         internal int[] dice = new int[4];
 		internal player spelare = player.two;
 		internal triangel [] gameBoard;
@@ -72,6 +73,7 @@ namespace Backgammon
             //gameBoard = _model.highStack();
             //gameBoard = _model.bricksInMiddle();
 
+            message = theGrid.Children[2] as Message;
 
             initimages();
             Sidebar.setLink(this);
@@ -241,6 +243,7 @@ namespace Backgammon
 					if(t.getPos() < 25) t.setGlowing(true);
 					t.Update();
 					setCursor();
+                    message.Visibility = System.Windows.Visibility.Collapsed;
 					}
 			}
 
@@ -251,11 +254,15 @@ namespace Backgammon
                     {
                         if (selectedTriangles[0].getPos() != 25 && selectedTriangles[0].getPos() != 26)
                         {
-                            MessageBox.Show("Du måste placera ut din utslagna bricka");
+                            message.setText("Du måste placera ut din utslagna bricka");
+                            message.Visibility = System.Windows.Visibility.Visible;
+                            //MessageBox.Show("Du måste placera ut din utslagna bricka");
                         }
                         else if (!_model.move(gameBoard, selectedTriangles[0].getPos(), selectedTriangles[1].getPos(), dice, spelare))
                         {
 							if(Settings.playSound) wrongMove.Play();
+                            message.setText("Felaktig placering");
+                            message.Visibility = System.Windows.Visibility.Visible;
                             //MessageBox.Show("felaktigt move");
                         }
                     }
@@ -271,13 +278,17 @@ namespace Backgammon
                             }
                             else
                             {
-                                if(Settings.playSound) wrongMove.Play();
+                                if (Settings.playSound) wrongMove.Play();
+                                message.setText("Felaktig placering");
+                                message.Visibility = System.Windows.Visibility.Visible;
 								//MessageBox.Show("felaktigt move");
                             }
                         }
                         else if (!_model.move(gameBoard, selectedTriangles[0].getPos(), selectedTriangles[1].getPos(), dice, spelare))
                         {
                             if(Settings.playSound) wrongMove.Play();
+                            message.setText("Felaktig placering");
+                            message.Visibility = System.Windows.Visibility.Visible;
                             //MessageBox.Show("felaktigt move");
                         }
                     }
@@ -517,7 +528,9 @@ namespace Backgammon
             } 
             else
 			{
-				MessageBox.Show("Inga tillgängliga moves");
+                message.setText("Inga tillgängliga drag");
+                message.Visibility = System.Windows.Visibility.Visible;
+				//MessageBox.Show("Inga tillgängliga moves");
 				for(int i = 0; i < 4; i++) dice[i] = 0;
 				renderDices();
 				btnDice.Visibility = System.Windows.Visibility.Visible;
