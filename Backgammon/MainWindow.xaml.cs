@@ -242,10 +242,8 @@ namespace Backgammon
 				if(t.getSize()>=1 && t.getColor() == spelare)
 					{ 
 					t.setSize(t.getSize()-1);
-					if(t.getPos() < 25) t.setGlowing(true);
 					t.Update();
 					setCursor();
-                    message.Visibility = System.Windows.Visibility.Collapsed;
 					}
 			}
 
@@ -254,17 +252,14 @@ namespace Backgammon
                     
                     if (status == -1)
                     {
-                        if (selectedTriangles[0].getPos() != 25 && selectedTriangles[0].getPos() != 26)
+                        if (selectedTriangles[0].getPos() != 25 && selectedTriangles[0].getPos() != 26 || selectedTriangles[0].getPos()+selectedTriangles[1].getPos() == 51)
                         {
                             message.show("Du måste placera ut din utslagna bricka");
-                            //MessageBox.Show("Du måste placera ut din utslagna bricka");
                         }
                         else if (!_model.move(gameBoard, selectedTriangles[0].getPos(), selectedTriangles[1].getPos(), dice, spelare))
                         {
 							if(Settings.playSound) wrongMove.Play();
 							selectedTriangles[1].wrongMove();
-                            message.show("Felaktig placering");
-                            //MessageBox.Show("felaktigt move");
                         }
                     }
                     else
@@ -281,16 +276,12 @@ namespace Backgammon
                             {
                                 if (Settings.playSound) wrongMove.Play();
 								selectedTriangles[1].wrongMove();
-                                message.show("Felaktig placering");
-                                //MessageBox.Show("felaktigt move");
                             }
                         }
                         else if (!_model.move(gameBoard, selectedTriangles[0].getPos(), selectedTriangles[1].getPos(), dice, spelare))
                         {
                             if(Settings.playSound) wrongMove.Play();
 							selectedTriangles[1].wrongMove();
-                            message.show("Felaktig placering");
-                            //MessageBox.Show("felaktigt move");
                         }
                     }
                     status = _model.canMove(gameBoard, spelare, dice);
@@ -303,7 +294,6 @@ namespace Backgammon
                         diceBot.Visibility = System.Windows.Visibility.Visible;
                     }
 
-				selectedTriangles[0].setGlowing(false);
                 updateSelectedTriangles();
                 renderDices();
 				pickedUp = 0;
@@ -366,9 +356,6 @@ namespace Backgammon
 
         internal void updateView() 
 		{
-
-			//Tänker mig att denna funktionen tar variabler från sidebar
-			// och sedan uppdaterar baserat på vad man valt.
 			alignLeft();
 			foreach(BrickHolder u in utslagna) u.update();
 			renderDices();
@@ -412,7 +399,6 @@ namespace Backgammon
 		}
 
 
-		//den ska gå till 26 sen.
         private Triangle getTriangle(int pos) {
             if (pos < 1 ||pos > 26)
                 return null;
@@ -426,7 +412,6 @@ namespace Backgammon
 			else return triangle = gridMiddle.Children[0] as Triangle;
 
         }
-
 
 
         private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -526,23 +511,18 @@ namespace Backgammon
             if (_model.canMove(gameBoard, spelare, dice) != 0)
             {
                 btnDice.Visibility = System.Windows.Visibility.Collapsed;
+				message.Visibility = System.Windows.Visibility.Collapsed;
             } 
             else
 			{
                 message.show("Inga tillgängliga drag");
-                //MessageBox.Show("Inga tillgängliga moves");
-				for(int i = 0; i < 4; i++) dice[i] = 0;
-				renderDices();
-				btnDice.Visibility = System.Windows.Visibility.Visible;
-                diceTop.Visibility = System.Windows.Visibility.Visible;
-                diceBot.Visibility = System.Windows.Visibility.Visible;
+                if(spelare == player.two)diceTop.Visibility = System.Windows.Visibility.Visible;
+                else diceBot.Visibility = System.Windows.Visibility.Visible;
 			}
-            if (Settings.playSound)
-            {
-                throwThem.Stop();
-                throwThem.PlaySync();
-            }
-                this.IsEnabled = true;
+
+            if (Settings.playSound) throwThem.PlaySync();
+
+            this.IsEnabled = true;
         }
 
         private void spelPlan_MouseEnter(object sender, MouseEventArgs e)
