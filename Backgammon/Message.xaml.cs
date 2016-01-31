@@ -25,9 +25,10 @@ namespace Backgammon
             InitializeComponent();
         }
 
-        public void setText(string text)
+        public void show(string text)
         {
             Text.Content = text;
+            this.Visibility = System.Windows.Visibility.Visible;
         }
     }
 }
