@@ -73,6 +73,15 @@ namespace Backgammon
 			catch {}  
 		}
 
+        public Triangle[] availableMoves(Triangle clickedTriangle, int[] dice)
+        {
+            Triangle[] availablemoves = new Triangle[4];
+            availablemoves[0] = _mainWindow.getTriangle(_mainWindow._model.correctPos(clickedTriangle.getPos()) + dice[0]);
+            availablemoves[1] = _mainWindow.getTriangle(_mainWindow._model.correctPos(clickedTriangle.getPos()) + dice[1]);
+
+            return availablemoves;
+        }
+
         private void renderBricks() {
 
 			Canvas [] Brickor;

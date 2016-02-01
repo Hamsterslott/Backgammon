@@ -399,7 +399,7 @@ namespace Backgammon
 		}
 
 
-        private Triangle getTriangle(int pos) {
+        public Triangle getTriangle(int pos) {
             if (pos < 1 ||pos > 26)
                 return null;
 
