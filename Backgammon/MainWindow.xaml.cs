@@ -128,13 +128,13 @@ namespace Backgammon
             // Hämtar alla bakgrunder
             try {
 
-                _background[0].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/greenFelt.png"));
+                //_background[0].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/greenFelt.png"));
                 _background[1].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/greenishFelt.png"));
                 _background[2].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/blueFelt.png"));
-                _background[3].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/greenOrangeFelt.png"));
+                //_background[3].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/greenOrangeFelt.png"));
                 _background[4].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/orangeFelt.png"));
                 _background[5].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/purpleFelt.png"));
-                _background[6].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/redFelt.png"));
+                //_background[6].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/redFelt.png"));
                 _background[7].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/darkRedFelt.png"));
 
 				
