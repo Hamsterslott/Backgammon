@@ -261,7 +261,7 @@ namespace Backgammon
 			List<int> moves = new List<int>();
 			if(spelare == player.one)
 			{
-			for(int i = 0; i < 6; i++)
+			for(int i = 1; i < 7; i++)
 			{
 				int index = legitMove(spelplan,valdtriangel,valdtriangel+i,dices,spelare);
 				if(index != -1)  moves.Add(valdtriangel+dices[index]);
@@ -269,7 +269,7 @@ namespace Backgammon
 			}
 			else
 			{
-				for(int i = 0; i < 6; i++)
+				for(int i = 1; i < 7; i++)
 			{
 				int index = legitMove(spelplan,valdtriangel,valdtriangel-i,dices,spelare);
 				if(index != -1)  moves.Add(valdtriangel+dices[index]);

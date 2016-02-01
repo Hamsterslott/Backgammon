@@ -64,11 +64,21 @@ namespace Backgammon
             InitializeComponent();
 			init();
             updateView();
+				for(int i = 1;i < 25;i++)
+			{
+
+				Console.WriteLine(getPossibleTriangle(i).getPos());
+				
+			}
         }
 
 		private void init()
 		{
 			gameBoard = _model.newGame();
+
+			
+
+
             //gameBoard = _model.endGame();
             //gameBoard = _model.highStack();
             //gameBoard = _model.bricksInMiddle();
@@ -210,6 +220,7 @@ namespace Backgammon
 				brick[1].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/svartKnappLigga.png"));
 				brick[2].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/blåKnappLigga.png"));
 				brick[3].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/rödKnappLigga.png"));
+
 
             }
 
@@ -417,8 +428,8 @@ namespace Backgammon
             Triangle triangle;
             if (pos < 7) { return triangle = gridFour.Children[pos - 1] as Triangle; }
             else if (pos < 13) { return triangle = gridThree.Children[pos - (6 + 1)] as Triangle; }
-            else if (pos < 19) { return triangle = gridTwo.Children[pos - (12 + 1)] as Triangle; }
-            else if (pos < 25) { return triangle = gridOne.Children[pos - (18 + 1)] as Triangle; }
+            else if (pos < 19) { return triangle = gridTwo.Children[18-pos] as Triangle; }
+            else if (pos < 25) { return triangle = gridOne.Children[24-pos] as Triangle; }
             else if (pos == 25) { return triangle = gridMiddle.Children[1] as Triangle; }
             else return triangle = gridMiddle.Children[0] as Triangle;
         }
