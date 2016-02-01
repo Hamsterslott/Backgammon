@@ -552,5 +552,10 @@ namespace Backgammon
 			Sidebar.info.Width = new GridLength(0);
         }
 
+        private void btnHelp_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
     }
 }
