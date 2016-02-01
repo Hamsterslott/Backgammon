@@ -32,7 +32,7 @@
                 </Canvas.Background>
 
                 <Canvas Name="btnHelp" HorizontalAlignment="Left" VerticalAlignment="Center" Width="50" Height="70" Canvas.Left="10" Canvas.Top="302" MouseLeftButtonDown="btnHelp_Click" Opacity="0.5"
-                        MouseEnter="btnHelp_MouseEnter" MouseLeave="btnHelp_MouseLeave">
+                        MouseEnter="btnHelp_MouseEnter" MouseLeave="btnHelp_MouseLeave" Visibility="Collapsed">
                     <Canvas.Background>
                         <ImageBrush ImageSource="Resources/question.png"/>
                     </Canvas.Background>

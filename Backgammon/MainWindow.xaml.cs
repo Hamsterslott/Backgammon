@@ -239,6 +239,7 @@ namespace Backgammon
 
 			if (pickedUp == 1)
 			{
+                btnHelp.Visibility = System.Windows.Visibility.Visible;
 				if(t.getSize()>=1 && t.getColor() == spelare)
 					{ 
 					t.setSize(t.getSize()-1);
@@ -249,7 +250,7 @@ namespace Backgammon
 
 			if(pickedUp == 2)
 				{
-                    
+                    btnHelp.Visibility = System.Windows.Visibility.Collapsed;
                     if (status == -1)
                     {
                         if (selectedTriangles[0].getPos() != 25 && selectedTriangles[0].getPos() != 26 || selectedTriangles[0].getPos()+selectedTriangles[1].getPos() == 51)
@@ -412,6 +413,15 @@ namespace Backgammon
 			else return triangle = gridMiddle.Children[0] as Triangle;
 
         }
+        public Triangle getPossibleTriangle(int pos) {
+            Triangle triangle;
+            if (pos < 7) { return triangle = gridFour.Children[pos - 1] as Triangle; }
+            else if (pos < 13) { return triangle = gridThree.Children[pos - (6 + 1)] as Triangle; }
+            else if (pos < 19) { return triangle = gridTwo.Children[pos - (12 + 1)] as Triangle; }
+            else if (pos < 25) { return triangle = gridOne.Children[pos - (18 + 1)] as Triangle; }
+            else if (pos == 25) { return triangle = gridMiddle.Children[1] as Triangle; }
+            else return triangle = gridMiddle.Children[0] as Triangle;
+        }
 
 
         private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -558,7 +568,7 @@ namespace Backgammon
 			{
 				List<int> animationstrianglar = _model.AvailableMoves(gameBoard,dice,spelare,selectedTriangles[0].getPos());
 
-				foreach(int i in animationstrianglar) getTriangle(i).possibleMove();
+				foreach(int i in animationstrianglar) getPossibleTriangle(i).possibleMove();
 			}
 
         }
