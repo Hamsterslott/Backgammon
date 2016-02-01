@@ -542,7 +542,7 @@ namespace Backgammon
 			}
 
             if (Settings.playSound) throwThem.PlaySync();
-
+            else Thread.Sleep(1000);
             this.IsEnabled = true;
         }
 
