@@ -68,10 +68,24 @@ namespace Backgammon
                 background.Background = _mainWindow._triangelIsClicked[3];
 
 			DoubleAnimation animation = new DoubleAnimation(0.75, 0, TimeSpan.FromSeconds(0.5));
-            this.background.BeginAnimation(System.Windows.Controls.Canvas.OpacityProperty, animation); 
+            this.background.BeginAnimation(System.Windows.Controls.Canvas.OpacityProperty, animation);
 			}
 			catch {}  
 		}
+
+        public void possibleMove()
+        {
+            try {
+                if (_state == STATE.UPPER)
+                    background.Background = _mainWindow._triangelIsClicked[0];
+                else
+                    background.Background = _mainWindow._triangelIsClicked[1];
+
+                DoubleAnimation animation = new DoubleAnimation(0.75, 0, TimeSpan.FromSeconds(2));
+                this.background.BeginAnimation(System.Windows.Controls.Canvas.OpacityProperty, animation); 
+            }
+            catch (Exception ex) { Console.WriteLine(ex.StackTrace.ToString()); }
+        }
 
         public Triangle[] availableMoves(Triangle clickedTriangle, int[] dice)
         {
