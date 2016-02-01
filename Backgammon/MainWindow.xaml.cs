@@ -557,5 +557,15 @@ namespace Backgammon
 
         }
 
+        private void btnHelp_MouseEnter(object sender, MouseEventArgs e)
+        {
+            btnHelp.Opacity = 1;
+        }
+
+        private void btnHelp_MouseLeave(object sender, MouseEventArgs e)
+        {
+            btnHelp.Opacity = 0.5;
+        }
+
     }
 }

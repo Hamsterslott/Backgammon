@@ -31,10 +31,13 @@
                     <ImageBrush ImageSource="Resources/bgBackgammonNiceV3.png"/>
                 </Canvas.Background>
 
-                <Button Name="btnHelp" HorizontalAlignment="Left" VerticalAlignment="Center" Width="50" Height="70" Canvas.Left="10" Canvas.Top="302" Background="Transparent" BorderBrush="Transparent"
-                        Click="btnHelp_Click" Content="?" FontSize="50">
+                <Canvas Name="btnHelp" HorizontalAlignment="Left" VerticalAlignment="Center" Width="50" Height="70" Canvas.Left="10" Canvas.Top="302" MouseLeftButtonDown="btnHelp_Click" Opacity="0.5"
+                        MouseEnter="btnHelp_MouseEnter" MouseLeave="btnHelp_MouseLeave">
+                    <Canvas.Background>
+                        <ImageBrush ImageSource="Resources/question.png"/>
+                    </Canvas.Background>
 
-                </Button>
+                </Canvas>
 
                 <UniformGrid x:Name="gridOne" Height="298" Width="494" Canvas.Left="71" Canvas.Top="14" Columns="6" Rows="1">
                     <local:Triangle Height="298" Width="82" />
