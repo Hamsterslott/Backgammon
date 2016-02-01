@@ -255,13 +255,28 @@ namespace Backgammon
 			return 0;
 		}
 
-		//Funktion som tar reda på alla möjliga moves för alla olika trianglar.
-		// inte gjord
-		public int [,] allAvailableMoves(triangel[] spelplan, int[] dices, player spelare)
+		//Funktion som tar reda på alla möjliga moves för en triangel.
+		public List<int> AvailableMoves(triangel[] spelplan, int[] dices, player spelare, int valdtriangel)
 		{
-			int [,] moves = new int [26,2];
+			List<int> moves = new List<int>();
+			if(spelare == player.one)
+			{
+			for(int i = 0; i < 6; i++)
+			{
+				int index = legitMove(spelplan,valdtriangel,valdtriangel+i,dices,spelare);
+				if(index != -1)  moves.Add(index);
+			}
+			}
+			else
+			{
+				for(int i = 0; i < 6; i++)
+			{
+				int index = legitMove(spelplan,valdtriangel,valdtriangel-i,dices,spelare);
+				if(index != -1)  moves.Add(index);
+			}
 
-			moves[0,0] = 1;
+			}
+			
 
 			return moves;
 		}
