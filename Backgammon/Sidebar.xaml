@@ -57,17 +57,15 @@
             </Image.OpacityMask>
         </Image>
         <Label Name="MusicName" Grid.Row="3" Grid.Column="1" Content="Song Playing" FontSize="29" Foreground="Snow" HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="Nueva Std Cond"></Label>
-        <Label Name="NameOfTheSong" MouseLeftButtonDown="NameOfTheSong_MouseLeftButtonDown" Grid.Row="3" Grid.Column="1" Content="Name of the song" FontSize="20" Foreground="Snow" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontFamily="Nueva Std Cond" MaxWidth="195" Margin="0,0,0,7"></Label>
-        <Button Name="PrevSong" Click="PrevSong_Click" Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Height="30" Margin="10,34,0,10" Width="38" >
-            <Button.Background>
-                <ImageBrush ImageSource="Resources/arrowLeft.png"/>
-            </Button.Background>
-        </Button>
-        <Button Name="NextSong" Click="NextSong_Click" Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left" Height="30" Margin="242,34,0,10" Width="38">
-            <Button.Background>
-                <ImageBrush ImageSource="Resources/arrowRight.png"/>
-            </Button.Background>
-        </Button>
+        <Label Name="NameOfTheSong" MouseLeftButtonDown="NameOfTheSong_MouseLeftButtonDown" MouseEnter="NameOfTheSong_MouseEnter" MouseLeave="NameOfTheSong_MouseLeave" Opacity="0.5" Grid.Row="3" Grid.Column="1" Content="Click to choose a song" FontSize="20" Foreground="Snow" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontFamily="Nueva Std Cond" MaxWidth="195" Margin="0,0,0,2"
+               BorderThickness="1,1,1,1" BorderBrush="White">
+        </Label>
+
+        <Canvas Name="btnPlayPause" MouseLeftButtonDown="btnPlayPause_MouseLeftButtonDown" MouseEnter="btnPlayPause_MouseEnter" MouseLeave="btnPlayPause_MouseLeave" Opacity="0.5" Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right" Height="24" Width="24" Margin="0,42,20,7">
+            <Canvas.Background>
+                <ImageBrush ImageSource="Resources/btnPlay.png"/>
+            </Canvas.Background>
+        </Canvas>
 
         <!--Background-->
 

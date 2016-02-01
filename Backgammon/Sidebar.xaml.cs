@@ -76,6 +76,10 @@ namespace Backgammon
                 slider.Value = 5;
                 _mainWindow.song.Volume = slider.Value / 10;
                 _mainWindow.song.Play();
+                Settings.isSongPlaying = true;
+                var brush = new ImageBrush();
+                brush.ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/btnPause.png"));
+                btnPlayPause.Background = brush;
             }
         }
 
@@ -243,15 +247,6 @@ namespace Backgammon
             CloseMenyText.Opacity = 0.5;
             CloseMeny.Background.Opacity = 0.5;
         }
-		private void PrevSong_Click(object sender, RoutedEventArgs e)
-		{
-			_mainWindow.song.Play();
-		}
-
-		private void NextSong_Click(object sender, RoutedEventArgs e)
-		{
-			_mainWindow.song.Pause();
-		}
 
 		private void NewGameImg_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
 		{
@@ -268,5 +263,45 @@ namespace Backgammon
             _mainWindow.diceBot.Visibility = System.Windows.Visibility.Visible;
 			
 		}
+
+        private void btnPlayPause_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            if (Settings.isSongPlaying)
+            {
+                _mainWindow.song.Pause();
+                var brush = new ImageBrush();
+                brush.ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/btnPlay.png"));
+                btnPlayPause.Background = brush;
+                Settings.isSongPlaying = false;
+            }
+            else
+            {
+                _mainWindow.song.Play();
+                var brush = new ImageBrush();
+                brush.ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/btnPause.png"));
+                btnPlayPause.Background = brush;
+                Settings.isSongPlaying = true;
+            }  
+        }
+
+        private void btnPlayPause_MouseEnter(object sender, MouseEventArgs e)
+        {
+            btnPlayPause.Opacity = 1;
+        }
+
+        private void btnPlayPause_MouseLeave(object sender, MouseEventArgs e)
+        {
+            btnPlayPause.Opacity = 0.5;
+        }
+
+        private void NameOfTheSong_MouseEnter(object sender, MouseEventArgs e)
+        {
+            NameOfTheSong.Opacity = 1;
+        }
+
+        private void NameOfTheSong_MouseLeave(object sender, MouseEventArgs e)
+        {
+            NameOfTheSong.Opacity = 0.5;
+        }
     }
 }

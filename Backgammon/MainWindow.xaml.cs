@@ -460,7 +460,7 @@ namespace Backgammon
         {
                 Sidebar.Visibility = System.Windows.Visibility.Visible;
                 Sidebar.Opacity = 0;
-                DoubleAnimation animation = new DoubleAnimation(0, 1, TimeSpan.FromSeconds(2));
+                DoubleAnimation animation = new DoubleAnimation(0, 1, TimeSpan.FromSeconds(0.2));
                 Sidebar.BeginAnimation(Sidebar.OpacityProperty, animation);
         }
 
