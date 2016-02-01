@@ -264,7 +264,7 @@ namespace Backgammon
 			for(int i = 0; i < 6; i++)
 			{
 				int index = legitMove(spelplan,valdtriangel,valdtriangel+i,dices,spelare);
-				if(index != -1)  moves.Add(index);
+				if(index != -1)  moves.Add(valdtriangel+dices[index]);
 			}
 			}
 			else
@@ -272,7 +272,7 @@ namespace Backgammon
 				for(int i = 0; i < 6; i++)
 			{
 				int index = legitMove(spelplan,valdtriangel,valdtriangel-i,dices,spelare);
-				if(index != -1)  moves.Add(index);
+				if(index != -1)  moves.Add(valdtriangel+dices[index]);
 			}
 
 			}

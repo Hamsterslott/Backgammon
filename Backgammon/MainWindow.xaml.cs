@@ -554,6 +554,12 @@ namespace Backgammon
 
         private void btnHelp_Click(object sender, RoutedEventArgs e)
         {
+			if(pickedUp == 1)
+			{
+				List<int> animationstrianglar = _model.AvailableMoves(gameBoard,dice,spelare,selectedTriangles[0].getPos());
+
+				foreach(int i in animationstrianglar) getTriangle(i).possibleMove();
+			}
 
         }
 
