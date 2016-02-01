@@ -67,6 +67,7 @@ namespace Backgammon
 
         private void NameOfTheSong_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
+            _mainWindow.canMoveWindow = true;
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.Filter = "MP3 files (*.mp3)|*.mp3|WAV files (*.wav)|*.wav";
             if (openFileDialog.ShowDialog() == true)
@@ -81,6 +82,7 @@ namespace Backgammon
                 brush.ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/btnPause.png"));
                 btnPlayPause.Background = brush;
             }
+            _mainWindow.canMoveWindow = false;
         }
 
         private void BlackWhite_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
