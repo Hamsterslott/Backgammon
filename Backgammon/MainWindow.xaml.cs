@@ -425,13 +425,14 @@ namespace Backgammon
 
         }
         public Triangle getPossibleTriangle(int pos) {
+			if (pos < 1 ||pos > 24)
+                return null;
+
             Triangle triangle;
             if (pos < 7) { return triangle = gridFour.Children[pos - 1] as Triangle; }
             else if (pos < 13) { return triangle = gridThree.Children[pos - (6 + 1)] as Triangle; }
             else if (pos < 19) { return triangle = gridTwo.Children[18-pos] as Triangle; }
-            else if (pos < 25) { return triangle = gridOne.Children[24-pos] as Triangle; }
-            else if (pos == 25) { return triangle = gridMiddle.Children[1] as Triangle; }
-            else return triangle = gridMiddle.Children[0] as Triangle;
+            else return triangle = gridOne.Children[24-pos] as Triangle;
         }
 
 
