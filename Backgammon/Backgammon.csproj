@@ -143,8 +143,8 @@
     <Resource Include="Resources\isClickedUpper.png" />
     <Resource Include="Resources\blueFelt.png" />
     <Resource Include="Resources\darkRedFelt.png" />
-    <None Include="Resources\greenFelt.png" />
-    <Resource Include="Resources\greenishFelt.png" />
+    <Resource Include="Resources\greenFelt.png" />
+    <None Include="Resources\greenishFelt.png" />
     <None Include="Resources\greenOrangeFelt.png" />
     <Resource Include="Resources\orangeFelt.png" />
     <Resource Include="Resources\purpleFelt.png" />
