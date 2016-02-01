@@ -259,12 +259,16 @@ namespace Backgammon
 		public List<int> AvailableMoves(triangel[] spelplan, int[] dices, player spelare, int valdtriangel)
 		{
 			List<int> moves = new List<int>();
+			if(valdtriangel==25)valdtriangel=0;
+			if(valdtriangel==26)valdtriangel=25;
+
 			if(spelare == player.one)
 			{
 			for(int i = 1; i < 7; i++)
 			{
 				int index = -1;
-				if(valdtriangel+i < 25) index = legitMove(spelplan,valdtriangel,valdtriangel+i,dices,spelare);
+				if(valdtriangel == 0) index = legitMove(spelplan,-1,valdtriangel+i,dices,spelare);
+				else if(valdtriangel+i < 25) index = legitMove(spelplan,valdtriangel,valdtriangel+i,dices,spelare);
 				if(index != -1)  moves.Add(valdtriangel+dices[index]);
 			}
 			}
@@ -273,7 +277,8 @@ namespace Backgammon
 				for(int i = 1; i < 7; i++)
 			{
 				int index = -1;
-				if(valdtriangel-i > 1) index = legitMove(spelplan,valdtriangel,valdtriangel-i,dices,spelare);
+				if(valdtriangel == 25) index = legitMove(spelplan,-1,valdtriangel-i,dices,spelare);
+				else if(valdtriangel-i > 1) index = legitMove(spelplan,valdtriangel,valdtriangel-i,dices,spelare);
 				if(index != -1)  moves.Add(valdtriangel-dices[index]);
 			}
 
