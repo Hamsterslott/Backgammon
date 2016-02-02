@@ -22,7 +22,6 @@ namespace Backgammon
 
     public partial class MainWindow : Window
     {
-
         internal bool canMoveWindow = true;
 
         private Message message = null;
@@ -525,26 +524,29 @@ namespace Backgammon
 
         private void btnDice_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            this.IsEnabled = false;
-            if (spelare == player.one) spelare = player.two;
-            else spelare = player.one;
-            dice = _model.letsRollTheDice();            
-            renderDices();
-            if (_model.canMove(gameBoard, spelare, dice) != 0)
+            btnDice.IsEnabled = false;
+            if (e.ClickCount < 2)
             {
-                btnDice.Visibility = System.Windows.Visibility.Collapsed;
-				message.Visibility = System.Windows.Visibility.Collapsed;
-            } 
-            else
-			{
-                message.show("Inga tillgängliga drag");
-                if(spelare == player.two)diceTop.Visibility = System.Windows.Visibility.Visible;
-                else diceBot.Visibility = System.Windows.Visibility.Visible;
-			}
+                if (spelare == player.one) spelare = player.two;
+                else spelare = player.one;
+                dice = _model.letsRollTheDice();
+                renderDices();
+                if (_model.canMove(gameBoard, spelare, dice) != 0)
+                {
+                    btnDice.Visibility = System.Windows.Visibility.Collapsed;
+                    message.Visibility = System.Windows.Visibility.Collapsed;
+                }
+                else
+                {
+                    message.show("Inga tillgängliga drag");
+                    if (spelare == player.two) diceTop.Visibility = System.Windows.Visibility.Visible;
+                    else diceBot.Visibility = System.Windows.Visibility.Visible;
+                }
 
-            if (Settings.playSound) throwThem.PlaySync();
-            else Thread.Sleep(1000);
-            this.IsEnabled = true;
+                if (Settings.playSound) throwThem.Play();
+                Thread.Sleep(1300);
+            }
+            btnDice.IsEnabled = true;
         }
 
         private void spelPlan_MouseEnter(object sender, MouseEventArgs e)
