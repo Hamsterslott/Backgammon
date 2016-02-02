@@ -73,7 +73,7 @@ namespace Backgammon
 			catch {}  
 		}
 
-        public void possibleMove()
+        public void possibleMove(int state)
         {
             try {
                 if (_state == STATE.UPPER)
@@ -81,8 +81,17 @@ namespace Backgammon
                 else
                     background.Background = _mainWindow._triangelIsClicked[1];
 
-                DoubleAnimation animation = new DoubleAnimation(0.75, 0, TimeSpan.FromSeconds(2));
-                this.background.BeginAnimation(System.Windows.Controls.Canvas.OpacityProperty, animation); 
+                if (state == 0)
+                {
+                    DoubleAnimation animation = new DoubleAnimation(0, 1, TimeSpan.FromSeconds(1));
+                    this.background.BeginAnimation(System.Windows.Controls.Canvas.OpacityProperty, animation); 
+                }
+                else {
+                    DoubleAnimation animation = new DoubleAnimation(1, 0, TimeSpan.FromSeconds(1));
+                    this.background.BeginAnimation(System.Windows.Controls.Canvas.OpacityProperty, animation); 
+                }
+
+                
             }
             catch (Exception ex) { Console.WriteLine(ex.StackTrace.ToString()); }
         }
