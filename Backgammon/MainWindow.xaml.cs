@@ -66,18 +66,16 @@ namespace Backgammon
 				for(int i = 1;i < 25;i++)
 			{
 
-				Console.WriteLine(getPossibleTriangle(i).getPos());
+				Console.WriteLine(getTriangle(i).getPos());
 				
 			}
+
         }
 
 		private void init()
 		{
+
 			gameBoard = _model.newGame();
-
-			
-
-
             //gameBoard = _model.endGame();
             //gameBoard = _model.highStack();
             //gameBoard = _model.bricksInMiddle();
@@ -93,23 +91,24 @@ namespace Backgammon
 			utslagna = new BrickHolder[]{(BrickHolder)utslagnaEtt.Children[0],(BrickHolder)utslagnaTvå.Children[0]};
 
 			for(int i = 0; i<2; i++)
-			{
-			utslagna[i].setColor((player)i);
-			utslagna[i].setLink(this);
-			if(i==0)utslagna[i].setPos(i);
-			else utslagna[i].setPos(25);
-			}
+				{
+				utslagna[i].setColor((player)i);
+				utslagna[i].setLink(this);
+				if(i==0)utslagna[i].setPos(i);
+				else utslagna[i].setPos(25);
+				}
         
 
 
 			for(int i = 1; i < 27; i++)
 				{
-					Triangle t = getTriangle(i);
-                    t.setLink(this);
-					if(i < 13) t.setState(STATE.UPPER);
-					else if (i < 25) t.setState(STATE.LOWER);
-					else if (i == 25) t.setState(STATE.UPPER);
-					else t.setState(STATE.LOWER);
+				Triangle t = getTriangle(i);
+				t.setLink(this);
+				t.setPos(i);
+				if(i < 13) t.setState(STATE.LOWER);
+				else if (i < 25) t.setState(STATE.UPPER);
+				else if (i == 25) t.setState(STATE.UPPER);
+				else t.setState(STATE.LOWER);
 				}
 
 		}
@@ -340,34 +339,8 @@ namespace Backgammon
             duk.Background = _background[index];
         }
 
-
-		private void alignLeft()
-		{
-			for(int i = 1; i < 25; i++)
-				{
-					if(i < 13) getTriangle(i).setPos(25-i);
-					else getTriangle(i).setPos(i-12);
-				}
-
-			getTriangle(25).setPos(25);
-			getTriangle(26).setPos(26);
-		}
-
-		private void alignRight()
-		{
-			for(int i = 1; i < 25; i++)
-				{
-					if(i < 13) getTriangle(i).setPos(12+i);
-					else getTriangle(i).setPos(25-i);
-				}
-
-			getTriangle(25).setPos(25);
-			getTriangle(26).setPos(26);
-		}
-
         internal void updateView() 
 		{
-			alignLeft();
 			foreach(BrickHolder u in utslagna) u.update();
 			renderDices();
 
@@ -409,30 +382,18 @@ namespace Backgammon
 			spelPlan.Width = spelPlan.Height*(1.77);
 		}
 
-
         public Triangle getTriangle(int pos) {
-            if (pos < 1 ||pos > 26)
+			if (pos < 1 ||pos > 26)
                 return null;
 
             Triangle triangle;
-            if (pos < 7) { return triangle = gridOne.Children[pos-1] as Triangle; }
-            else if (pos < 13) { return triangle = gridTwo.Children[pos-(6+1)] as Triangle; }
-            else if (pos < 19) { return triangle = gridFour.Children[pos-(12+1)] as Triangle; }
-            else if (pos < 25) { return triangle = gridThree.Children[pos-(18+1)] as Triangle; }
-			else if (pos == 25){ return triangle = gridMiddle.Children[1] as Triangle; }
+            if		(pos < 7)	return triangle = gridFour.Children[pos-1] as Triangle;
+            else if (pos < 13)	return triangle = gridThree.Children[pos-(6+1)] as Triangle;
+            else if (pos < 19)	return triangle = gridTwo.Children[18-pos] as Triangle;
+            else if (pos < 25)	return triangle = gridOne.Children[24-pos] as Triangle;
+			else if (pos == 25)	return triangle = gridMiddle.Children[1] as Triangle;
 			else return triangle = gridMiddle.Children[0] as Triangle;
-
-        }
-        public Triangle getPossibleTriangle(int pos) {
-			if (pos < 1 ||pos > 24)
-                return null;
-
-            Triangle triangle;
-            if (pos < 7) { return triangle = gridFour.Children[pos - 1] as Triangle; }
-            else if (pos < 13) { return triangle = gridThree.Children[pos - (6 + 1)] as Triangle; }
-            else if (pos < 19) { return triangle = gridTwo.Children[18-pos] as Triangle; }
-            else return triangle = gridOne.Children[24-pos] as Triangle;
-        }
+        }	
 
 
         private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -451,7 +412,7 @@ namespace Backgammon
                         DragMove();
                 }
             }
-			catch (Exception ) { Console.WriteLine("Messageboxarna gör så man får System.InvalidOperationException här"); }
+			catch (Exception) {}
         }
         
         private void maximize_Click(object sender, RoutedEventArgs e)
@@ -588,7 +549,7 @@ namespace Backgammon
             {
                 List<int> animationstrianglar = _model.AvailableMoves(gameBoard, dice, spelare, selectedTriangles[0].getPos());
 
-                foreach (int i in animationstrianglar) getPossibleTriangle(i).possibleMove(0);
+                foreach (int i in animationstrianglar) getTriangle(i).possibleMove(0);
             }
         }
 
@@ -599,7 +560,7 @@ namespace Backgammon
             {
                 List<int> animationstrianglar = _model.AvailableMoves(gameBoard, dice, spelare, selectedTriangles[0].getPos());
 
-                foreach (int i in animationstrianglar) getPossibleTriangle(i).possibleMove(1);
+                foreach (int i in animationstrianglar) getTriangle(i).possibleMove(1);
             }
         }
 
