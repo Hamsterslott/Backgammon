@@ -61,9 +61,6 @@ namespace Backgammon
         public void setColor(player color) {
             _color = color;
         }
-        public int getSize() {
-            return _size;
-        }
         public void setSize(int size) {
             _size = size;
             if (_size >= 15)
