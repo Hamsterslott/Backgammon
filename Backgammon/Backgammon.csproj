@@ -70,6 +70,9 @@
     <Compile Include="Triangle.xaml.cs">
       <DependentUpon>Triangle.xaml</DependentUpon>
     </Compile>
+    <Compile Include="WinScreen.xaml.cs">
+      <DependentUpon>WinScreen.xaml</DependentUpon>
+    </Compile>
     <Page Include="BrickHolder.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -99,6 +102,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Triangle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WinScreen.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -219,6 +226,11 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\question.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\win.wmv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -61,8 +61,22 @@ namespace Backgammon
         public void setColor(player color) {
             _color = color;
         }
+        public int getSize() {
+            return _size;
+        }
         public void setSize(int size) {
             _size = size;
+            if (_size >= 15)
+            {
+                WinScreen winScreen = new WinScreen();
+                if(_color == 0)
+                    winScreen.setWinner("PLAYER 1");
+                else
+                    winScreen.setWinner("PLAYER 2");
+                winScreen.setLink(_mainWindow);
+                winScreen.Show();
+                _mainWindow.Close();
+            }
             update();
         }
 
