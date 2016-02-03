@@ -278,7 +278,7 @@ namespace Backgammon
 			{
 				int index = -1;
 				if(valdtriangel == 25) index = legitMove(spelplan,-1,valdtriangel-i,dices,spelare);
-				else if(valdtriangel-i > 1) index = legitMove(spelplan,valdtriangel,valdtriangel-i,dices,spelare);
+				else if(valdtriangel-i >= 1) index = legitMove(spelplan,valdtriangel,valdtriangel-i,dices,spelare);
 				if(index != -1)  moves.Add(valdtriangel-dices[index]);
 			}
 
