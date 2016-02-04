@@ -24,10 +24,17 @@ namespace Backgammon
         public Splash()
         {
             InitializeComponent();
-            DoubleAnimation animation = new DoubleAnimation(1, 0, TimeSpan.FromSeconds(5));
-            animation.Completed += new EventHandler(animation_Completed);
-            this.BeginAnimation(System.Windows.Controls.Canvas.OpacityProperty, animation);
+            DoubleAnimation animationshow = new DoubleAnimation(1, 1, TimeSpan.FromSeconds(2));
+			animationshow.Completed += new EventHandler(animationshow_Completed);
+            this.BeginAnimation(System.Windows.Controls.Canvas.OpacityProperty, animationshow);
+			
         }
+		private void animationshow_Completed(object sender, EventArgs e)
+		{
+			DoubleAnimation animation = new DoubleAnimation(1, 0, TimeSpan.FromSeconds(1));
+            animation.Completed += new EventHandler(animation_Completed);
+			this.BeginAnimation(System.Windows.Controls.Canvas.OpacityProperty, animation);
+		}
 
         private void animation_Completed(object sender, EventArgs e)
         {
