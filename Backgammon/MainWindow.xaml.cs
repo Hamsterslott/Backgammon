@@ -86,7 +86,6 @@ namespace Backgammon
 				{
 				utslagna[i].setColor((player)i);
 				utslagna[i].setLink(this);
-				utslagna[i].setPos(0);
 				}
         
 

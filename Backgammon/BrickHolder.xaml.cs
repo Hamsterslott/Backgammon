@@ -22,7 +22,7 @@ namespace Backgammon
 		private MainWindow _mainWindow = null;
         private player _color;
         private int _size = 0;
-		private int _pos;
+		private int _pos = 0;
 
         public BrickHolder()
         {
@@ -53,6 +53,23 @@ namespace Backgammon
 			 if(_mainWindow.pickedUp != 0) _mainWindow.playGame(new Triangle(_pos));
 		}
 
+		public void addOne()
+		{
+			_size++;
+			if (_size >= 15)
+            {
+                WinScreen winScreen = new WinScreen();
+                if(_color == 0)
+                    winScreen.setWinner("PLAYER 1");
+                else
+                    winScreen.setWinner("PLAYER 2");
+                winScreen.setLink(_mainWindow);
+                winScreen.Show();
+                _mainWindow.Close();
+            }
+            update();
+		}
+
         // GETTERS AND SETTERS //
 		public void setLink(MainWindow mw) {
             _mainWindow = mw;
@@ -76,28 +93,6 @@ namespace Backgammon
             }
             update();
         }
-
-		public void addOne()
-		{
-			_size++;
-			if (_size >= 15)
-            {
-                WinScreen winScreen = new WinScreen();
-                if(_color == 0)
-                    winScreen.setWinner("PLAYER 1");
-                else
-                    winScreen.setWinner("PLAYER 2");
-                winScreen.setLink(_mainWindow);
-                winScreen.Show();
-                _mainWindow.Close();
-            }
-            update();
-		}
-
-        public void setPos(int pos) {
-            this._pos = pos;
-        }
-
 		
         // GETTERS AND SETTERS END //
     }

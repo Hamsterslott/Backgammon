@@ -54,7 +54,7 @@ namespace Backgammon
 
 		public void wrongMove()
 		{
-			try {  //exception när man försöker gå i mål.
+			try {
 			if (_state == STATE.UPPER)
                 background.Background = _mainWindow._triangelIsClicked[2];
             else
@@ -63,7 +63,7 @@ namespace Backgammon
 			DoubleAnimation animation = new DoubleAnimation(0.75, 0, TimeSpan.FromSeconds(0.5));
             this.background.BeginAnimation(System.Windows.Controls.Canvas.OpacityProperty, animation);
 			}
-			catch {}  
+			catch {Console.WriteLine("exception i triangel wrongMove()");};
 		}
 
         public void possibleMove(int state)

@@ -148,14 +148,6 @@
     <Resource Include="Resources\whiteChip3.png" />
     <Resource Include="Resources\isClickedLower.png" />
     <Resource Include="Resources\isClickedUpper.png" />
-    <Resource Include="Resources\blueFelt.png" />
-    <Resource Include="Resources\darkRedFelt.png" />
-    <None Include="Resources\greenFelt.png" />
-    <Resource Include="Resources\greenishFelt.png" />
-    <None Include="Resources\greenOrangeFelt.png" />
-    <Resource Include="Resources\orangeFelt.png" />
-    <Resource Include="Resources\purpleFelt.png" />
-    <None Include="Resources\redFelt.png" />
     <Resource Include="Resources\sidebar.png" />
     <Resource Include="Resources\redDice.png" />
     <Resource Include="Resources\darkChipGoal.png" />
@@ -218,27 +210,13 @@
     <Resource Include="Resources\redHandleSmall.cur" />
     <Resource Include="Resources\isClickedLowerRed.png" />
     <Resource Include="Resources\isClickedUpperRed.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Resources\btnPause.png" />
     <Resource Include="Resources\btnPlay.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Resources\question.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Resources\redBG.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Resources\greenBG.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Resources\grayBG.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Resources\blueBG.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Resources\purpleBG.png" />
   </ItemGroup>
   <ItemGroup>
