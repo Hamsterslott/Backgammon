@@ -58,6 +58,8 @@ namespace Backgammon
 			_size++;
 			if (_size >= 15)
             {
+                Settings.isSongPlaying = false;
+                _mainWindow.song.Stop();
                 WinScreen winScreen = new WinScreen();
                 if(_color == 0)
                     winScreen.setWinner("PLAYER 1");

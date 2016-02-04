@@ -37,7 +37,6 @@ namespace Backgammon
 			obj2 = temp;
 		}
 
-
         private void SettingsWindow_MouseEnter(object sender, MouseEventArgs e)
         {
             _mainWindow.canMoveWindow = false;
