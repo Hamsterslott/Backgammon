@@ -138,7 +138,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\icon.png" />
     <Resource Include="Resources\splashBG.png" />
     <Resource Include="Resources\darkChip1.png" />
     <Resource Include="Resources\darkChip2.png" />

@@ -1,7 +1,7 @@
 ﻿<Window x:Class="Backgammon.Splash"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Backgammon" Height="600" Width="800" Icon="Resources/icon.png" 
+        Title="Backgammon" Height="600" Width="800" Icon="Resources/splashBG.png" 
         WindowStyle="None" BorderBrush="Transparent" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" AllowsTransparency="True">
     <Window.Effect>
         <DropShadowEffect/>
