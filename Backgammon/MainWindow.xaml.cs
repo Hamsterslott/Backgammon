@@ -232,10 +232,17 @@ namespace Backgammon
 			int status = _model.canMove(gameBoard, spelare, dice);
 			if (pickedUp == 0 && status != 0 && t.getColor() == spelare && t.getSize() >= 1) selectedTriangles[pickedUp++] = t;
 			else if (pickedUp == 1) selectedTriangles[pickedUp++] = t;
+            List<int> animationstrianglar = _model.AvailableMoves(gameBoard, dice, spelare, selectedTriangles[0].getPos());
 
 			if (pickedUp == 1)
 			{
-                btnHelp.Visibility = System.Windows.Visibility.Visible;
+                if (Settings.helpActive)
+                {
+                    foreach (int i in animationstrianglar) getTriangle(i).possibleMove(0);
+                }
+                else
+                    btnHelp.Visibility = System.Windows.Visibility.Visible;
+
 				if(t.getSize()>=1 && t.getColor() == spelare)
 					{ 
 					t.setSize(t.getSize()-1);
@@ -246,7 +253,13 @@ namespace Backgammon
 
 			if(pickedUp == 2)
 				{
-                    btnHelp.Visibility = System.Windows.Visibility.Collapsed;
+                    if (Settings.helpActive)
+                    {
+                        foreach (int i in animationstrianglar) getTriangle(i).possibleMove(1);
+                    }
+                    else
+                        btnHelp.Visibility = System.Windows.Visibility.Collapsed;
+
 					if(selectedTriangles[0] == selectedTriangles[1]){}
 
 					else if (status == -1)

@@ -44,8 +44,15 @@
         <Label Name="lblSettings" Grid.Row="0" Grid.Column="1" Content="Settings" FontSize="75" Foreground="Snow" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Nueva Std Cond" ></Label>
         <!--SoundEffects-->
         <Label Name="SoundEfxText" Grid.Row="1" Grid.Column="1" Content="Sound Effects" FontSize="29" Foreground="Snow" HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="Nueva Std Cond"></Label>
-        <Button x:Name="btnOn" Click="btnOn_Click" Grid.Row="1" Grid.Column="1" Content="ON" VerticalAlignment="Bottom" HorizontalAlignment="Left" FontSize="18" FontFamily="Nueva Std Cond" BorderThickness="0" Padding="4" Margin="100,0,0,0" Background="LawnGreen" Foreground="Black"/>
-        <Button x:Name="btnOff" Click="btnOff_Click" Grid.Row="1" Grid.Column="1" Content="OFF" VerticalAlignment="Bottom" HorizontalAlignment="Right" FontSize="18" FontFamily="Nueva Std Cond" BorderThickness="0" Padding="4" Margin="0,0,100,0" Background="Transparent" Foreground="Snow"/>
+        <Canvas Name="btnSoundEffects" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="69" Height="32" Canvas.Top="36" RenderTransformOrigin="1.533,0.438" Canvas.Left="106" Opacity="0.5"
+                    MouseEnter="btnSoundEffects_MouseEnter" MouseLeave="btnSoundEffects_MouseLeave" MouseLeftButtonDown="btnSoundEffects_MouseLeftButtonDown" Grid.ColumnSpan="2" Margin="105,0,116,5" Grid.Row="1">
+            <Canvas.Effect>
+                <DropShadowEffect Color="#FF787878"/>
+            </Canvas.Effect>
+            <Canvas.Background>
+                <ImageBrush ImageSource="Resources/on.png" Stretch="Uniform" Opacity="0.5"/>
+            </Canvas.Background>
+        </Canvas>
         <!--Volume-->
         <Label Name="Vol" Grid.Row="2" Grid.Column="1" Content="Music Volume" FontSize="29" Foreground="Snow" HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="Nueva Std Cond"></Label>
         <Slider x:Name="slider" ValueChanged="slider_ValueChanged" Grid.Row="2" Grid.Column="1" Width="165"  Minimum="0" Maximum="10" IsSnapToTickEnabled="true" TickFrequency="1" TickPlacement="TopLeft" 
@@ -114,7 +121,7 @@
 
         <!--Rotate Viewe-->
         <Canvas Name="RotateViewe" Grid.Row="6" Grid.Column="1" >
-            <Label Name="Help" Content="Help" Foreground="Snow" FontFamily="Nueva Std Cond" FontSize="29" HorizontalAlignment="Center" VerticalAlignment="Top" Padding="110,0,0,1" Width="290"></Label>
+            <Label Name="Help" Content="Help" Foreground="Snow" FontFamily="Nueva Std Cond" FontSize="29" HorizontalAlignment="Center" VerticalAlignment="Top" Padding="120,0,0,1" Width="290"></Label>
             <Canvas Name="btnHelp" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="69" Height="32" Canvas.Top="36" RenderTransformOrigin="1.533,0.438" Canvas.Left="106" Opacity="0.5"
                     MouseEnter="btnHelp_MouseEnter" MouseLeave="btnHelp_MouseLeave" MouseLeftButtonDown="btnHelp_MouseLeftButtonDown">
                 <Canvas.Effect>

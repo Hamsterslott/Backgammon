@@ -211,20 +211,12 @@ namespace Backgammon
 
 		private void btnOn_Click(object sender, RoutedEventArgs e)
 		{
-			btnOn.Background = Brushes.LawnGreen;
-            btnOff.Background = Brushes.Transparent;
-            btnOn.Foreground = Brushes.Black;
-            btnOff.Foreground = Brushes.Snow;
-            Settings.playSound = true;
+			
 		}
 
 		private void btnOff_Click(object sender, RoutedEventArgs e)
 		{
-			btnOn.Background = Brushes.Transparent;
-            btnOff.Background = Brushes.LawnGreen;
-            btnOn.Foreground = Brushes.Snow;
-            btnOff.Foreground = Brushes.Black;
-            Settings.playSound = false;
+            
 		}
 
         private void CloseMenyText_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -324,6 +316,28 @@ namespace Backgammon
                 Settings.helpActive = true;
                 btnHelp.Background = new ImageBrush(new BitmapImage(new Uri("pack://application:,,,/Resources/on.png")));
             }
+        }
+
+        private void btnSoundEffects_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            if (Settings.playSound) {
+                Settings.playSound = false;
+                btnSoundEffects.Background = new ImageBrush(new BitmapImage(new Uri("pack://application:,,,/Resources/off.png")));
+            }
+            else {
+                Settings.playSound = true;
+                btnSoundEffects.Background = new ImageBrush(new BitmapImage(new Uri("pack://application:,,,/Resources/on.png")));
+            }
+        }
+
+        private void btnSoundEffects_MouseLeave(object sender, MouseEventArgs e)
+        {
+            btnSoundEffects.Opacity = 0.5;
+        }
+
+        private void btnSoundEffects_MouseEnter(object sender, MouseEventArgs e)
+        {
+            btnSoundEffects.Opacity = 1;
         }
     }
 }
