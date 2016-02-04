@@ -114,6 +114,16 @@
 
         <!--Rotate Viewe-->
         <Canvas Name="RotateViewe" Grid.Row="6" Grid.Column="1" >
+            <Label Name="Help" Content="Help" Foreground="Snow" FontFamily="Nueva Std Cond" FontSize="29" HorizontalAlignment="Center" VerticalAlignment="Top" Padding="110,0,0,1" Width="290"></Label>
+            <Canvas Name="btnHelp" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="69" Height="32" Canvas.Top="36" RenderTransformOrigin="1.533,0.438" Canvas.Left="106" Opacity="0.5"
+                    MouseEnter="btnHelp_MouseEnter" MouseLeave="btnHelp_MouseLeave" MouseLeftButtonDown="btnHelp_MouseLeftButtonDown">
+                <Canvas.Effect>
+                    <DropShadowEffect Color="#FF787878"/>
+                </Canvas.Effect>
+                <Canvas.Background>
+                    <ImageBrush ImageSource="Resources/off.png" Stretch="Uniform" Opacity="0.5"/>
+                </Canvas.Background>
+            </Canvas>
         </Canvas>
         <!--How to playh-->
         <Label Name="HowToPlayTxt" Grid.Row="7" Grid.Column="1" Content="How To Play" Padding="0,0,0,1" FontSize="29" Foreground="Snow" HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="Nueva Std Cond"></Label>

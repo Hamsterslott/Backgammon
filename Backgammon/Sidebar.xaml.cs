@@ -302,5 +302,28 @@ namespace Backgammon
         {
             NameOfTheSong.Opacity = 0.5;
         }
+
+        private void btnHelp_MouseEnter(object sender, MouseEventArgs e)
+        {
+            btnHelp.Opacity = 1;
+        }
+
+        private void btnHelp_MouseLeave(object sender, MouseEventArgs e)
+        {
+            btnHelp.Opacity = 0.5;
+        }
+
+        private void btnHelp_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            if (Settings.helpActive)
+            {
+                Settings.helpActive = false;
+                btnHelp.Background = new ImageBrush(new BitmapImage(new Uri("pack://application:,,,/Resources/off.png")));
+            }
+            else {
+                Settings.helpActive = true;
+                btnHelp.Background = new ImageBrush(new BitmapImage(new Uri("pack://application:,,,/Resources/on.png")));
+            }
+        }
     }
 }
