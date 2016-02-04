@@ -221,6 +221,7 @@ namespace Backgammon
 
         private void CloseMenyText_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
+			_mainWindow.sidebar.Visibility = System.Windows.Visibility.Visible;
             this.Visibility = System.Windows.Visibility.Collapsed;
 			_mainWindow.Sidebar.Width = 290;
 			info.Width = new GridLength(0);

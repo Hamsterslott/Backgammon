@@ -77,7 +77,10 @@ namespace Backgammon
             initimages();
             Sidebar.setLink(this);
 			setBackground(Settings.background);
-            
+
+			//ladda in sidebaren i början, men den syns inte.
+            Sidebar.Opacity = 0;
+			Sidebar.Visibility = System.Windows.Visibility.Visible;
 
 			
 			utslagna = new BrickHolder[]{(BrickHolder)utslagnaOne.Children[0],(BrickHolder)utslagnaTwo.Children[0]};
@@ -404,6 +407,7 @@ namespace Backgammon
                 {
                     if (Sidebar.Visibility == System.Windows.Visibility.Visible)
 						{
+						sidebar.Visibility = System.Windows.Visibility.Visible;
                         Sidebar.Visibility = System.Windows.Visibility.Collapsed;
 						Sidebar.Width = 290;
 						Sidebar.info.Width = new GridLength(0);
@@ -441,6 +445,7 @@ namespace Backgammon
 
         private void sidebar_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
+				sidebar.Visibility = System.Windows.Visibility.Collapsed;
                 Sidebar.Visibility = System.Windows.Visibility.Visible;
                 Sidebar.Opacity = 0;
                 DoubleAnimation animation = new DoubleAnimation(0, 0.9, TimeSpan.FromSeconds(0.2));
@@ -534,6 +539,7 @@ namespace Backgammon
         private void spelPlan_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             Sidebar.Visibility = System.Windows.Visibility.Collapsed;
+			sidebar.Visibility = System.Windows.Visibility.Visible;
 			Sidebar.Width = 290;
 			Sidebar.info.Width = new GridLength(0);
         }
