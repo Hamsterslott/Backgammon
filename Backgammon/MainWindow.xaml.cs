@@ -542,23 +542,15 @@ namespace Backgammon
         private void btnHelp_MouseEnter(object sender, MouseEventArgs e)
         {
             btnHelp.Opacity = 1;
-            if (pickedUp == 1)
-            {
-                List<int> animationstrianglar = _model.AvailableMoves(gameBoard, dice, spelare, selectedTriangles[0].getPos());
-
-                foreach (int i in animationstrianglar) getTriangle(i).possibleMove(0);
-            }
+            List<int> animationstrianglar = _model.AvailableMoves(gameBoard, dice, spelare, selectedTriangles[0].getPos());
+            foreach (int i in animationstrianglar) getTriangle(i).possibleMove(0);
         }
 
         private void btnHelp_MouseLeave(object sender, MouseEventArgs e)
         {
             btnHelp.Opacity = 0.5;
-            if (pickedUp == 1)
-            {
-                List<int> animationstrianglar = _model.AvailableMoves(gameBoard, dice, spelare, selectedTriangles[0].getPos());
-
-                foreach (int i in animationstrianglar) getTriangle(i).possibleMove(1);
-            }
+            List<int> animationstrianglar = _model.AvailableMoves(gameBoard, dice, spelare, selectedTriangles[0].getPos());
+			foreach (int i in animationstrianglar) getTriangle(i).possibleMove(1);
         }
 
 		private void Window_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
