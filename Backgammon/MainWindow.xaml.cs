@@ -41,7 +41,7 @@ namespace Backgammon
 		private BitmapImage[] _waitingdices = new BitmapImage[4];
 		private BitmapImage[] _diceshaker = new BitmapImage[2];
 		internal Cursor [,] plockadbricka = new Cursor[2,4];
-		internal ImageBrush[] _background = new ImageBrush[8];
+		internal ImageBrush[] _background = new ImageBrush[5];
 
 		//mainwindow ljud
 		private SoundPlayer shake = new SoundPlayer(Properties.Resources.ShakeSound);
@@ -126,20 +126,11 @@ namespace Backgammon
 
             // Hämtar alla bakgrunder
             try {
-
-                //_background[0].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/greenFelt.png"));
-               // _background[1].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/greenishFelt.png"));
-                _background[1].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/greenBG.png"));
-               // _background[2].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/blueFelt.png"));
-                _background[2].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/blueBG.png"));
-                //_background[3].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/greenOrangeFelt.png"));
-               // _background[4].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/orangeFelt.png"));
-                _background[4].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/grayBG.png"));
-                //_background[5].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/purpleFelt.png"));
-                _background[5].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/purpleBG.png"));
-                //_background[6].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/redFelt.png"));
-               // _background[7].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/darkRedFelt.png"));
-                _background[7].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/redBG.png"));
+                _background[0].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/greenBG.png"));
+                _background[1].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/blueBG.png"));
+                _background[2].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/grayBG.png"));
+                _background[3].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/purpleBG.png"));
+                _background[4].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/redBG.png"));
 
 
 				

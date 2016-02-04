@@ -22,7 +22,7 @@ namespace Backgammon
     public partial class Sidebar : UserControl
     {
         MainWindow _mainWindow = null;
-		private int[] _backgroundnumbers = new int []{1,2,4,5,7};
+		private int[] _backgroundnumbers = new int []{0,1,2,3,4};
 
 
 
