@@ -80,6 +80,7 @@ namespace Backgammon
 
 			//ladda in sidebaren i början, men den syns inte.
             Sidebar.Opacity = 0;
+			Sidebar.Width = 0;
 			Sidebar.Visibility = System.Windows.Visibility.Visible;
 
 			
@@ -447,6 +448,7 @@ namespace Backgammon
         {
 				sidebar.Visibility = System.Windows.Visibility.Collapsed;
                 Sidebar.Visibility = System.Windows.Visibility.Visible;
+				Sidebar.Width = 290;
                 Sidebar.Opacity = 0;
                 DoubleAnimation animation = new DoubleAnimation(0, 0.9, TimeSpan.FromSeconds(0.2));
                 Sidebar.BeginAnimation(Sidebar.OpacityProperty, animation);
