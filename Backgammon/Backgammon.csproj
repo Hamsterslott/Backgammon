@@ -226,6 +226,21 @@
   <ItemGroup>
     <Resource Include="Resources\question.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\redBG.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\greenBG.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\grayBG.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\blueBG.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\purpleBG.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
