@@ -1,0 +1,29 @@
+Backgammon
+
+
+The object in backgammon is to move all of your checkers around the board 
+into your home board and then bear them off. 
+The first player to get all their checkers off the board is the winner. 
+
+
+The following rules apply:
+
+A checker may be moved only to an open point, 
+one that is not occupied by two or more opposing checkers. 
+
+The numbers on the two dice constitute separate moves.
+
+A player who rolls doubles plays the numbers shown on the dice twice. 
+A roll of 6 and 6 means that the player has four sixes to use.
+
+A player must use up all of the dice rolls if this is legally possible.
+When only one number can be played, the player must play that number.
+
+Any time a player has one or more checkers on the bar, 
+his first obligation is to enter those checker(s).
+
+
+
+
+
+Good luck and have fun!

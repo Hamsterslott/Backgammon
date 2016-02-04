@@ -38,7 +38,7 @@
 
         </Grid.RowDefinitions>
 
-        <Label Name="howtoplay" Grid.RowSpan="10" Grid.Column="0" FontSize="15" Foreground="Snow" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Consolas" ></Label>
+        <Label Name="howtoplay" Grid.RowSpan="10" Grid.Column="0" FontSize="14" Foreground="Snow" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Consolas" />
 
         <!--Settings-->
         <Label Name="lblSettings" Grid.Row="0" Grid.Column="1" Content="Settings" FontSize="75" Foreground="Snow" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Nueva Std Cond" ></Label>

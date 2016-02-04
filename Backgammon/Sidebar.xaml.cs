@@ -27,7 +27,7 @@ namespace Backgammon
         {
             InitializeComponent();
             BlackWhite.Background.Opacity = 1;
-			howtoplay.Content = Properties.Resources.rules;
+			howtoplay.Content = Properties.Resources.ruleseng;
         }
 
 		private void Swap<T>(ref T obj1, ref T obj2)
