@@ -198,14 +198,14 @@ namespace Backgammon
                 doubleBrick[2].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/blueChip2.png"));
                 tripleBrick[2].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/blueChip3.png"));
 
-				singleBrick[3].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/redChip1.png"));
-                doubleBrick[3].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/redChip2.png"));
-                tripleBrick[3].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/redChip3.png"));
+				singleBrick[3].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/redChip1Fix.png"));
+                doubleBrick[3].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/redChip2Fix.png"));
+                tripleBrick[3].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/redChip3Fix.png"));
 
 				brick[0].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/whiteChipGoal.png"));
 				brick[1].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/darkChipGoal.png"));
 				brick[2].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/blueChipGoal.png"));
-				brick[3].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/redChipGoal.png"));
+				brick[3].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/redChipGoalFix.png"));
 
 
             }
