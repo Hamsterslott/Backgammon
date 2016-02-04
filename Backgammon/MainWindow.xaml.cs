@@ -560,6 +560,11 @@ namespace Backgammon
 
 		private void Window_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
 		{
+            List<int> animationstrianglar = _model.AvailableMoves(gameBoard, dice, spelare, selectedTriangles[0].getPos());
+            if (Settings.helpActive)
+            {
+                foreach (int i in animationstrianglar) getTriangle(i).possibleMove(1);
+            }
 			if(pickedUp==1)
 			{
 			pickedUp = 0;
