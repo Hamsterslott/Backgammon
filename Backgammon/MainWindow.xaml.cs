@@ -544,14 +544,16 @@ namespace Backgammon
 
         private void btnHelp_MouseEnter(object sender, MouseEventArgs e)
         {
-            btnHelp.Opacity = 1;
+            btnHelp.Opacity = 0.5;
+            btnHelp.Background = new ImageBrush(new BitmapImage(new Uri("pack://application:,,,/Resources/lightOn.png")));
             List<int> animationstrianglar = _model.AvailableMoves(gameBoard, dice, spelare, selectedTriangles[0].getPos());
             foreach (int i in animationstrianglar) getTriangle(i).possibleMove(0);
         }
 
         private void btnHelp_MouseLeave(object sender, MouseEventArgs e)
         {
-            btnHelp.Opacity = 0.5;
+            btnHelp.Opacity = 0.3;
+            btnHelp.Background = new ImageBrush(new BitmapImage(new Uri("pack://application:,,,/Resources/lightOff.png")));
             List<int> animationstrianglar = _model.AvailableMoves(gameBoard, dice, spelare, selectedTriangles[0].getPos());
 			foreach (int i in animationstrianglar) getTriangle(i).possibleMove(1);
         }
