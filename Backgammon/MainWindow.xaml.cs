@@ -232,12 +232,12 @@ namespace Backgammon
 			int status = _model.canMove(gameBoard, spelare, dice);
 			if (pickedUp == 0 && status != 0 && t.getColor() == spelare && t.getSize() >= 1) selectedTriangles[pickedUp++] = t;
 			else if (pickedUp == 1) selectedTriangles[pickedUp++] = t;
-            List<int> animationstrianglar = _model.AvailableMoves(gameBoard, dice, spelare, selectedTriangles[0].getPos());
 
 			if (pickedUp == 1)
 			{
                 if (Settings.helpActive)
                 {
+                    List<int> animationstrianglar = _model.AvailableMoves(gameBoard, dice, spelare, selectedTriangles[0].getPos());
                     foreach (int i in animationstrianglar) getTriangle(i).possibleMove(0);
                 }
                 else
@@ -255,6 +255,7 @@ namespace Backgammon
 				{
                     if (Settings.helpActive)
                     {
+                        List<int> animationstrianglar = _model.AvailableMoves(gameBoard, dice, spelare, selectedTriangles[0].getPos());
                         foreach (int i in animationstrianglar) getTriangle(i).possibleMove(1);
                     }
                     else
@@ -442,7 +443,7 @@ namespace Backgammon
         {
                 Sidebar.Visibility = System.Windows.Visibility.Visible;
                 Sidebar.Opacity = 0;
-                DoubleAnimation animation = new DoubleAnimation(0, 1, TimeSpan.FromSeconds(0.2));
+                DoubleAnimation animation = new DoubleAnimation(0, 0.9, TimeSpan.FromSeconds(0.2));
                 Sidebar.BeginAnimation(Sidebar.OpacityProperty, animation);
         }
 

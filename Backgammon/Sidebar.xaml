@@ -128,7 +128,7 @@
                     <DropShadowEffect Color="#FF787878"/>
                 </Canvas.Effect>
                 <Canvas.Background>
-                    <ImageBrush ImageSource="Resources/off.png" Stretch="Uniform" Opacity="0.5"/>
+                    <ImageBrush ImageSource="Resources/on.png" Stretch="Uniform" Opacity="0.5"/>
                 </Canvas.Background>
             </Canvas>
         </Canvas>
