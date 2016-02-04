@@ -22,9 +22,6 @@ namespace Backgammon
     public partial class Sidebar : UserControl
     {
         MainWindow _mainWindow = null;
-		private int[] _backgroundnumbers = new int []{0,1,2,3,4};
-
-
 
         public Sidebar()
         {
@@ -182,34 +179,34 @@ namespace Backgammon
 
         private void BackgroundPrev_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            _mainWindow.setBackground(_backgroundnumbers[1]);
-			BackgroundActive.Background = _mainWindow._background[_backgroundnumbers[1]];
-			BackgroundPrev.Background = _mainWindow._background[_backgroundnumbers[0]];
-			Swap(ref _backgroundnumbers[0],ref _backgroundnumbers[1]);
+            _mainWindow.setBackground(Settings.backgroundpos[1]);
+			BackgroundActive.Background = _mainWindow._background[Settings.backgroundpos[1]];
+			BackgroundPrev.Background = _mainWindow._background[Settings.backgroundpos[0]];
+			Swap(ref Settings.backgroundpos[0],ref Settings.backgroundpos[1]);
         }
 
         private void BackgroundPrev2_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            _mainWindow.setBackground(_backgroundnumbers[2]);
-			BackgroundActive.Background = _mainWindow._background[_backgroundnumbers[2]];
-			BackgroundPrev2.Background = _mainWindow._background[_backgroundnumbers[0]];
-			Swap(ref _backgroundnumbers[0],ref _backgroundnumbers[2]);
+            _mainWindow.setBackground(Settings.backgroundpos[2]);
+			BackgroundActive.Background = _mainWindow._background[Settings.backgroundpos[2]];
+			BackgroundPrev2.Background = _mainWindow._background[Settings.backgroundpos[0]];
+			Swap(ref Settings.backgroundpos[0],ref Settings.backgroundpos[2]);
         }
 
         private void BackgroundNext_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            _mainWindow.setBackground(_backgroundnumbers[3]);
-			BackgroundActive.Background = _mainWindow._background[_backgroundnumbers[3]];
-			BackgroundNext.Background = _mainWindow._background[_backgroundnumbers[0]];
-			Swap(ref _backgroundnumbers[0],ref _backgroundnumbers[3]);
+            _mainWindow.setBackground(Settings.backgroundpos[3]);
+			BackgroundActive.Background = _mainWindow._background[Settings.backgroundpos[3]];
+			BackgroundNext.Background = _mainWindow._background[Settings.backgroundpos[0]];
+			Swap(ref Settings.backgroundpos[0],ref Settings.backgroundpos[3]);
         }
 
         private void BackgroundNext2_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            _mainWindow.setBackground(_backgroundnumbers[4]);
-			BackgroundActive.Background = _mainWindow._background[_backgroundnumbers[4]];
-			BackgroundNext2.Background = _mainWindow._background[_backgroundnumbers[0]];
-			Swap(ref _backgroundnumbers[0],ref _backgroundnumbers[4]);
+            _mainWindow.setBackground(Settings.backgroundpos[4]);
+			BackgroundActive.Background = _mainWindow._background[Settings.backgroundpos[4]];
+			BackgroundNext2.Background = _mainWindow._background[Settings.backgroundpos[0]];
+			Swap(ref Settings.backgroundpos[0],ref Settings.backgroundpos[4]);
         }
 
 		private void btnOn_Click(object sender, RoutedEventArgs e)
