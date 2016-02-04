@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Threading;
+using System.Windows.Media.Animation;
 
 namespace Backgammon
 {
@@ -22,21 +24,12 @@ namespace Backgammon
         public Splash()
         {
             InitializeComponent();
-			backGammon.Show();
-            this.Close();
+            DoubleAnimation animation = new DoubleAnimation(1, 0, TimeSpan.FromSeconds(5));
+            animation.Completed += new EventHandler(animation_Completed);
+            this.BeginAnimation(System.Windows.Controls.Canvas.OpacityProperty, animation);
         }
 
-        private void Grid_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            DragMove();
-        }
-
-        private void btnExit_Click(object sender, RoutedEventArgs e)
-        {
-            Application.Current.Shutdown();
-        }
-
-        private void btnPlay_Click(object sender, RoutedEventArgs e)
+        private void animation_Completed(object sender, EventArgs e)
         {
             backGammon.Show();
             this.Close();

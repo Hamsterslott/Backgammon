@@ -3,32 +3,67 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Backgammon" Height="600" Width="800" Icon="Resources/icon.png" 
         WindowStyle="None" BorderBrush="Transparent" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" AllowsTransparency="True">
+    <Window.Effect>
+        <DropShadowEffect/>
+    </Window.Effect>
     <Window.Background>
         <ImageBrush ImageSource="Resources/splashBG.png"/>
     </Window.Background>
-    <Grid MouseLeftButtonDown="Grid_MouseLeftButtonDown">
+    <Grid Name="splash">
         <Grid.Background>
             <ImageBrush/>
         </Grid.Background>
-        <Button Name="btnPlay" Click="btnPlay_Click" FontSize="22" FontWeight="ExtraBold" Foreground="Orange" BorderBrush="Orange" Background="Transparent" Content="PLAY" HorizontalAlignment="Left" Margin="386,213,0,0" VerticalAlignment="Top" Width="170" Height="45" RenderTransformOrigin="0.5,0.5">
-            <Button.RenderTransform>
+        <Label Content="Adam Vifors" Foreground="#FF955700" FontSize="32" Margin="445,50,91,492" RenderTransformOrigin="0.5,0.5">
+            <Label.Effect>
+                <DropShadowEffect/>
+            </Label.Effect>
+            <Label.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
                     <SkewTransform/>
-                    <RotateTransform Angle="-19.197"/>
-                    <TranslateTransform X="-10.193" Y="1.724"/>
+                    <RotateTransform Angle="-16.717"/>
+                    <TranslateTransform X="-0.553" Y="0.375"/>
                 </TransformGroup>
-            </Button.RenderTransform>
-        </Button>
-        <Button Name="btnExit" Click="btnExit_Click" FontSize="20" FontWeight="ExtraBold" Foreground="Orange" BorderBrush="Orange" Background="Transparent" Content="EXIT" HorizontalAlignment="Left" Margin="388,275,0,0" VerticalAlignment="Top" Width="168" Height="45" RenderTransformOrigin="0.5,0.5">
-            <Button.RenderTransform>
+            </Label.RenderTransform>
+        </Label>
+        <Label Content="Johan Rasmussen" Foreground="#FF955700" FontSize="32" Margin="467,92,70,450" RenderTransformOrigin="0.5,0.5">
+            <Label.Effect>
+                <DropShadowEffect/>
+            </Label.Effect>
+            <Label.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
                     <SkewTransform/>
-                    <RotateTransform Angle="-19.197"/>
-                    <TranslateTransform Y="-2.054" X="10.137"/>
+                    <RotateTransform Angle="-16.717"/>
+                    <TranslateTransform X="1.186" Y="-0.686"/>
                 </TransformGroup>
-            </Button.RenderTransform>
-        </Button>
+            </Label.RenderTransform>
+        </Label>
+        <Label Content="Timmy Johansson" Foreground="#FF955700" FontSize="32" Margin="486,135,51,407" RenderTransformOrigin="0.5,0.5">
+            <Label.Effect>
+                <DropShadowEffect/>
+            </Label.Effect>
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-16.717"/>
+                    <TranslateTransform X="0.864" Y="-0.545"/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <Label Content="Victoria Dahlquist" Foreground="#FF955700" FontSize="32" Margin="507,177,30,365" RenderTransformOrigin="0.5,0.5">
+            <Label.Effect>
+                <DropShadowEffect/>
+            </Label.Effect>
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-16.717"/>
+                    <TranslateTransform X="0.549" Y="-0.389"/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
     </Grid>
 </Window>
