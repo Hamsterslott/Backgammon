@@ -77,6 +77,23 @@ namespace Backgammon
             update();
         }
 
+		public void addOne()
+		{
+			_size++;
+			if (_size >= 15)
+            {
+                WinScreen winScreen = new WinScreen();
+                if(_color == 0)
+                    winScreen.setWinner("PLAYER 1");
+                else
+                    winScreen.setWinner("PLAYER 2");
+                winScreen.setLink(_mainWindow);
+                winScreen.Show();
+                _mainWindow.Close();
+            }
+            update();
+		}
+
         public void setPos(int pos) {
             this._pos = pos;
         }

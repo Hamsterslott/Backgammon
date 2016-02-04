@@ -4,8 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
-             d:DesignHeight="298" d:DesignWidth="82" Name="triangle" MouseLeftButtonUp="triangle_MouseLeftButtonUp" MouseLeftButtonDown="triangle_MouseLeftButtonDown"
-             MouseEnter="triangle_MouseEnter" MouseLeave="triangle_MouseLeave" MouseRightButtonDown="triangle_MouseRightButtonDown" MouseRightButtonUp="triangle_MouseRightButtonUp">
+             d:DesignHeight="298" d:DesignWidth="82" Name="triangle" MouseLeftButtonUp="triangle_MouseLeftButtonUp" MouseLeftButtonDown="triangle_MouseLeftButtonDown">
     <Grid Name="theGrid">
         <Grid.RowDefinitions>
             <RowDefinition Height="100*"/>

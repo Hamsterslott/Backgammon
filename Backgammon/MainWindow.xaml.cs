@@ -34,7 +34,6 @@ namespace Backgammon
 		internal int pickedUp = 0;
 		
 		internal BrickHolder[] utslagna;
-        private int [] playercheckers = new int[]{15,15};
 		
 
 		//mainwindow bilder
@@ -63,20 +62,13 @@ namespace Backgammon
             InitializeComponent();
 			init();
             updateView();
-				for(int i = 1;i < 25;i++)
-			{
-
-				Console.WriteLine(getTriangle(i).getPos());
-				
-			}
-
         }
 
 		private void init()
 		{
 
-			gameBoard = _model.newGame();
-            //gameBoard = _model.endGame();
+			//gameBoard = _model.newGame();
+            gameBoard = _model.endGame();
             //gameBoard = _model.highStack();
             //gameBoard = _model.bricksInMiddle();
 
@@ -94,8 +86,7 @@ namespace Backgammon
 				{
 				utslagna[i].setColor((player)i);
 				utslagna[i].setLink(this);
-				if(i==0)utslagna[i].setPos(i);
-				else utslagna[i].setPos(25);
+				utslagna[i].setPos(0);
 				}
         
 
@@ -266,7 +257,9 @@ namespace Backgammon
 			if(pickedUp == 2)
 				{
                     btnHelp.Visibility = System.Windows.Visibility.Collapsed;
-                    if (status == -1)
+					if(selectedTriangles[0] == selectedTriangles[1]){}
+
+					else if (status == -1)
                     {
                         if (selectedTriangles[0].getPos() != 25 && selectedTriangles[0].getPos() != 26 || selectedTriangles[0].getPos()+selectedTriangles[1].getPos() == 51)
                         {
@@ -280,18 +273,16 @@ namespace Backgammon
                     }
                     else
                     {
-                        if (status == 2 && (selectedTriangles[1].getPos() == 0 || selectedTriangles[1].getPos() == 25))
+                        if (status == 2 && (selectedTriangles[1].getPos() == 0))
                         {
                             if (_model.moveGoal(gameBoard, selectedTriangles[0].getPos(), dice, spelare))
                             {
-                                playercheckers[(int)spelare]--;
-								utslagna[(int)spelare].setSize(15-playercheckers[(int)spelare]);
-                                
+								utslagna[(int)spelare].addOne();
                             }
                             else
                             {
                                 if (Settings.playSound) wrongMove.Play();
-								selectedTriangles[1].wrongMove();
+								selectedTriangles[1].wrongMove();  //exception här, brickholder har ingen wrongMove()
                             }
                         }
                         else if (!_model.move(gameBoard, selectedTriangles[0].getPos(), selectedTriangles[1].getPos(), dice, spelare))
@@ -569,6 +560,17 @@ namespace Backgammon
                 foreach (int i in animationstrianglar) getTriangle(i).possibleMove(1);
             }
         }
+
+		private void Window_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
+		{
+			if(pickedUp==1)
+			{
+			pickedUp = 0;
+			setCursor();
+			updateTriangle(selectedTriangles[0]);
+			btnHelp.Visibility = System.Windows.Visibility.Collapsed;
+			}
+		}
 
     }
 }

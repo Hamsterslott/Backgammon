@@ -30,8 +30,6 @@ namespace Backgammon
         private int _size = 0;
 		private int _pos;
 		private player _brickColor;
-
-        public Boolean _isGlowing = false, _isHovered = false; 
         private STATE _state;
 
 
@@ -50,11 +48,6 @@ namespace Backgammon
         public void Update() {
             try {
                 renderBricks();
-                
-                if (_isGlowing)
-                    background.Opacity = 1;
-                else
-                    background.Opacity = 0;
             }
             catch (Exception ex) { Console.WriteLine("renderUpdate: " + ex.Message); }
         }
@@ -107,6 +100,8 @@ namespace Backgammon
 
         private void renderBricks() {
 
+			if(_pos> 0 && _pos < 27)
+			{ 
 			Canvas [] Brickor;
 			if(_state == STATE.UPPER) Brickor = new Canvas[]{brickSpaceOne,brickSpaceTwo,brickSpaceThree,brickSpaceFour,brickSpaceFive};
 			else Brickor = new Canvas[]{brickSpaceFive,brickSpaceFour,brickSpaceThree,brickSpaceTwo,brickSpaceOne};
@@ -126,7 +121,7 @@ namespace Backgammon
 				else if (_size > 10+i) Brickor[i].Background = _mainWindow.tripleBrick[Settings.playerTheme[(int)_brickColor]];
                 
 			}
-
+			}
 		}
 
         private void triangle_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -139,25 +134,6 @@ namespace Backgammon
 			if((Triangle)sender != _mainWindow.selectedTriangles[0] && _mainWindow.pickedUp != 0) _mainWindow.playGame((Triangle)sender);
         }
 
-        private void triangle_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            
-        }
-
-        private void triangle_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
-        {
-
-        }
-
-        private void triangle_MouseEnter(object sender, MouseEventArgs e)
-        {
-            _isHovered = true;
-        }
-
-        private void triangle_MouseLeave(object sender, MouseEventArgs e)
-        {
-            _isHovered = false;
-        }
 
         // GETTERS OCH SETTERS START //
         public void setLink(MainWindow mw) {
@@ -189,12 +165,6 @@ namespace Backgammon
         }
         public void setState(STATE state) {
             _state = state;
-        }
-        public bool getGlowing() {
-            return _isGlowing;
-        }
-        public void setGlowing(bool glow) {
-            _isGlowing = false; //temporär fix för att få bort glow.
         }
         // GETTERS OCH SETTERS SLUT //
     }

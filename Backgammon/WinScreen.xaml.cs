@@ -39,7 +39,7 @@ namespace Backgammon
         private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             try { DragMove(); }
-            catch(Exception ex){}
+            catch(Exception){}
         }
 
         private void maximize_Click(object sender, RoutedEventArgs e)
