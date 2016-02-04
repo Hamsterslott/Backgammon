@@ -92,10 +92,10 @@
                 <Image x:Name="diceBot" Source="Resources/dice11Black.png" Height="112" Canvas.Left="1127" Canvas.Top="392"/>
 
 
-                <UniformGrid Name="utslagnaEtt" Canvas.Left="6" Canvas.Top="48" Height="223" Width="60">
+                <UniformGrid Name="utslagnaOne" Canvas.Left="6" Canvas.Top="48" Height="223" Width="60">
                     <local:BrickHolder Width="auto" Height="auto"></local:BrickHolder>
                 </UniformGrid>
-                <UniformGrid Name="utslagnaTvå" Canvas.Left="6" Canvas.Top="398" Height="223" Width="60">
+                <UniformGrid Name="utslagnaTwo" Canvas.Left="6" Canvas.Top="398" Height="223" Width="60">
                     <local:BrickHolder Width="auto" Height="auto"></local:BrickHolder>
                 </UniformGrid>
 

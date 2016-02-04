@@ -88,7 +88,7 @@ namespace Backgammon
             
 
 			
-			utslagna = new BrickHolder[]{(BrickHolder)utslagnaEtt.Children[0],(BrickHolder)utslagnaTvå.Children[0]};
+			utslagna = new BrickHolder[]{(BrickHolder)utslagnaOne.Children[0],(BrickHolder)utslagnaTwo.Children[0]};
 
 			for(int i = 0; i<2; i++)
 				{
@@ -206,18 +206,18 @@ namespace Backgammon
                 doubleBrick[1].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/darkChip2.png"));
                 tripleBrick[1].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/darkChip3.png"));
 
-				singleBrick[2].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/BlåKnapp.png"));
-                doubleBrick[2].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/2BlåKnapp.png"));
-                tripleBrick[2].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/3BlåKnapp.png"));
+				singleBrick[2].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/blueChip1.png"));
+                doubleBrick[2].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/blueChip2.png"));
+                tripleBrick[2].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/blueChip3.png"));
 
-				singleBrick[3].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/RödKnapp.png"));
-                doubleBrick[3].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/2RödKnapp.png"));
-                tripleBrick[3].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/3RödKnapp.png"));
+				singleBrick[3].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/redChip1.png"));
+                doubleBrick[3].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/redChip2.png"));
+                tripleBrick[3].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/redChip3.png"));
 
-				brick[0].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/vitKnappLigga.png"));
-				brick[1].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/svartKnappLigga.png"));
-				brick[2].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/blåKnappLigga.png"));
-				brick[3].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/rödKnappLigga.png"));
+				brick[0].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/whiteChipGoal.png"));
+				brick[1].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/darkChipGoal.png"));
+				brick[2].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/blueChipGoal.png"));
+				brick[3].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/redChipGoal.png"));
 
 
             }

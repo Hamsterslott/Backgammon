@@ -98,17 +98,17 @@
         <Label Name="BrickColor" Grid.Row="5" Grid.Column="1" Content="Brick Type" Padding="0,0,0,1" FontSize="29" Foreground="Snow" HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="Nueva Std Cond"></Label>
         <Canvas Name="BlackWhite" Grid.Row="5" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="70" Height="40" Margin="35,0,0,0" MouseLeftButtonDown="BlackWhite_MouseLeftButtonDown" MouseEnter="BlackWhite_MouseEnter" MouseLeave="BlackWhite_MouseLeave">
             <Canvas.Background>
-                <ImageBrush ImageSource="Resources/SvartVitKnapp.png" Stretch="Uniform" Opacity="0.5"/>
+                <ImageBrush ImageSource="Resources/whiteBlackButton.png" Stretch="Uniform" Opacity="0.5"/>
             </Canvas.Background>
         </Canvas>
         <Canvas Name="WhiteBlue" Grid.Row="5" Grid.Column="1" HorizontalAlignment="Center" Width="70" VerticalAlignment="Bottom" Height="40" MouseLeftButtonDown="WhiteBlue_MouseLeftButtonDown" MouseEnter="WhiteBlue_MouseEnter" MouseLeave="WhiteBlue_MouseLeave">
             <Canvas.Background>
-                <ImageBrush ImageSource="Resources/BlåSvartVitKnapp.png" Stretch="Uniform" Opacity="0.5"/>
+                <ImageBrush ImageSource="Resources/whiteBlueButton.png" Stretch="Uniform" Opacity="0.5"/>
             </Canvas.Background>
         </Canvas>
         <Canvas Name="RedBlack" Grid.Row="5" Grid.Column="1" HorizontalAlignment="right" Width="70" VerticalAlignment="Bottom" Height="40" Margin="0,0,35,0" MouseLeftButtonDown="RedBlack_MouseLeftButtonDown" MouseEnter="RedBlack_MouseEnter" MouseLeave="RedBlack_MouseLeave">
             <Canvas.Background>
-                <ImageBrush ImageSource="Resources/SvartVitRödKnapp.png" Stretch="Uniform" Opacity="0.5"/>
+                <ImageBrush ImageSource="Resources/redBlackButton.png" Stretch="Uniform" Opacity="0.5"/>
             </Canvas.Background>
         </Canvas>
 
