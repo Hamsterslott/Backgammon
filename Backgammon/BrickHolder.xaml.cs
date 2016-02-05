@@ -9,6 +9,7 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
@@ -42,6 +43,28 @@ namespace Backgammon
                 }
             }
         }
+
+		public void wrongMove()
+		{
+			//background.Background = _mainWindow._goalIsClicked[1];
+			DoubleAnimation animation = new DoubleAnimation(0.75, 0, TimeSpan.FromSeconds(0.5));
+            this.background.BeginAnimation(System.Windows.Controls.Canvas.OpacityProperty, animation);
+		}
+
+		public void possibleMove(int state)
+        {
+			//background.Background = _mainWindow._goalIsClicked[0];
+                if (state == 0)
+                {
+                    DoubleAnimation animation = new DoubleAnimation(0, 1, TimeSpan.FromSeconds(1));
+                    this.background.BeginAnimation(System.Windows.Controls.Canvas.OpacityProperty, animation); 
+                }
+                else {
+                    DoubleAnimation animation = new DoubleAnimation(1, 0, TimeSpan.FromSeconds(1));
+                    this.background.BeginAnimation(System.Windows.Controls.Canvas.OpacityProperty, animation); 
+                }
+        }
+
 
          private void brickHolder_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
          {
