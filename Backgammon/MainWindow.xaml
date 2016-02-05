@@ -31,8 +31,8 @@
                     <ImageBrush ImageSource="Resources/bgBackgammonNiceV3.png"/>
                 </Canvas.Background>
 
-                <Canvas Name="btnHelp" HorizontalAlignment="Left" VerticalAlignment="Center" Width="55" Height="92" Canvas.Left="8" Canvas.Top="284" MouseLeftButtonDown="btnHelp_Click" Opacity="0.6"
-                        MouseEnter="btnHelp_MouseEnter" MouseLeave="btnHelp_MouseLeave" Visibility="Collapsed">
+                <Canvas Name="btnHelp" HorizontalAlignment="Left" VerticalAlignment="Center" Width="55" Height="92" Canvas.Left="8" Canvas.Top="284" 
+                    MouseEnter="btnHelp_MouseEnter" MouseLeave="btnHelp_MouseLeave" Visibility="Collapsed">
                     <Canvas.Background>
                         <ImageBrush ImageSource="Resources/helpButtonDown.png"/>
                     </Canvas.Background>

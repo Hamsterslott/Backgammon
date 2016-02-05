@@ -34,7 +34,6 @@ namespace Backgammon
 		internal int pickedUp = 0;
 		
 		internal BrickHolder[] utslagna;
-		
 
 		//mainwindow bilder
         private BitmapImage[,] _dices = new BitmapImage[4,7];
@@ -245,7 +244,11 @@ namespace Backgammon
                     foreach (int i in animationstrianglar) getTriangle(i).possibleMove(0);
                 }
                 else
+					{
+					DoubleAnimation animation = new DoubleAnimation(0.0, 0.5, TimeSpan.FromSeconds(10));
+					btnHelp.BeginAnimation(System.Windows.Controls.Canvas.OpacityProperty, animation);
                     btnHelp.Visibility = System.Windows.Visibility.Visible;
+					}
 
 				if(t.getSize()>=1 && t.getColor() == spelare)
 					{ 
@@ -546,23 +549,18 @@ namespace Backgammon
 			Sidebar.info.Width = new GridLength(0);
         }
 
-        private void btnHelp_Click(object sender, RoutedEventArgs e)
-        {
-			
-        }
-
         private void btnHelp_MouseEnter(object sender, MouseEventArgs e)
         {
-            btnHelp.Opacity = 0.8;
-            btnHelp.Background = new ImageBrush(new BitmapImage(new Uri("pack://application:,,,/Resources/helpButton.png")));
+            //btnHelp.Opacity = 0.8;
+            //btnHelp.Background = new ImageBrush(new BitmapImage(new Uri("pack://application:,,,/Resources/helpButton.png")));
             List<int> animationstrianglar = _model.AvailableMoves(gameBoard, dice, spelare, selectedTriangles[0].getPos());
             foreach (int i in animationstrianglar) getTriangle(i).possibleMove(0);
         }
 
         private void btnHelp_MouseLeave(object sender, MouseEventArgs e)
         {
-            btnHelp.Opacity = 0.6;
-            btnHelp.Background = new ImageBrush(new BitmapImage(new Uri("pack://application:,,,/Resources/helpButtonDown.png")));
+            //btnHelp.Opacity = 0.6;
+            //btnHelp.Background = new ImageBrush(new BitmapImage(new Uri("pack://application:,,,/Resources/helpButtonDown.png")));
             List<int> animationstrianglar = _model.AvailableMoves(gameBoard, dice, spelare, selectedTriangles[0].getPos());
 			foreach (int i in animationstrianglar) getTriangle(i).possibleMove(1);
         }
