@@ -8,7 +8,7 @@
 
     <Grid Name="theGrid">
         
-        <Canvas Name="background" Height="200" Width="80" Opacity="0.001" Background="White"></Canvas>
+        <Canvas Name="background" Height="232" Width="60" Opacity="0.001" Background="White"></Canvas>
         
         <UniformGrid Name="brickor" Rows="15" Columns="1" Margin="0,42,0,0">
             <Image></Image>
