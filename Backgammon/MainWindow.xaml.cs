@@ -193,9 +193,9 @@ namespace Backgammon
                     _triangelIsClicked[1].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/isClickedLower.png"));
                     _triangelIsClicked[2].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/isClickedUpperRed.png"));
                     _triangelIsClicked[3].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/isClickedLowerRed.png"));
-
-                    _goalIsClicked[0].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/goalRed.png"));
-                    _goalIsClicked[1].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/goalGreen.png"));
+    
+                    _goalIsClicked[0].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/goalGreen.png"));
+                    _goalIsClicked[1].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/goalRed.png"));
 
                     singleBrick[0].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/whiteChip1.png"));
                     doubleBrick[0].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/whiteChip2.png"));
@@ -253,6 +253,11 @@ namespace Backgammon
                 {
                     List<int> animationstrianglar = _model.AvailableMoves(gameBoard, dice, spelare, selectedTriangles[0].getPos());
                     foreach (int i in animationstrianglar) getTriangle(i).possibleMove(0);
+                    bool goalAnimation = _model.AvailableMoveGoal(gameBoard, selectedTriangles[0].getPos(), dice, spelare);
+                    if(goalAnimation)utslagna[(int)spelare].possibleMove(0);
+
+
+
                 }
                 else
 					{
@@ -275,6 +280,8 @@ namespace Backgammon
                     {
                         List<int> animationstrianglar = _model.AvailableMoves(gameBoard, dice, spelare, selectedTriangles[0].getPos());
                         foreach (int i in animationstrianglar) getTriangle(i).possibleMove(1);
+                        bool goalAnimation = _model.AvailableMoveGoal(gameBoard, selectedTriangles[0].getPos(), dice, spelare);
+                        if (goalAnimation) utslagna[(int)spelare].possibleMove(1);
                     }
                     else
                         btnHelp.Visibility = System.Windows.Visibility.Collapsed;
@@ -305,12 +312,14 @@ namespace Backgammon
                             {
                                 if (Settings.playSound) wrongMove.Play();
 								selectedTriangles[1].wrongMove();  //exception här, brickholder har ingen wrongMove()
+                                utslagna[(int)spelare].wrongMove();
                             }
                         }
                         else if (!_model.move(gameBoard, selectedTriangles[0].getPos(), selectedTriangles[1].getPos(), dice, spelare))
                         {
                             if(Settings.playSound) wrongMove.Play();
 							selectedTriangles[1].wrongMove();
+                            utslagna[(int)spelare].wrongMove();
                         }
                     }
                     status = _model.canMove(gameBoard, spelare, dice);

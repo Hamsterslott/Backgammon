@@ -255,6 +255,20 @@ namespace Backgammon
 			return 0;
 		}
 
+        //Funktion som kollar om det går att gå i mål
+        //True om det går, annars false
+        public bool AvailableMoveGoal(triangel[] spelplan, int first, int[] dices, player spelare)
+        {
+            int index = legitMoveGoal(spelplan, first, dices, spelare);
+            if (index != -1)
+            {
+                return true;
+            }
+            return false;
+
+        }
+
+
 		//Funktion som tar reda på alla möjliga moves för en triangel.
 		public List<int> AvailableMoves(triangel[] spelplan, int[] dices, player spelare, int valdtriangel)
 		{
