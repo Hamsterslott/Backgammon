@@ -297,7 +297,8 @@ namespace Backgammon
                         else if (!_model.move(gameBoard, selectedTriangles[0].getPos(), selectedTriangles[1].getPos(), dice, spelare))
                         {
 							if(Settings.playSound) wrongMove.Play();
-							selectedTriangles[1].wrongMove();
+							if(selectedTriangles[1].getPos() != 0) selectedTriangles[1].wrongMove(); 
+                            else utslagna[(int)spelare].wrongMove();
                         }
                     }
                     else
@@ -311,15 +312,15 @@ namespace Backgammon
                             else
                             {
                                 if (Settings.playSound) wrongMove.Play();
-								selectedTriangles[1].wrongMove();  //exception här, brickholder har ingen wrongMove()
-                                utslagna[(int)spelare].wrongMove();
+								if(selectedTriangles[1].getPos() != 0) selectedTriangles[1].wrongMove(); 
+                                else utslagna[(int)spelare].wrongMove();
                             }
                         }
                         else if (!_model.move(gameBoard, selectedTriangles[0].getPos(), selectedTriangles[1].getPos(), dice, spelare))
                         {
                             if(Settings.playSound) wrongMove.Play();
-							selectedTriangles[1].wrongMove();
-                            utslagna[(int)spelare].wrongMove();
+							if(selectedTriangles[1].getPos() != 0) selectedTriangles[1].wrongMove(); 
+                             else utslagna[(int)spelare].wrongMove();
                         }
                     }
                     status = _model.canMove(gameBoard, spelare, dice);
