@@ -46,6 +46,7 @@ namespace Backgammon
 
 		public void wrongMove()
 		{
+            //Röd
 			//background.Background = _mainWindow._goalIsClicked[1];
 			DoubleAnimation animation = new DoubleAnimation(0.75, 0, TimeSpan.FromSeconds(0.5));
             this.background.BeginAnimation(System.Windows.Controls.Canvas.OpacityProperty, animation);
@@ -53,6 +54,7 @@ namespace Backgammon
 
 		public void possibleMove(int state)
         {
+            //Grön
 			//background.Background = _mainWindow._goalIsClicked[0];
                 if (state == 0)
                 {

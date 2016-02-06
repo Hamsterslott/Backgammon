@@ -54,6 +54,8 @@ namespace Backgammon
 
 		//brickholder bilder
 		internal ImageBrush[] brick = new ImageBrush[4];
+        internal ImageBrush[] _goalIsClicked = new ImageBrush[2];
+        
 		
 
         public MainWindow()
@@ -124,101 +126,110 @@ namespace Backgammon
 			for (int i = 0; i < _triangelIsClicked.Length; i++)
                 _triangelIsClicked[i] = new ImageBrush();
 
+            for (int i = 0; i < _goalIsClicked.Length; i++)
+                _goalIsClicked[i] = new ImageBrush();
 
 
-            // Hämtar alla bakgrunder
-            try {
-                _background[0].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/greenBG.png"));
-                _background[1].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/blueBG.png"));
-                _background[2].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/grayBG.png"));
-                _background[3].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/purpleBG.png"));
-                _background[4].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/redBG.png"));
+
+                // Hämtar alla bakgrunder
+                try
+                {
+                    _background[0].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/greenBG.png"));
+                    _background[1].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/blueBG.png"));
+                    _background[2].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/grayBG.png"));
+                    _background[3].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/purpleBG.png"));
+                    _background[4].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/redBG.png"));
 
 
-				
-				plockadbricka[0,0] = new Cursor(Application.GetResourceStream(new Uri("pack://application:,,,/Resources/lightHandleSmall.cur")).Stream);
-				plockadbricka[0,1] = new Cursor(Application.GetResourceStream(new Uri("pack://application:,,,/Resources/darkHandleSmall.cur")).Stream);
-				plockadbricka[0,2] = new Cursor(Application.GetResourceStream(new Uri("pack://application:,,,/Resources/blueHandleSmall.cur")).Stream);
-				plockadbricka[0,3] = new Cursor(Application.GetResourceStream(new Uri("pack://application:,,,/Resources/redHandleSmall.cur")).Stream);
-				plockadbricka[1,0] = new Cursor(Application.GetResourceStream(new Uri("pack://application:,,,/Resources/lightHandle.cur")).Stream);
-				plockadbricka[1,1] = new Cursor(Application.GetResourceStream(new Uri("pack://application:,,,/Resources/darkHandle.cur")).Stream);
-				plockadbricka[1,2] = new Cursor(Application.GetResourceStream(new Uri("pack://application:,,,/Resources/blueHandle.cur")).Stream);
-				plockadbricka[1,3] = new Cursor(Application.GetResourceStream(new Uri("pack://application:,,,/Resources/redHandle.cur")).Stream);
 
-				_diceshaker[0] = new BitmapImage(new Uri("pack://application:,,,/Resources/diceShaker.png"));
-				_diceshaker[1] = new BitmapImage(new Uri("pack://application:,,,/Resources/diceShakerDown.png"));
+                    plockadbricka[0, 0] = new Cursor(Application.GetResourceStream(new Uri("pack://application:,,,/Resources/lightHandleSmall.cur")).Stream);
+                    plockadbricka[0, 1] = new Cursor(Application.GetResourceStream(new Uri("pack://application:,,,/Resources/darkHandleSmall.cur")).Stream);
+                    plockadbricka[0, 2] = new Cursor(Application.GetResourceStream(new Uri("pack://application:,,,/Resources/blueHandleSmall.cur")).Stream);
+                    plockadbricka[0, 3] = new Cursor(Application.GetResourceStream(new Uri("pack://application:,,,/Resources/redHandleSmall.cur")).Stream);
+                    plockadbricka[1, 0] = new Cursor(Application.GetResourceStream(new Uri("pack://application:,,,/Resources/lightHandle.cur")).Stream);
+                    plockadbricka[1, 1] = new Cursor(Application.GetResourceStream(new Uri("pack://application:,,,/Resources/darkHandle.cur")).Stream);
+                    plockadbricka[1, 2] = new Cursor(Application.GetResourceStream(new Uri("pack://application:,,,/Resources/blueHandle.cur")).Stream);
+                    plockadbricka[1, 3] = new Cursor(Application.GetResourceStream(new Uri("pack://application:,,,/Resources/redHandle.cur")).Stream);
 
-				_dices[0, 0] = null; 
-                _dices[0, 1] = new BitmapImage(new Uri("pack://application:,,,/Resources/dice1Light.png"));
-                _dices[0, 2] = new BitmapImage(new Uri("pack://application:,,,/Resources/dice2Light.png"));
-                _dices[0, 3] = new BitmapImage(new Uri("pack://application:,,,/Resources/dice3Light.png"));
-                _dices[0, 4] = new BitmapImage(new Uri("pack://application:,,,/Resources/dice4Light.png"));
-                _dices[0, 5] = new BitmapImage(new Uri("pack://application:,,,/Resources/dice5Light.png"));
-                _dices[0, 6] = new BitmapImage(new Uri("pack://application:,,,/Resources/dice6Light.png"));
-                _dices[1, 0] = null;
-                _dices[1, 1] = new BitmapImage(new Uri("pack://application:,,,/Resources/dice1Black.png"));
-                _dices[1, 2] = new BitmapImage(new Uri("pack://application:,,,/Resources/dice2Black.png"));
-                _dices[1, 3] = new BitmapImage(new Uri("pack://application:,,,/Resources/dice3Black.png"));
-                _dices[1, 4] = new BitmapImage(new Uri("pack://application:,,,/Resources/dice4Black.png"));
-                _dices[1, 5] = new BitmapImage(new Uri("pack://application:,,,/Resources/dice5Black.png"));
-                _dices[1, 6] = new BitmapImage(new Uri("pack://application:,,,/Resources/dice6Black.png"));
-				_dices[2, 0] = null;
-				_dices[2, 1] = new BitmapImage(new Uri("pack://application:,,,/Resources/dice1Blue.png"));
-				_dices[2, 2] = new BitmapImage(new Uri("pack://application:,,,/Resources/dice2Blue.png"));
-				_dices[2, 3] = new BitmapImage(new Uri("pack://application:,,,/Resources/dice3Blue.png"));
-				_dices[2, 4] = new BitmapImage(new Uri("pack://application:,,,/Resources/dice4Blue.png"));
-				_dices[2, 5] = new BitmapImage(new Uri("pack://application:,,,/Resources/dice5Blue.png"));
-				_dices[2, 6] = new BitmapImage(new Uri("pack://application:,,,/Resources/dice6Blue.png"));
-				_dices[3, 0] = null;
-				_dices[3, 1] = new BitmapImage(new Uri("pack://application:,,,/Resources/dice1Red.png"));
-				_dices[3, 2] = new BitmapImage(new Uri("pack://application:,,,/Resources/dice2Red.png"));
-				_dices[3, 3] = new BitmapImage(new Uri("pack://application:,,,/Resources/dice3Red.png"));
-				_dices[3, 4] = new BitmapImage(new Uri("pack://application:,,,/Resources/dice4Red.png"));
-				_dices[3, 5] = new BitmapImage(new Uri("pack://application:,,,/Resources/dice5Red.png"));
-				_dices[3, 6] = new BitmapImage(new Uri("pack://application:,,,/Resources/dice6Red.png"));
+                    _diceshaker[0] = new BitmapImage(new Uri("pack://application:,,,/Resources/diceShaker.png"));
+                    _diceshaker[1] = new BitmapImage(new Uri("pack://application:,,,/Resources/diceShakerDown.png"));
 
-
-				_waitingdices[0] = new BitmapImage(new Uri("pack://application:,,,/Resources/dice11Light.png"));
-				_waitingdices[1] = new BitmapImage(new Uri("pack://application:,,,/Resources/dice11Black.png"));
-				_waitingdices[2] = new BitmapImage(new Uri("pack://application:,,,/Resources/dice11Blue.png"));
-				_waitingdices[3] = new BitmapImage(new Uri("pack://application:,,,/Resources/dice11Red.png"));
-
-				_triangelIsClicked[0].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/isClickedUpper.png"));
-				_triangelIsClicked[1].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/isClickedLower.png"));
-				_triangelIsClicked[2].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/isClickedUpperRed.png"));
-				_triangelIsClicked[3].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/isClickedLowerRed.png"));
-				
-                singleBrick[0].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/whiteChip1.png"));
-                doubleBrick[0].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/whiteChip2.png"));
-                tripleBrick[0].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/whiteChip3.png"));
-
-                singleBrick[1].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/darkChip1.png"));
-                doubleBrick[1].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/darkChip2.png"));
-                tripleBrick[1].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/darkChip3.png"));
-
-				singleBrick[2].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/blueChip1.png"));
-                doubleBrick[2].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/blueChip2Fix.png"));
-                tripleBrick[2].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/blueChip3Fix.png"));
-
-				singleBrick[3].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/redChip1Fix.png"));
-                doubleBrick[3].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/redChip2Fix.png"));
-                tripleBrick[3].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/redChip3Fix.png"));
-
-				brick[0].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/whiteChipGoal.png"));
-				brick[1].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/darkChipGoal.png"));
-				brick[2].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/blueChipGoalFix.png"));
-				brick[3].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/redChipGoalFix.png"));
+                    _dices[0, 0] = null;
+                    _dices[0, 1] = new BitmapImage(new Uri("pack://application:,,,/Resources/dice1Light.png"));
+                    _dices[0, 2] = new BitmapImage(new Uri("pack://application:,,,/Resources/dice2Light.png"));
+                    _dices[0, 3] = new BitmapImage(new Uri("pack://application:,,,/Resources/dice3Light.png"));
+                    _dices[0, 4] = new BitmapImage(new Uri("pack://application:,,,/Resources/dice4Light.png"));
+                    _dices[0, 5] = new BitmapImage(new Uri("pack://application:,,,/Resources/dice5Light.png"));
+                    _dices[0, 6] = new BitmapImage(new Uri("pack://application:,,,/Resources/dice6Light.png"));
+                    _dices[1, 0] = null;
+                    _dices[1, 1] = new BitmapImage(new Uri("pack://application:,,,/Resources/dice1Black.png"));
+                    _dices[1, 2] = new BitmapImage(new Uri("pack://application:,,,/Resources/dice2Black.png"));
+                    _dices[1, 3] = new BitmapImage(new Uri("pack://application:,,,/Resources/dice3Black.png"));
+                    _dices[1, 4] = new BitmapImage(new Uri("pack://application:,,,/Resources/dice4Black.png"));
+                    _dices[1, 5] = new BitmapImage(new Uri("pack://application:,,,/Resources/dice5Black.png"));
+                    _dices[1, 6] = new BitmapImage(new Uri("pack://application:,,,/Resources/dice6Black.png"));
+                    _dices[2, 0] = null;
+                    _dices[2, 1] = new BitmapImage(new Uri("pack://application:,,,/Resources/dice1Blue.png"));
+                    _dices[2, 2] = new BitmapImage(new Uri("pack://application:,,,/Resources/dice2Blue.png"));
+                    _dices[2, 3] = new BitmapImage(new Uri("pack://application:,,,/Resources/dice3Blue.png"));
+                    _dices[2, 4] = new BitmapImage(new Uri("pack://application:,,,/Resources/dice4Blue.png"));
+                    _dices[2, 5] = new BitmapImage(new Uri("pack://application:,,,/Resources/dice5Blue.png"));
+                    _dices[2, 6] = new BitmapImage(new Uri("pack://application:,,,/Resources/dice6Blue.png"));
+                    _dices[3, 0] = null;
+                    _dices[3, 1] = new BitmapImage(new Uri("pack://application:,,,/Resources/dice1Red.png"));
+                    _dices[3, 2] = new BitmapImage(new Uri("pack://application:,,,/Resources/dice2Red.png"));
+                    _dices[3, 3] = new BitmapImage(new Uri("pack://application:,,,/Resources/dice3Red.png"));
+                    _dices[3, 4] = new BitmapImage(new Uri("pack://application:,,,/Resources/dice4Red.png"));
+                    _dices[3, 5] = new BitmapImage(new Uri("pack://application:,,,/Resources/dice5Red.png"));
+                    _dices[3, 6] = new BitmapImage(new Uri("pack://application:,,,/Resources/dice6Red.png"));
 
 
-            }
+                    _waitingdices[0] = new BitmapImage(new Uri("pack://application:,,,/Resources/dice11Light.png"));
+                    _waitingdices[1] = new BitmapImage(new Uri("pack://application:,,,/Resources/dice11Black.png"));
+                    _waitingdices[2] = new BitmapImage(new Uri("pack://application:,,,/Resources/dice11Blue.png"));
+                    _waitingdices[3] = new BitmapImage(new Uri("pack://application:,,,/Resources/dice11Red.png"));
+
+                    _triangelIsClicked[0].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/isClickedUpper.png"));
+                    _triangelIsClicked[1].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/isClickedLower.png"));
+                    _triangelIsClicked[2].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/isClickedUpperRed.png"));
+                    _triangelIsClicked[3].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/isClickedLowerRed.png"));
+
+                    _goalIsClicked[0].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/goalRed.png"));
+                    _goalIsClicked[1].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/goalGreen.png"));
+
+                    singleBrick[0].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/whiteChip1.png"));
+                    doubleBrick[0].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/whiteChip2.png"));
+                    tripleBrick[0].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/whiteChip3.png"));
+
+                    singleBrick[1].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/darkChip1.png"));
+                    doubleBrick[1].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/darkChip2.png"));
+                    tripleBrick[1].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/darkChip3.png"));
+
+                    singleBrick[2].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/blueChip1.png"));
+                    doubleBrick[2].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/blueChip2Fix.png"));
+                    tripleBrick[2].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/blueChip3Fix.png"));
+
+                    singleBrick[3].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/redChip1Fix.png"));
+                    doubleBrick[3].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/redChip2Fix.png"));
+                    tripleBrick[3].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/redChip3Fix.png"));
+
+                    brick[0].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/whiteChipGoal.png"));
+                    brick[1].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/darkChipGoal.png"));
+                    brick[2].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/blueChipGoalFix.png"));
+                    brick[3].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/redChipGoalFix.png"));
 
 
-            
-            catch (Exception ex) 
-			{ 
-				MessageBox.Show(ex.Message);
- 				Environment.Exit(0);
-			}
+
+
+                }
+
+
+
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                    Environment.Exit(0);
+                }
 
 		}
 
