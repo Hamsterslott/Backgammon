@@ -260,9 +260,7 @@ namespace Backgammon
 			{
                 if (Settings.helpActive)
                 {
-                    List<int> animationstrianglar = _model.AvailableMoves(gameBoard, dice, spelare, selectedTriangles[0].getPos());
-                    foreach (int i in animationstrianglar) getTriangle(i).possibleMove(0);
-                    if(_model.AvailableMoveGoal(gameBoard, selectedTriangles[0].getPos(), dice, spelare))utslagna[(int)spelare].possibleMove(0);
+                    glowTriangles(0);
                 }
                 else
 					{
@@ -281,12 +279,7 @@ namespace Backgammon
 
 			if(pickedUp == 2)
 				{
-                    if (Settings.helpActive)
-                    {
-                        List<int> animationstrianglar = _model.AvailableMoves(gameBoard, dice, spelare, selectedTriangles[0].getPos());
-                        foreach (int i in animationstrianglar) getTriangle(i).possibleMove(1);
-                        if (_model.AvailableMoveGoal(gameBoard, selectedTriangles[0].getPos(), dice, spelare)) utslagna[(int)spelare].possibleMove(1);
-                    }
+                    if (Settings.helpActive) glowTriangles(1);
                     else
                         btnHelp.Visibility = System.Windows.Visibility.Collapsed;
 
@@ -427,6 +420,25 @@ namespace Backgammon
 			else if (pos == 25)	return triangle = gridMiddle.Children[1] as Triangle;
 			else return triangle = gridMiddle.Children[0] as Triangle;
         }	
+
+		public void glowTriangles(int onoff)
+		{
+			List<int>[] animationstrianglar = new List<int>[2];
+			animationstrianglar[0] = new List<int>();
+			animationstrianglar[1] = new List<int>();
+
+
+			_model.AvailableMoves(ref animationstrianglar,0,gameBoard, dice, spelare, selectedTriangles[0].getPos());
+
+			try {
+					foreach (int i in animationstrianglar[0]) getTriangle(i).possibleMove(0,onoff);
+					foreach (int i in animationstrianglar[1]) getTriangle(i).possibleMove(1,onoff);
+                    if(_model.AvailableMoveGoal(gameBoard, selectedTriangles[onoff].getPos(), dice, spelare))utslagna[(int)spelare].possibleMove(onoff);
+				}
+			catch {}
+		}
+
+
 
 
         private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -576,25 +588,19 @@ namespace Backgammon
 
         private void btnHelp_MouseEnter(object sender, MouseEventArgs e)
         {
-            List<int> animationstrianglar = _model.AvailableMoves(gameBoard, dice, spelare, selectedTriangles[0].getPos());
-            foreach (int i in animationstrianglar) getTriangle(i).possibleMove(0);
-			if(_model.AvailableMoveGoal(gameBoard, selectedTriangles[0].getPos(), dice, spelare))utslagna[(int)spelare].possibleMove(0);
+            glowTriangles(0);
         }
 
         private void btnHelp_MouseLeave(object sender, MouseEventArgs e)
         {
-            List<int> animationstrianglar = _model.AvailableMoves(gameBoard, dice, spelare, selectedTriangles[0].getPos());
-			foreach (int i in animationstrianglar) getTriangle(i).possibleMove(1);
-			 if(_model.AvailableMoveGoal(gameBoard, selectedTriangles[0].getPos(), dice, spelare))utslagna[(int)spelare].possibleMove(1);
+            glowTriangles(1);
         }
 
 		private void Window_MouseRightButtonDown(object sender, MouseButtonEventArgs e)
 		{
             if(pickedUp==1)
 			{
-                List<int> animationstrianglar = _model.AvailableMoves(gameBoard, dice, spelare, selectedTriangles[0].getPos());
-                if (Settings.helpActive) foreach (int i in animationstrianglar) getTriangle(i).possibleMove(1);
-				if(_model.AvailableMoveGoal(gameBoard, selectedTriangles[0].getPos(), dice, spelare))utslagna[(int)spelare].possibleMove(1);
+                glowTriangles(1);
 			    pickedUp = 0;
 			    setCursor();
 			    updateTriangle(selectedTriangles[0]);

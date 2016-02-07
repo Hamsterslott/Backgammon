@@ -66,7 +66,7 @@ namespace Backgammon
 			catch {Console.WriteLine("exception i triangel wrongMove()");};
 		}
 
-        public void possibleMove(int state)
+        public void possibleMove(int size,int state)
         {
             try {
                 if (_state == STATE.UPPER)
@@ -74,16 +74,21 @@ namespace Backgammon
                 else
                     background.Background = _mainWindow._triangelIsClicked[1];
 
-                if (state == 0)
+                if (state == 0 && size == 0)
                 {
                     DoubleAnimation animation = new DoubleAnimation(0.15, 0.75, TimeSpan.FromSeconds(1));
                     this.background.BeginAnimation(System.Windows.Controls.Canvas.OpacityProperty, animation); 
                 }
+				else if (state == 0 && size == 1)
+				{
+					DoubleAnimation animation = new DoubleAnimation(0.15, 0.25, TimeSpan.FromSeconds(1));
+                    this.background.BeginAnimation(System.Windows.Controls.Canvas.OpacityProperty, animation); 
+				}
                 else if (state == 1) {
                     DoubleAnimation animation = new DoubleAnimation(this.background.Opacity, 0, TimeSpan.FromSeconds(0.2));
                     this.background.BeginAnimation(System.Windows.Controls.Canvas.OpacityProperty, animation); 
                 }
-				else ;
+				else {};
 
                 
             }

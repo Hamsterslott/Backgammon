@@ -264,42 +264,49 @@ namespace Backgammon
         }
 
          //Funktion som tar reda på alla möjliga moves för en triangel.
-        public List<int> AvailableMoves(triangel[] spelplan, int[] dices, player spelare, int valdtriangel)
+        public void AvailableMoves(ref List<int>[] moves, int listindex, triangel[] spelplan, int[] dices, player spelare, int valdtriangel)
         {
-            List<int> moves = new List<int>();
             if (valdtriangel == 25) valdtriangel = 0;
             if (valdtriangel == 26) valdtriangel = 25;
-            int[] newDices;
             int index = -1;
-           
-            if (dices[0] == dices[1])
-            {
-                newDices = new int[5] { dices[0], dices[1], dices[0] * 2, dices[0] * 3, dices[0] * 4 };//0 och 1 för att veta att man har 2 av samma
-            }
-            else
-            {
-                newDices = new int[3] { dices[0], dices[1], dices[0] + dices[1] };
-            }
 	
 	        if(spelare == player.one)
             {
-                for(int i = 1; i < newDices.Length; i++)
+                for(int i = 0; i < dices.Length; i++)
 		        {
-			        if(valdtriangel == 0) index = legitMove(spelplan,-1,valdtriangel+newDices[i],newDices,spelare);
-			        else if(valdtriangel+newDices[i] < 25) index = legitMove(spelplan,valdtriangel,valdtriangel+newDices[i],newDices,spelare);
-			        if(index !=-1) moves.Add(valdtriangel+newDices[index]);
+			        if(valdtriangel == 0) index = legitMove(spelplan,-1,valdtriangel+dices[i],dices,spelare);
+			        else if(valdtriangel+dices[i] < 25) index = legitMove(spelplan,valdtriangel,valdtriangel+dices[i],dices,spelare);
+			        if(index !=-1) 
+					{
+						moves[listindex].Add(valdtriangel+dices[index]);
+						int[] nydice = new int[4];
+						triangel[] nyspelplan = new triangel[26];
+						Array.Copy(dices, nydice, 4);
+						Array.Copy(spelplan, nyspelplan, 26);
+						move(nyspelplan,valdtriangel,valdtriangel+dices[index],nydice,spelare);
+						AvailableMoves(ref moves,1,nyspelplan,nydice,spelare,valdtriangel+dices[index]);
+					}
 		        }
 	        }
 	        else
 	        {
-		        for(int i = 1; i < newDices.Length; i++)
+		        for(int i = 0; i < dices.Length; i++)
 		        {
-			        if(valdtriangel == 25) index = legitMove(spelplan,-1,valdtriangel-newDices[i],newDices,spelare);
-			        else if(valdtriangel-newDices[i] >= 1) index = legitMove(spelplan,valdtriangel,valdtriangel-newDices[i],newDices,spelare);
-			        if(index !=-1) moves.Add(valdtriangel+newDices[index]);
+			        if(valdtriangel == 25) index = legitMove(spelplan,-1,valdtriangel-dices[i],dices,spelare);
+			        else if(valdtriangel-dices[i] >= 1) index = legitMove(spelplan,valdtriangel,valdtriangel-dices[i],dices,spelare);
+			        if(index !=-1) 
+					{
+						moves[listindex].Add(valdtriangel-dices[index]);
+						int[] nydice = new int[4];
+						triangel[] nyspelplan = new triangel[26];
+						Array.Copy(dices, nydice, 4);
+						Array.Copy(spelplan, nyspelplan, 26);
+						move(nyspelplan,valdtriangel,valdtriangel-dices[index],nydice,spelare);
+						AvailableMoves(ref moves,1,nyspelplan,nydice,spelare,valdtriangel-dices[index]);
+					}
 		        }
 	        }
-	        return moves;
+
         }   
 
 		// Flyttar en bricka.
@@ -460,7 +467,7 @@ namespace Backgammon
 			if (spelplanPos > 18 && spelplanPos <= 24) return spelplanPos+1;
 			if(spelplanPos == 25) return 6;
 			if(spelplanPos == 26) return 19;
-			else return spelplanPos;
+			else return 19;
 		}
 
 
