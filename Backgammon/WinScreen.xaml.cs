@@ -22,6 +22,7 @@ namespace Backgammon
     {
 
         public MainWindow mainWindow;
+        private bool spaceUsed = false;
 
         public WinScreen()
         {
@@ -66,11 +67,12 @@ namespace Backgammon
 
         private void Window_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.Key == Key.Space) {
+            if (e.Key == Key.Space && !spaceUsed) {
                 DoubleAnimation fadeOut = new DoubleAnimation(1, 0, TimeSpan.FromSeconds(2));
                 fadeOut.Completed += new EventHandler(fadeOut_Completed);
                 this.BeginAnimation(System.Windows.Controls.Canvas.OpacityProperty, fadeOut);
             }
+            spaceUsed = true;
         }
         private void fadeOut_Completed(Object sender, EventArgs e) {
             mainWindow = new MainWindow();
