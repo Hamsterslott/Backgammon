@@ -76,11 +76,11 @@ namespace Backgammon
 
                 if (state == 0)
                 {
-                    DoubleAnimation animation = new DoubleAnimation(0, 1, TimeSpan.FromSeconds(1));
+                    DoubleAnimation animation = new DoubleAnimation(0.15, 0.75, TimeSpan.FromSeconds(1));
                     this.background.BeginAnimation(System.Windows.Controls.Canvas.OpacityProperty, animation); 
                 }
                 else if (state == 1) {
-                    DoubleAnimation animation = new DoubleAnimation(this.background.Opacity, 0, TimeSpan.FromSeconds(1));
+                    DoubleAnimation animation = new DoubleAnimation(this.background.Opacity, 0, TimeSpan.FromSeconds(0.2));
                     this.background.BeginAnimation(System.Windows.Controls.Canvas.OpacityProperty, animation); 
                 }
 				else ;
