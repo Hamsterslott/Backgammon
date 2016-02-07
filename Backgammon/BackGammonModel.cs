@@ -259,13 +259,8 @@ namespace Backgammon
         //True om det går, annars false
         public bool AvailableMoveGoal(triangel[] spelplan, int first, int[] dices, player spelare)
         {
-            int index = legitMoveGoal(spelplan, first, dices, spelare);
-            if (index != -1)
-            {
-                return true;
-            }
+            if (legitMoveGoal(spelplan, first, dices, spelare) != -1 && canMove(spelplan,spelare,dices) == 2) return true;
             return false;
-
         }
 
 
