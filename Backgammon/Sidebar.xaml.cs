@@ -254,9 +254,10 @@ namespace Backgammon
 			_mainWindow.utslagna[0].setSize(0);
 			_mainWindow.utslagna[1].setSize(0);
 			_mainWindow.updateView();
-			_mainWindow.btnDice.Visibility = System.Windows.Visibility.Visible;
-            _mainWindow.diceTop.Visibility = System.Windows.Visibility.Visible;
-            _mainWindow.diceBot.Visibility = System.Windows.Visibility.Visible;
+			_mainWindow.btnDice.Visibility = Visibility.Visible;
+            _mainWindow.diceTop.Visibility = Visibility.Visible;
+            _mainWindow.diceBot.Visibility = Visibility.Visible;
+			_mainWindow.btnHelp.Visibility = Visibility.Collapsed;
 			
 		}
 
@@ -316,10 +317,13 @@ namespace Backgammon
             {
                 Settings.helpActive = false;
                 btnHelp.Background = new ImageBrush(new BitmapImage(new Uri("pack://application:,,,/Resources/off.png")));
+				_mainWindow.glowTriangles(1);
             }
             else {
                 Settings.helpActive = true;
                 btnHelp.Background = new ImageBrush(new BitmapImage(new Uri("pack://application:,,,/Resources/on.png")));
+				_mainWindow.btnHelp.Visibility = Visibility.Collapsed;
+				if(_mainWindow.pickedUp == 1) _mainWindow.glowTriangles(0);
             }
         }
 

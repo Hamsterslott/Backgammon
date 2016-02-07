@@ -427,15 +427,13 @@ namespace Backgammon
 			animationstrianglar[0] = new List<int>();
 			animationstrianglar[1] = new List<int>();
 
-
 			_model.AvailableMoves(ref animationstrianglar,0,gameBoard, dice, spelare, selectedTriangles[0].getPos());
 
-			try {
-					foreach (int i in animationstrianglar[0]) getTriangle(i).possibleMove(0,onoff);
-					foreach (int i in animationstrianglar[1]) getTriangle(i).possibleMove(1,onoff);
-                    if(_model.AvailableMoveGoal(gameBoard, selectedTriangles[onoff].getPos(), dice, spelare))utslagna[(int)spelare].possibleMove(onoff);
-				}
-			catch {}
+			//om ni får krash härvid, notera spelet och meddela Timmy :)
+
+			foreach (int i in animationstrianglar[0]) getTriangle(i).possibleMove(0,onoff);
+			foreach (int i in animationstrianglar[1]) getTriangle(i).possibleMove(1,onoff);
+            if(_model.AvailableMoveGoal(gameBoard, selectedTriangles[0].getPos(), dice, spelare))utslagna[(int)spelare].possibleMove(onoff);
 		}
 
 
