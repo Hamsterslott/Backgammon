@@ -119,7 +119,7 @@
             </Canvas.Background>
         </Canvas>
 
-        <!--Rotate Viewe-->
+        <!--Rotate View-->
         <Canvas Name="RotateViewe" Grid.Row="6" Grid.Column="1" >
             <Label Name="Help" Content="Help" Foreground="Snow" FontFamily="Nueva Std Cond" FontSize="29" HorizontalAlignment="Center" VerticalAlignment="Top" Padding="120,0,0,1" Width="290"></Label>
             <Canvas Name="btnHelp" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="69" Height="32" Canvas.Top="36" RenderTransformOrigin="1.533,0.438" Canvas.Left="106" Opacity="0.5"
@@ -132,7 +132,7 @@
                 </Canvas.Background>
             </Canvas>
         </Canvas>
-        <!--How to playh-->
+        <!--How to play-->
         <Label Name="HowToPlayTxt" Grid.Row="7" Grid.Column="1" Content="How To Play" Padding="0,0,0,1" FontSize="29" Foreground="Snow" HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="Nueva Std Cond"></Label>
         <Canvas Name="HowToPlay" Grid.Row="7" Grid.Column="1" Width="70" Height="40" VerticalAlignment="Bottom" MouseLeftButtonDown="HowToPlay_MouseLeftButtonDown" MouseEnter="HowToPlay_MouseEnter" MouseLeave="HowToPlay_MouseLeave">
             <Canvas.Background>
