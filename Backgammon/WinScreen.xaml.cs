@@ -71,8 +71,8 @@ namespace Backgammon
                 DoubleAnimation fadeOut = new DoubleAnimation(1, 0, TimeSpan.FromSeconds(2));
                 fadeOut.Completed += new EventHandler(fadeOut_Completed);
                 this.BeginAnimation(System.Windows.Controls.Canvas.OpacityProperty, fadeOut);
+                spaceUsed = true;
             }
-            spaceUsed = true;
         }
         private void fadeOut_Completed(Object sender, EventArgs e) {
             mainWindow = new MainWindow();
