@@ -263,39 +263,44 @@ namespace Backgammon
             return false;
         }
 
-
-		//Funktion som tar reda på alla möjliga moves för en triangel.
-		public List<int> AvailableMoves(triangel[] spelplan, int[] dices, player spelare, int valdtriangel)
-		{
-			List<int> moves = new List<int>();
-			if(valdtriangel==25)valdtriangel=0;
-			if(valdtriangel==26)valdtriangel=25;
-
-			if(spelare == player.one)
-			{
-			for(int i = 1; i < 7; i++)
-			{
-				int index = -1;
-				if(valdtriangel == 0) index = legitMove(spelplan,-1,valdtriangel+i,dices,spelare);
-				else if(valdtriangel+i < 25) index = legitMove(spelplan,valdtriangel,valdtriangel+i,dices,spelare);
-				if(index != -1)  moves.Add(valdtriangel+dices[index]);
-			}
-			}
-			else
-			{
-				for(int i = 1; i < 7; i++)
-			{
-				int index = -1;
-				if(valdtriangel == 25) index = legitMove(spelplan,-1,valdtriangel-i,dices,spelare);
-				else if(valdtriangel-i >= 1) index = legitMove(spelplan,valdtriangel,valdtriangel-i,dices,spelare);
-				if(index != -1)  moves.Add(valdtriangel-dices[index]);
-			}
-
-			}
-			
-
-			return moves;
-		}
+         //Funktion som tar reda på alla möjliga moves för en triangel.
+        public List<int> AvailableMoves(triangel[] spelplan, int[] dices, player spelare, int valdtriangel)
+        {
+            List<int> moves = new List<int>();
+            if (valdtriangel == 25) valdtriangel = 0;
+            if (valdtriangel == 26) valdtriangel = 25;
+            int[] newDices;
+            int index = -1;
+           
+            if (dices[0] == dices[1])
+            {
+                newDices = new int[5] { dices[0], dices[1], dices[0] * 2, dices[0] * 3, dices[0] * 4 };//0 och 1 för att veta att man har 2 av samma
+            }
+            else
+            {
+                newDices = new int[3] { dices[0], dices[1], dices[0] + dices[1] };
+            }
+	
+	        if(spelare == player.one)
+            {
+                for(int i = 1; i < newDices.Length; i++)
+		        {
+			        if(valdtriangel == 0) index = legitMove(spelplan,-1,valdtriangel+newDices[i],newDices,spelare);
+			        else if(valdtriangel+newDices[i] < 25) index = legitMove(spelplan,valdtriangel,valdtriangel+newDices[i],newDices,spelare);
+			        if(index !=-1) moves.Add(valdtriangel+newDices[index]);
+		        }
+	        }
+	        else
+	        {
+		        for(int i = 1; i < newDices.Length; i++)
+		        {
+			        if(valdtriangel == 25) index = legitMove(spelplan,-1,valdtriangel-newDices[i],newDices,spelare);
+			        else if(valdtriangel-newDices[i] >= 1) index = legitMove(spelplan,valdtriangel,valdtriangel-newDices[i],newDices,spelare);
+			        if(index !=-1) moves.Add(valdtriangel+newDices[index]);
+		        }
+	        }
+	        return moves;
+        }   
 
 		// Flyttar en bricka.
 		// returnar true om det gick, annars false.
