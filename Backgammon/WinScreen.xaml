@@ -10,7 +10,6 @@
                     <ImageBrush ImageSource="Resources/win.jpg"/>
                 </Canvas.Background>
             </Canvas>
-            <MediaElement Name="video" Width="1280" Source="http://nosheep.ninja/win.wmv"></MediaElement>
             
             <Button x:Name="maximize" Click="maximize_Click" Content="[___]" HorizontalAlignment="Right" Margin="0,10,43,0" VerticalAlignment="Top" Width="28" Height="28" Background="#FFB87B23" Focusable="False"/>
             <Button x:Name="minimize" Click="minimize_Click" Content="_____" HorizontalAlignment="Right" Margin="0,10,76,0" VerticalAlignment="Top" Width="28" Height="28" Background="#FFB87B23" Focusable="False"/>
