@@ -55,6 +55,9 @@ namespace Backgammon
 		//brickholder bilder
 		internal ImageBrush[] brick = new ImageBrush[4];
         internal ImageBrush[] _goalIsClicked = new ImageBrush[2];
+
+        //winscreen bilder
+        internal ImageBrush[] winningScreen = new ImageBrush[4];
         
 		
 
@@ -68,8 +71,8 @@ namespace Backgammon
 		private void init()
 		{
 
-			gameBoard = _model.newGame();
-            //gameBoard = _model.endGame();
+			//gameBoard = _model.newGame();
+            gameBoard = _model.endGame();
             //gameBoard = _model.highStack();
             //gameBoard = _model.bricksInMiddle();
 
@@ -120,6 +123,7 @@ namespace Backgammon
                     doubleBrick[i] = new ImageBrush();
                     tripleBrick[i] = new ImageBrush();
 					brick[i] = new ImageBrush();
+                    winningScreen[i] = new ImageBrush();
                 }
 
 			
@@ -217,6 +221,11 @@ namespace Backgammon
                     brick[1].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/darkChipGoal.png"));
                     brick[2].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/blueChipGoalFix.png"));
                     brick[3].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/redChipGoalFix.png"));
+
+                    winningScreen[0].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/WinscreenWhite.png"));
+                    winningScreen[1].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/WinscreenBlack.png"));
+                    winningScreen[2].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/WinscreenBlue.png"));
+                    winningScreen[3].ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/WinscreenRed.png"));
 
 
 

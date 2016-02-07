@@ -85,7 +85,8 @@ namespace Backgammon
             {
                 DoubleAnimation fadeOut = new DoubleAnimation(1, 0, TimeSpan.FromSeconds(2));
                 fadeOut.Completed += new EventHandler(fadeOut_Completed);
-                _mainWindow.BeginAnimation(System.Windows.Controls.Canvas.OpacityProperty, fadeOut);
+                //_mainWindow.BeginAnimation(System.Windows.Controls.Canvas.OpacityProperty, fadeOut);
+                _mainWindow.spelPlan.BeginAnimation(System.Windows.Controls.Canvas.OpacityProperty, fadeOut);
             }
             update();
 		}
@@ -93,10 +94,12 @@ namespace Backgammon
             DoubleAnimation fadeIn = new DoubleAnimation(0, 1, TimeSpan.FromSeconds(2));
             fadeIn.Completed += new EventHandler(fadeIn_Completed);
             winScreen = new WinScreen();
-            if (_color == 0)
-                winScreen.setWinner("PLAYER 1");
-            else
-                winScreen.setWinner("PLAYER 2");
+            winScreen.WinningCurrentBackground.Background = _mainWindow.duk.Background;    
+
+            if (_color == 0)  
+                winScreen.WinningScreenCanvas.Background = _mainWindow.winningScreen[Settings.playerTheme[0]];                
+            else            
+                winScreen.WinningScreenCanvas.Background = _mainWindow.winningScreen[Settings.playerTheme[1]]; 
             winScreen.setLink(_mainWindow);
             winScreen.Show();
             winScreen.BeginAnimation(System.Windows.Controls.Canvas.OpacityProperty, fadeIn);
@@ -119,11 +122,13 @@ namespace Backgammon
             _size = size;
             if (_size >= 15)
             {
-                WinScreen winScreen = new WinScreen();
-                if(_color == 0)
-                    winScreen.setWinner("PLAYER 1");
-                else
-                    winScreen.setWinner("PLAYER 2");
+                //Kolla om detta ska bort!!!
+
+                //WinScreen winScreen = new WinScreen();
+                //if(_color == 0)
+                //    winScreen.setWinner("PLAYER 1");
+                //else
+                //    winScreen.setWinner("PLAYER 2");
                 winScreen.setLink(_mainWindow);
                 winScreen.Show();
                 _mainWindow.Close();

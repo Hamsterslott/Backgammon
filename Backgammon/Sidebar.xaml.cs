@@ -179,7 +179,7 @@ namespace Backgammon
         private void BackgroundPrev_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             _mainWindow.setBackground(Settings.backgroundpos[1]);
-			BackgroundActive.Background = _mainWindow._background[Settings.backgroundpos[1]];
+            BackgroundActive.Background = _mainWindow._background[Settings.backgroundpos[1]];
 			BackgroundPrev.Background = _mainWindow._background[Settings.backgroundpos[0]];
 			Swap(ref Settings.backgroundpos[0],ref Settings.backgroundpos[1]);
         }

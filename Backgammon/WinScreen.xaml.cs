@@ -29,9 +29,9 @@ namespace Backgammon
             InitializeComponent();
         }
 
-        public void setWinner(string winner) {
-            Winner.Content = winner + " WON!!!";
-        }
+       // public void setWinner(string winner) {
+         //   Winner.Content = winner + " WON!!!";
+        //}
         public void setLink(MainWindow mw) {
             mainWindow = mw;
             this.Width = mw.Width;

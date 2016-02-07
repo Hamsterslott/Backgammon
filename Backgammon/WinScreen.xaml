@@ -5,21 +5,15 @@
         Icon="Resources/splashBG.png" BorderBrush="Black" AllowsTransparency="True" MouseLeftButtonDown="Window_MouseLeftButtonDown" KeyDown="Window_KeyDown">
     <Viewbox Stretch="Fill">
         <Grid>
-            <Canvas Width="1280" Margin="0,0,0,0">
-                <Canvas.Background>
-                    <ImageBrush ImageSource="Resources/win.jpg"/>
-                </Canvas.Background>
+            <Canvas Name="WinningCurrentBackground" Width="1280" Margin="0,0,0,0"></Canvas>
+            <Canvas Name="WinningScreenCanvas" Width="1280" Margin="0,0,0,0">                
             </Canvas>
+            
             
             <Button x:Name="maximize" Click="maximize_Click" Content="[___]" HorizontalAlignment="Right" Margin="0,10,43,0" VerticalAlignment="Top" Width="28" Height="28" Background="#FFB87B23" Focusable="False"/>
             <Button x:Name="minimize" Click="minimize_Click" Content="_____" HorizontalAlignment="Right" Margin="0,10,76,0" VerticalAlignment="Top" Width="28" Height="28" Background="#FFB87B23" Focusable="False"/>
             <Button x:Name="exit" Click="exit_Click" Content="X" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="28" Height="28" Background="#FFB41616" Focusable="False"/>
-
-            <Label Name="Winner" HorizontalAlignment="Center" Content="PLAYER X WON!!!!!" FontSize="40" Foreground="Orange" Margin="149,10,175,889">
-                <Label.Effect>
-                    <DropShadowEffect Color="#FF890000"/>
-                </Label.Effect>
-            </Label>
+            
             <Label FontSize="58" Foreground="Orange" Margin="272,850,272,10">
                 <Label.Effect>
                     <DropShadowEffect Color="#FF890000"/>
