@@ -9,6 +9,7 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
@@ -66,10 +67,20 @@ namespace Backgammon
         private void Window_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Space) {
-                mainWindow = new MainWindow();
-                mainWindow.Show();
-                this.Close();
+                DoubleAnimation fadeOut = new DoubleAnimation(1, 0, TimeSpan.FromSeconds(2));
+                fadeOut.Completed += new EventHandler(fadeOut_Completed);
+                this.BeginAnimation(System.Windows.Controls.Canvas.OpacityProperty, fadeOut);
             }
+        }
+        private void fadeOut_Completed(Object sender, EventArgs e) {
+            mainWindow = new MainWindow();
+            mainWindow.Show();
+            DoubleAnimation fadeIn = new DoubleAnimation(0, 1, TimeSpan.FromSeconds(2));
+            fadeIn.Completed += new EventHandler(fadeIn_Completed);
+            mainWindow.BeginAnimation(System.Windows.Controls.Canvas.OpacityProperty, fadeIn);
+        }
+        private void fadeIn_Completed(Object sender, EventArgs e) {
+            this.Close();
         }
     }
 }

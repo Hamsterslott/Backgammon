@@ -19,7 +19,7 @@ namespace Backgammon
 
     public partial class BrickHolder : UserControl
     {
-
+        private WinScreen winScreen = null;
 		private MainWindow _mainWindow = null;
         private player _color;
         private int _size = 0;
@@ -83,19 +83,29 @@ namespace Backgammon
 			_size++;
 			if (_size >= 15)
             {
-                Settings.isSongPlaying = false;
-                _mainWindow.song.Stop();
-                WinScreen winScreen = new WinScreen();
-                if(_color == 0)
-                    winScreen.setWinner("PLAYER 1");
-                else
-                    winScreen.setWinner("PLAYER 2");
-                winScreen.setLink(_mainWindow);
-                winScreen.Show();
-                _mainWindow.Close();
+                DoubleAnimation fadeOut = new DoubleAnimation(1, 0, TimeSpan.FromSeconds(2));
+                fadeOut.Completed += new EventHandler(fadeOut_Completed);
+                _mainWindow.BeginAnimation(System.Windows.Controls.Canvas.OpacityProperty, fadeOut);
             }
             update();
 		}
+        private void fadeOut_Completed(Object sender, EventArgs e) {
+            DoubleAnimation fadeIn = new DoubleAnimation(0, 1, TimeSpan.FromSeconds(2));
+            fadeIn.Completed += new EventHandler(fadeIn_Completed);
+            winScreen = new WinScreen();
+            if (_color == 0)
+                winScreen.setWinner("PLAYER 1");
+            else
+                winScreen.setWinner("PLAYER 2");
+            winScreen.setLink(_mainWindow);
+            winScreen.Show();
+            winScreen.BeginAnimation(System.Windows.Controls.Canvas.OpacityProperty, fadeIn);
+        }
+        private void fadeIn_Completed(Object sender, EventArgs e) {
+            Settings.isSongPlaying = false;
+            _mainWindow.song.Stop();
+            _mainWindow.Close();
+        }
 
         // GETTERS AND SETTERS //
 		public void setLink(MainWindow mw) {
