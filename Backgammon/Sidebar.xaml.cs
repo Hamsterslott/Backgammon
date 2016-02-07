@@ -241,6 +241,9 @@ namespace Backgammon
 
 		private void NewGameImg_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
 		{
+			List<int> animationstrianglar = _mainWindow._model.AvailableMoves(_mainWindow.gameBoard, _mainWindow.dice, _mainWindow.spelare, _mainWindow.selectedTriangles[0].getPos());
+			foreach (int i in animationstrianglar) _mainWindow.getTriangle(i).possibleMove(1);
+			 if(_mainWindow._model.AvailableMoveGoal(_mainWindow.gameBoard, _mainWindow.selectedTriangles[0].getPos(), _mainWindow.dice, _mainWindow.spelare))_mainWindow.utslagna[(int)_mainWindow.spelare].possibleMove(1);
 			_mainWindow.gameBoard = _mainWindow._model.newGame();
 			_mainWindow.dice = new int[4];
 			_mainWindow.pickedUp = 0;
