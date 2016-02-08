@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -23,10 +24,13 @@ namespace Backgammon
 
         public MainWindow mainWindow;
         private bool spaceUsed = false;
+        private SoundPlayer victory = new SoundPlayer(Properties.Resources.victory);
 
         public WinScreen()
         {
             InitializeComponent();
+            if(Settings.playSound)
+                victory.Play();
         }
 
        // public void setWinner(string winner) {
@@ -75,6 +79,7 @@ namespace Backgammon
             }
         }
         private void fadeOut_Completed(Object sender, EventArgs e) {
+            victory.Stop();
             mainWindow = new MainWindow();
             mainWindow.Show();
             DoubleAnimation fadeIn = new DoubleAnimation(0, 1, TimeSpan.FromSeconds(2));

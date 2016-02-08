@@ -289,6 +289,7 @@ namespace Backgammon
                     {
                         if (selectedTriangles[0].getPos() != 25 && selectedTriangles[0].getPos() != 26 || selectedTriangles[0].getPos()+selectedTriangles[1].getPos() == 51)
                         {
+                            if(Settings.playSound) wrongMove.Play();
                             message.show("Du måste placera ut din utslagna bricka");
                         }
                         else if (!_model.move(gameBoard, selectedTriangles[0].getPos(), selectedTriangles[1].getPos(), dice, spelare))
