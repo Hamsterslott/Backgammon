@@ -278,7 +278,7 @@ namespace Backgammon
 			        else if(valdtriangel+dices[i] < 25) index = legitMove(spelplan,valdtriangel,valdtriangel+dices[i],dices,spelare);
 			        if(index !=-1) 
 					{
-						moves[listindex].Add(valdtriangel+dices[index]);
+						if(!moves[listindex].Contains(valdtriangel+dices[index]))moves[listindex].Add(valdtriangel+dices[index]);
 						int[] nydice = new int[4];
 						triangel[] nyspelplan = new triangel[26];
 						Array.Copy(dices, nydice, 4);
@@ -296,7 +296,7 @@ namespace Backgammon
 			        else if(valdtriangel-dices[i] >= 1) index = legitMove(spelplan,valdtriangel,valdtriangel-dices[i],dices,spelare);
 			        if(index !=-1) 
 					{
-						moves[listindex].Add(valdtriangel-dices[index]);
+						if(!moves[listindex].Contains(valdtriangel-dices[index]))moves[listindex].Add(valdtriangel-dices[index]);
 						int[] nydice = new int[4];
 						triangel[] nyspelplan = new triangel[26];
 						Array.Copy(dices, nydice, 4);
