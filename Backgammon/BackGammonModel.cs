@@ -128,8 +128,8 @@ namespace Backgammon
             spelplan[3].color = player.two;
             spelplan[5].antal = 5;
             spelplan[5].color = player.two;
-            spelplan[6].antal = 1;
-            spelplan[6].color = player.one;
+           // spelplan[6].antal = 1;
+           // spelplan[6].color = player.one;
             spelplan[8].antal = 3;
             spelplan[8].color = player.two;
             spelplan[12].antal = 3;
