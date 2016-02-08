@@ -70,8 +70,8 @@ namespace Backgammon
 
 		private void init()
 		{
-			gameBoard = _model.newGame();
-			//gameBoard = _model.endGame();
+			//gameBoard = _model.newGame();
+			gameBoard = _model.endGame();
 			//gameBoard = _model.highStack();
 			//gameBoard = _model.bricksInMiddle();
 
@@ -449,10 +449,16 @@ namespace Backgammon
 
 		private void maximize_Click(object sender, RoutedEventArgs e)
 		{
-			if (WindowState == WindowState.Maximized)
-				WindowState = WindowState.Normal;
-			else
-				WindowState = WindowState.Maximized;
+            if (WindowState == WindowState.Maximized)
+            {
+                WindowState = WindowState.Normal;
+                if (this.Width > 1280)
+                    this.Width = 1280;
+                if (this.Height > 720)
+                    this.Height = 720;
+            }
+            else
+                WindowState = WindowState.Maximized;
 		}
 
 		private void minimize_Click(object sender, RoutedEventArgs e)
