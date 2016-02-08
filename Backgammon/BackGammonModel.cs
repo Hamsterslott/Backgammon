@@ -117,48 +117,39 @@ namespace Backgammon
             return spelplan;
         }
 
-        //En funktion som illustrerar hur det ser ut när man har en utslagen bricka
         public triangel[] bricksInMiddle()
         {
             triangel[] spelplan = new triangel[26];
             spelplan[0].antal = 2;
-            spelplan[0].color = player.two;
-			spelplan[1].antal = 2;
-            spelplan[1].color = player.two;
-			spelplan[2].antal = 2;
+            spelplan[0].color = player.one;
+            spelplan[2].antal = 1;
             spelplan[2].color = player.two;
-			spelplan[3].antal = 2;
+            spelplan[3].antal = 2;
             spelplan[3].color = player.two;
-			spelplan[4].antal = 2;
-            spelplan[4].color = player.two;
-            spelplan[5].antal = 2;
+            spelplan[5].antal = 5;
             spelplan[5].color = player.two;
-			spelplan[6].antal = 5;
+            spelplan[6].antal = 1;
             spelplan[6].color = player.one;
             spelplan[8].antal = 3;
             spelplan[8].color = player.two;
-            spelplan[12].antal = 5;
-            spelplan[12].color = player.one;
-            spelplan[13].antal = 4;
+            spelplan[12].antal = 3;
+            spelplan[12].color = player.two;
+            spelplan[13].antal = 5;
             spelplan[13].color = player.two;
-            spelplan[17].antal = 3;
-            spelplan[17].color = player.one;
+            spelplan[18].antal = 1;
+            spelplan[18].color = player.one;
             spelplan[19].antal = 1;
             spelplan[19].color = player.two;
-			spelplan[20].antal = 2;
+            spelplan[20].antal = 5;
             spelplan[20].color = player.one;
-			spelplan[21].antal = 2;
+            spelplan[21].antal = 1;
             spelplan[21].color = player.one;
-			spelplan[22].antal = 2;
-            spelplan[22].color = player.one;
-			spelplan[23].antal = 2;
-            spelplan[23].color = player.one;
-			spelplan[24].antal = 2;
+            spelplan[24].antal = 3;
             spelplan[24].color = player.one;
-            spelplan[25].antal = 2;
-            spelplan[25].color = player.one;
+
             return spelplan;
         }
+
 
 
 

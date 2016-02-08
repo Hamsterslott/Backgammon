@@ -72,9 +72,9 @@ namespace Backgammon
 		{
 
 			//gameBoard = _model.newGame();
-            gameBoard = _model.endGame();
+            //gameBoard = _model.endGame();
             //gameBoard = _model.highStack();
-            //gameBoard = _model.bricksInMiddle();
+            gameBoard = _model.bricksInMiddle();
 
             message = theGrid.Children[2] as Message;
 
