@@ -170,8 +170,6 @@
     <Resource Include="Resources\dice11Black.png" />
     <Resource Include="Resources\darkHandle.cur" />
     <Resource Include="Resources\lightHandle.cur" />
-    <Resource Include="Resources\arrowLeft.png" />
-    <Resource Include="Resources\arrowRight.png" />
     <Resource Include="Resources\redChip2.png" />
     <Resource Include="Resources\redChip3.png" />
     <Resource Include="Resources\whiteBlackButton.png" />
@@ -185,7 +183,6 @@
     <Resource Include="Resources\omspelet.png" />
     <Resource Include="Resources\NewGame.png" />
     <Resource Include="Resources\PilRight.png" />
-    <Resource Include="Resources\folder.png" />
     <Resource Include="Resources\redChip1.png" />
     <Resource Include="Resources\blueChipGoal.png" />
     <Resource Include="Resources\redChipGoal.png" />
@@ -216,54 +213,20 @@
     <Resource Include="Resources\grayBG.png" />
     <Resource Include="Resources\blueBG.png" />
     <Resource Include="Resources\purpleBG.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Resources\redChip1Fix.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Resources\redChip2Fix.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Resources\redChip3Fix.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Resources\redChipGoalFix.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Resources\blueChipGoalFix.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Resources\blueChip3Fix.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Resources\blueChip2Fix.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\ruleseng.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resources\win.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Resources\off.png" />
     <Resource Include="Resources\on.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resources\lightOff.png" />
-    <Resource Include="Resources\lightOn.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resources\helpButton.png" />
     <Resource Include="Resources\helpButtonDown.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Resources\goalGreen.png" />
     <Resource Include="Resources\goalRed.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Resources\victory.wav" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Resources\WinscreenBlack.png" />
     <Resource Include="Resources\WinscreenBlue.png" />
     <Resource Include="Resources\WinscreenRed.png" />
