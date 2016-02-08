@@ -705,6 +705,121 @@ namespace Backgammon
             ok = ok && test.canMove(testspelplan, player.two, dices1) == -1;
             System.Diagnostics.Debug.WriteLine("canMove " + ok);
 
+			//Test AvailableMoveGoal()
+			//
+            testspelplan = new triangel[26];
+            testspelplan[2].antal = 1;
+            testspelplan[2].color = player.two;
+            testspelplan[3].antal = 2;
+            testspelplan[3].color = player.two;
+            testspelplan[4].antal = 2;
+            testspelplan[4].color = player.two;
+            testspelplan[5].antal = 2;
+            testspelplan[5].color = player.two;
+            testspelplan[6].antal = 5;
+            testspelplan[6].color = player.one;
+            testspelplan[8].antal = 3;
+            testspelplan[8].color = player.two;
+            testspelplan[12].antal = 5;
+            testspelplan[12].color = player.one;
+            dices1[0] = 2;
+            dices1[1] = 1;
+
+            triangel[] testspelplan1 = new triangel[26];
+			testspelplan1[0].antal = 5;
+            testspelplan1[0].color = player.two;
+            testspelplan1[1].antal = 5;
+            testspelplan1[1].color = player.two;
+            testspelplan1[2].antal = 4;
+            testspelplan1[2].color = player.two;
+			testspelplan1[3].antal = 1;
+			testspelplan1[3].color = player.two;
+            testspelplan1[22].antal = 2;
+			testspelplan1[22].color = player.one;
+            testspelplan1[23].antal = 5;
+			testspelplan1[23].color = player.one;
+            testspelplan1[24].antal = 3;
+			testspelplan1[24].color = player.one;
+            testspelplan1[25].antal = 5;
+			testspelplan1[25].color = player.one;
+
+            //Spelare One
+            ok = ok && test.AvailableMoveGoal(testspelplan, 3, dices1, player.one) == false;
+            ok = ok && test.AvailableMoveGoal(testspelplan, 8, dices1, player.one) == false;
+           
+			ok = ok && test.AvailableMoveGoal(testspelplan1, 25, dices1, player.one) == false;
+            ok = ok && test.AvailableMoveGoal(testspelplan1, 24, dices1, player.one) == true;
+            ok = ok && test.AvailableMoveGoal(testspelplan1, 23, dices1, player.one) == true;
+            dices1[0] = 4;
+            dices1[1] = 4;
+            dices1[2] = 4;
+            dices1[3] = 4;
+            ok = ok && test.AvailableMoveGoal(testspelplan1, 25, dices1, player.one) == false;
+            ok = ok && test.AvailableMoveGoal(testspelplan1, 24, dices1, player.one) == false;
+            ok = ok && test.AvailableMoveGoal(testspelplan1, 23, dices1, player.one) == false;
+            ok = ok && test.AvailableMoveGoal(testspelplan1, 22, dices1, player.one) == false;
+			testspelplan1[21].antal = 0;
+            testspelplan1[22].antal = 0;
+            ok = ok && test.AvailableMoveGoal(testspelplan1, 22, dices1, player.one) == true;
+            ok = ok && test.AvailableMoveGoal(testspelplan1, 23, dices1, player.one) == false;
+            ok = ok && test.AvailableMoveGoal(testspelplan1, 24, dices1, player.one) == false;
+            ok = ok && test.AvailableMoveGoal(testspelplan1, 25, dices1, player.one) == false;
+			testspelplan1[23].antal = 0;
+			ok = ok && test.AvailableMoveGoal(testspelplan1, 22, dices1, player.one) == false;
+			ok = ok && test.AvailableMoveGoal(testspelplan1, 23, dices1, player.one) == true;
+			ok = ok && test.AvailableMoveGoal(testspelplan1, 24, dices1, player.one) == false;
+			ok = ok && test.AvailableMoveGoal(testspelplan1, 25, dices1, player.one) == false;
+            testspelplan1[24].antal = 0;
+			ok = ok && test.AvailableMoveGoal(testspelplan1, 22, dices1, player.one) == false;
+			ok = ok && test.AvailableMoveGoal(testspelplan1, 23, dices1, player.one) == false;
+			ok = ok && test.AvailableMoveGoal(testspelplan1, 24, dices1, player.one) == true;
+			ok = ok && test.AvailableMoveGoal(testspelplan1, 25, dices1, player.one) == false;
+			testspelplan1[25].antal = 0;
+			ok = ok && test.AvailableMoveGoal(testspelplan1, 22, dices1, player.one) == false;
+			ok = ok && test.AvailableMoveGoal(testspelplan1, 23, dices1, player.one) == false;
+			ok = ok && test.AvailableMoveGoal(testspelplan1, 24, dices1, player.one) == false;
+			ok = ok && test.AvailableMoveGoal(testspelplan1, 25, dices1, player.one) == false;
+
+            //Spelare Two
+			dices1[0] = 2;
+			dices1[1] = 1;
+			ok = ok && test.AvailableMoveGoal(testspelplan, 12, dices1, player.two) == false;
+			ok = ok && test.AvailableMoveGoal(testspelplan, 6, dices1, player.two) == false;
+
+			ok = ok && test.AvailableMoveGoal(testspelplan1, 0, dices1, player.two) == false;
+			ok = ok && test.AvailableMoveGoal(testspelplan1, 1, dices1, player.two) == true;
+			ok = ok && test.AvailableMoveGoal(testspelplan1, 2, dices1, player.two) == true;
+			dices1[0] = 4;
+			dices1[1] = 4;
+			dices1[2] = 4;
+			dices1[3] = 4;
+			ok = ok && test.AvailableMoveGoal(testspelplan1, 0, dices1, player.two) == false;
+			ok = ok && test.AvailableMoveGoal(testspelplan1, 1, dices1, player.two) == false;
+			ok = ok && test.AvailableMoveGoal(testspelplan1, 2, dices1, player.two) == false;
+			ok = ok && test.AvailableMoveGoal(testspelplan1, 3, dices1, player.two) == false;
+			testspelplan1[4].antal = 0;
+			testspelplan1[3].antal = 0;
+			ok = ok && test.AvailableMoveGoal(testspelplan1, 3, dices1, player.two) == true;
+			ok = ok && test.AvailableMoveGoal(testspelplan1, 2, dices1, player.two) == false;
+			ok = ok && test.AvailableMoveGoal(testspelplan1, 1, dices1, player.two) == false;
+			ok = ok && test.AvailableMoveGoal(testspelplan1, 0, dices1, player.two) == false;
+			testspelplan1[2].antal = 0;
+			ok = ok && test.AvailableMoveGoal(testspelplan1, 3, dices1, player.two) == false;
+			ok = ok && test.AvailableMoveGoal(testspelplan1, 2, dices1, player.two) == true;
+			ok = ok && test.AvailableMoveGoal(testspelplan1, 1, dices1, player.two) == false;
+			ok = ok && test.AvailableMoveGoal(testspelplan1, 0, dices1, player.two) == false;
+			testspelplan1[1].antal = 0;
+			ok = ok && test.AvailableMoveGoal(testspelplan1, 3, dices1, player.two) == false;
+			ok = ok && test.AvailableMoveGoal(testspelplan1, 2, dices1, player.two) == false;
+			ok = ok && test.AvailableMoveGoal(testspelplan1, 1, dices1, player.two) == true;
+			ok = ok && test.AvailableMoveGoal(testspelplan1, 0, dices1, player.two) == false;
+			testspelplan1[0].antal = 0;
+			ok = ok && test.AvailableMoveGoal(testspelplan1, 3, dices1, player.two) == false;
+			ok = ok && test.AvailableMoveGoal(testspelplan1, 2, dices1, player.two) == false;
+			ok = ok && test.AvailableMoveGoal(testspelplan1, 1, dices1, player.two) == false;
+			ok = ok && test.AvailableMoveGoal(testspelplan1, 0, dices1, player.two) == false;
+
+			System.Diagnostics.Debug.WriteLine("AvailableMoveGoal " + ok);
 
             return ok;
 		}
