@@ -107,7 +107,7 @@ namespace Backgammon
         private void fadeIn_Completed(Object sender, EventArgs e) {
             Settings.isSongPlaying = false;
             _mainWindow.song.Stop();
-            _mainWindow.Close();
+            _mainWindow.Visibility = System.Windows.Visibility.Collapsed;
         }
 
         // GETTERS AND SETTERS //

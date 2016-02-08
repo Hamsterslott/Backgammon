@@ -84,9 +84,6 @@ namespace Backgammon
         }
         private void fadeOut_Completed(Object sender, EventArgs e) {
             victory.Stop();
-            MainWindow temp = mainWindow;
-            mainWindow = new MainWindow();
-            mainWindow.setBackground(Settings.background);
             mainWindow.WindowStartupLocation = System.Windows.WindowStartupLocation.Manual;
             mainWindow.Width = this.Width;
             mainWindow.Height = this.Height;
@@ -94,7 +91,8 @@ namespace Backgammon
             mainWindow.Top = this.Top;
             if (this.WindowState == System.Windows.WindowState.Maximized)
                 mainWindow.WindowState = System.Windows.WindowState.Maximized;
-            mainWindow.Show();
+            mainWindow.Sidebar.NewGameImg_MouseLeftButtonDown(new object(), new MouseButtonEventArgs(Mouse.PrimaryDevice, 0, MouseButton.Left));
+            mainWindow.Visibility = System.Windows.Visibility.Visible;
             DoubleAnimation fadeIn = new DoubleAnimation(0, 1, TimeSpan.FromSeconds(2));
             fadeIn.Completed += new EventHandler(fadeIn_Completed);
             mainWindow.spelPlan.BeginAnimation(System.Windows.Controls.Canvas.OpacityProperty, fadeIn);

@@ -248,8 +248,6 @@ namespace Backgammon
 			for (int i = 0; i < dices.Length; i++) dices[i].Source = _dices[Settings.playerTheme[(int)spelare],dice[i]];
 		}
 
-
-
 		public void playGame(Triangle t)
 		{
 			int status = _model.canMove(gameBoard, spelare, dice);

@@ -119,8 +119,6 @@ namespace Backgammon
 				_mainWindow.Sidebar.Width = 290;
 				info.Width = new GridLength(0);
 			}
-			
-			
         }
 
         private void BlackWhite_MouseEnter(object sender, MouseEventArgs e)
@@ -239,7 +237,7 @@ namespace Backgammon
             CloseMeny.Background.Opacity = 0.5;
         }
 
-		private void NewGameImg_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+		internal void NewGameImg_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
 		{	
 			if(_mainWindow.pickedUp == 1)
 			{
