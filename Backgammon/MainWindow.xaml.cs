@@ -535,7 +535,7 @@ namespace Backgammon
                 if (spelare == player.one) spelare = player.two;
                 else spelare = player.one;
                 dice = _model.letsRollTheDice();
-				DoubleAnimation undvikagc = new DoubleAnimation(0, 0, TimeSpan.FromSeconds(0));
+				DoubleAnimation undvikagc = new DoubleAnimation(0, 0, TimeSpan.FromSeconds(0.01));
 				undvikagc.Completed += new EventHandler(undvikagc_completed);
                 Sidebar.BeginAnimation(Sidebar.OpacityProperty, undvikagc);
 				}
