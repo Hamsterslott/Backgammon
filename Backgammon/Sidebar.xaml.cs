@@ -317,7 +317,7 @@ namespace Backgammon
             {
                 Settings.helpActive = false;
                 btnHelp.Background = new ImageBrush(new BitmapImage(new Uri("pack://application:,,,/Resources/off.png")));
-				_mainWindow.glowTriangles(1);
+				if(_mainWindow.pickedUp == 1) _mainWindow.glowTriangles(1);
             }
             else {
                 Settings.helpActive = true;
