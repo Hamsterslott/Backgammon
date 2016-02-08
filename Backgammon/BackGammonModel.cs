@@ -246,65 +246,72 @@ namespace Backgammon
 			return 0;
 		}
 
-        //Funktion som kollar om det går att gå i mål
-        //True om det går, annars false
-        public bool AvailableMoveGoal(triangel[] spelplan, int first, int[] dices, player spelare)
-        {
-            if (legitMoveGoal(spelplan, first, dices, spelare) != -1 && canMove(spelplan,spelare,dices) == 2) return true;
-            return false;
-        }
+		//Funktion som kollar om det går att gå i mål
+		//True om det går, annars false
+		public bool AvailableMoveGoal(triangel[] spelplan, int first, int[] dices, player spelare)
+		{
+			if (legitMoveGoal(spelplan, first, dices, spelare) != -1 && canMove(spelplan, spelare, dices) == 2) return true;
+			return false;
+		}
 
-         //Funktion som tar reda på alla möjliga moves för en triangel.
-        public void AvailableMoves(ref List<int>[] moves, int listindex, triangel[] spelplan, int[] dices, player spelare, int valdtriangel)
-        {
-            if (valdtriangel == 25) valdtriangel = 0;
-            if (valdtriangel == 26) valdtriangel = 25;
-            int index = -1;
-	
-	        if(spelare == player.one)
-            {
-                for(int i = 0; i < dices.Length; i++)
-		        {
-			        if(valdtriangel == 0) index = legitMove(spelplan,-1,valdtriangel+dices[i],dices,spelare);
-			        else if(valdtriangel+dices[i] < 25) index = legitMove(spelplan,valdtriangel,valdtriangel+dices[i],dices,spelare);
-			        if(index !=-1) 
+		//Funktion som tar reda på alla möjliga moves för en triangel.
+		public void AvailableMoves(List<int>[] moves, int listindex, triangel[] spelplan, int[] dices, player spelare, int valdtriangel)
+		{
+			if (valdtriangel == 25) valdtriangel = 0;
+			if (valdtriangel == 26) valdtriangel = 25;
+			int index = -1;
+
+			if (spelare == player.one)
+			{
+				for (int i = 0; i < dices.Length; i++)
+				{
+					if (dices[i] > 0)
 					{
-						if(!moves[listindex].Contains(valdtriangel+dices[index]))moves[listindex].Add(valdtriangel+dices[index]);
-						int[] nydice = new int[4];
-						triangel[] nyspelplan = new triangel[26];
-						Array.Copy(dices, nydice, 4);
-						Array.Copy(spelplan, nyspelplan, 26);
-						move(nyspelplan,valdtriangel,valdtriangel+dices[index],nydice,spelare);
-						AvailableMoves(ref moves,1,nyspelplan,nydice,spelare,valdtriangel+dices[index]);
+						if (valdtriangel == 0) index = legitMove(spelplan, -1, valdtriangel + dices[i], dices, spelare);
+						else if (valdtriangel + dices[i] < 25) index = legitMove(spelplan, valdtriangel, valdtriangel + dices[i], dices, spelare);
+						if (index != -1)
+						{
+							if (spelplan[6].antal == 0 || valdtriangel == 0)
+							{
+								if (!moves[listindex].Contains(valdtriangel + dices[index])) moves[listindex].Add(valdtriangel + dices[index]);
+								int[] nydice = new int[4];
+								triangel[] nyspelplan = new triangel[26];
+								Array.Copy(dices, nydice, 4);
+								Array.Copy(spelplan, nyspelplan, 26);
+								move(nyspelplan, valdtriangel, valdtriangel + dices[index], nydice, spelare);
+								AvailableMoves(moves, 1, nyspelplan, nydice, spelare, valdtriangel + dices[index]);
+							}
+						}
 					}
-		        }
-	        }
-	        else
-	        {
-		        for(int i = 0; i < dices.Length; i++)
-		        {
-                    if (dices[i] > 0)
-                    {
-                        if (valdtriangel == 25) index = legitMove(spelplan, -1, valdtriangel - dices[i], dices, spelare);
-                        else if (valdtriangel - dices[i] >= 1) index = legitMove(spelplan, valdtriangel, valdtriangel - dices[i], dices, spelare);
-                        if (index != -1)
-                        {
+				}
+			}
+			else
+			{
+				for (int i = 0; i < dices.Length; i++)
+				{
+					if (dices[i] > 0)
+					{
+						if (valdtriangel == 25) index = legitMove(spelplan, -1, valdtriangel - dices[i], dices, spelare);
+						else if (valdtriangel - dices[i] >= 1) index = legitMove(spelplan, valdtriangel, valdtriangel - dices[i], dices, spelare);
+						if (index != -1)
+						{
+							if (spelplan[19].antal == 0 || valdtriangel == 25)
+							{
+								if (!moves[listindex].Contains(valdtriangel - dices[index])) moves[listindex].Add(valdtriangel - dices[index]);
+								int[] nydice = new int[4];
+								triangel[] nyspelplan = new triangel[26];
+								Array.Copy(dices, nydice, 4);
+								Array.Copy(spelplan, nyspelplan, 26);
+								move(nyspelplan, valdtriangel, valdtriangel - dices[index], nydice, spelare);
+								AvailableMoves(moves, 1, nyspelplan, nydice, spelare, valdtriangel - dices[index]);
+							}
+						}
+					}
+				}
+			}
+		}
 
-                            if (!moves[listindex].Contains(valdtriangel - dices[index])) moves[listindex].Add(valdtriangel - dices[index]);
-                            int[] nydice = new int[4];
-                            triangel[] nyspelplan = new triangel[26];
-                            Array.Copy(dices, nydice, 4);
-                            Array.Copy(spelplan, nyspelplan, 26);
-                            move(nyspelplan, valdtriangel, valdtriangel - dices[index], nydice, spelare);
-                            AvailableMoves(ref moves, 1, nyspelplan, nydice, spelare, valdtriangel - dices[index]);
-                        }
-                    }
-		        }
-	        }
 
-        }   
-
-        
 
 		// Flyttar en bricka.
 		// returnar true om det gick, annars false.

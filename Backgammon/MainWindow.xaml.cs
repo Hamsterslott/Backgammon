@@ -426,7 +426,7 @@ namespace Backgammon
 			animationstrianglar[0] = new List<int>();
 			animationstrianglar[1] = new List<int>();
 
-			_model.AvailableMoves(ref animationstrianglar,0,gameBoard, dice, spelare, selectedTriangles[0].getPos());
+			_model.AvailableMoves(animationstrianglar,0,gameBoard, dice, spelare, selectedTriangles[0].getPos());
 
 			//om ni får krash härvid, notera spelet och meddela Timmy :)
 
