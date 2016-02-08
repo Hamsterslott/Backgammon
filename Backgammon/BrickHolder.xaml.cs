@@ -107,6 +107,9 @@ namespace Backgammon
         private void fadeIn_Completed(Object sender, EventArgs e) {
             Settings.isSongPlaying = false;
             _mainWindow.song.Stop();
+            var brush = new ImageBrush();
+            brush.ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/btnPlay.png"));
+            _mainWindow.Sidebar.btnPlayPause.Background = brush;
             _mainWindow.Visibility = System.Windows.Visibility.Collapsed;
         }
 
