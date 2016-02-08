@@ -128,7 +128,7 @@ namespace Backgammon
 
         private void BlackWhite_MouseLeave(object sender, MouseEventArgs e)
         {
-            if(Settings.playerTheme[0] != 1)
+            if(Settings.playerTheme[0] != 1 || Settings.playerTheme[1] != 0)
                 BlackWhite.Background.Opacity = 0.5;
         }
 
@@ -150,7 +150,7 @@ namespace Backgammon
 
         private void RedBlack_MouseLeave(object sender, MouseEventArgs e)
         {
-            if (Settings.playerTheme[0] != 3)
+            if (Settings.playerTheme[1] != 3)
                 RedBlack.Background.Opacity = 0.5;
         }
 
