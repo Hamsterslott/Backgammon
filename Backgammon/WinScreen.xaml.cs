@@ -40,6 +40,8 @@ namespace Backgammon
             mainWindow = mw;
             this.Width = mw.Width;
             this.Height = mw.Height;
+            this.Left = mw.Left;
+            this.Top = mw.Top;
         }
 
         private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -74,17 +76,23 @@ namespace Backgammon
             if (e.Key == Key.Space && !spaceUsed) {
                 DoubleAnimation fadeOut = new DoubleAnimation(1, 0, TimeSpan.FromSeconds(2));
                 fadeOut.Completed += new EventHandler(fadeOut_Completed);
-                this.BeginAnimation(System.Windows.Controls.Canvas.OpacityProperty, fadeOut);
+                this.WinningScreenCanvas.BeginAnimation(System.Windows.Controls.Canvas.OpacityProperty, fadeOut);
                 spaceUsed = true;
             }
         }
         private void fadeOut_Completed(Object sender, EventArgs e) {
             victory.Stop();
             mainWindow = new MainWindow();
+            mainWindow.setBackground(Settings.background);
+            mainWindow.WindowStartupLocation = System.Windows.WindowStartupLocation.Manual;
+            mainWindow.Width = this.Width;
+            mainWindow.Height = this.Height;
+            mainWindow.Left = this.Left;
+            mainWindow.Top = this.Top;
             mainWindow.Show();
             DoubleAnimation fadeIn = new DoubleAnimation(0, 1, TimeSpan.FromSeconds(2));
             fadeIn.Completed += new EventHandler(fadeIn_Completed);
-            mainWindow.BeginAnimation(System.Windows.Controls.Canvas.OpacityProperty, fadeIn);
+            mainWindow.spelPlan.BeginAnimation(System.Windows.Controls.Canvas.OpacityProperty, fadeIn);
         }
         private void fadeIn_Completed(Object sender, EventArgs e) {
             this.Close();
