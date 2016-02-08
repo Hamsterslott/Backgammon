@@ -121,10 +121,10 @@ namespace Backgammon
         {
             triangel[] spelplan = new triangel[26];
 
-			spelplan[6].antal = 8;
+			spelplan[6].antal = 1;
 			spelplan[6].color = player.one;
             
-            spelplan[19].antal = 8;
+            spelplan[19].antal = 1;
             spelplan[19].color = player.two;
 
             return spelplan;
@@ -240,6 +240,8 @@ namespace Backgammon
 			if (valdtriangel == 25) valdtriangel = 0;
 			if (valdtriangel == 26) valdtriangel = 25;
 			int index = -1;
+			int[] nydice = new int[4];
+			triangel[] nyspelplan = new triangel[26];
 
 			if (spelare == player.one)
 			{
@@ -248,14 +250,12 @@ namespace Backgammon
 					if (dices[i] > 0)
 					{
 						if (valdtriangel == 0) index = legitMove(spelplan, -1, valdtriangel + dices[i], dices, spelare);
-						else if (valdtriangel + dices[i] < 25) index = legitMove(spelplan, valdtriangel, valdtriangel + dices[i], dices, spelare);
+						else if (valdtriangel+dices[i] < 25) index = legitMove(spelplan, valdtriangel, valdtriangel + dices[i], dices, spelare);
 						if (index != -1)
 						{
 							if (spelplan[6].antal == 0 || valdtriangel == 0)
 							{
 								if (!moves[listindex].Contains(valdtriangel + dices[index])) moves[listindex].Add(valdtriangel + dices[index]);
-								int[] nydice = new int[4];
-								triangel[] nyspelplan = new triangel[26];
 								Array.Copy(dices, nydice, 4);
 								Array.Copy(spelplan, nyspelplan, 26);
 								move(nyspelplan, valdtriangel, valdtriangel + dices[index], nydice, spelare);
@@ -272,14 +272,12 @@ namespace Backgammon
 					if (dices[i] > 0)
 					{
 						if (valdtriangel == 25) index = legitMove(spelplan, -1, valdtriangel - dices[i], dices, spelare);
-						else if (valdtriangel - dices[i] >= 1) index = legitMove(spelplan, valdtriangel, valdtriangel - dices[i], dices, spelare);
+						else if (valdtriangel-dices[i] > 0) index = legitMove(spelplan, valdtriangel, valdtriangel - dices[i], dices, spelare);
 						if (index != -1)
 						{
 							if (spelplan[19].antal == 0 || valdtriangel == 25)
 							{
 								if (!moves[listindex].Contains(valdtriangel - dices[index])) moves[listindex].Add(valdtriangel - dices[index]);
-								int[] nydice = new int[4];
-								triangel[] nyspelplan = new triangel[26];
 								Array.Copy(dices, nydice, 4);
 								Array.Copy(spelplan, nyspelplan, 26);
 								move(nyspelplan, valdtriangel, valdtriangel - dices[index], nydice, spelare);
@@ -297,7 +295,7 @@ namespace Backgammon
 		// returnar true om det gick, annars false.
 		public bool move(triangel[] spelplan, int first, int second, int[] dices,player spelare)
 		{
-			if(first == 25 || first == 26) first = -1;
+			if(first == 25 || first == 26 || first == 0) first = -1;
 			int index = legitMove(spelplan,first,second, dices, spelare);
 			if(index != -1)
 			{
