@@ -26,6 +26,7 @@ namespace Backgammon
 		public WinScreen()
 		{
 			InitializeComponent();
+			this.Opacity = 0;
 			if (Settings.playSound)
 				victory.Play();
 		}
