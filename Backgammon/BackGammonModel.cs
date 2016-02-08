@@ -283,22 +283,28 @@ namespace Backgammon
 	        {
 		        for(int i = 0; i < dices.Length; i++)
 		        {
-			        if(valdtriangel == 25) index = legitMove(spelplan,-1,valdtriangel-dices[i],dices,spelare);
-			        else if(valdtriangel-dices[i] >= 1) index = legitMove(spelplan,valdtriangel,valdtriangel-dices[i],dices,spelare);
-			        if(index !=-1) 
-					{
-						if(!moves[listindex].Contains(valdtriangel-dices[index]))moves[listindex].Add(valdtriangel-dices[index]);
-						int[] nydice = new int[4];
-						triangel[] nyspelplan = new triangel[26];
-						Array.Copy(dices, nydice, 4);
-						Array.Copy(spelplan, nyspelplan, 26);
-						move(nyspelplan,valdtriangel,valdtriangel-dices[index],nydice,spelare);
-						AvailableMoves(ref moves,1,nyspelplan,nydice,spelare,valdtriangel-dices[index]);
-					}
+                    if (dices[i] > 0)
+                    {
+                        if (valdtriangel == 25) index = legitMove(spelplan, -1, valdtriangel - dices[i], dices, spelare);
+                        else if (valdtriangel - dices[i] >= 1) index = legitMove(spelplan, valdtriangel, valdtriangel - dices[i], dices, spelare);
+                        if (index != -1)
+                        {
+
+                            if (!moves[listindex].Contains(valdtriangel - dices[index])) moves[listindex].Add(valdtriangel - dices[index]);
+                            int[] nydice = new int[4];
+                            triangel[] nyspelplan = new triangel[26];
+                            Array.Copy(dices, nydice, 4);
+                            Array.Copy(spelplan, nyspelplan, 26);
+                            move(nyspelplan, valdtriangel, valdtriangel - dices[index], nydice, spelare);
+                            AvailableMoves(ref moves, 1, nyspelplan, nydice, spelare, valdtriangel - dices[index]);
+                        }
+                    }
 		        }
 	        }
 
         }   
+
+        
 
 		// Flyttar en bricka.
 		// returnar true om det gick, annars false.
