@@ -530,13 +530,17 @@ namespace Backgammon
 
         private void btnDice_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            btnDice.IsEnabled = false;
-            if (e.ClickCount < 2)
-            {
+				if (e.ClickCount == 1)
+				{
                 if (spelare == player.one) spelare = player.two;
                 else spelare = player.one;
                 dice = _model.letsRollTheDice();
-                renderDices();
+				DoubleAnimation undvikagc = new DoubleAnimation(0, 0, TimeSpan.FromSeconds(0));
+				undvikagc.Completed += new EventHandler(undvikagc_completed);
+                Sidebar.BeginAnimation(Sidebar.OpacityProperty, undvikagc);
+				}
+				
+
                 if (_model.canMove(gameBoard, spelare, dice) != 0)
                 {
                     btnDice.Visibility = System.Windows.Visibility.Collapsed;
@@ -548,12 +552,15 @@ namespace Backgammon
                     if (spelare == player.two) diceTop.Visibility = System.Windows.Visibility.Visible;
                     else diceBot.Visibility = System.Windows.Visibility.Visible;
                 }
-
-                if (Settings.playSound) throwThem.Play();
-                Thread.Sleep(1300);
-            }
-            btnDice.IsEnabled = true;
         }
+
+
+		private void undvikagc_completed(object sender, EventArgs e)
+		{
+			if (Settings.playSound) throwThem.PlaySync();
+			renderDices();
+		}
+
 
         private void spelPlan_MouseEnter(object sender, MouseEventArgs e)
         {
