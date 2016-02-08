@@ -346,7 +346,66 @@ namespace Backgammon
         {
             btnSoundEffects.Opacity = 1;
         }
-		
-		
+
+        private void changeSize(Canvas c, double left, double top, int width, int height)
+        {
+            Thickness margin = c.Margin;
+            margin.Left = left;
+            margin.Top = top;
+            c.Margin = margin;
+            c.Width = width;
+            c.Height = height;
+        }
+
+        private void BackgroundPrev2_MouseEnter(object sender, MouseEventArgs e)
+        {
+            changeSize(BackgroundPrev2, 18, 9.5, 39, 24);
+        }
+
+        private void BackgroundPrev2_MouseLeave(object sender, MouseEventArgs e)
+        {
+            changeSize(BackgroundPrev2, 20, 7.5, 35, 20);
+        }
+
+        private void BackgroundPrev_MouseEnter(object sender, MouseEventArgs e)
+        {
+            changeSize(BackgroundPrev, 58, 2.5, 44, 34);
+        }
+
+        private void BackgroundPrev_MouseLeave(object sender, MouseEventArgs e)
+        {
+            changeSize(BackgroundPrev, 60, 0.5, 40, 30);
+        }
+
+        private void BackgroundActive_MouseEnter(object sender, MouseEventArgs e)
+        {
+            changeSize(BackgroundActive, -2, 2, 84, 44);
+        }
+
+        private void BackgroundActive_MouseLeave(object sender, MouseEventArgs e)
+        {
+            changeSize(BackgroundActive, 0, 0, 80, 40);
+        }
+
+        private void BackgroundNext_MouseEnter(object sender, MouseEventArgs e)
+        {
+            changeSize(BackgroundNext, -2, 62.5, 44, 34);
+        }
+
+        private void BackgroundNext_MouseLeave(object sender, MouseEventArgs e)
+        {
+            changeSize(BackgroundNext, 0, 60.5, 40, 30);
+        }
+
+        private void BackgroundNext2_MouseEnter(object sender, MouseEventArgs e)
+        {
+            changeSize(BackgroundNext2, -2, 9.5, 39, 24);
+        }
+
+        private void BackgroundNext2_MouseLeave(object sender, MouseEventArgs e)
+        {
+            changeSize(BackgroundNext2, 0, 7.5, 35, 20);
+        }
+
     }
 }
