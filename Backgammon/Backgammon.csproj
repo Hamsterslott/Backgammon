@@ -33,6 +33,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>blue.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -230,6 +233,9 @@
     <Resource Include="Resources\WinscreenBlue.png" />
     <Resource Include="Resources\WinscreenRed.png" />
     <Resource Include="Resources\WinscreenWhite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="blue.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
