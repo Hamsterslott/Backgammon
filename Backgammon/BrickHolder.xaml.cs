@@ -17,128 +17,128 @@ using System.Windows.Shapes;
 namespace Backgammon
 {
 
-    public partial class BrickHolder : UserControl
-    {
-        private WinScreen winScreen = null;
+	public partial class BrickHolder : UserControl
+	{
+		private WinScreen winScreen = null;
 		private MainWindow _mainWindow = null;
-        private player _color;
-        private int _size = 0;
+		private player _color;
+		private int _size = 0;
 		private int _pos = 0;
 
-        public BrickHolder()
-        {
-            InitializeComponent();
-        }
+		public BrickHolder()
+		{
+			InitializeComponent();
+		}
 
-         internal void update() {
+		internal void update()
+		{
 
-            for (int i = 0; i < _size; i++) {
-                Image image = brickor.Children[14 - i] as Image;
-                image.Source = _mainWindow.brick[Settings.playerTheme[(int)_color]].ImageSource;    
-            }
-            if (_size < 15) {
-                for (int i = _size; i < 15; i++) {
-                    Image image = brickor.Children[14 - i] as Image;
-                    image.Source = null;
-                }
-            }
-        }
+			for (int i = 0; i < _size; i++)
+			{
+				Image image = brickor.Children[14 - i] as Image;
+				image.Source = _mainWindow.brick[Settings.playerTheme[(int)_color]].ImageSource;
+			}
+			if (_size < 15)
+			{
+				for (int i = _size; i < 15; i++)
+				{
+					Image image = brickor.Children[14 - i] as Image;
+					image.Source = null;
+				}
+			}
+		}
 
 		public void wrongMove()
 		{
-            //Röd
-			background.Background = _mainWindow._goalIsClicked[1];  
+			background.Background = _mainWindow._goalIsClicked[1];
 			DoubleAnimation animation = new DoubleAnimation(0.75, 0, TimeSpan.FromSeconds(0.5));
-            this.background.BeginAnimation(System.Windows.Controls.Canvas.OpacityProperty, animation);
+			this.background.BeginAnimation(System.Windows.Controls.Canvas.OpacityProperty, animation);
 		}
 
 		public void possibleMove(int state)
-        {
-            //Grön            
-			background.Background = _mainWindow._goalIsClicked[0];           
-                if (state == 0)
-                {
-                    DoubleAnimation animation = new DoubleAnimation(0.15, 0.75, TimeSpan.FromSeconds(1));
-                    this.background.BeginAnimation(System.Windows.Controls.Canvas.OpacityProperty, animation); 
-                }
-                else {
-                    DoubleAnimation animation = new DoubleAnimation(this.background.Opacity, 0, TimeSpan.FromSeconds(0.2));
-                    this.background.BeginAnimation(System.Windows.Controls.Canvas.OpacityProperty, animation); 
-                }
-        }
+		{
+			background.Background = _mainWindow._goalIsClicked[0];
+			if (state == 0)
+			{
+				DoubleAnimation animation = new DoubleAnimation(0.15, 0.75, TimeSpan.FromSeconds(1));
+				this.background.BeginAnimation(System.Windows.Controls.Canvas.OpacityProperty, animation);
+			}
+			else
+			{
+				DoubleAnimation animation = new DoubleAnimation(this.background.Opacity, 0, TimeSpan.FromSeconds(0.2));
+				this.background.BeginAnimation(System.Windows.Controls.Canvas.OpacityProperty, animation);
+			}
+		}
 
 
-         private void brickHolder_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-         {
-			 if(_mainWindow.pickedUp != 0) _mainWindow.playGame(new Triangle(_pos));
-         }
+		private void brickHolder_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+		{
+			if (_mainWindow.pickedUp != 0) _mainWindow.playGame(new Triangle(_pos));
+		}
 
 		private void brickHolder_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
 		{
-			 if(_mainWindow.pickedUp != 0) _mainWindow.playGame(new Triangle(_pos));
+			if (_mainWindow.pickedUp != 0) _mainWindow.playGame(new Triangle(_pos));
 		}
 
 		public void addOne()
 		{
 			_size++;
 			if (_size >= 15)
-            {
-                DoubleAnimation fadeOut = new DoubleAnimation(1, 0, TimeSpan.FromSeconds(2));
-                fadeOut.Completed += new EventHandler(fadeOut_Completed);
-                //_mainWindow.BeginAnimation(System.Windows.Controls.Canvas.OpacityProperty, fadeOut);
-                _mainWindow.spelPlan.BeginAnimation(System.Windows.Controls.Canvas.OpacityProperty, fadeOut);
-            }
-            update();
+			{
+				DoubleAnimation fadeOut = new DoubleAnimation(1, 0, TimeSpan.FromSeconds(2));
+				fadeOut.Completed += new EventHandler(fadeOut_Completed);
+				_mainWindow.spelPlan.BeginAnimation(System.Windows.Controls.Canvas.OpacityProperty, fadeOut);
+			}
+			update();
 		}
-        private void fadeOut_Completed(Object sender, EventArgs e) {
-            DoubleAnimation fadeIn = new DoubleAnimation(0, 1, TimeSpan.FromSeconds(2));
-            fadeIn.Completed += new EventHandler(fadeIn_Completed);
-            winScreen = new WinScreen();
-            winScreen.WinningCurrentBackground.Background = _mainWindow.duk.Background;    
+		private void fadeOut_Completed(Object sender, EventArgs e)
+		{
+			DoubleAnimation fadeIn = new DoubleAnimation(0, 1, TimeSpan.FromSeconds(2));
+			fadeIn.Completed += new EventHandler(fadeIn_Completed);
+			winScreen = new WinScreen();
+			winScreen.WinningCurrentBackground.Background = _mainWindow.duk.Background;
 
-            if (_color == 0)  
-                winScreen.WinningScreenCanvas.Background = _mainWindow.winningScreen[Settings.playerTheme[0]];                
-            else            
-                winScreen.WinningScreenCanvas.Background = _mainWindow.winningScreen[Settings.playerTheme[1]]; 
-            winScreen.setLink(_mainWindow);
-            winScreen.Show();
-            winScreen.BeginAnimation(System.Windows.Controls.Canvas.OpacityProperty, fadeIn);
-        }
-        private void fadeIn_Completed(Object sender, EventArgs e) {
-            Settings.isSongPlaying = false;
-            _mainWindow.song.Stop();
-            var brush = new ImageBrush();
-            brush.ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/btnPlay.png"));
-            _mainWindow.Sidebar.btnPlayPause.Background = brush;
-            _mainWindow.Visibility = System.Windows.Visibility.Collapsed;
-        }
+			if (_color == 0)
+				winScreen.WinningScreenCanvas.Background = _mainWindow.winningScreen[Settings.playerTheme[0]];
+			else
+				winScreen.WinningScreenCanvas.Background = _mainWindow.winningScreen[Settings.playerTheme[1]];
+			winScreen.setLink(_mainWindow);
+			winScreen.Show();
+			winScreen.BeginAnimation(System.Windows.Controls.Canvas.OpacityProperty, fadeIn);
+		}
+		private void fadeIn_Completed(Object sender, EventArgs e)
+		{
+			Settings.isSongPlaying = false;
+			_mainWindow.song.Stop();
+			var brush = new ImageBrush();
+			brush.ImageSource = new BitmapImage(new Uri("pack://application:,,,/Resources/btnPlay.png"));
+			_mainWindow.Sidebar.btnPlayPause.Background = brush;
+			_mainWindow.Visibility = System.Windows.Visibility.Collapsed;
+		}
 
-        // GETTERS AND SETTERS //
-		public void setLink(MainWindow mw) {
-            _mainWindow = mw;
-        }
+		// GETTERS AND SETTERS //
+		public void setLink(MainWindow mw)
+		{
+			_mainWindow = mw;
+		}
 
-        public void setColor(player color) {
-            _color = color;
-        }
-        public void setSize(int size) {
-            _size = size;
-            if (_size >= 15)
-            {
-                //Kolla om detta ska bort!!!
+		public void setColor(player color)
+		{
+			_color = color;
+		}
+		public void setSize(int size)
+		{
+			_size = size;
+			if (_size >= 15)
+			{
+				winScreen.setLink(_mainWindow);
+				winScreen.Show();
+				_mainWindow.Close();
+			}
+			update();
+		}
 
-                //WinScreen winScreen = new WinScreen();
-                //if(_color == 0)
-                //    winScreen.setWinner("PLAYER 1");
-                //else
-                //    winScreen.setWinner("PLAYER 2");
-                winScreen.setLink(_mainWindow);
-                winScreen.Show();
-                _mainWindow.Close();
-            }
-            update();
-        }
-		
-        // GETTERS AND SETTERS END //
-    }
+		// GETTERS AND SETTERS END //
+	}
 }

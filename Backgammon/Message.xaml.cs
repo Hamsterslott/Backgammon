@@ -16,22 +16,20 @@ using System.Windows.Media.Animation;
 
 namespace Backgammon
 {
-    /// <summary>
-    /// Interaction logic for Message.xaml
-    /// </summary>
-    public partial class Message : UserControl
-    {
-        public Message()
-        {
-            InitializeComponent();
-        }
 
-        public void show(string text)
-        {
-            Text.Content = text;
-            this.Visibility = System.Windows.Visibility.Visible;
-            DoubleAnimation animation = new DoubleAnimation(1, 0, TimeSpan.FromSeconds(5));
-            this.BeginAnimation(System.Windows.Controls.Canvas.OpacityProperty, animation); 
-        }
-    }
+	public partial class Message : UserControl
+	{
+		public Message()
+		{
+			InitializeComponent();
+		}
+
+		public void show(string text)
+		{
+			Text.Content = text;
+			this.Visibility = System.Windows.Visibility.Visible;
+			DoubleAnimation animation = new DoubleAnimation(1, 0, TimeSpan.FromSeconds(5));
+			this.BeginAnimation(System.Windows.Controls.Canvas.OpacityProperty, animation);
+		}
+	}
 }

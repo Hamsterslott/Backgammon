@@ -58,11 +58,6 @@
         <Slider x:Name="slider" ValueChanged="slider_ValueChanged" Grid.Row="2" Grid.Column="1" Width="165"  Minimum="0" Maximum="10" IsSnapToTickEnabled="true" TickFrequency="1" TickPlacement="TopLeft" 
                 Orientation="Horizontal" Margin="0,38,61,0" VerticalAlignment="Top" HorizontalAlignment="Right"></Slider>
         <!--Song Playing-->
-        <Image Name="getSource" MouseLeftButtonDown="getSource_MouseLeftButtonDown" HorizontalAlignment="Left" Height="23" Margin="242,6,0,0" Grid.Row="3" Grid.Column="1" VerticalAlignment="Top" Width="38">
-            <Image.OpacityMask>
-                <ImageBrush ImageSource="Resources/folder.png"/>
-            </Image.OpacityMask>
-        </Image>
         <Label Name="MusicName" Grid.Row="3" Grid.Column="1" Content="Song Playing" FontSize="29" Foreground="Snow" HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="Nueva Std Cond"></Label>
         <Label Name="NameOfTheSong" MouseLeftButtonDown="NameOfTheSong_MouseLeftButtonDown" MouseEnter="NameOfTheSong_MouseEnter" MouseLeave="NameOfTheSong_MouseLeave" Opacity="0.5" Grid.Row="3" Grid.Column="1" Content="Select Song" FontSize="20" Foreground="Snow" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontFamily="Nueva Std Cond" MaxWidth="195" Margin="0,0,0,2"/>
 
@@ -146,7 +141,6 @@
             <Canvas.Background>
                 <ImageBrush ImageSource="Resources/NewGame.png" Stretch="Uniform" Opacity="0.5"/>
             </Canvas.Background>
-
         </Canvas>
 
 
