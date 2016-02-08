@@ -42,6 +42,8 @@ namespace Backgammon
             this.Height = mw.Height;
             this.Left = mw.Left;
             this.Top = mw.Top;
+            if (mainWindow.WindowState == System.Windows.WindowState.Maximized)
+                this.WindowState = System.Windows.WindowState.Maximized;
         }
 
         private void Window_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -82,6 +84,7 @@ namespace Backgammon
         }
         private void fadeOut_Completed(Object sender, EventArgs e) {
             victory.Stop();
+            MainWindow temp = mainWindow;
             mainWindow = new MainWindow();
             mainWindow.setBackground(Settings.background);
             mainWindow.WindowStartupLocation = System.Windows.WindowStartupLocation.Manual;
@@ -89,6 +92,8 @@ namespace Backgammon
             mainWindow.Height = this.Height;
             mainWindow.Left = this.Left;
             mainWindow.Top = this.Top;
+            if (this.WindowState == System.Windows.WindowState.Maximized)
+                mainWindow.WindowState = System.Windows.WindowState.Maximized;
             mainWindow.Show();
             DoubleAnimation fadeIn = new DoubleAnimation(0, 1, TimeSpan.FromSeconds(2));
             fadeIn.Completed += new EventHandler(fadeIn_Completed);
