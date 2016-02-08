@@ -120,32 +120,12 @@ namespace Backgammon
         public triangel[] bricksInMiddle()
         {
             triangel[] spelplan = new triangel[26];
-            spelplan[0].antal = 2;
-            spelplan[0].color = player.one;
-            spelplan[2].antal = 1;
-            spelplan[2].color = player.two;
-            spelplan[3].antal = 2;
-            spelplan[3].color = player.two;
-            spelplan[5].antal = 5;
-            spelplan[5].color = player.two;
-           // spelplan[6].antal = 1;
-           // spelplan[6].color = player.one;
-            spelplan[8].antal = 3;
-            spelplan[8].color = player.two;
-            spelplan[12].antal = 3;
-            spelplan[12].color = player.two;
-            spelplan[13].antal = 5;
-            spelplan[13].color = player.two;
-            spelplan[18].antal = 1;
-            spelplan[18].color = player.one;
-            spelplan[19].antal = 1;
+
+			spelplan[6].antal = 8;
+			spelplan[6].color = player.one;
+            
+            spelplan[19].antal = 8;
             spelplan[19].color = player.two;
-            spelplan[20].antal = 5;
-            spelplan[20].color = player.one;
-            spelplan[21].antal = 1;
-            spelplan[21].color = player.one;
-            spelplan[24].antal = 3;
-            spelplan[24].color = player.one;
 
             return spelplan;
         }
