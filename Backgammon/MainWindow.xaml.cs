@@ -300,6 +300,7 @@ namespace Backgammon
 							else utslagna[(int)spelare].wrongMove();
 						}
 					}
+					else if (status == 1 && (selectedTriangles[1].getPos() == 0)) utslagna[(int)spelare].wrongMove();
 					else if (!_model.move(gameBoard, selectedTriangles[0].getPos(), selectedTriangles[1].getPos(), dice, spelare))
 					{
 						if (Settings.playSound) wrongMove.Play();
