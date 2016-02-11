@@ -1,0 +1,3 @@
+[submodule "Model class"]
+	path = Backgammon
+	url = https://github.com/Giffca/BackGammonKonsol.git
